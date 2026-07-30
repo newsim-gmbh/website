@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem } from "../Reveal";
+import { Icon } from "../Icon";
 import { capabilities } from "@/lib/content";
 
 export function Capabilities() {
@@ -19,7 +20,10 @@ export function Capabilities() {
               variants={revealItem}
               className="group bg-surface p-7 transition-colors hover:bg-sky/60"
             >
-              <h3 className="text-base font-semibold text-ink">{item.title}</h3>
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary-ink">
+                <Icon name={item.icon} />
+              </div>
+              <h3 className="font-heading text-base font-bold text-ink">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{item.body}</p>
             </motion.div>
           ))}

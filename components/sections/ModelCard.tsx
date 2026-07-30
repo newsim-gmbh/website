@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import clsx from "clsx";
 import { revealItem } from "../Reveal";
+import { Icon } from "../Icon";
 import type { BusinessModel } from "@/lib/content";
 
 export function ModelCard({ model }: { model: BusinessModel }) {
@@ -21,9 +22,19 @@ export function ModelCard({ model }: { model: BusinessModel }) {
       )}
     >
       <div className="flex items-center justify-between">
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-xs font-semibold text-white">
-          {model.step}
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-xs font-semibold text-white">
+            {model.step}
+          </span>
+          <div
+            className={clsx(
+              "flex h-8 w-8 items-center justify-center rounded-full",
+              model.id === "branded-reseller" ? "bg-white/70 text-primary-ink" : "bg-primary/15 text-primary-ink"
+            )}
+          >
+            <Icon name={model.icon} className="h-4 w-4" />
+          </div>
+        </div>
         <div className="flex gap-1">
           {Array.from({ length: 4 }).map((_, i) => (
             <span
@@ -37,7 +48,7 @@ export function ModelCard({ model }: { model: BusinessModel }) {
         </div>
       </div>
 
-      <h3 className="mt-5 text-xl font-semibold tracking-tight text-ink">{model.name}</h3>
+      <h3 className="font-heading mt-5 text-xl font-bold tracking-tight text-ink">{model.name}</h3>
       <p className="mt-2 text-sm leading-relaxed text-ink-soft">{model.tagline}</p>
 
       {model.idealFor && (

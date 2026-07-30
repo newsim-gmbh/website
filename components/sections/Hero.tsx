@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Container } from "../Container";
-import { ImagePlaceholder } from "../ImagePlaceholder";
+import { PhoneMockup } from "../PhoneMockup";
+import { Icon } from "../Icon";
 import { hero, proofPoints, site } from "@/lib/content";
 
 export function Hero() {
@@ -42,7 +43,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
-              className="balance max-w-4xl whitespace-pre-line text-4xl font-semibold tracking-tight sm:text-6xl lg:text-7xl"
+              className="font-heading balance max-w-4xl whitespace-pre-line text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
             >
               {hero.headline}
             </motion.h1>
@@ -64,7 +65,7 @@ export function Hero() {
             >
               <a
                 href={site.calendlyUrl}
-                className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
+                className="font-heading inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
               >
                 {site.primaryCta}
               </a>
@@ -81,9 +82,32 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:block"
+            className="relative hidden lg:block"
           >
-            <ImagePlaceholder label="Phone-Mockup / Ihre Marke" tone="dark" className="aspect-[9/16] w-full" />
+            <div
+              aria-hidden
+              className="absolute -inset-8 -z-10 rounded-full opacity-40 blur-3xl"
+              style={{ background: "radial-gradient(circle, rgba(148,184,233,0.35), transparent 70%)" }}
+            />
+            <PhoneMockup tone="dark" label="Ihre Marke" className="aspect-[9/16] w-full" />
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="absolute -left-8 top-10 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark-surface/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
+            >
+              <Icon name="shield" className="h-4 w-4 text-primary" />
+              Diensteanbieter gem. TKG
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.75 }}
+              className="absolute -right-6 bottom-16 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark-surface/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
+            >
+              <Icon name="wifi" className="h-4 w-4 text-primary" />
+              MVNO · Telefónica
+            </motion.div>
           </motion.div>
         </div>
 
@@ -96,7 +120,7 @@ export function Hero() {
           {proofPoints.map((p) => (
             <div key={p.label}>
               <dt className="sr-only">{p.label}</dt>
-              <dd className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              <dd className="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
                 {p.value}
                 {"suffix" in p && p.suffix && (
                   <span className="ml-1 text-lg font-medium text-white/50">{p.suffix}</span>

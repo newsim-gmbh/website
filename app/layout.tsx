@@ -5,10 +5,7 @@ import "./globals.css";
 const halcom = localFont({
   variable: "--font-halcom",
   display: "swap",
-  src: [
-    { path: "../public/fonts/Halcom-Regular.otf", weight: "400", style: "normal" },
-    { path: "../public/fonts/Halcom-Bold.otf", weight: "700", style: "normal" },
-  ],
+  src: [{ path: "../public/fonts/Halcom-Bold.otf", weight: "700", style: "normal" }],
 });
 
 export const metadata: Metadata = {

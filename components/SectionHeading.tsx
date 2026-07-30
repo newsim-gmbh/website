@@ -39,7 +39,7 @@ export function SectionHeading({
       <Reveal delay={0.05}>
         <h2
           className={clsx(
-            "balance text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.75rem]",
+            "font-heading balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.75rem]",
             dark ? "text-white" : "text-ink"
           )}
         >
