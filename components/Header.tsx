@@ -69,8 +69,8 @@ export function Header() {
               className={clsx(
                 "inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium transition-all",
                 onDark
-                  ? "bg-white text-ink hover:bg-white/90"
-                  : "bg-ink text-white hover:bg-primary"
+                  ? "bg-white text-ink hover:bg-primary"
+                  : "bg-ink text-white hover:bg-primary hover:text-ink"
               )}
             >
               {site.primaryCta}
@@ -121,7 +121,7 @@ export function Header() {
             <a
               href={site.calendlyUrl}
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-medium text-white"
+              className="mt-2 inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary hover:text-ink"
             >
               {site.primaryCta}
             </a>

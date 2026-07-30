@@ -1,17 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f6f3;
+  --background: #ffffff;
   --surface: #ffffff;
-  --ink: #0d0f14;
-  --ink-soft: #4a4f5c;
-  --line: #e6e4de;
-  --primary: #3646ff;
-  --primary-ink: #1a2270;
-  --signal: #16b378;
-  --dark: #0b0d12;
-  --dark-surface: #14161d;
-  --dark-line: #262a35;
+  --ink: #191919;
+  --ink-soft: #585858;
+  --line: #e6e5e2;
+
+  --primary: #94b8e9; /* Markenblau */
+  --primary-ink: #3d6bb0; /* abgedunkelte Variante von #94b8e9 für lesbaren Text/Links auf Hell */
+
+  --cream: #fbf6e4; /* helle "Advantage"-Card-Fläche */
+  --sky: #e1ecf8; /* helle "Advantage"-Card-Fläche, Blauton */
+
+  --dark: #191919; /* Markenschwarz */
+  --dark-surface: #242424;
+  --dark-surface-soft: #585858;
+  --dark-line: #2c2c2c;
 }
 
 @theme inline {
@@ -22,12 +27,13 @@
   --color-line: var(--line);
   --color-primary: var(--primary);
   --color-primary-ink: var(--primary-ink);
-  --color-signal: var(--signal);
+  --color-cream: var(--cream);
+  --color-sky: var(--sky);
   --color-dark: var(--dark);
   --color-dark-surface: var(--dark-surface);
+  --color-dark-surface-soft: var(--dark-surface-soft);
   --color-dark-line: var(--dark-line);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-halcom);
 }
 
 html {
@@ -43,11 +49,16 @@ body {
 
 ::selection {
   background: var(--primary);
-  color: white;
+  color: var(--dark);
 }
 
 .balance {
   text-wrap: balance;
+}
+
+/* Gradient-Card-Fläche für dunkle Sektionen, per Design-Vorlage (#585858 -> #242424) */
+.card-dark-gradient {
+  background: linear-gradient(160deg, var(--dark-surface-soft) 0%, var(--dark-surface) 65%);
 }
 
 @keyframes marquee {

@@ -29,7 +29,7 @@ export function SectionHeading({
           <p
             className={clsx(
               "mb-4 text-sm font-medium tracking-wide uppercase",
-              dark ? "text-primary/80" : "text-primary"
+              dark ? "text-primary" : "text-primary-ink"
             )}
           >
             {eyebrow}

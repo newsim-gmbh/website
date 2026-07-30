@@ -23,7 +23,7 @@ export function SocialProof() {
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.4fr] lg:items-center">
           <Reveal>
-            <p className="text-sm font-medium tracking-wide text-primary uppercase">{socialProof.eyebrow}</p>
+            <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{socialProof.eyebrow}</p>
             <h2 className="balance mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               {socialProof.title}
             </h2>
@@ -44,7 +44,7 @@ export function SocialProof() {
                 {track.map((label, i) => (
                   <div
                     key={i}
-                    className="flex h-20 w-40 shrink-0 items-center justify-center rounded-2xl border border-line bg-background text-center text-xs font-medium text-ink-soft"
+                    className="flex h-20 w-40 shrink-0 items-center justify-center rounded-2xl border border-line bg-line/40 text-center text-xs font-medium text-ink-soft"
                   >
                     {label}
                   </div>

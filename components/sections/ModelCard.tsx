@@ -14,10 +14,10 @@ export function ModelCard({ model }: { model: BusinessModel }) {
       whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 300, damping: 22 }}
       className={clsx(
-        "flex h-full flex-col rounded-3xl border bg-surface p-7",
+        "flex h-full flex-col rounded-3xl border p-7",
         model.id === "branded-reseller"
-          ? "border-primary/40 shadow-[0_20px_60px_-25px_rgba(54,70,255,0.35)]"
-          : "border-line"
+          ? "border-primary/40 bg-sky shadow-[0_20px_60px_-25px_rgba(148,184,233,0.5)]"
+          : "border-line bg-surface"
       )}
     >
       <div className="flex items-center justify-between">
@@ -41,7 +41,7 @@ export function ModelCard({ model }: { model: BusinessModel }) {
       <p className="mt-2 text-sm leading-relaxed text-ink-soft">{model.tagline}</p>
 
       {model.idealFor && (
-        <p className="mt-4 rounded-xl bg-background px-3 py-2.5 text-xs leading-relaxed text-ink-soft">
+        <p className="mt-4 rounded-xl bg-line/60 px-3 py-2.5 text-xs leading-relaxed text-ink-soft">
           <span className="font-medium text-ink">Ideal für: </span>
           {model.idealFor}
         </p>
@@ -64,7 +64,7 @@ export function ModelCard({ model }: { model: BusinessModel }) {
           <ul className="mt-2 space-y-1.5 text-ink-soft">
             {model.partnerResponsibilities.map((r) => (
               <li key={r} className="flex gap-1.5">
-                <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-signal" />
+                <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-ink" />
                 <span>{r}</span>
               </li>
             ))}

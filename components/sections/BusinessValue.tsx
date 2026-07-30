@@ -21,7 +21,7 @@ export function BusinessValue() {
             <motion.div
               key={point.title}
               variants={revealItem}
-              className="rounded-3xl border border-line bg-surface p-8 transition-shadow hover:shadow-[0_20px_60px_-30px_rgba(13,15,20,0.25)]"
+              className="rounded-3xl bg-cream p-8 transition-shadow hover:shadow-[0_20px_60px_-30px_rgba(25,25,25,0.18)]"
             >
               <div className="mb-6 flex h-9 w-9 items-center justify-center rounded-full bg-ink text-sm font-semibold text-white">
                 {i + 1}

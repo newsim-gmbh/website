@@ -28,7 +28,7 @@ function FaqItem({
         <span className="text-base font-medium text-ink sm:text-lg">{q}</span>
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-background text-lg text-ink-soft"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-line text-lg text-ink-soft"
         >
           +
         </motion.span>

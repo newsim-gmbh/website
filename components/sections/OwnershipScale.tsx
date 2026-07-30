@@ -17,7 +17,7 @@ export function OwnershipScale() {
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           style={{ transformOrigin: "left" }}
-          className="h-full w-full rounded-full bg-gradient-to-r from-primary/40 via-primary to-signal"
+          className="h-full w-full rounded-full bg-gradient-to-r from-primary/40 via-primary to-ink"
         />
       </div>
       <div className="mt-3 grid grid-cols-4 gap-2">
