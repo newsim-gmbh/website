@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { site } from "@/lib/content";
 
@@ -25,12 +26,12 @@ export function MobileCta() {
           className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-background/95 p-3 backdrop-blur-md lg:hidden"
           style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
         >
-          <a
+          <Link
             href={site.calendlyUrl}
             className="font-heading flex w-full items-center justify-center rounded-full bg-ink px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-ink/10"
           >
             {site.primaryCta}
-          </a>
+          </Link>
         </motion.div>
       )}
     </AnimatePresence>
