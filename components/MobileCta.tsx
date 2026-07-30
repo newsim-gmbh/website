@@ -27,7 +27,7 @@ export function MobileCta() {
         >
           <a
             href={site.calendlyUrl}
-            className="flex w-full items-center justify-center rounded-full bg-ink px-5 py-3.5 text-sm font-medium text-white shadow-lg shadow-ink/10"
+            className="font-heading flex w-full items-center justify-center rounded-full bg-ink px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-ink/10"
           >
             {site.primaryCta}
           </a>

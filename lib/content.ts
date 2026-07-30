@@ -1,3 +1,5 @@
+import type { IconName } from "@/components/Icon";
+
 // Inhaltliche Single-Source-of-Truth für die newSIM-Website.
 // Grundlage: newSIM Unternehmenspräsentation "Mobilfunk Opportunität", Stand Juni 2026.
 // Zahlen/Fakten bewusst nah am Original gehalten. Preise/Konditionen siehe `pricing`
@@ -45,14 +47,17 @@ export const businessValue = {
     {
       title: "Ohne Mindest-Kommitment",
       body: "Start ohne Volumen-Kommitment, Skalierung nach realem Bedarf — das kaufmännische Risiko bleibt kalkulierbar.",
+      icon: "sliders" as const,
     },
     {
       title: "Volle regulatorische Abdeckung",
       body: "newSIM ist Diensteanbieter gemäß TKG und übernimmt Support bei allen regulatorischen Themen bei der BNetzA.",
+      icon: "shield" as const,
     },
     {
       title: "Eigene Mobile-as-a-Service-Plattform",
       body: "Als MVNO im Netz der Telefónica betreibt newSIM die Telnology®-Plattform als Enabling-Plattform & BSS für Partner.",
+      icon: "layers" as const,
     },
   ],
 };
@@ -71,6 +76,7 @@ export interface BusinessModel {
   partnerResponsibilities: string[];
   keyBenefits?: { title: string; body: string }[];
   ownershipLevel: number; // 1–4, für die visuelle Vergleichsleiste
+  icon: IconName;
 }
 
 export const models: BusinessModel[] = [
@@ -86,6 +92,7 @@ export const models: BusinessModel[] = [
     newSimResponsibilities: ["Tarif-Portfolio", "Rufnummern-Management", "SIM-Karten-Logistik"],
     partnerResponsibilities: ["Aktivierung / Deaktivierung", "Endkundenbeziehung"],
     ownershipLevel: 1,
+    icon: "support",
   },
   {
     id: "branded-reseller",
@@ -104,6 +111,7 @@ export const models: BusinessModel[] = [
       { title: "Fertige Bausteine", body: "Landingpage, Bestellstrecke, Support gerouted" },
     ],
     ownershipLevel: 2,
+    icon: "flag",
   },
   {
     id: "white-label-reseller",
@@ -128,6 +136,7 @@ export const models: BusinessModel[] = [
       { title: "Skalierbar", body: "B2C, B2B und Projektgeschäft kombinierbar" },
     ],
     ownershipLevel: 3,
+    icon: "sliders",
   },
   {
     id: "white-label-mvno",
@@ -145,6 +154,7 @@ export const models: BusinessModel[] = [
       "Regulierung BNetzA",
     ],
     ownershipLevel: 4,
+    icon: "crown",
   },
 ];
 
@@ -170,15 +180,15 @@ export const capabilities = {
   eyebrow: "Was newSIM übernimmt",
   title: "Die komplette Betriebs- und Regulierungslast — Sie liefern Marke und Vertrieb.",
   items: [
-    { title: "Netz", body: "MVNO im Netz der Telefónica, LTE/5G, bundesweite Abdeckung." },
-    { title: "Tarife", body: "200+ Tarife im White-Label-Portfolio, 5–500 GB, Allnetflat & SMS-Flat." },
-    { title: "Billing", body: "Billing & Rating inkl. CDR, Rufnummern-Verwaltung, Inkasso." },
-    { title: "SIM / eSIM", body: "SIM-Karten-Logistik, Aktivierung, Refurbishment & Retoure." },
-    { title: "MNP", body: "Rufnummernportierung und Aktivierungsprozesse End-to-End." },
-    { title: "Support", body: "1st & 2nd Level Support, Endkunden-Hotline, technische Eskalation." },
-    { title: "Regulierung", body: "Diensteanbieter-Status gemäß TKG, BNetzA, TR-AAV, SARV-Server, Roaming." },
-    { title: "Order Management", body: "Aktivierung, MNP und SIM-Logistik über die Telnology®-Plattform." },
-    { title: "Reporting / API", body: "BSS/OSS-Schnittstellen mit Web-Interface und API-Anbindung." },
+    { title: "Netz", body: "MVNO im Netz der Telefónica, LTE/5G, bundesweite Abdeckung.", icon: "wifi" as const },
+    { title: "Tarife", body: "200+ Tarife im White-Label-Portfolio, 5–500 GB, Allnetflat & SMS-Flat.", icon: "tariff" as const },
+    { title: "Billing", body: "Billing & Rating inkl. CDR, Rufnummern-Verwaltung, Inkasso.", icon: "invoice" as const },
+    { title: "SIM / eSIM", body: "SIM-Karten-Logistik, Aktivierung, Refurbishment & Retoure.", icon: "simCard" as const },
+    { title: "MNP", body: "Rufnummernportierung und Aktivierungsprozesse End-to-End.", icon: "portability" as const },
+    { title: "Support", body: "1st & 2nd Level Support, Endkunden-Hotline, technische Eskalation.", icon: "support" as const },
+    { title: "Regulierung", body: "Diensteanbieter-Status gemäß TKG, BNetzA, TR-AAV, SARV-Server, Roaming.", icon: "shield" as const },
+    { title: "Order Management", body: "Aktivierung, MNP und SIM-Logistik über die Telnology®-Plattform.", icon: "clipboard" as const },
+    { title: "Reporting / API", body: "BSS/OSS-Schnittstellen mit Web-Interface und API-Anbindung.", icon: "chart" as const },
   ],
 };
 
@@ -189,10 +199,10 @@ export const platform = {
     "Die newSIM Telnology®-Plattform ist die Enabling-Plattform und das Business Support System (BSS) im Hintergrund — für B2C und B2B, über alle Vertriebskanäle hinweg.",
   channels: ["Online Shop", "CRM / Order", "White Label App", "API / Web Interface"],
   core: [
-    { title: "Billing & Rating", body: "CDR · Rufnummern · Inkasso" },
-    { title: "Customer Service", body: "1st & 2nd Level Support" },
-    { title: "Order Management", body: "Activation · MNP · SIM-Logistik" },
-    { title: "Reporting & API", body: "BSS / OSS · Schnittstellen" },
+    { title: "Billing & Rating", body: "CDR · Rufnummern · Inkasso", icon: "invoice" as const },
+    { title: "Customer Service", body: "1st & 2nd Level Support", icon: "support" as const },
+    { title: "Order Management", body: "Activation · MNP · SIM-Logistik", icon: "clipboard" as const },
+    { title: "Reporting & API", body: "BSS / OSS · Schnittstellen", icon: "chart" as const },
   ],
   network: [
     "Telefónica Netzwerk (LTE/5G)",
@@ -242,24 +252,28 @@ export const solutions = {
       badge: "B2B Special",
       body: "Internet-Ersatzprodukt Mobil überbrückt die Zeit bis zum aktiven Glasfaseranschluss — 500 GB, 100 Mbit/s Download im 5G-Netz, Aktivierung bei Glasfaser-Abschluss ohne Wartezeit.",
       points: ["Flexibel einsetzbar", "Keine Wartezeit", "Sofortige Aktivierung", "Passgenaue Laufzeit in Eigenregie"],
+      icon: "pulse" as const,
     },
     {
       title: "B2B Connectivity",
       badge: "Business Solutions",
       body: "Individuelle Tarifangebote für den Geschäftskundenbereich mit flexiblen Laufzeiten sowie Upgrade- und Downgrade-Möglichkeiten ganz nach Kundenwunsch.",
       points: ["Flexible Laufzeiten", "Upgrade & Downgrade", "Individuell konfigurierbar"],
+      icon: "link" as const,
     },
     {
       title: "IoT / M2M",
       badge: "White-Label Konnektivität",
       body: "Eigenes IoT-Portfolio für Konnektivitäts-Dienstleistungen in B2B, B2B2B und B2B2C — auf der Telnology®-Plattform mit eigener APN-Verbindung und maximaler Sicherheit.",
       points: ["SIM Diversity", "Secure Data Cloud", "National Roaming", "Private Networking", "Dynamic Datapooling"],
+      icon: "chip" as const,
     },
     {
       title: "White Label App",
       badge: "Digital Distribution",
       body: "End-to-End Bestell- und Aktivierungsprozess auf easyTEL-Basis: Der Endkunde managt seinen Dienst vollständig selbst, der Partner vermarktet mit eigenem Brand im App Store und bei Google Play.",
       points: ["Eigene Tarife", "Eigenes Logo & Design", "Bestellen · Aktivieren · Verwalten · Kündigen"],
+      icon: "smartphone" as const,
     },
   ],
 };

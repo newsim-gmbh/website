@@ -33,7 +33,11 @@
   --color-dark-surface: var(--dark-surface);
   --color-dark-surface-soft: var(--dark-surface-soft);
   --color-dark-line: var(--dark-line);
-  --font-sans: var(--font-halcom);
+  /* Halcom liegt nur als Bold vor -> als Display-Font für Headlines/Buttons/Labels,
+     Fließtext läuft über einen sauberen System-Stack (bessere Lesbarkeit in Regular-Stärke). */
+  --font-heading: var(--font-halcom);
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -43,7 +47,7 @@ html {
 body {
   background: var(--background);
   color: var(--ink);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 

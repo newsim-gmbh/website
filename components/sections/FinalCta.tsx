@@ -21,7 +21,7 @@ export function FinalCta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="balance mx-auto max-w-2xl text-3xl font-semibold tracking-tight sm:text-5xl"
+          className="font-heading balance mx-auto max-w-2xl text-3xl font-bold tracking-tight sm:text-5xl"
         >
           {finalCta.title}
         </motion.h2>
@@ -43,7 +43,7 @@ export function FinalCta() {
         >
           <a
             href="mailto:burger@newsim.de"
-            className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-semibold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
+            className="font-heading inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-bold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
           >
             {site.primaryCta}
           </a>

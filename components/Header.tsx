@@ -40,7 +40,7 @@ export function Header() {
           <a
             href="#top"
             className={clsx(
-              "text-lg font-semibold tracking-tight transition-colors",
+              "font-heading text-lg font-bold tracking-tight transition-colors",
               onDark ? "text-white" : "text-ink"
             )}
           >
@@ -67,7 +67,7 @@ export function Header() {
             <a
               href={site.calendlyUrl}
               className={clsx(
-                "inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium transition-all",
+                "font-heading inline-flex items-center rounded-full px-5 py-2.5 text-sm font-bold transition-all",
                 onDark
                   ? "bg-white text-ink hover:bg-primary"
                   : "bg-ink text-white hover:bg-primary hover:text-ink"
@@ -121,7 +121,7 @@ export function Header() {
             <a
               href={site.calendlyUrl}
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary hover:text-ink"
+              className="font-heading mt-2 inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink"
             >
               {site.primaryCta}
             </a>

@@ -81,7 +81,7 @@ export function Tariffs() {
 
         <div className="mt-24">
           <Reveal>
-            <h3 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+            <h3 className="font-heading text-2xl font-bold tracking-tight text-ink sm:text-3xl">
               {flyingStart.title}
             </h3>
           </Reveal>
@@ -94,7 +94,7 @@ export function Tariffs() {
                 className="rounded-3xl border border-line bg-surface p-8"
               >
                 <div className="flex items-baseline justify-between">
-                  <h4 className="text-lg font-semibold text-ink">{pkg.name}</h4>
+                  <h4 className="font-heading text-lg font-bold text-ink">{pkg.name}</h4>
                   <span className="text-sm text-ink-soft">{pkg.product}</span>
                 </div>
                 <p className="mt-6 text-3xl font-semibold tracking-tight text-ink">
@@ -145,7 +145,7 @@ export function Tariffs() {
 
         <div className="mt-24">
           <Reveal>
-            <h3 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+            <h3 className="font-heading text-2xl font-bold tracking-tight text-ink sm:text-3xl">
               {commercial.title}
             </h3>
             <p className="mt-3 max-w-2xl text-ink-soft">{commercial.subtitle}</p>
