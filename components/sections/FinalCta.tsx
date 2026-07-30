@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Container } from "../Container";
 import { finalCta, site } from "@/lib/content";
 
@@ -41,12 +42,12 @@ export function FinalCta() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-10"
         >
-          <a
-            href="mailto:burger@newsim.de"
+          <Link
+            href={site.calendlyUrl}
             className="font-heading inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-bold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
           >
             {site.primaryCta}
-          </a>
+          </Link>
         </motion.div>
       </Container>
     </section>

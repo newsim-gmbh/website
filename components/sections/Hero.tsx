@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Container } from "../Container";
 import { PhoneMockup } from "../PhoneMockup";
 import { Icon } from "../Icon";
@@ -63,12 +64,12 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
             >
-              <a
+              <Link
                 href={site.calendlyUrl}
                 className="font-heading inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
               >
                 {site.primaryCta}
-              </a>
+              </Link>
               <a
                 href="#modelle"
                 className="inline-flex items-center justify-center rounded-full border border-primary/40 px-7 py-3.5 text-sm font-medium text-white/90 transition-colors hover:bg-primary/10"

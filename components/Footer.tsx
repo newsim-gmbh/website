@@ -1,11 +1,12 @@
+import Link from "next/link";
 import { Container } from "./Container";
-import { site, nav, contacts } from "@/lib/content";
+import { site, mainNav, contacts } from "@/lib/content";
 
 export function Footer() {
   return (
     <footer className="border-t border-dark-line bg-dark text-white">
       <Container className="py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr_1fr_1fr]">
           <div>
             <p className="font-heading text-lg font-bold tracking-tight">
               {site.name}
@@ -19,13 +20,54 @@ export function Footer() {
           <div>
             <p className="text-sm font-medium text-white/40 uppercase tracking-wide">Seite</p>
             <ul className="mt-4 space-y-3">
-              {nav.map((item) => (
+              {mainNav.map((item) => (
                 <li key={item.href}>
-                  <a href={item.href} className="text-sm text-white/70 hover:text-white">
+                  <Link href={item.href} className="text-sm text-white/70 hover:text-white">
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/kontakt" className="text-sm text-white/70 hover:text-white">
+                  Kontakt
+                </Link>
+              </li>
+              <li>
+                <a
+                  href={site.loginUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-white/70 hover:text-white"
+                >
+                  Login
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-sm font-medium text-white/40 uppercase tracking-wide">Eigenmarken</p>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <a
+                  href="https://www.easytel.de"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-white/70 hover:text-white"
+                >
+                  easyTEL
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://onemobile.world"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-white/70 hover:text-white"
+                >
+                  One Mobile World
+                </a>
+              </li>
             </ul>
           </div>
 

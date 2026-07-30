@@ -14,15 +14,186 @@ export const site = {
   descriptor:
     "Von vollständig gemanagt bis zur eigenen MVNO-Plattform — die White-Label-Mobilfunkplattform für Carrier, Stadtwerke und ISPs.",
   primaryCta: "Gespräch vereinbaren",
-  calendlyUrl: "#kontakt",
+  calendlyUrl: "/kontakt",
+  loginUrl: "https://cms.newsim.de",
 };
 
-export const nav = [
-  { label: "Modelle", href: "#modelle" },
-  { label: "Plattform", href: "#plattform" },
-  { label: "Lösungen", href: "#loesungen" },
-  { label: "Tarife", href: "#tarife" },
-  { label: "FAQ", href: "#faq" },
+export interface NavChild {
+  label: string;
+  href: string;
+  description: string;
+  icon: IconName;
+  external?: boolean;
+  comingSoon?: boolean;
+}
+
+export interface NavItem {
+  label: string;
+  href: string;
+  intro?: string;
+  children?: NavChild[];
+}
+
+export const mainNav: NavItem[] = [
+  {
+    label: "Produkte",
+    href: "/produkte",
+    intro: "Vier Modelle, ein Ambitionslevel-Baukasten.",
+    children: [
+      {
+        label: "Business Solutions",
+        href: "/produkte/business-solutions",
+        description: "Individuelle B2B-Tarife, newSIM übernimmt den Betrieb.",
+        icon: "support",
+      },
+      {
+        label: "Branded Reseller",
+        href: "/produkte/branded-reseller",
+        description: "Eigene Marke in 4 Wochen, minimaler Aufwand.",
+        icon: "flag",
+      },
+      {
+        label: "White Label Reseller",
+        href: "/produkte/white-label-reseller",
+        description: "Eigenes Pricing, maximaler Gestaltungsspielraum.",
+        icon: "sliders",
+      },
+      {
+        label: "White Label MVNE Plattform",
+        href: "/produkte/white-label-mvne",
+        description: "Volle Customer Ownership, newSIM liefert die Kernplattform.",
+        icon: "crown",
+      },
+    ],
+  },
+  {
+    label: "Use Cases",
+    href: "/use-cases",
+    intro: "Passende Lösungen für Ihre Branche.",
+    children: [
+      {
+        label: "Mobilfunk Fachhandel",
+        href: "/use-cases/mobilfunk-fachhandel",
+        description: "Eigenes Mobilfunk-Portfolio im Laden und online.",
+        icon: "smartphone",
+      },
+      {
+        label: "Stadtwerke, ISP & Glasfaseranbieter",
+        href: "/use-cases/stadtwerke-isp-glasfaser",
+        description: "Mobilfunk als Ergänzung zum Glasfaser-Portfolio.",
+        icon: "building",
+      },
+      {
+        label: "ITK Systemhäuser",
+        href: "/use-cases/itk-systemhaeuser",
+        description: "Mobilfunk im B2B-Portfolio für Geschäftskunden.",
+        icon: "chip",
+      },
+      {
+        label: "Banken & Versicherungen",
+        href: "/use-cases/banken-versicherungen",
+        description: "Mobilfunk als Cross-Selling-Produkt.",
+        icon: "shield",
+      },
+      {
+        label: "Influencer",
+        href: "/use-cases/influencer",
+        description: "Eigener Mobilfunktarif für die eigene Community.",
+        icon: "link",
+      },
+      {
+        label: "Vereine",
+        href: "/use-cases/vereine",
+        description: "Mobilfunk-Vorteile für Mitglieder und Fans.",
+        icon: "flag",
+      },
+    ],
+  },
+  {
+    label: "Eigenmarken",
+    href: "/eigenmarken",
+    intro: "Unsere eigenen Marken im Überblick.",
+    children: [
+      {
+        label: "easyTEL",
+        href: "https://www.easytel.de",
+        description: "Eigene Mobilfunk-App für Endkunden.",
+        icon: "smartphone",
+        external: true,
+      },
+      {
+        label: "One Mobile World",
+        href: "https://onemobile.world",
+        description: "Reise-eSIM für über 200 Länder.",
+        icon: "wifi",
+        external: true,
+      },
+      {
+        label: "Hardware Shop",
+        href: "#",
+        description: "Endgeräte & Zubehör — in Kürze.",
+        icon: "chip",
+        comingSoon: true,
+      },
+      {
+        label: "IoT / M2M Shop",
+        href: "#",
+        description: "IoT-Konnektivität — in Kürze.",
+        icon: "layers",
+        comingSoon: true,
+      },
+    ],
+  },
+  {
+    label: "Developer",
+    href: "/developer",
+    intro: "Technische Anbindung an die Telnology®-Plattform.",
+    children: [
+      {
+        label: "API",
+        href: "/developer/api",
+        description: "Order Management, Reporting & BSS/OSS-Schnittstellen.",
+        icon: "chip",
+      },
+      {
+        label: "Telnology®",
+        href: "/developer/telnology",
+        description: "Die Enabling-Plattform und ihre Architektur.",
+        icon: "layers",
+      },
+    ],
+  },
+  {
+    label: "Consulting",
+    href: "/consulting",
+    intro: "Strategische Beratung rund um Mobilfunk & Glasfaser.",
+    children: [
+      {
+        label: "G2M-Strategie für MVNO",
+        href: "/consulting/g2m-strategie-mvno",
+        description: "Go-to-Market-Strategie für den eigenen Mobilfunk-Start.",
+        icon: "chart",
+      },
+      {
+        label: "Potentialanalyse Mobilfunk & Glasfaser",
+        href: "/consulting/potentialanalyse-mobilfunk-glasfaser",
+        description: "Marktpotential für Ihr Portfolio einschätzen.",
+        icon: "pulse",
+      },
+      {
+        label: "Sales-Strategie Online & Offline",
+        href: "/consulting/sales-strategie-online-offline",
+        description: "Vertriebsstrategie über alle Kanäle hinweg.",
+        icon: "link",
+      },
+      {
+        label: "Kupfer-Glasfaser-Transformation",
+        href: "/consulting/kupfer-glasfaser-transformation",
+        description: "Mobilfunk als Brücke bei der Netz-Transformation.",
+        icon: "tower",
+      },
+    ],
+  },
 ];
 
 export const proofPoints = [
@@ -66,6 +237,8 @@ export type ModelId = "full-service" | "branded-reseller" | "white-label-reselle
 
 export interface BusinessModel {
   id: ModelId;
+  slug: string;
+  navLabel: string; // Bezeichnung im Menü/als Seitentitel — kann von `name` abweichen
   step: number;
   name: string;
   sourceName?: string;
@@ -82,6 +255,8 @@ export interface BusinessModel {
 export const models: BusinessModel[] = [
   {
     id: "full-service",
+    slug: "business-solutions",
+    navLabel: "Business Solutions",
     step: 1,
     name: "Full Service",
     sourceName: "Business Solutions",
@@ -96,6 +271,8 @@ export const models: BusinessModel[] = [
   },
   {
     id: "branded-reseller",
+    slug: "branded-reseller",
+    navLabel: "Branded Reseller",
     step: 2,
     name: "Branded Reseller",
     tagline: "Eigene Marke in 4 Wochen — newSIM trägt den Großteil der Wertschöpfung.",
@@ -115,6 +292,8 @@ export const models: BusinessModel[] = [
   },
   {
     id: "white-label-reseller",
+    slug: "white-label-reseller",
+    navLabel: "White Label Reseller",
     step: 3,
     name: "White Label Reseller",
     sourceName: "White Label Modell / White Label Partner",
@@ -140,6 +319,8 @@ export const models: BusinessModel[] = [
   },
   {
     id: "white-label-mvno",
+    slug: "white-label-mvne",
+    navLabel: "White Label MVNE Plattform",
     step: 4,
     name: "White Label MVNO Plattform",
     tagline: "Volle Customer Ownership — newSIM liefert nur die Kernplattform.",
@@ -504,5 +685,195 @@ export const contacts = [
     role: "Sales & Business Development",
     email: "burger@newsim.de",
     phone: "+49 176 55904313",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// UNTERSEITEN — Use Cases, Developer, Consulting
+// Platzhalterinhalte: bewusst allgemein gehalten, keine erfundenen Zahlen/
+// Kundenreferenzen. Werden im nächsten Schritt durch finale Texte ersetzt.
+// ---------------------------------------------------------------------------
+
+export interface UseCase {
+  slug: string;
+  name: string;
+  icon: IconName;
+  heroTagline: string;
+  challenge: string;
+  solution: string;
+  recommendedModelIds: ModelId[];
+}
+
+export const useCases: UseCase[] = [
+  {
+    slug: "mobilfunk-fachhandel",
+    name: "Mobilfunk Fachhandel",
+    icon: "smartphone",
+    heroTagline: "Das eigene Mobilfunk-Portfolio im Laden und online erweitern.",
+    challenge:
+      "Platzhalter: Fachhändler brauchen ein wettbewerbsfähiges Mobilfunk-Portfolio, ohne selbst Netzbetreiber-Know-how oder eigene Regulierungs-Zulassung aufzubauen.",
+    solution:
+      "Platzhalter: Über die Telnology®-Plattform lässt sich ein eigenes Tarif-Portfolio direkt in die bestehende Verkaufsstrecke integrieren — im Laden wie im Online-Shop.",
+    recommendedModelIds: ["branded-reseller", "white-label-reseller"],
+  },
+  {
+    slug: "stadtwerke-isp-glasfaser",
+    name: "Stadtwerke, ISP & Glasfaseranbieter",
+    icon: "building",
+    heroTagline: "Mobilfunk als natürliche Ergänzung zum Glasfaser-Portfolio.",
+    challenge:
+      "Platzhalter: Stadtwerke und regionale ISPs wollen ihr Glasfaser-Portfolio um Mobilfunk erweitern, um Kunden ganzheitlich zu binden — klassischerweise ein hoher regulatorischer und technischer Einstiegsaufwand.",
+    solution:
+      "Platzhalter: newSIM übernimmt Netzanbindung, Regulierung und Plattform-Betrieb, während der Partner sein Portfolio unter eigener Marke vermarktet — inklusive Flying-Start-Glasfaser-Lösung als Überbrückung bis zur FTTH-Aktivierung.",
+    recommendedModelIds: ["white-label-reseller", "white-label-mvno"],
+  },
+  {
+    slug: "itk-systemhaeuser",
+    name: "ITK Systemhäuser",
+    icon: "chip",
+    heroTagline: "Mobilfunk als Baustein im B2B-Portfolio für Geschäftskunden.",
+    challenge:
+      "Platzhalter: ITK-Systemhäuser betreuen Geschäftskunden ganzheitlich — Mobilfunk fehlt oft als eigenständiger, margenstarker Baustein im Portfolio.",
+    solution:
+      "Platzhalter: Individuelle B2B-Tarife und IoT/M2M-Konnektivität lassen sich direkt in bestehende Kundenbeziehungen integrieren, ohne eigene Netzinfrastruktur.",
+    recommendedModelIds: ["full-service", "branded-reseller"],
+  },
+  {
+    slug: "banken-versicherungen",
+    name: "Banken & Versicherungen",
+    icon: "shield",
+    heroTagline: "Mobilfunk als Cross-Selling- und Bindungsprodukt.",
+    challenge:
+      "Platzhalter: Banken und Versicherungen suchen nach zusätzlichen, alltagsrelevanten Produkten zur Kundenbindung — mit hohen Anforderungen an Regulierung und Markenauftritt.",
+    solution:
+      "Platzhalter: Ein vollständig White-Label-fähiges Mobilfunkprodukt lässt sich unter eigener Marke und im eigenen Compliance-Rahmen anbieten, während newSIM die regulatorische und technische Basis stellt.",
+    recommendedModelIds: ["white-label-reseller", "white-label-mvno"],
+  },
+  {
+    slug: "influencer",
+    name: "Influencer",
+    icon: "link",
+    heroTagline: "Der eigene Mobilfunktarif für die eigene Community.",
+    challenge:
+      "Platzhalter: Creator mit großer Reichweite wollen ein eigenes, glaubwürdiges Produkt für ihre Community anbieten — ohne selbst ein Telekommunikationsunternehmen aufzubauen.",
+    solution:
+      "Platzhalter: Ein Branded-Reseller-Tarif ist in wenigen Wochen startklar und lässt sich vollständig unter eigenem Namen und Look & Feel vermarkten.",
+    recommendedModelIds: ["branded-reseller"],
+  },
+  {
+    slug: "vereine",
+    name: "Vereine",
+    icon: "flag",
+    heroTagline: "Mobilfunk-Vorteile für Mitglieder und Fans.",
+    challenge:
+      "Platzhalter: Vereine suchen nach zusätzlichen Mitgliedervorteilen und Einnahmequellen, ohne eigenen administrativen Mehraufwand.",
+    solution:
+      "Platzhalter: Ein einfacher, unter Vereinsmarke vermarkteter Mobilfunktarif schafft einen Mitgliedervorteil mit geringem Betriebsaufwand für den Verein selbst.",
+    recommendedModelIds: ["full-service", "branded-reseller"],
+  },
+];
+
+export interface DeveloperPage {
+  slug: string;
+  name: string;
+  icon: IconName;
+  heroTagline: string;
+  overview: string;
+  capabilities: string[];
+}
+
+export const developerPages: DeveloperPage[] = [
+  {
+    slug: "api",
+    name: "API",
+    icon: "chip",
+    heroTagline: "Order Management, Reporting und BSS/OSS-Schnittstellen.",
+    overview:
+      "Platzhalter: Die newSIM API bindet Order Management, Aktivierung, MNP und Reporting direkt an Ihre bestehenden Systeme an — als Alternative oder Ergänzung zum Web-Interface.",
+    capabilities: [
+      "Order Management & Aktivierung",
+      "MNP-Prozesse",
+      "Reporting & Datenexport",
+      "BSS/OSS-Schnittstellen",
+    ],
+  },
+  {
+    slug: "telnology",
+    name: "Telnology®",
+    icon: "layers",
+    heroTagline: "Die Enabling-Plattform hinter allen newSIM-Modellen.",
+    overview:
+      "Platzhalter: Telnology® ist die Business-Support-System- und Enabling-Plattform, die Vertriebskanäle, Billing, Customer Service und die Netzanbindung an Telefónica miteinander verbindet.",
+    capabilities: [
+      "Billing & Rating (CDR, Rufnummern, Inkasso)",
+      "Customer Service (1st & 2nd Level)",
+      "Order Management (Activation, MNP, SIM-Logistik)",
+      "Reporting & API",
+    ],
+  },
+];
+
+export interface ConsultingService {
+  slug: string;
+  name: string;
+  icon: IconName;
+  heroTagline: string;
+  forWhom: string;
+  phases: { title: string; body: string }[];
+  deliverables: string[];
+}
+
+export const consultingServices: ConsultingService[] = [
+  {
+    slug: "g2m-strategie-mvno",
+    name: "G2M-Strategie für MVNO",
+    icon: "chart",
+    heroTagline: "Go-to-Market-Strategie für den eigenen Mobilfunk-Start.",
+    forWhom: "Platzhalter: Für Unternehmen, die den Einstieg in ein eigenes Mobilfunk-Angebot strategisch vorbereiten wollen.",
+    phases: [
+      { title: "Analyse", body: "Platzhalter: Ausgangslage, Zielgruppe und Ambitionslevel klären." },
+      { title: "Strategie", body: "Platzhalter: Modellwahl, Positionierung und Preislogik entwickeln." },
+      { title: "Umsetzung", body: "Platzhalter: Launch-Fahrplan gemeinsam mit dem newSIM-Onboarding abstimmen." },
+    ],
+    deliverables: ["G2M-Strategiepapier", "Modell- und Positionierungsempfehlung", "Launch-Fahrplan"],
+  },
+  {
+    slug: "potentialanalyse-mobilfunk-glasfaser",
+    name: "Potentialanalyse Mobilfunk & Glasfaser",
+    icon: "pulse",
+    heroTagline: "Marktpotential für Ihr Portfolio einschätzen.",
+    forWhom: "Platzhalter: Für Carrier, Stadtwerke und ISPs, die vor der Entscheidung stehen, ob und wie sich Mobilfunk in ihr Portfolio integrieren lässt.",
+    phases: [
+      { title: "Bestandsaufnahme", body: "Platzhalter: Bestehendes Portfolio und Kundenbasis analysieren." },
+      { title: "Potentialbewertung", body: "Platzhalter: Marktpotential und Modelloptionen einordnen." },
+      { title: "Empfehlung", body: "Platzhalter: Konkrete Handlungsempfehlung mit Modellvorschlag." },
+    ],
+    deliverables: ["Potentialanalyse-Report", "Modellempfehlung", "Wirtschaftlichkeitseinschätzung"],
+  },
+  {
+    slug: "sales-strategie-online-offline",
+    name: "Sales-Strategie Online & Offline",
+    icon: "link",
+    heroTagline: "Vertriebsstrategie über alle Kanäle hinweg.",
+    forWhom: "Platzhalter: Für Partner, die ihr Mobilfunk-Portfolio sowohl online als auch über den stationären Vertrieb erfolgreich vermarkten wollen.",
+    phases: [
+      { title: "Kanalanalyse", body: "Platzhalter: Bestehende Vertriebskanäle und deren Potential bewerten." },
+      { title: "Konzept", body: "Platzhalter: Vertriebsstrategie über Online- und Offline-Kanäle entwickeln." },
+      { title: "Rollout", body: "Platzhalter: Umsetzung gemeinsam mit dem Vertriebsteam begleiten." },
+    ],
+    deliverables: ["Vertriebsstrategie-Konzept", "Kanal-Priorisierung", "Rollout-Plan"],
+  },
+  {
+    slug: "kupfer-glasfaser-transformation",
+    name: "Kupfer-Glasfaser-Transformation",
+    icon: "tower",
+    heroTagline: "Mobilfunk als Brücke bei der Netz-Transformation.",
+    forWhom: "Platzhalter: Für Netzbetreiber, die Kunden während der Migration von Kupfer- auf Glasfaseranschlüsse überbrücken müssen.",
+    phases: [
+      { title: "Analyse", body: "Platzhalter: Betroffene Kundensegmente und Migrationszeitplan erfassen." },
+      { title: "Konzept", body: "Platzhalter: Mobilfunk-Überbrückungslösung (z. B. Flying Start Glasfaser) einplanen." },
+      { title: "Begleitung", body: "Platzhalter: Kommunikation und Rollout gemeinsam begleiten." },
+    ],
+    deliverables: ["Transformationskonzept", "Kommunikationsleitfaden", "Rollout-Begleitung"],
   },
 ];
