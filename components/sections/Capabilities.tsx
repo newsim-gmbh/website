@@ -17,7 +17,7 @@ export function Capabilities() {
             <motion.div
               key={item.title}
               variants={revealItem}
-              className="group bg-surface p-7 transition-colors hover:bg-background"
+              className="group bg-surface p-7 transition-colors hover:bg-sky/60"
             >
               <h3 className="text-base font-semibold text-ink">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{item.body}</p>

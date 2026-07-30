@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem } from "../Reveal";
+import { ImagePlaceholder } from "../ImagePlaceholder";
 import { solutions } from "@/lib/content";
 
 export function Solutions() {
@@ -29,12 +30,15 @@ export function Solutions() {
                 {item.points.map((p) => (
                   <span
                     key={p}
-                    className="rounded-full bg-background px-3 py-1.5 text-xs text-ink-soft"
+                    className="rounded-full bg-line px-3 py-1.5 text-xs text-ink-soft"
                   >
                     {p}
                   </span>
                 ))}
               </div>
+              {item.title === "White Label App" && (
+                <ImagePlaceholder label="App-Mockup / Ihr Branding" tone="sky" className="mt-6 h-40" />
+              )}
             </motion.div>
           ))}
         </RevealGroup>

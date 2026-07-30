@@ -36,7 +36,7 @@ export function Tariffs() {
               {tariffPortfolio.availableVolumesGb.map((gb) => (
                 <span
                   key={gb}
-                  className="flex h-11 min-w-11 items-center justify-center rounded-full border border-line bg-background px-3 text-sm font-medium text-ink"
+                  className="flex h-11 min-w-11 items-center justify-center rounded-full bg-line px-3 text-sm font-medium text-ink"
                 >
                   {gb} GB
                 </span>
@@ -117,20 +117,20 @@ export function Tariffs() {
               <motion.div
                 key={hw.name}
                 variants={revealItem}
-                className="rounded-3xl border border-line bg-background p-7"
+                className="rounded-3xl bg-cream p-7"
               >
                 <p className="font-semibold text-ink">{hw.name}</p>
                 <p className="mt-1 text-sm text-ink-soft">{hw.router}</p>
                 <div className="mt-5 grid grid-cols-3 gap-3 text-center text-xs">
-                  <div className="rounded-xl bg-surface p-3">
+                  <div className="rounded-xl bg-white/70 p-3">
                     <p className="text-base font-semibold text-ink">{hw.oneTime}</p>
                     <p className="mt-1 text-ink-soft">Einmalzahlung</p>
                   </div>
-                  <div className="rounded-xl bg-surface p-3">
+                  <div className="rounded-xl bg-white/70 p-3">
                     <p className="text-base font-semibold text-ink">{hw.logistics}</p>
                     <p className="mt-1 text-ink-soft">Logistik</p>
                   </div>
-                  <div className="rounded-xl bg-surface p-3">
+                  <div className="rounded-xl bg-white/70 p-3">
                     <p className="text-base font-semibold text-ink">{hw.refurbishment}</p>
                     <p className="mt-1 text-ink-soft">Refurbishment</p>
                   </div>
@@ -170,7 +170,7 @@ export function Tariffs() {
                         <div className="mt-1 text-xs font-normal text-ink-soft">{tier.cadence}</div>
                       </td>
                       <td className="px-6 py-4 align-top font-semibold text-ink">{tier.standard}</td>
-                      <td className="px-6 py-4 align-top font-semibold text-signal">{tier.breko}</td>
+                      <td className="px-6 py-4 align-top font-semibold text-primary-ink">{tier.breko}</td>
                       <td className="px-6 py-4 align-top text-ink-soft">{tier.description}</td>
                     </tr>
                   ))}

@@ -12,7 +12,7 @@ export function FinalCta() {
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(700px circle at 50% 0%, rgba(54,70,255,0.25), transparent 60%)",
+            "radial-gradient(700px circle at 50% 0%, rgba(148,184,233,0.3), transparent 60%)",
         }}
       />
       <Container className="relative text-center">
@@ -43,7 +43,7 @@ export function FinalCta() {
         >
           <a
             href="mailto:burger@newsim.de"
-            className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-semibold text-ink transition-transform hover:scale-[1.03] hover:bg-white/90"
+            className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-semibold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
           >
             {site.primaryCta}
           </a>
