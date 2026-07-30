@@ -10,7 +10,7 @@
   --primary: #94b8e9; /* Markenblau */
   --primary-ink: #3d6bb0; /* abgedunkelte Variante von #94b8e9 für lesbaren Text/Links auf Hell */
 
-  --cream: #fbf6e4; /* helle "Advantage"-Card-Fläche */
+  --cream: #ebf6e4; /* helle "Advantage"-Card-Fläche (verifiziert per Pixel-Sample aus Design-Vorlage) */
   --sky: #e1ecf8; /* helle "Advantage"-Card-Fläche, Blauton */
 
   --dark: #191919; /* Markenschwarz */
@@ -60,9 +60,9 @@ body {
   text-wrap: balance;
 }
 
-/* Gradient-Card-Fläche für dunkle Sektionen, per Design-Vorlage (#585858 -> #242424) */
+/* Gradient-Card-Fläche für dunkle Sektionen, per Design-Vorlage (#242424 -> #585858) */
 .card-dark-gradient {
-  background: linear-gradient(160deg, var(--dark-surface-soft) 0%, var(--dark-surface) 65%);
+  background: linear-gradient(100deg, var(--dark-surface) 0%, var(--dark-surface-soft) 100%);
 }
 
 @keyframes marquee {

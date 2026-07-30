@@ -9,7 +9,7 @@ import { platform, businessAreas } from "@/lib/content";
 
 export function Platform() {
   return (
-    <section id="plattform" className="bg-dark py-24 text-white sm:py-32">
+    <section id="plattform" className="bg-dark border-t border-dark-line py-24 text-white sm:py-32">
       <Container>
         <SectionHeading eyebrow={platform.eyebrow} title={platform.title} body={platform.intro} dark />
 
