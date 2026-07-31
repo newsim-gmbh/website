@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "./Container";
+import { Logo } from "./Logo";
 import { site, mainNav, contacts } from "@/lib/content";
 
 export function Footer() {
@@ -8,10 +9,7 @@ export function Footer() {
       <Container className="py-16">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr_1fr_1fr]">
           <div>
-            <p className="font-heading text-lg font-bold tracking-tight">
-              {site.name}
-              <span className="text-primary">.</span>
-            </p>
+            <Logo className="h-9 w-auto" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
               {site.legalName} · Mobile as a Service · {site.locations}
             </p>
