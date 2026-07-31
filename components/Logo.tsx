@@ -1,9 +1,10 @@
 /**
- * newSIM-Wortmarke ("new" + s[blue] + Dokument-Icon-als-"i" + m).
- * Pfaddaten 1:1 aus der Original-SVG übernommen. "new"/"m" nutzen
+ * newSIM-Wortmarke ("new" + s[blue] + Dokument-Icon-als-"i" + m[blue]).
+ * Pfaddaten 1:1 aus der Original-SVG übernommen. "n","e","w" nutzen
  * currentColor (folgen also der Textfarbe des Elternelements, z.B. weiß im
  * Header über dem dunklen Hero, dunkel sobald der Header hell wird),
- * Icon + "s" bleiben in der fixen Markenfarbe #a7bde3.
+ * Icon, "s" und "m" bleiben in der fixen Markenfarbe #a7bde3 (wie im
+ * Original-Wortzeichen).
  */
 export function Logo({ className }: { className?: string }) {
   return (
@@ -29,7 +30,7 @@ export function Logo({ className }: { className?: string }) {
         d="M329.72,125.94l-5.04,8.11c-3.18-2.81-8.46-4.21-13.21-4.23-4,0-7.04,1.34-7.27,4.4-.19,2.32,1.52,3.17,8.63,4.93,8.15,1.98,18.63,4.3,18.59,15.24-.04,11.46-11.59,15.38-21.29,15.38-7.72,0-16.01-2.51-20.26-7.48l5.06-8.08c3.05,3.76,9.14,5.61,14.57,5.62,5.54,0,8.8-2,8.84-5.06.05-3.1-3.25-3.67-9.12-5.19-11.9-3.03-18.06-5.54-18.06-14.46,0-11.26,9.84-15.22,19.77-15.22,6.34,0,13.93,1.66,18.78,6.04Z"
       />
       <path
-        fill="currentColor"
+        fill="#a7bde3"
         d="M424.87,119.91c8.46,0,15.59,5.48,15.57,17.76v30.79h-13.22v-29.13c.02-5.7-3.24-8.16-7.52-8.14-3.4,0-7.43,1.57-10.96,4.29.05.7.08,1.44.08,2.19v30.79h-13.22v-29.13c.01-5.66-3.2-8.14-7.36-8.13-3.46,0-7.57,1.71-11.04,4.73v32.54h-13.22v-47.23h13.22v5.72c4.76-4.64,10.66-7.05,16.13-7.05s10.65,2.46,13.37,7.77c5.3-5.01,12.02-7.77,18.16-7.77h0Z"
       />
     </svg>
