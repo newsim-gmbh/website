@@ -57,7 +57,7 @@ export function Header() {
             aria-label={site.name}
             className={clsx("transition-colors", onDark ? "text-white" : "text-ink")}
           >
-            <Logo className="h-8 w-auto" />
+            <Logo className="h-9 w-auto" />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
