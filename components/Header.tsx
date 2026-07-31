@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { Container } from "./Container";
 import { MegaMenu } from "./MegaMenu";
+import { Logo } from "./Logo";
 import { mainNav, site } from "@/lib/content";
 
 export function Header() {
@@ -53,13 +54,10 @@ export function Header() {
         >
           <Link
             href="/"
-            className={clsx(
-              "font-heading text-lg font-bold tracking-tight transition-colors",
-              onDark ? "text-white" : "text-ink"
-            )}
+            aria-label={site.name}
+            className={clsx("transition-colors", onDark ? "text-white" : "text-ink")}
           >
-            {site.name}
-            <span className="text-primary">.</span>
+            <Logo className="h-8 w-auto" />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
