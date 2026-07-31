@@ -203,6 +203,14 @@ export const proofPoints = [
   { value: "4–6", suffix: "Wochen", label: "bis zum kommerziellen Launch" },
 ] as const;
 
+// Trust-Leiste direkt unter dem Hero — sofortiger Vertrauensbeweis, bevor
+// Zweifel entstehen (Qonto-Prinzip: Beweis vor Erklärung).
+export const trustBar: { icon: IconName; text: string }[] = [
+  { icon: "shield", text: "Diensteanbieter gemäß TKG" },
+  { icon: "wifi", text: "MVNO im Netz der Telefónica" },
+  { icon: "link", text: "30+ Kooperationspartner unter Vertrag" },
+];
+
 export const hero = {
   eyebrow: "Diskussionspapier · Mobilfunk Opportunität",
   headline: "Ihre Mobilfunkmarke.\nSo viel Kontrolle, wie Sie wollen.",
