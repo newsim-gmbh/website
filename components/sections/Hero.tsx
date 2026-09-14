@@ -15,8 +15,7 @@ export function Hero() {
         <div
           className="relative overflow-hidden rounded-[2rem] sm:rounded-[3rem]"
           style={{
-            background:
-              "radial-gradient(130% 120% at 28% 22%, #4a4a4a 0%, #333333 45%, #1c1c1c 100%)",
+            background: "radial-gradient(130% 120% at 28% 22%, #3c3c3c 0%, #242424 100%)",
           }}
         >
           <div className="relative grid gap-12 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-[1fr_360px] lg:items-center lg:px-16 lg:py-20">
