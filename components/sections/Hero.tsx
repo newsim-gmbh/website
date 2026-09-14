@@ -12,12 +12,7 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-dark pt-40 pb-24 text-white sm:pb-32">
       <Container className="relative">
-        <div
-          className="relative overflow-hidden rounded-[2rem] sm:rounded-[3rem]"
-          style={{
-            background: "radial-gradient(130% 120% at 28% 22%, #3c3c3c 0%, #242424 100%)",
-          }}
-        >
+        <div className="card-dark-gradient relative overflow-hidden rounded-[2rem] sm:rounded-[3rem]">
           <div className="relative grid gap-12 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-[1fr_360px] lg:items-center lg:px-16 lg:py-20">
             <div>
               <motion.p
