@@ -30,6 +30,13 @@ export function Platform() {
             </div>
           </div>
 
+          <div className="border-b border-dark-line p-6 sm:p-8">
+            <div className="flex flex-wrap items-baseline justify-between gap-3">
+              <h3 className="font-heading text-lg font-bold text-white sm:text-xl">{platform.coreTitle}</h3>
+              <p className="text-sm text-white/50">{platform.coreSubtitle}</p>
+            </div>
+          </div>
+
           <RevealGroup className="grid gap-px border-b border-dark-line bg-dark-line sm:grid-cols-2 lg:grid-cols-4">
             {platform.core.map((c) => (
               <motion.div key={c.title} variants={revealItem} className="card-dark-gradient p-6 sm:p-8">

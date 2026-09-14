@@ -59,24 +59,24 @@ export function ModelCard({ model }: { model: BusinessModel }) {
       )}
 
       <div className="mt-6 grid grid-cols-2 gap-4 text-xs">
-        <div>
+        <div className="min-w-0">
           <p className="font-medium text-ink">newSIM übernimmt</p>
           <ul className="mt-2 space-y-1.5 text-ink-soft">
             {model.newSimResponsibilities.map((r) => (
-              <li key={r} className="flex gap-1.5">
+              <li key={r} className="flex min-w-0 gap-1.5">
                 <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                <span>{r}</span>
+                <span className="min-w-0 break-words hyphens-auto">{r}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div>
+        <div className="min-w-0">
           <p className="font-medium text-ink">Sie übernehmen</p>
           <ul className="mt-2 space-y-1.5 text-ink-soft">
             {model.partnerResponsibilities.map((r) => (
-              <li key={r} className="flex gap-1.5">
+              <li key={r} className="flex min-w-0 gap-1.5">
                 <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-ink" />
-                <span>{r}</span>
+                <span className="min-w-0 break-words hyphens-auto">{r}</span>
               </li>
             ))}
           </ul>

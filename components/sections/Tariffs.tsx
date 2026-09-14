@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem, Reveal } from "../Reveal";
-import { pricing } from "@/lib/content";
+import { pricing, site } from "@/lib/content";
 
 export function Tariffs() {
   const { tariffPortfolio, flyingStart, commercial, disclaimer } = pricing;
@@ -84,6 +85,7 @@ export function Tariffs() {
             <h3 className="font-heading text-2xl font-bold tracking-tight text-ink sm:text-3xl">
               {flyingStart.title}
             </h3>
+            <p className="mt-3 max-w-2xl text-ink-soft">{flyingStart.subtitle}</p>
           </Reveal>
 
           <RevealGroup className="mt-8 grid gap-6 sm:grid-cols-2">
@@ -97,11 +99,6 @@ export function Tariffs() {
                   <h4 className="font-heading text-lg font-bold text-ink">{pkg.name}</h4>
                   <span className="text-sm text-ink-soft">{pkg.product}</span>
                 </div>
-                <p className="mt-6 text-3xl font-semibold tracking-tight text-ink">
-                  {pkg.basePrice}
-                  <span className="ml-2 text-sm font-normal text-ink-soft">Grundtarif</span>
-                </p>
-                <p className="mt-2 text-sm text-ink-soft">{pkg.totalPrice}</p>
                 <ul className="mt-6 space-y-2 border-t border-line pt-5 text-sm text-ink-soft">
                   <li>{pkg.inclusiveGb} GB inklusive · {pkg.rebookable}</li>
                   <li>{pkg.bandwidth}</li>
@@ -121,26 +118,21 @@ export function Tariffs() {
               >
                 <p className="font-semibold text-ink">{hw.name}</p>
                 <p className="mt-1 text-sm text-ink-soft">{hw.router}</p>
-                <div className="mt-5 grid grid-cols-3 gap-3 text-center text-xs">
-                  <div className="rounded-xl bg-white/70 p-3">
-                    <p className="text-base font-semibold text-ink">{hw.oneTime}</p>
-                    <p className="mt-1 text-ink-soft">Einmalzahlung</p>
-                  </div>
-                  <div className="rounded-xl bg-white/70 p-3">
-                    <p className="text-base font-semibold text-ink">{hw.logistics}</p>
-                    <p className="mt-1 text-ink-soft">Logistik</p>
-                  </div>
-                  <div className="rounded-xl bg-white/70 p-3">
-                    <p className="text-base font-semibold text-ink">{hw.refurbishment}</p>
-                    <p className="mt-1 text-ink-soft">Refurbishment</p>
-                  </div>
-                </div>
-                <p className="mt-4 text-xs text-ink-soft">
+                <p className="mt-4 text-sm text-ink-soft">
                   {hw.inclusiveGb} GB inklusive · {hw.tariffHint}
                 </p>
               </motion.div>
             ))}
           </RevealGroup>
+
+          <Reveal delay={0.1} className="mt-8">
+            <Link
+              href={site.calendlyUrl}
+              className="font-heading inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink"
+            >
+              Preise im persönlichen Gespräch erfragen
+            </Link>
+          </Reveal>
         </div>
 
         <div className="mt-24">
@@ -153,12 +145,10 @@ export function Tariffs() {
 
           <Reveal delay={0.1} className="mt-8 overflow-hidden rounded-3xl border border-line bg-surface">
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[560px] border-collapse text-sm">
+              <table className="w-full min-w-[480px] border-collapse text-sm">
                 <thead>
                   <tr className="border-b border-line text-left text-xs font-medium tracking-wide text-ink-soft uppercase">
                     <th className="px-6 py-4">Position</th>
-                    <th className="px-6 py-4">Standard</th>
-                    <th className="px-6 py-4">BREKO eG</th>
                     <th className="px-6 py-4">Leistung</th>
                   </tr>
                 </thead>
@@ -169,17 +159,21 @@ export function Tariffs() {
                         {tier.label}
                         <div className="mt-1 text-xs font-normal text-ink-soft">{tier.cadence}</div>
                       </td>
-                      <td className="px-6 py-4 align-top font-semibold text-ink">{tier.standard}</td>
-                      <td className="px-6 py-4 align-top font-semibold text-primary-ink">{tier.breko}</td>
                       <td className="px-6 py-4 align-top text-ink-soft">{tier.description}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <p className="border-t border-line px-6 py-5 text-sm font-medium text-ink">
-              {commercial.footnote}
-            </p>
+            <div className="flex flex-col gap-4 border-t border-line px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm font-medium text-ink">{commercial.footnote}</p>
+              <Link
+                href={site.calendlyUrl}
+                className="font-heading inline-flex shrink-0 items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink"
+              >
+                Individuelles Angebot anfragen
+              </Link>
+            </div>
           </Reveal>
         </div>
 
