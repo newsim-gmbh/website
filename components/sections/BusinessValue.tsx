@@ -9,7 +9,7 @@ import { businessValue, proofPoints } from "@/lib/content";
 
 export function BusinessValue() {
   return (
-    <section className="bg-background py-24 sm:py-32">
+    <section className="bg-background pt-24 sm:pt-32">
       <Container>
         <SectionHeading
           eyebrow={businessValue.eyebrow}

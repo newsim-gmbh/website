@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "../Container";
-import { PhoneMockup } from "../PhoneMockup";
 import { Icon } from "../Icon";
 import { hero, proofPoints, site } from "@/lib/content";
+import { basePath } from "@/lib/basePath";
 
 export function Hero() {
   return (
@@ -74,12 +75,19 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="relative hidden lg:block"
             >
-              <PhoneMockup tone="dark" label="Ihre Marke" className="aspect-[9/16] w-full" />
+              <Image
+                src={`${basePath}/hero-phone.webp`}
+                alt="newSIM App auf dem Smartphone: In 4 Wochen zum eigenen Mobilfunkbrand"
+                width={1100}
+                height={1002}
+                priority
+                className="h-auto w-full"
+              />
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute -left-8 top-10 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
+                className="absolute -left-6 -top-6 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
               >
                 <Icon name="shield" className="h-4 w-4 text-primary" />
                 Diensteanbieter gem. TKG
@@ -88,7 +96,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.75 }}
-                className="absolute -right-6 bottom-16 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
+                className="absolute -right-4 -bottom-6 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
               >
                 <Icon name="wifi" className="h-4 w-4 text-primary" />
                 MVNO · Telefónica
