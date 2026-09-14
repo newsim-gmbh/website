@@ -22,16 +22,18 @@ export function SocialProof() {
   return (
     <section className="border-y border-line bg-surface py-20 sm:py-28">
       <Container>
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.4fr] lg:items-center">
+        <div>
           <Reveal>
-            <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{socialProof.eyebrow}</p>
-            <h2 className="font-heading balance mt-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              {socialProof.title}
-            </h2>
-            <p className="balance mt-4 text-base leading-relaxed text-ink-soft">{socialProof.body}</p>
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{socialProof.eyebrow}</p>
+              <h2 className="font-heading balance mt-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+                {socialProof.title}
+              </h2>
+              <p className="balance mt-4 text-base leading-relaxed text-ink-soft">{socialProof.body}</p>
+            </div>
           </Reveal>
 
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} className="mt-12">
             <div className="relative overflow-hidden">
               <div
                 aria-hidden
