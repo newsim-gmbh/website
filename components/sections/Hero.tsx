@@ -11,25 +11,13 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-dark pt-40 pb-24 text-white sm:pb-32">
       <Container className="relative">
-        <div className="relative overflow-hidden rounded-[2rem] card-dark-gradient sm:rounded-[2.5rem]">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0"
-            style={{
-              backgroundImage:
-                "radial-gradient(600px circle at 15% 20%, rgba(148,184,233,0.22), transparent 60%), radial-gradient(500px circle at 85% 0%, rgba(148,184,233,0.14), transparent 60%)",
-            }}
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-[0.06]"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-              backgroundSize: "56px 56px",
-            }}
-          />
-
+        <div
+          className="relative overflow-hidden rounded-[2rem] sm:rounded-[3rem]"
+          style={{
+            background:
+              "radial-gradient(130% 120% at 28% 22%, #4a4a4a 0%, #333333 45%, #1c1c1c 100%)",
+          }}
+        >
           <div className="relative grid gap-12 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-[1fr_360px] lg:items-center lg:px-16 lg:py-20">
             <div>
               <motion.p
