@@ -2,34 +2,23 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "../Container";
-import { PhoneMockup } from "../PhoneMockup";
 import { Icon } from "../Icon";
 import { hero, proofPoints, site } from "@/lib/content";
+import { basePath } from "@/lib/basePath";
 
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-dark pt-40 pb-24 text-white sm:pb-32">
       <Container className="relative">
-        <div className="relative overflow-hidden rounded-[2rem] card-dark-gradient sm:rounded-[2.5rem]">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0"
-            style={{
-              backgroundImage:
-                "radial-gradient(600px circle at 15% 20%, rgba(148,184,233,0.22), transparent 60%), radial-gradient(500px circle at 85% 0%, rgba(148,184,233,0.14), transparent 60%)",
-            }}
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-[0.06]"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-              backgroundSize: "56px 56px",
-            }}
-          />
-
+        <div
+          className="relative overflow-hidden rounded-[2rem] sm:rounded-[3rem]"
+          style={{
+            background:
+              "radial-gradient(130% 120% at 28% 22%, #4a4a4a 0%, #333333 45%, #1c1c1c 100%)",
+          }}
+        >
           <div className="relative grid gap-12 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-[1fr_360px] lg:items-center lg:px-16 lg:py-20">
             <div>
               <motion.p
@@ -86,12 +75,19 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="relative hidden lg:block"
             >
-              <PhoneMockup tone="dark" label="Ihre Marke" className="aspect-[9/16] w-full" />
+              <Image
+                src={`${basePath}/hero-phone.webp`}
+                alt="newSIM App auf dem Smartphone: In 4 Wochen zum eigenen Mobilfunkbrand"
+                width={1100}
+                height={1002}
+                priority
+                className="h-auto w-full"
+              />
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute -left-8 top-10 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
+                className="absolute -left-6 -top-6 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
               >
                 <Icon name="shield" className="h-4 w-4 text-primary" />
                 Diensteanbieter gem. TKG
@@ -100,7 +96,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.75 }}
-                className="absolute -right-6 bottom-16 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
+                className="absolute -right-4 -bottom-6 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
               >
                 <Icon name="wifi" className="h-4 w-4 text-primary" />
                 MVNO · Telefónica
