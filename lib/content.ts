@@ -387,11 +387,13 @@ export const platform = {
   intro:
     "Die newSIM Telnology®-Plattform ist die Enabling-Plattform und das Business Support System (BSS) im Hintergrund — für B2C und B2B, über alle Vertriebskanäle hinweg.",
   channels: ["Online Shop", "CRM / Order", "White Label App", "API / Web Interface"],
+  coreTitle: "Enabling-Plattform & Business Support System (BSS)",
+  coreSubtitle: "Ein System für Produkt, Bestellung, Service und Abrechnung",
   core: [
-    { title: "Billing & Rating", body: "CDR · Rufnummern · Inkasso", icon: "invoice" as const },
-    { title: "Customer Service", body: "1st & 2nd Level Support", icon: "support" as const },
-    { title: "Order Management", body: "Activation · MNP · SIM-Logistik", icon: "clipboard" as const },
-    { title: "Reporting & API", body: "BSS / OSS · Schnittstellen", icon: "chart" as const },
+    { title: "Product Management", body: "Tarife · Datenpromo · Roaming · Travel · IoT", icon: "tariff" as const },
+    { title: "Order Management", body: "Activation · MNP · SIM-Logistik · Lettershop", icon: "clipboard" as const },
+    { title: "Customer Service", body: "1st & 2nd Level Support · Self-Service-Portal", icon: "support" as const },
+    { title: "Billing & Rating", body: "CDR · Bonität · Inkasso · Reporting", icon: "invoice" as const },
   ],
   network: [
     "Telefónica Netzwerk (LTE/5G)",
@@ -523,7 +525,7 @@ export const legal = {
 // durchgängig als Richtwerte / Beispielkonditionen gekennzeichnet.
 // ---------------------------------------------------------------------------
 export const pricing = {
-  disclaimer: "Beispielkonditionen exkl. MwSt., Stand Juni 2026 — unverbindliche Richtwerte für ein individuelles Angebot im persönlichen Gespräch.",
+  disclaimer: "Alle Angaben zu Volumina, Bandbreiten und Leistungsumfang ohne Gewähr — individuelle Konditionen und Preise besprechen wir gerne im persönlichen Gespräch.",
 
   tariffPortfolio: {
     title: "Vorleistungstarife bis 300 GB",
@@ -535,7 +537,11 @@ export const pricing = {
     dataPromo: "+5 GB · +10 GB · +15 GB",
     dataOption: "+100 GB",
     conditions: {
-      provision: ["Aktivierungsprovision einmalig bei Abschluss"],
+      provision: [
+        "Aktivierungsprovision einmalig bei Abschluss",
+        "Branded-Reseller-Modell: laufende Airtime-Provision auf jeden aktiven Vertrag",
+        "White-Label-Modell: Airtime-Provision zzgl. frei definierbarer eigener Marge",
+      ],
       flexibilitaet: [
         "Keine Mindestabnahme",
         "Wahlweise 12 oder 24 Monate Laufzeit",
@@ -552,27 +558,24 @@ export const pricing = {
 
   flyingStart: {
     title: "Flying Start Glasfaser — Tarifpakete",
+    subtitle: "Konkrete Preise besprechen wir gerne im persönlichen Gespräch — hier der Leistungsumfang im Überblick.",
     packages: [
       {
         name: "Basis",
         product: "SIM Only 300GB",
         inclusiveGb: 300,
-        rebookable: "2× 100 GB je 12,61 € nachbuchbar",
+        rebookable: "2× 100 GB nachbuchbar",
         streamingHint: "ca. 60 Std. HD-Streaming/Monat",
         bandwidth: "100 Mbit/s (5G-Netz)",
-        basePrice: "33,61 € mtl.",
-        totalPrice: "58,82 € netto (inkl. 2× Nachbuchung, 500 GB gesamt)",
         term: "Flexibel",
       },
       {
         name: "Premium",
         product: "SIM Only 500GB",
         inclusiveGb: 500,
-        rebookable: "2× 100 GB je 12,61 € nachbuchbar",
+        rebookable: "2× 100 GB nachbuchbar",
         streamingHint: "ca. 150 Std. HD-Streaming/Monat",
         bandwidth: "100 Mbit/s (5G-Netz)",
-        basePrice: "50,42 € mtl.",
-        totalPrice: "75,64 € netto (inkl. 2× Nachbuchung, 700 GB gesamt)",
         term: "Flexibel",
       },
     ],
@@ -581,60 +584,44 @@ export const pricing = {
         name: "TP-Link Komplettpaket",
         router: "TP-Link Archer NX200 (Standard)",
         inclusiveGb: 300,
-        oneTime: "185,00 €",
-        logistics: "15 €",
-        refurbishment: "25 €",
-        tariffHint: "zzgl. monatlicher Tarif ab 33,61 € mtl.",
+        tariffHint: "inkl. Versandlogistik & Refurbishment-Service",
       },
       {
         name: "FRITZ! Komplettpaket",
         router: "FRITZ! 6850 5G (5G · Wi-Fi 6, Standard)",
         inclusiveGb: 300,
-        oneTime: "285,00 €",
-        logistics: "15 €",
-        refurbishment: "25 €",
-        tariffHint: "zzgl. monatlicher Tarif ab 33,61 € mtl.",
+        tariffHint: "inkl. Versandlogistik & Refurbishment-Service",
       },
     ],
   },
 
   commercial: {
     title: "Kommerzielle Rahmenbedingungen",
-    subtitle: "Klare Kostenstruktur — Break-Even ab ca. 500 aktiven Kunden im Full-Managed-Service",
+    subtitle: "Transparente Kostenstruktur mit Vorzugskonditionen für BREKO eG-Mitglieder — Details im persönlichen Gespräch.",
     tiers: [
       {
         label: "Set Up",
         cadence: "einmalig",
         description: "Telnology-Plattform Bereitstellung, Anmeldung im Netz, Tarifeinrichtung",
-        standard: "3.000 €",
-        breko: "2.500 €",
       },
       {
         label: "Betrieb",
         cadence: "monatlich",
         description: "Betrieb der Plattform, 2nd Level Support, Clearing Services, MNP, Reporting",
-        standard: "500 €",
-        breko: "375 €",
       },
       {
         label: "Managed Service",
         cadence: "optional, pauschal",
         description: "1st & 2nd Level Support, Endkunden-Hotline, Aktivierungs-Service, Rechnungsservice, iFrame-Integration",
-        standard: "275 €",
-        breko: "225 €",
       },
       {
         label: "Launch-Paket",
         cadence: "einmalig",
         description: "Onboarding bis 500 Kunden inkl. Landingpage Branded Reseller",
-        standard: "Nach Aufwand",
-        breko: "Nach Aufwand",
       },
     ],
-    footnote: "Break-Even ab ca. 500 aktiven Kunden · Full Managed Service bereits ab 600 € monatlich.",
+    footnote: "BREKO eG-Mitglieder erhalten Vorzugskonditionen — individuelles Angebot im persönlichen Gespräch.",
   },
-
-  brandedResellerMargin: "10% Marge (fixierte Abschlussprovision pro Vertrag)",
 };
 
 export const faq = [
