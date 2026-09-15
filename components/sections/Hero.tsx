@@ -13,7 +13,7 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden bg-dark pt-40 pb-24 text-white sm:pb-32">
       <Container className="relative">
         <div className="card-dark-gradient relative overflow-hidden rounded-[2rem] sm:rounded-[3rem]">
-          <div className="relative grid gap-12 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-[1fr_360px] lg:items-center lg:px-16 lg:py-20">
+          <div className="relative px-6 py-14 sm:px-10 sm:py-16 lg:py-20 lg:pl-16 lg:pr-[380px] xl:pr-[460px]">
             <div>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -62,41 +62,41 @@ export function Hero() {
                 </a>
               </motion.div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative hidden lg:block"
-            >
-              <Image
-                src={`${basePath}/hero-phone.webp`}
-                alt="newSIM App auf dem Smartphone: In 4 Wochen zum eigenen Mobilfunkbrand"
-                width={1100}
-                height={1002}
-                priority
-                className="h-auto w-full"
-              />
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute -left-6 -top-6 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
-              >
-                <Icon name="shield" className="h-4 w-4 text-primary" />
-                Diensteanbieter gem. TKG
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.75 }}
-                className="absolute -right-4 -bottom-6 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
-              >
-                <Icon name="wifi" className="h-4 w-4 text-primary" />
-                MVNO · Telefónica
-              </motion.div>
-            </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="pointer-events-none absolute right-0 bottom-0 hidden w-[360px] lg:block xl:w-[440px]"
+          >
+            <Image
+              src={`${basePath}/hero-phone.webp`}
+              alt="newSIM App auf dem Smartphone: In 4 Wochen zum eigenen Mobilfunkbrand"
+              width={1600}
+              height={1457}
+              priority
+              className="h-auto w-full"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="pointer-events-auto absolute -top-14 -left-4 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
+            >
+              <Icon name="shield" className="h-4 w-4 text-primary" />
+              Diensteanbieter gem. TKG
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.75 }}
+              className="pointer-events-auto absolute -left-10 bottom-28 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
+            >
+              <Icon name="wifi" className="h-4 w-4 text-primary" />
+              MVNO · Telefónica
+            </motion.div>
+          </motion.div>
         </div>
 
         <motion.dl
