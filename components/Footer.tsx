@@ -89,7 +89,15 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {site.legalName}. Alle Rechte vorbehalten.
           </p>
-          <p>{site.domain}</p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <Link href="/impressum" className="hover:text-white/70">
+              Impressum
+            </Link>
+            <Link href="/datenschutz" className="hover:text-white/70">
+              Datenschutz
+            </Link>
+            <p>{site.domain}</p>
+          </div>
         </div>
       </Container>
     </footer>
