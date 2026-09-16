@@ -872,3 +872,281 @@ export const consultingServices: ConsultingService[] = [
     deliverables: ["Transformationskonzept", "Kommunikationsleitfaden", "Rollout-Begleitung"],
   },
 ];
+
+// ---------------------------------------------------------------------------
+// RECHTLICHES — Impressum & Datenschutz. Generisches Section/Paragraph-Schema,
+// da beide Texte als rechtsverbindliche Vorgabe 1:1 übernommen werden.
+// ---------------------------------------------------------------------------
+
+export interface LegalLinkPart {
+  text: string;
+  href: string;
+}
+export type LegalParagraph = string | (string | LegalLinkPart)[];
+
+export interface LegalSection {
+  heading?: string;
+  small?: boolean; // kleinere Zwischenüberschrift (z.B. a), b), Unterabschnitte)
+  paragraphs?: LegalParagraph[];
+}
+
+export interface LegalPageContent {
+  title: string;
+  intro?: LegalParagraph[];
+  sections: LegalSection[];
+}
+
+export const impressum: LegalPageContent = {
+  title: "Impressum",
+  sections: [
+    {
+      heading: "Herausgeber",
+      paragraphs: [
+        "newsim GmbH\nWehrdaer Straße 120\n35041 Marburg",
+        ["E-Mail: ", { text: "Kontaktformular", href: "/kontakt" }],
+        ["Internet: ", { text: "newsim.de", href: "https://newsim.de" }],
+        "Telefon: (06421) 620 36 111 (Kosten für ein Festnetzgespräch entsprechend Ihres Telefontarifes)",
+      ],
+    },
+    {
+      heading: "Geschäftsführer",
+      paragraphs: ["Matthias Engelke, Norbert Schüppler"],
+    },
+    {
+      heading: "Gesellschaft",
+      paragraphs: ["Sitz der Gesellschaft: Marburg", "Amtsgericht – Registergericht: Marburg – HRB 6197"],
+    },
+    {
+      heading: "Urheberrechte und Haftung",
+      paragraphs: ["Urheberrechte und Haftung liegen bei der newsim GmbH"],
+    },
+    {
+      heading: "Aufsichtsbehörde",
+      paragraphs: [
+        "Bundesnetzagentur für Elektrizität, Gas, Telekommunikation, Post und Eisenbahnen\nTulpenfeld 4\n53113 Bonn",
+      ],
+    },
+    {
+      heading: "Online-Streitbeilegung",
+      paragraphs: [
+        [
+          "Plattform der EU-Kommission zur Online-Streitbeilegung: ",
+          { text: "http://ec.europa.eu/consumers/odr", href: "http://ec.europa.eu/consumers/odr" },
+        ],
+      ],
+    },
+    {
+      heading: "Quelle-Icons",
+      paragraphs: [
+        "Pin map Icons erstellt von MansyGraphics – Flaticon; Route icons created by Freepik – Flaticon; Camera icons created by setiawanap – Flaticon; Privacy icons created by Freepik – Flaticon; Netzwerk icons created by Nualnoi Kinkaeo – Flaticon; Medical icons created by monkik – Flaticon; Industry 4.0 icons created by Freepik – Flaticon; Grüne energie icons created by Dreamstale – Flaticon; Tractor icons created by mavadee – Flaticon; Smart lock icons created by zero_wing – Flaticon; Home automation icons created by xnimrodx – Flaticon; Smart devices icons created by Warangkhana Sookruay – Flaticon; Smart car icons created by Freepik – Flaticon; Shop icons created by Payungkead – Flaticon",
+      ],
+    },
+  ],
+};
+
+export const datenschutz: LegalPageContent = {
+  title: "Datenschutzhinweise",
+  intro: [
+    "Die newsim GmbH nimmt den Schutz der privaten Daten ernst. Die besondere Beachtung der Privatsphäre bei der Verarbeitung persönlicher Daten ist daher ein wichtiges Anliegen.",
+    "Die Zusammenstellung der Informationen auf unserem Webauftritt oder App erfolgt mit der gebotenen Sorgfalt. Gleichwohl übernehmen wir keinerlei Haftung, aus welchem Rechtsgrund auch immer, für die Richtigkeit, Aktualität und Vollständigkeit der übermittelten Informationen. Wir behalten uns das Recht vor, die auf dieser Website angebotenen Informationen, Produkte oder Dienstleistungen ohne gesonderte Ankündigung jederzeit zu verändern oder zu aktualisieren.",
+  ],
+  sections: [
+    {
+      heading: "1. Links zu anderen Websites",
+      paragraphs: [
+        "Unser Online-Angebot enthält Links zu Webseiten anderer Anbieter, auf die sich diese Datenschutzerklärung nicht erstreckt. Wir haben Links zu anderen Seiten gelegt. Für alle Links gilt, dass wir keinen Einfluss auf die Gestaltung und die Inhalte dieser Seiten haben. Wir distanzieren uns hiermit ausdrücklich von allen Inhalten aller gelinkten Seiten auf unserer Homepage oder der easyTel Webseite bzw. App und machen uns ihre Inhalte nicht zu Eigen. Diese Erklärung gilt für alle auf unserer Homepage und der easyTel Webseite/App angebrachten Links zu externen Seiten.",
+      ],
+    },
+    {
+      heading: "2. Verantwortliche Stelle",
+      paragraphs: [
+        "Für die gesetzeskonforme Verarbeitung ihrer personenbezogenen Informationen ist die folgende Stelle verantwortlich:",
+        "newsim GmbH\nWehrdaer Str.120\n35041 Marburg",
+      ],
+    },
+    {
+      heading: "3. Personen bezogene Daten und Verwendungszweck",
+      paragraphs: [
+        "Personen bezogene Daten sind Daten, welche auf eine natürliche Person rückschließen lassen. Beispiele hierfür sind: Name, Adresse, Postanschrift, Telefonnummer, E-Mail-Adresse etc.",
+        "Diese Daten werden im Zusammenhang mit dem Vertragsabschluss erhoben. Mit Ihrer Unterschrift willigen Sie in die Verarbeitung der Daten zur Vertragserfüllung freiwillig ein. Solche personenbezogenen Daten (Bestandsdaten) werden ausschließlich zur Abwicklung eines Vertragsverhältnisses erhoben.",
+        "Verkehrsdaten werden erhoben, um in Anspruch genommene Dienste technisch durchzuführen und abzurechnen.",
+        "Für den Betroffenen besteht die Verpflichtung, die erforderlichen personenbezogenen Daten im gesetzlichen Rahmen bereitzustellen, da ansonsten die Durchführung des Vertragsverhältnisses mit der verantwortlichen Stelle nicht durchgeführt werden kann.",
+      ],
+    },
+    {
+      heading: "4. Dauer der Speicherung personenbezogener Daten",
+      paragraphs: [
+        "Personenbezogene Daten werden nur solange vorgehalten, wie es der genannte Zweck vorsieht oder dies gesetzliche Aufbewahrungsfristen vorschreiben. Nach Ablauf der Aufbewahrungsfrist werden die entsprechenden Daten routinemäßig gelöscht, sofern sie nicht mehr zur Vertragserfüllung oder Vertragsanbahnung erforderlich sind oder es andere gesetzliche Vorgaben greifen.",
+      ],
+    },
+    {
+      heading: "5. Rechtsgrundlage der Verarbeitung",
+      paragraphs: [
+        "Persönliche Daten werden unter anderem gemäß den Bestimmungen der EU-DSGVO, des BDSG, des TKG sowie des Telemediengesetzes verarbeitet. Wir beziehen uns dabei auf die schriftliche Einwilligung des Betroffenen sowie die Erfüllung eines Vertragsverhältnisses. Basiert die Verarbeitung personenbezogener Daten auf Artikel 6 I lit. f DS-GVO ist unser berechtigtes Interesse die Durchführung unserer Geschäftstätigkeit zugunsten des Wohlergehens unserer Mitarbeiter und unseres Unternehmens.",
+      ],
+    },
+    {
+      heading: "6. Weitergabe personenbezogener Daten",
+      paragraphs: [
+        "Je nach angebotenem Service können Sie personenbezogene Daten über unser Portal abrufen. Wir geben die Informationen ausschließlich im Zuge der erforderlichen Vertragserfüllung weiter. Übermittlungen Ihrer personenbezogenen Daten an Adresshändler etc. erfolgen grundsätzlich nicht. Übermittlungen personenbezogener Daten an staatliche Einrichtungen und Behörden erfolgen ausschließlich im Rahmen zwingender Rechtsvorschriften.",
+      ],
+    },
+    {
+      heading: "7. Bestehen einer automatisierten Entscheidungsfindung",
+      paragraphs: [
+        "Unser Unternehmen verzichtet auf eine automatische Entscheidungsfindung oder ein Profiling auf der Basis Ihrer personenbezogenen Daten.",
+      ],
+    },
+    {
+      heading: "8. Einsatz von Cookies",
+      paragraphs: [
+        "Wir setzen Cookies – kleine Dateien mit Konfigurationsinformationen – ein. Sie helfen dabei, benutzerindividuelle Einstellungen zu ermitteln und spezielle Benutzerfunktionen zu realisieren. Sie können durch die Einstellung in Ihrem Browser die Nutzung von Cookies verhindern. Dies begrenzt allerdings einige benutzerdefinierten Eigenschaften und Einstellungen. Wir verwenden auf unserer Website darüber hinaus Cookies, die eine Analyse Ihres Surfverhaltens ermöglichen. Die in diesem Rahmen erhobenen Daten werden durch technische Vorkehrungen pseudonymisiert. Auf diese Weise können folgende Daten übermittelt werden:",
+        "– Häufigkeit von Seitenaufrufen\n– Inanspruchnahme von Website-Funktionen",
+        "Die Verwendung der Analyse-Cookies erfolgt zu dem Zweck, die Qualität unserer Website und ihre Inhalte zu verbessern. Durch die Analyse-Cookies erfahren wir, wie die Website genutzt wird und können so unser Angebot stetig optimieren. Wir setzen dabei Analyse-Software von Matomo auf der Website ein. Wir benutzen diese Informationen, um die Nutzung unseres Onlineangebotes auszuwerten, um Reports über die Aktivitäten innerhalb dieses Onlineangebotes zusammenzustellen und um weitere mit der Nutzung dieses Onlineangebotes und der Internetnutzung verbundene Dienstleistungen zu erbringen. Dabei können aus den verarbeiteten Daten pseudonyme Nutzungsprofile erstellt werden. Wir setzen Matomo nur mit aktivierter IP-Anonymisierung ein und respektieren die Do-not-Track Einstellung Ihres Browsers. Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern.",
+      ],
+    },
+    {
+      heading: "Einwilligung mit Borlabs Cookie",
+      paragraphs: [
+        "Unsere Website nutzt die Consent-Technologie von Borlabs Cookie, um Ihre Einwilligung zur Speicherung bestimmter Cookies in Ihrem Browser oder zum Einsatz bestimmter Technologien einzuholen und diese datenschutzkonform zu dokumentieren. Anbieter dieser Technologie ist Borlabs – Benjamin A. Bornschein, Rübenkamp 32, 22305 Hamburg (im Folgenden Borlabs). Wenn Sie unsere Website betreten, wird ein Borlabs-Cookie in Ihrem Browser gespeichert, in dem die von Ihnen erteilten Einwilligungen oder der Widerruf dieser Einwilligungen gespeichert werden. Diese Daten werden nicht an den Anbieter von Borlabs Cookie weitergegeben. Die erfassten Daten werden gespeichert, bis Sie uns zur Löschung auffordern bzw. das Borlabs-Cookie selbst löschen oder der Zweck für die Datenspeicherung entfällt. Zwingende gesetzliche Aufbewahrungsfristen bleiben unberührt. Details zur Datenverarbeitung von Borlabs Cookie finden Sie unter https://de.borlabs.io/kb/welche-daten-speichert-borlabs-cookie/.",
+        "Der Einsatz der Borlabs-Cookie-Consent-Technologie erfolgt, um die gesetzlich vorgeschriebenen Einwilligungen für den Einsatz von Cookies einzuholen. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. c DSGVO.",
+      ],
+    },
+    {
+      heading: "9. Downloads",
+      paragraphs: [
+        "Der Download von Programmen aus dem Download-Bereich, sowie von anderen Seiten, erfolgt auf eigene Gefahr. Bitte prüfen Sie zu Ihrer Sicherheit geladene Programme nochmals mit Ihrem Virenscanner. Eine Haftung für Schäden und Beeinträchtigungen ist ausgeschlossen. Ein Anspruch auf Schadenersatz, sowie für Folgeschäden jeglicher Art, ist ausgeschlossen.",
+      ],
+    },
+    {
+      heading: "10. Externe Beiträge",
+      paragraphs: [
+        "Die Beiträge auf unserer Seite sind für jeden zugänglich. Beiträge müssen vor einer Veröffentlichung sorgfältig darauf überprüft werden, ob sie vertrauliche personenbezogene Angaben, Geschäftsinterna, rassistische, gewalttätige oder sexuell denunzierende Inhalte enthalten. Diese Beiträge werden möglicherweise in Suchmaschinen und Social Networks unkontrolliert verbreitet, erfasst und auch ohne gezielten Aufruf dieser Website weltweit zugreifbar.",
+      ],
+    },
+    {
+      heading: "11. Betroffenenrechte",
+      paragraphs: [
+        "Die Datenschutzgrundverordnung (DS-GVO) räumt Betroffenen zahlreiche Rechte ein, die die Verarbeitung der sie betreffenden Daten transparent machen und den Betroffenen zudem eine Kontrolle darüber geben sollen, welche Daten über sie verarbeitet werden. Insbesondere im elektronischen Verkehr ist zu beachten, dass die Informationen über einen Betroffenen nur dem jeweils tatsächlich Betroffenen zustehen. Die Rechte, die Betroffene gegenüber dem Verantwortlichen geltend machen können, ergeben sich aus den Art. 15 bis 22 DS-GVO.",
+      ],
+    },
+    {
+      heading: "a) Auskunftsrecht",
+      small: true,
+      paragraphs: [
+        "Jede natürliche Person hat das Recht grundsätzlich innerhalb eines Monats nach Eingang der Anfrage beim Verantwortlichen eine Auskunft zu verlangen. Soweit die Übermittlung einer Datenkopie Rechte Dritter berührt, ist sie zu unterlassen. Auskünfte sind schriftlich auf dem Postweg anzufordern.",
+      ],
+    },
+    {
+      heading: "b) Recht auf Datenübertragbarkeit",
+      small: true,
+      paragraphs: [
+        "Der Betroffene hat das Recht, von dem Verantwortlichen die Herausgabe seiner personenbezogenen Daten, welche der Betroffene dem Verantwortlichen bereitgestellt hat, zu verlangen, sofern die Datenverarbeitung auf einer Einwilligung oder einer vertraglichen Vereinbarung mit dem Betroffenen beruht.",
+      ],
+    },
+    {
+      heading: "c) Berichtigungsrecht",
+      small: true,
+      paragraphs: [
+        "Der Betroffene hat das Recht, die Berichtigung seiner personenbezogenen Daten zu verlangen, sofern diese unrichtig sind. Die Berichtigung ist dem Betroffenen mitzuteilen. Soweit ein Datensatz mit Blick auf den Verarbeitungszweck unvollständig ist, kann ein Betroffener verlangen, dass weitere Daten gespeichert werden.",
+      ],
+    },
+    {
+      heading: "d) Recht auf Löschung („Recht auf Vergessenwerden“)",
+      small: true,
+      paragraphs: [
+        "Der Betroffene hat das Recht, unter bestimmten Voraussetzungen vom Verantwortlichen die unverzügliche Löschung aller ihn betreffenden personenbezogenen Daten (auch von Kopien) zu verlangen.",
+      ],
+    },
+    {
+      heading: "e) Recht auf Einschränkung der Datenverarbeitung",
+      small: true,
+      paragraphs: [
+        "Der Betroffene hat das Recht auf Einschränkung der Datenverarbeitung (d.h. die Markierung der gespeicherten personenbezogenen Daten zwecks Begrenzung ihrer künftigen Verarbeitung, so dass sie regelmäßig nur noch gespeichert nicht aber weiterverarbeitet werden dürfen).",
+      ],
+    },
+    {
+      heading: "f) Widerspruchsrecht (Art. 7 Abs. 3 DS-GVO und Art. 21 DS-GVO)",
+      small: true,
+      paragraphs: [
+        "aa) Einwilligung: Der Betroffene hat das Recht, seine Einwilligung jederzeit frei für die Zukunft zu widerrufen. Damit fällt die darauf beruhende Rechtfertigung der Datenverarbeitung weg.",
+        "bb) Widerspruchrecht nach Art. 21 DS-GVO: Soweit Daten gem. Art. 6 Abs.1 lit. f DS-GVO auf Grund berechtigter Interessen verarbeitet werden, können Betroffene unter Angabe konkreter Gründe, die sich aus ihrer besonderen Situation ergeben, hiergegen Widerspruch einlegen. Sofern Daten zur Durchführung von Direktwerbung verarbeitet werden, kann ein Betroffener auch ohne Angabe von Gründen widersprechen. Die weitere Verarbeitung zu Zwecken der Direktwerbung ist dann ausgeschlossen. Die Daten müssen auf Verlangen des Betroffenen gelöscht werden.",
+      ],
+    },
+    {
+      heading: "12. Hinweis",
+      paragraphs: [
+        "Die Betroffenen werden hiermit auf die Möglichkeit einer Beschwerde bei einer Aufsichtsbehörde und das Bestehen eines gerichtlichen Rechtsbehelfs hingewiesen.",
+      ],
+    },
+    {
+      heading: "13. Datenschutzbeauftragter",
+      paragraphs: [
+        "Als Datenschutzbeauftragter der newsim GmbH ist bestellt:",
+        "de-bit Computer-Service GmbH\nSeestraße 11\n63571 Gelnhausen",
+        ["E-Mail: ", { text: "datenschutz@de-bit.de", href: "mailto:datenschutz@de-bit.de" }],
+      ],
+    },
+    {
+      heading: "Analyse-Tools und Werbung",
+    },
+    {
+      heading: "Google Tag Manager",
+      small: true,
+      paragraphs: [
+        "Wir setzen den Google Tag Manager ein. Anbieter ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Der Google Tag Manager ist ein Tool, mit dessen Hilfe wir Tracking- oder Statistik-Tools und andere Technologien auf unserer Website einbinden können. Der Google Tag Manager selbst erstellt keine Nutzerprofile, speichert keine Cookies und nimmt keine eigenständigen Analysen vor. Er dient lediglich der Verwaltung und Ausspielung der über ihn eingebundenen Tools. Der Google Tag Manager erfasst jedoch Ihre IP-Adresse, die auch an das Mutterunternehmen von Google in die Vereinigten Staaten übertragen werden kann. Der Einsatz des Google Tag Managers erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an einer schnellen und unkomplizierten Einbindung und Verwaltung verschiedener Tools auf seiner Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO; die Einwilligung ist jederzeit widerrufbar.",
+      ],
+    },
+    {
+      heading: "Google Analytics",
+      small: true,
+      paragraphs: [
+        "Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland. Google Analytics ermöglicht es dem Websitebetreiber, das Verhalten der Websitebesucher zu analysieren. Hierbei erhält der Websitebetreiber verschiedene Nutzungsdaten, wie z. B. Seitenaufrufe, Verweildauer, verwendete Betriebssysteme und Herkunft des Nutzers. Diese Daten werden von Google ggf. in einem Profil zusammengefasst, das dem jeweiligen Nutzer bzw. dessen Endgerät zugeordnet ist. Google Analytics verwendet Technologien, die die Wiedererkennung des Nutzers zum Zwecke der Analyse des Nutzerverhaltens ermöglichen (z. B. Cookies oder Device-Fingerprinting).",
+        "Die von Google erfassten Informationen über die Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Die Nutzung dieses Analyse-Tools erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der Analyse des Nutzerverhaltens, um sowohl sein Webangebot als auch seine Werbung zu optimieren. Sofern eine entsprechende Einwilligung abgefragt wurde (z. B. eine Einwilligung zur Speicherung von Cookies), erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO; die Einwilligung ist jederzeit widerrufbar. Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt. Details finden Sie hier: https://privacy.google.com/businesses/controllerterms/mccs/ .",
+      ],
+    },
+    {
+      heading: "IP Anonymisierung",
+      small: true,
+      paragraphs: [
+        "Wir haben auf dieser Website die Funktion IP-Anonymisierung aktiviert. Dadurch wird Ihre IP-Adresse von Google innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum vor der Übermittlung in die USA gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt. Im Auftrag des Betreibers dieser Website wird Google diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen. Die im Rahmen von Google Analytics von Ihrem Browser übermittelte IPAdresse wird nicht mit anderen Daten von Google zusammengeführt.",
+      ],
+    },
+    {
+      heading: "Browser Plugin",
+      small: true,
+      paragraphs: [
+        "Sie können die Erfassung und Verarbeitung Ihrer Daten durch Google verhindern, indem Sie das unter dem folgenden Link verfügbare Browser-Plugin herunterladen und installieren: https://tools.google.com/dlpage/gaoptout?hl=de.",
+        "Mehr Informationen zum Umgang mit Nutzerdaten bei Google Analytics finden Sie in der Datenschutzerklärung von Google: https://support.google.com/analytics/answer/6004245?hl=de.",
+      ],
+    },
+    {
+      heading: "Auftragsverarbeitung",
+      small: true,
+      paragraphs: [
+        "Wir haben mit Google einen Vertrag zur Auftragsverarbeitung abgeschlossen und setzen die strengen Vorgaben der deutschen Datenschutzbehörden bei der Nutzung von Google Analytics vollständig um.",
+      ],
+    },
+    {
+      heading: "Google Remarketing",
+      small: true,
+      paragraphs: [
+        "Diese Website nutzt die Funktionen von Google Analytics Remarketing. Anbieter ist die Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland. Google Remarketing analysiert Ihr Nutzerverhalten auf unserer Website (z. B. Klick auf bestimmte Produkte), um Sie in bestimmte Werbe-Zielgruppen einzuordnen und Ihnen anschließend beim Besuch von anderen Onlineangeboten passende Webebotschaften auszuspielen (Remarketing bzw. Retargeting). Des Weiteren können die mit Google Remarketing erstellten Werbe-Zielgruppen mit den geräteübergreifenden Funktionen von Google verknüpft werden. Auf diese Weise können interessenbezogene, personalisierte Werbebotschaften, die in Abhängigkeit Ihres früheren Nutzungs- und Surfverhaltens auf einem Endgerät (z. B. Handy) an Sie angepasst wurden auch auf einem anderen Ihrer Endgeräte (z. B. Tablet oder PC) angezeigt werden. Wenn Sie über einen Google-Account verfügen, können Sie der personalisierten Werbung unter folgendem Link widersprechen: https://www.google.com/settings/ads/onweb/.",
+        "Die Nutzung von Google Remarketing erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an einer möglichst effektiven Vermarktung seiner Produkte. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO; die Einwilligung ist jederzeit widerrufbar. Weitergehende Informationen und die Datenschutzbestimmungen finden Sie in der Datenschutzerklärung von Google unter: https://policies.google.com/technologies/ads?hl=de.",
+      ],
+    },
+    {
+      heading: "Facebook Pixel",
+      small: true,
+      paragraphs: [
+        "Diese Website nutzt zur Konversionsmessung der Besucheraktions-Pixel von Facebook. Anbieter dieses Dienstes ist die Facebook Ireland Limited, 4 Grand Canal Square, Dublin 2, Irland. Die erfassten Daten werden nach Aussage von Facebook jedoch auch in die USA und in andere Drittländer übertragen. So kann das Verhalten der Seitenbesucher nachverfolgt werden, nachdem diese durch Klick auf eine Facebook-Werbeanzeige auf die Website des Anbieters weitergeleitet wurden. Dadurch können die Wirksamkeit der Facebook-Werbeanzeigen für statistische und Marktforschungszwecke ausgewertet werden und zukünftige Werbemaßnahmen optimiert werden.",
+        "Die erhobenen Daten sind für uns als Betreiber dieser Website anonym, wir können keine Rückschlüsse auf die Identität der Nutzer ziehen. Die Daten werden aber von Facebook gespeichert und verarbeitet, sodass eine Verbindung zum jeweiligen Nutzerprofil möglich ist und Facebook die Daten für eigene Werbezwecke, entsprechend der Facebook-Datenverwendungsrichtlinie verwenden kann. Dadurch kann Facebook das Schalten von Werbeanzeigen auf Seiten von Facebook sowie außerhalb von Facebook ermöglichen. Diese Verwendung der Daten kann von uns als Seitenbetreiber nicht beeinflusst werden.",
+        "Die Nutzung von Facebook-Pixel erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an effektiven Werbemaßnahmen unter Einschluss der sozialen Medien. Sofern eine entsprechende Einwilligung abgefragt wurde (z. B. eine Einwilligung zur Speicherung von Cookies), erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO; die Einwilligung ist jederzeit widerrufbar. Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt. Details finden Sie hier: https://www.facebook.com/legal/EU_data_transfer_addendum und https://de-de.facebook.com/help/566994660333381.",
+        "Soweit mit Hilfe des hier beschriebenen Tools personenbezogene Daten auf unserer Website erfasst und an Facebook weitergeleitet werden, sind wir und die Facebook Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland gemeinsam für diese Datenverarbeitung verantwortlich (Art. 26 DSGVO). Die gemeinsame Verantwortlichkeit beschränkt sich dabei ausschließlich auf die Erfassung der Daten und deren Weitergabe an Facebook. Die nach der Weiterleitung erfolgende Verarbeitung durch Facebook ist nicht Teil der gemeinsamen Verantwortung. Die uns gemeinsam obliegenden Verpflichtungen wurden in einer Vereinbarung über gemeinsame Verarbeitung festgehalten. Den Wortlaut der Vereinbarung finden Sie unter: https://www.facebook.com/legal/controller_addendum.",
+        "Laut dieser Vereinbarung sind wir für die Erteilung der Datenschutzinformationen beim Einsatz des Facebook-Tools und für die datenschutzrechtlich sichere Implementierung des Tools auf unserer Website verantwortlich. Für die Datensicherheit der Facebook-Produkte ist Facebook verantwortlich. Betroffenenrechte (z. B. Auskunftsersuchen) hinsichtlich der bei Facebook verarbeiteten Daten können Sie direkt bei Facebook geltend machen. Wenn Sie die Betroffenenrechte bei uns geltend machen, sind wir verpflichtet, diese an Facebook weiterzuleiten. In den Datenschutzhinweisen von Facebook finden Sie weitere Hinweise zum Schutz Ihrer Privatsphäre: https://de-de.facebook.com/about/privacy/.",
+        "Sie können außerdem die Remarketing-Funktion „Custom Audiences“ im Bereich Einstellungen für Werbeanzeigen unter https://www.facebook.com/ads/preferences/?entry_product=ad_settings_screen deaktivieren.",
+        "Dazu müssen Sie bei Facebook angemeldet sein. Wenn Sie kein Facebook Konto besitzen, können Sie nutzungsbasierte Werbung von Facebook auf der Website der European Interactive Digital Advertising Alliance deaktivieren: http://www.youronlinechoices.com/de/praferenzmanagement/.",
+      ],
+    },
+  ],
+};
