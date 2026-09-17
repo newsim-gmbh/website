@@ -15,19 +15,10 @@ export function Hero() {
         <div className="card-dark-gradient relative overflow-hidden rounded-[2rem] sm:rounded-[3rem]">
           <div className="relative px-6 py-14 sm:px-10 sm:py-16 lg:py-20 lg:pl-16 lg:pr-[380px] xl:pr-[460px]">
             <div>
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="mb-6 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-wide text-white/70 uppercase"
-              >
-                {hero.eyebrow}
-              </motion.p>
-
               <motion.h1
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.65, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
                 className="font-heading balance max-w-4xl whitespace-pre-line text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
               >
                 {hero.headline}

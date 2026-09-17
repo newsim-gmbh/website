@@ -212,16 +212,15 @@ export const trustBar: { icon: IconName; text: string }[] = [
 ];
 
 export const hero = {
-  eyebrow: "Diskussionspapier · Mobilfunk Opportunität",
-  headline: "Ihre Mobilfunkmarke.\nSo viel Kontrolle, wie Sie wollen.",
-  sub: "Vom vollständig gemanagten Full Service bis zur eigenen White-Label-MVNO-Plattform: newSIM ist Diensteanbieter gemäß TKG und MVNO im Netz von Telefónica — mit voller regulatorischer Abdeckung und ohne Mindest-Kommitment.",
+  headline: "Ihre Mobilfunkmarke.\nSo viel Kontrolle – wie Sie wollen.",
+  sub: "newSIM bietet Mobilfunk Konzepte als Managed Service im White-Label Format für die Partner im Netz der Telefónica an. Vom vollständig gemanagten Full Service als Branded Reseller bis zur eigenen White-Label-MVNO-Plattform — mit voller regulatorischer Abdeckung und ohne Mindest-Kommitment.",
 };
 
 export const businessValue = {
   eyebrow: "Warum Mobilfunk?",
   title: "Mobilfunk ist mehr als ein Zusatzprodukt — es ist ein Kundenbindungshebel.",
   intro:
-    "Als Mobilfunkspezialist mit eigener Mobile-as-a-Service-Plattform übernimmt newSIM die komplexen Teile — Netz, Regulierung, Billing —, damit Carrier, Stadtwerke und ISPs ihr Portfolio um ein eigenes Mobilfunk- und IoT/M2M-Angebot erweitern können.",
+    "Auf unserer Mobilfunk-as-a-Service-Plattform haben unsere Partner die Möglichkeit, ein individuelles Tarifportfolio für die Anforderungen aus jedem Kundensegment zu gestalten. Das gilt für Lösungen im Privatkunden- und Geschäftskundenbereich.",
   points: [
     {
       title: "Ohne Mindest-Kommitment",
