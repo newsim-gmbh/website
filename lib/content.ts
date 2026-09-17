@@ -248,6 +248,7 @@ export interface BusinessModel {
   navLabel: string; // Bezeichnung im Menü/als Seitentitel — kann von `name` abweichen
   step: number;
   name: string;
+  image: string;
   sourceName?: string;
   tagline: string;
   description: string;
@@ -266,6 +267,7 @@ export const models: BusinessModel[] = [
     navLabel: "Business Solutions",
     step: 1,
     name: "Full Service",
+    image: "produkt-business-solutions.webp",
     tagline: "Minimaler Aufwand — newSIM übernimmt praktisch alles.",
     description:
       "Individuelle Tarifangebote für den Geschäftskundenbereich. Flexible Laufzeiten mit Upgrade- und Downgrade-Möglichkeiten ganz nach Kundenwunsch — newSIM betreibt Tarif-Portfolio, Rufnummern-Management und SIM-Karten-Logistik direkt für den Geschäftskunden.",
@@ -281,6 +283,7 @@ export const models: BusinessModel[] = [
     navLabel: "Branded Reseller",
     step: 2,
     name: "Branded Reseller",
+    image: "produkt-branded-reseller.webp",
     tagline: "Eigene Marke in 4 Wochen — newSIM trägt den Großteil der Wertschöpfung.",
     description:
       "Eigene Mobilfunkmarke in nur 4 Wochen startklar. newSIM übernimmt den Großteil der Wertschöpfung — der Partner liefert Brand und Vertrieb.",
@@ -302,6 +305,7 @@ export const models: BusinessModel[] = [
     navLabel: "White Label Reseller",
     step: 3,
     name: "White Label Reseller",
+    image: "produkt-white-label-reseller.webp",
     tagline: "Eigener Brand, eigenes Pricing, maximaler Gestaltungsspielraum.",
     description:
       "Customizing in Look & Feel mit voller Commercial Ownership. Der Partner gestaltet das Tarif-Portfolio aktiv mit und hat maximalen Marge- und Gestaltungsspielraum.",
@@ -328,6 +332,7 @@ export const models: BusinessModel[] = [
     navLabel: "White Label MVNE Plattform",
     step: 4,
     name: "White Label MVNO Plattform",
+    image: "produkt-white-label-mvne.webp",
     tagline: "Volle Customer Ownership — newSIM liefert nur die Kernplattform.",
     description:
       "Volle Customer Ownership beim Partner — newSIM stellt nur die Kernplattform im Hintergrund und die Telefónica-Anbindung.",
@@ -720,6 +725,7 @@ export const contacts = [
 export interface UseCase {
   slug: string;
   name: string;
+  image: string;
   icon: IconName;
   heroTagline: string;
   challenge: string;
@@ -731,6 +737,7 @@ export const useCases: UseCase[] = [
   {
     slug: "mobilfunk-fachhandel",
     name: "Mobilfunk Fachhandel",
+    image: "usecase-mobilfunk-fachhandel.webp",
     icon: "smartphone",
     heroTagline: "Das eigene Mobilfunk-Portfolio im Laden und online erweitern.",
     challenge:
@@ -742,6 +749,7 @@ export const useCases: UseCase[] = [
   {
     slug: "stadtwerke-isp-glasfaser",
     name: "Stadtwerke, ISP & Glasfaseranbieter",
+    image: "usecase-stadtwerke-isp-glasfaser.webp",
     icon: "building",
     heroTagline: "Mobilfunk als natürliche Ergänzung zum Glasfaser-Portfolio.",
     challenge:
@@ -753,6 +761,7 @@ export const useCases: UseCase[] = [
   {
     slug: "itk-systemhaeuser",
     name: "ITK Systemhäuser",
+    image: "usecase-itk-systemhaeuser.webp",
     icon: "chip",
     heroTagline: "Mobilfunk als Baustein im B2B-Portfolio für Geschäftskunden.",
     challenge:
@@ -764,6 +773,7 @@ export const useCases: UseCase[] = [
   {
     slug: "banken-versicherungen",
     name: "Banken & Versicherungen",
+    image: "usecase-banken-versicherungen.webp",
     icon: "shield",
     heroTagline: "Mobilfunk als Cross-Selling- und Bindungsprodukt.",
     challenge:
@@ -775,6 +785,7 @@ export const useCases: UseCase[] = [
   {
     slug: "influencer",
     name: "Influencer",
+    image: "usecase-influencer.webp",
     icon: "link",
     heroTagline: "Der eigene Mobilfunktarif für die eigene Community.",
     challenge:
@@ -786,6 +797,7 @@ export const useCases: UseCase[] = [
   {
     slug: "vereine",
     name: "Vereine",
+    image: "usecase-vereine.webp",
     icon: "flag",
     heroTagline: "Mobilfunk-Vorteile für Mitglieder und Fans.",
     challenge:
@@ -799,6 +811,7 @@ export const useCases: UseCase[] = [
 export interface DeveloperPage {
   slug: string;
   name: string;
+  image: string;
   icon: IconName;
   heroTagline: string;
   overview: string;
@@ -809,6 +822,7 @@ export const developerPages: DeveloperPage[] = [
   {
     slug: "api",
     name: "API",
+    image: "developer-api.webp",
     icon: "chip",
     heroTagline: "Order Management, Reporting und BSS/OSS-Schnittstellen.",
     overview:
@@ -823,6 +837,7 @@ export const developerPages: DeveloperPage[] = [
   {
     slug: "telnology",
     name: "Telnology®",
+    image: "developer-telnology.webp",
     icon: "layers",
     heroTagline: "Die Enabling-Plattform hinter allen newSIM-Modellen.",
     overview:
@@ -839,6 +854,7 @@ export const developerPages: DeveloperPage[] = [
 export interface ConsultingService {
   slug: string;
   name: string;
+  image: string;
   icon: IconName;
   heroTagline: string;
   forWhom: string;
@@ -850,6 +866,7 @@ export const consultingServices: ConsultingService[] = [
   {
     slug: "g2m-strategie-mvno",
     name: "G2M-Strategie für MVNO",
+    image: "consulting-g2m-strategie.webp",
     icon: "chart",
     heroTagline: "Go-to-Market-Strategie für den eigenen Mobilfunk-Start.",
     forWhom: "Platzhalter: Für Unternehmen, die den Einstieg in ein eigenes Mobilfunk-Angebot strategisch vorbereiten wollen.",
@@ -863,6 +880,7 @@ export const consultingServices: ConsultingService[] = [
   {
     slug: "potentialanalyse-mobilfunk-glasfaser",
     name: "Potentialanalyse Mobilfunk & Glasfaser",
+    image: "consulting-potentialanalyse.webp",
     icon: "pulse",
     heroTagline: "Marktpotential für Ihr Portfolio einschätzen.",
     forWhom: "Platzhalter: Für Carrier, Stadtwerke und ISPs, die vor der Entscheidung stehen, ob und wie sich Mobilfunk in ihr Portfolio integrieren lässt.",
@@ -876,6 +894,7 @@ export const consultingServices: ConsultingService[] = [
   {
     slug: "sales-strategie-online-offline",
     name: "Sales-Strategie Online & Offline",
+    image: "consulting-sales-strategie.webp",
     icon: "link",
     heroTagline: "Vertriebsstrategie über alle Kanäle hinweg.",
     forWhom: "Platzhalter: Für Partner, die ihr Mobilfunk-Portfolio sowohl online als auch über den stationären Vertrieb erfolgreich vermarkten wollen.",
@@ -889,6 +908,7 @@ export const consultingServices: ConsultingService[] = [
   {
     slug: "kupfer-glasfaser-transformation",
     name: "Kupfer-Glasfaser-Transformation",
+    image: "consulting-kupfer-glasfaser-transformation.webp",
     icon: "tower",
     heroTagline: "Mobilfunk als Brücke bei der Netz-Transformation.",
     forWhom: "Platzhalter: Für Netzbetreiber, die Kunden während der Migration von Kupfer- auf Glasfaseranschlüsse überbrücken müssen.",

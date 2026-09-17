@@ -14,6 +14,7 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
         eyebrow="Consulting"
         title={service.name}
         tagline={service.heroTagline}
+        image={service.image}
         ctaLabel="Beratungsgespräch anfragen"
       />
 

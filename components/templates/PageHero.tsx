@@ -2,14 +2,18 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "../Container";
 import { PhoneMockup } from "../PhoneMockup";
 import { site } from "@/lib/content";
+import { basePath } from "@/lib/basePath";
 
 export function PageHero({
   eyebrow,
   title,
   tagline,
+  image,
+  imageAlt,
   phoneLabel,
   ctaLabel,
   ctaHref,
@@ -17,6 +21,8 @@ export function PageHero({
   eyebrow: string;
   title: string;
   tagline: string;
+  image?: string;
+  imageAlt?: string;
   phoneLabel?: string;
   ctaLabel?: string;
   ctaHref?: string;
@@ -42,7 +48,7 @@ export function PageHero({
       />
 
       <Container className="relative">
-        <div className="grid gap-10 lg:grid-cols-[1fr_240px] lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[1fr_320px] lg:items-center">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="mb-5 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-wide text-white/70 uppercase">
               {eyebrow}
@@ -59,15 +65,32 @@ export function PageHero({
             </Link>
           </motion.div>
 
-          {phoneLabel && (
+          {image ? (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="hidden lg:block"
+              className="relative hidden aspect-square overflow-hidden rounded-[2rem] border border-dark-line lg:block"
             >
-              <PhoneMockup tone="dark" label={phoneLabel} className="aspect-[9/16] w-full" />
+              <Image
+                src={`${basePath}/${image}`}
+                alt={imageAlt ?? title}
+                fill
+                sizes="320px"
+                className="object-cover"
+              />
             </motion.div>
+          ) : (
+            phoneLabel && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="hidden lg:block"
+              >
+                <PhoneMockup tone="dark" label={phoneLabel} className="aspect-[9/16] w-full" />
+              </motion.div>
+            )
           )}
         </div>
       </Container>

@@ -18,7 +18,7 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
         eyebrow="Produkte"
         title={model.navLabel}
         tagline={model.tagline}
-        phoneLabel={model.navLabel}
+        image={model.image}
       />
 
       <section className="bg-background py-24 sm:py-32">

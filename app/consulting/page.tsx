@@ -22,6 +22,7 @@ export default function ConsultingPage() {
           eyebrow="Consulting"
           title="Strategische Beratung rund um Mobilfunk & Glasfaser."
           tagline={item.intro ?? ""}
+          image="consulting-potentialanalyse.webp"
         />
         <HubGrid
           eyebrow="Leistungen"
