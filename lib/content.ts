@@ -914,7 +914,11 @@ export const impressum: LegalPageContent = {
     },
     {
       heading: "Gesellschaft",
-      paragraphs: ["Sitz der Gesellschaft: Marburg", "Amtsgericht – Registergericht: Marburg – HRB 6197"],
+      paragraphs: [
+        "Sitz der Gesellschaft: Marburg",
+        "Amtsgericht – Registergericht: Marburg – HRB 6197",
+        "Umsatzsteuer-Identifikationsnummer gem. § 27a UStG: DE286456457",
+      ],
     },
     {
       heading: "Urheberrechte und Haftung",
@@ -942,6 +946,27 @@ export const impressum: LegalPageContent = {
       ],
     },
   ],
+};
+
+// Kompakte Fassung derselben Pflichtangaben für den Footer (2 Spalten).
+export const companyLegal = {
+  left: {
+    heading: "Vertretungsberechtigte Geschäftsführer:",
+    lines: [
+      "Matthias Engelke, Norbert Schüppler",
+      "",
+      "Amtsgericht Marburg HRB 6197",
+      "Sitz der Gesellschaft: Marburg",
+      "Umsatzsteuer-Identifikationsnummer gem. § 27a UStG: DE286456457",
+    ],
+  },
+  right: {
+    heading: "Aufsichtsbehörde:",
+    lines: [
+      "Bundesnetzagentur für Elektrizität, Gas, Telekommunikation, Post und Eisenbahnen",
+      "Tulpenfeld 4 | 53113 Bonn",
+    ],
+  },
 };
 
 export const datenschutz: LegalPageContent = {
