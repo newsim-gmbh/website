@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { site, mainNav, contacts, companyLegal } from "@/lib/content";
+import { basePath } from "@/lib/basePath";
 
 export function Footer() {
   return (
@@ -85,7 +86,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 grid gap-8 border-t border-dark-line pt-8 text-xs leading-relaxed text-white/50 sm:grid-cols-2">
+        <div className="mt-16 grid gap-8 border-t border-dark-line pt-8 text-xs leading-relaxed text-white/50 sm:grid-cols-3">
           <div>
             <p className="text-white/70">{companyLegal.left.heading}</p>
             {companyLegal.left.lines.map((line, i) => (line ? <p key={i}>{line}</p> : <br key={i} />))}
@@ -95,6 +96,16 @@ export function Footer() {
             {companyLegal.right.lines.map((line, i) => (
               <p key={i}>{line}</p>
             ))}
+          </div>
+          <div className="flex items-start sm:justify-end">
+            <div className="inline-flex w-28 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-2 shadow-sm">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${basePath}/BMWi_Fz_2021_WebSVG_de.svg`}
+                alt="Gefördert durch: Bundesministerium für Wirtschaft und Klimaschutz, aufgrund eines Beschlusses des Deutschen Bundestages"
+                className="h-auto w-full"
+              />
+            </div>
           </div>
         </div>
 
