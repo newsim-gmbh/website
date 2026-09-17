@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
-import { site, mainNav, contacts } from "@/lib/content";
+import { site, mainNav, contacts, companyLegal } from "@/lib/content";
 
 export function Footer() {
   return (
@@ -85,7 +85,20 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-dark-line pt-8 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 grid gap-8 border-t border-dark-line pt-8 text-xs leading-relaxed text-white/50 sm:grid-cols-2">
+          <div>
+            <p className="text-white/70">{companyLegal.left.heading}</p>
+            {companyLegal.left.lines.map((line, i) => (line ? <p key={i}>{line}</p> : <br key={i} />))}
+          </div>
+          <div>
+            <p className="text-white/70">{companyLegal.right.heading}</p>
+            {companyLegal.right.lines.map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-4 border-t border-dark-line pt-8 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.legalName}. Alle Rechte vorbehalten.
           </p>
