@@ -266,7 +266,6 @@ export const models: BusinessModel[] = [
     navLabel: "Business Solutions",
     step: 1,
     name: "Full Service",
-    sourceName: "Business Solutions",
     tagline: "Minimaler Aufwand — newSIM übernimmt praktisch alles.",
     description:
       "Individuelle Tarifangebote für den Geschäftskundenbereich. Flexible Laufzeiten mit Upgrade- und Downgrade-Möglichkeiten ganz nach Kundenwunsch — newSIM betreibt Tarif-Portfolio, Rufnummern-Management und SIM-Karten-Logistik direkt für den Geschäftskunden.",
@@ -303,7 +302,6 @@ export const models: BusinessModel[] = [
     navLabel: "White Label Reseller",
     step: 3,
     name: "White Label Reseller",
-    sourceName: "White Label Modell / White Label Partner",
     tagline: "Eigener Brand, eigenes Pricing, maximaler Gestaltungsspielraum.",
     description:
       "Customizing in Look & Feel mit voller Commercial Ownership. Der Partner gestaltet das Tarif-Portfolio aktiv mit und hat maximalen Marge- und Gestaltungsspielraum.",
