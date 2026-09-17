@@ -366,7 +366,7 @@ export const comparisonTable = {
 
 export const capabilities = {
   eyebrow: "Was newSIM übernimmt",
-  title: "Die komplette Betriebs- und Regulierungslast — Sie liefern Marke und Vertrieb.",
+  title: "Sie liefern Marke und Vertrieb – newSIM übernimmt den Rest.",
   items: [
     { title: "Netz", body: "MVNO im Netz der Telefónica, LTE/5G, bundesweite Abdeckung.", icon: "wifi" as const },
     { title: "Tarife", body: "200+ Tarife im White-Label-Portfolio, 5–500 GB, Allnetflat & SMS-Flat.", icon: "tariff" as const },
