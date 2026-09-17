@@ -14,7 +14,7 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
 
   return (
     <>
-      <PageHero eyebrow="Use Case" title={useCase.name} tagline={useCase.heroTagline} phoneLabel={useCase.name} />
+      <PageHero eyebrow="Use Case" title={useCase.name} tagline={useCase.heroTagline} image={useCase.image} />
 
       <section className="bg-background py-24 sm:py-32">
         <Container>

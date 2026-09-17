@@ -22,6 +22,7 @@ export default function DeveloperPage() {
           eyebrow="Developer"
           title="Technisch angebunden an die Telnology®-Plattform."
           tagline={item.intro ?? ""}
+          image="developer-telnology.webp"
         />
         <HubGrid
           eyebrow="Ressourcen"

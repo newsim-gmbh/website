@@ -22,7 +22,7 @@ export default function UseCasesPage() {
           eyebrow="Use Cases"
           title="Für jede Branche das passende Modell."
           tagline={item.intro ?? ""}
-          phoneLabel="Ihre Marke"
+          image="hub-use-cases.webp"
         />
         <HubGrid
           eyebrow="Alle Use Cases"

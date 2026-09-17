@@ -22,7 +22,7 @@ export default function ProduktePage() {
           eyebrow="Produkte"
           title="Vier Modelle. Ein Ambitionslevel-Baukasten."
           tagline={item.intro ?? ""}
-          phoneLabel="Ihre Marke"
+          image="produkt-white-label-mvne.webp"
         />
         <HubGrid
           eyebrow="Alle Produkte"

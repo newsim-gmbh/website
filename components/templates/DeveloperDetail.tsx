@@ -11,7 +11,7 @@ import type { DeveloperPage } from "@/lib/content";
 export function DeveloperDetail({ page }: { page: DeveloperPage }) {
   return (
     <>
-      <PageHero eyebrow="Developer" title={page.name} tagline={page.heroTagline} />
+      <PageHero eyebrow="Developer" title={page.name} tagline={page.heroTagline} image={page.image} />
 
       <section className="bg-background py-24 sm:py-32">
         <Container>
