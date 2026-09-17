@@ -558,8 +558,37 @@ export const pricing = {
   },
 
   flyingStart: {
-    title: "Flying Start Glasfaser — Tarifpakete",
-    subtitle: "Konkrete Preise besprechen wir gerne im persönlichen Gespräch — hier der Leistungsumfang im Überblick.",
+    title: "Flying Start Glasfaser — Mobile Broadband",
+    subtitle:
+      "Die Komplett-Lösung überbrückt die Zeit bis zum aktiven Glasfaseranschluss. Konkrete Preise besprechen wir gerne im persönlichen Gespräch — hier der Leistungsumfang im Überblick.",
+    highlights: [
+      {
+        title: "Flexibel einsetzbar",
+        points: ["Keine Wartezeit", "Sofortige Aktivierung", "Passgenaue Laufzeit in Eigenregie"],
+        icon: "bolt" as const,
+      },
+      { title: "5G Router", points: ["FRITZ!", "TP-Link"], icon: "wifi" as const },
+      {
+        title: "Telefónica-Netz",
+        points: ["50 bis 150 Mbit/s Download", "Bundesweite Abdeckung"],
+        icon: "tower" as const,
+      },
+      {
+        title: "Für alle Kunden",
+        points: ["B2C – Ersatzlösung bis FTTH aktiv", "B2B – Backup Internet temporär", "Projekte – Mobile Router Lösungen"],
+        icon: "layers" as const,
+      },
+      {
+        title: "Endkundenlogistik",
+        points: ["Direktversand", "Router Service", "Refurbishment"],
+        icon: "portability" as const,
+      },
+      {
+        title: "Commercial Ownership",
+        points: ["Volle Kontrolle beim Partner", "Upgrade-Optionen für Endkunden"],
+        icon: "crown" as const,
+      },
+    ],
     packages: [
       {
         name: "Basis",

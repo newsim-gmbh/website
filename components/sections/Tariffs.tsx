@@ -6,6 +6,7 @@ import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem, Reveal } from "../Reveal";
 import { pricing, site } from "@/lib/content";
+import { Icon } from "../Icon";
 
 export function Tariffs() {
   const { tariffPortfolio, flyingStart, commercial, disclaimer } = pricing;
@@ -87,6 +88,26 @@ export function Tariffs() {
             </h3>
             <p className="mt-3 max-w-2xl text-ink-soft">{flyingStart.subtitle}</p>
           </Reveal>
+
+          <RevealGroup className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {flyingStart.highlights.map((h) => (
+              <motion.div
+                key={h.title}
+                variants={revealItem}
+                className="rounded-3xl border border-line bg-surface p-6"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary-ink">
+                  <Icon name={h.icon} className="h-5 w-5" />
+                </div>
+                <p className="font-heading mt-4 text-sm font-bold text-ink">{h.title}</p>
+                <ul className="mt-2 space-y-1 text-sm text-ink-soft">
+                  {h.points.map((p) => (
+                    <li key={p}>{p}</li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </RevealGroup>
 
           <RevealGroup className="mt-8 grid gap-6 sm:grid-cols-2">
             {flyingStart.packages.map((pkg) => (

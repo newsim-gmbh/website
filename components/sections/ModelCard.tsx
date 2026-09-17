@@ -58,42 +58,6 @@ export function ModelCard({ model }: { model: BusinessModel }) {
         </p>
       )}
 
-      <div className="mt-6 grid grid-cols-2 gap-4 text-xs">
-        <div className="min-w-0">
-          <p className="font-medium text-ink">newSIM übernimmt</p>
-          <ul className="mt-2 space-y-1.5 text-ink-soft">
-            {model.newSimResponsibilities.map((r) => (
-              <li key={r} className="flex min-w-0 gap-1.5">
-                <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                <span className="min-w-0 break-words hyphens-auto">{r}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="min-w-0">
-          <p className="font-medium text-ink">Sie übernehmen</p>
-          <ul className="mt-2 space-y-1.5 text-ink-soft">
-            {model.partnerResponsibilities.map((r) => (
-              <li key={r} className="flex min-w-0 gap-1.5">
-                <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-ink" />
-                <span className="min-w-0 break-words hyphens-auto">{r}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {model.keyBenefits && (
-        <div className="mt-6 space-y-2 border-t border-line pt-5">
-          {model.keyBenefits.map((b) => (
-            <div key={b.title} className="text-xs">
-              <span className="font-medium text-ink">{b.title}</span>{" "}
-              <span className="text-ink-soft">— {b.body}</span>
-            </div>
-          ))}
-        </div>
-      )}
-
       {model.sourceName && (
         <p className="mt-auto pt-6 text-[11px] text-ink-soft/60">
           Auch bekannt als &bdquo;{model.sourceName}&ldquo;
