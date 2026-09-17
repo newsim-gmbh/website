@@ -382,23 +382,25 @@ export const capabilities = {
 
 export const platform = {
   eyebrow: "Telnology® Plattform",
-  title: "Eine Enabling-Plattform & BSS für alle Vertriebskanäle.",
+  title: "Ein System für Produkt, Bestellung, Service und Abrechnung für alle Vertriebskanäle.",
   intro:
     "Die newSIM Telnology®-Plattform ist die Enabling-Plattform und das Business Support System (BSS) im Hintergrund — für B2C und B2B, über alle Vertriebskanäle hinweg.",
-  channels: ["Online Shop", "CRM / Order", "White Label App", "API / Web Interface"],
+  channelsLayer: {
+    label: "Vertriebskanäle · B2C · B2B · B2B2C",
+    items: ["Privatkunden", "Geschäftskunden", "ISP Carrier · Stadtwerke", "Mobilfunk Partner", "ITK Systemhäuser"],
+  },
+  coreLabel: "newSIM Telnology® Plattform",
   coreTitle: "Enabling-Plattform & Business Support System (BSS)",
-  coreSubtitle: "Ein System für Produkt, Bestellung, Service und Abrechnung",
   core: [
-    { title: "Product Management", body: "Tarife · Datenpromo · Roaming · Travel · IoT", icon: "tariff" as const },
     { title: "Order Management", body: "Activation · MNP · SIM-Logistik · Lettershop", icon: "clipboard" as const },
+    { title: "Product Management", body: "Tarife · Datenpromo · Roaming · Travel · IoT", icon: "tariff" as const },
     { title: "Customer Service", body: "1st & 2nd Level Support · Self-Service-Portal", icon: "support" as const },
     { title: "Billing & Rating", body: "CDR · Bonität · Inkasso · Reporting", icon: "invoice" as const },
   ],
-  network: [
-    "Telefónica Netzwerk (LTE/5G)",
-    "BNetzA Diensteanbieter-Status",
-    "TR-AAV · SARV-Server · Roaming",
-  ],
+  networkLayer: {
+    label: "Netz · Regulierung · Schnittstellen",
+    items: ["Telefónica Netzwerk (LTE/5G · IoT/M2M)", "BNetzA Diensteanbieter · TR-AAV", "API · Web Interface · SFTP"],
+  },
 };
 
 export const businessAreas = {
