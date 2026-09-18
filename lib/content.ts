@@ -566,23 +566,42 @@ export const socialProof = {
 
 export const launchProcess = {
   eyebrow: "Launch-Prozess",
-  title: "Einfacher kommerzieller Launch in 4–6 Wochen — live!",
-  newsim: [
-    "NDA für Vertrag & API",
-    "Angebot Tarife & Provisionen",
-    "Erstellung Vertragsentwurf",
-    "Tarif-Templates & Produktinfoblätter",
-    "Onboarding-Termin & Systemschulung (Webportal)",
-    "Absprache Aktivierungsprozess (API oder Web)",
+  title: "Kommerzieller Launch — paralleles Onboarding",
+  subtitle: "Exemplarischer Projektablauf mit Meilensteinen und den Ressourcen, die Sie als Partner stellen.",
+  phases: [
+    {
+      week: "Woche 0–1",
+      title: "Vertragsbasis",
+      newsim: ["NDA für Vertrag & API", "Angebot Tarife & Provisionen"],
+      partner: "Ansprechpartner aus der Geschäftsführung",
+    },
+    {
+      week: "Woche 2–3",
+      title: "Vertrag & Tarife",
+      newsim: ["Vertragsentwurf", "Tarif-Templates & Produktinfoblätter"],
+      partner: "Ansprechpartner aus dem Produktmanagement",
+    },
+    {
+      week: "Woche 3–4",
+      title: "Onboarding",
+      newsim: ["Onboarding-Termin & Systemschulung", "Webportal-Einrichtung"],
+      partner: "Erst-Termin per Teams",
+    },
+    {
+      week: "Woche 4–6",
+      title: "Launch",
+      newsim: ["Aktivierungsprozess Web oder API", "Go-live und Vermarktungsstart"],
+      partner: "Ansprechpartner IT für die API-Anbindung",
+    },
   ],
-  partner: [
-    "Ansprechpartner aus GF (Vertrag)",
-    "Ansprechpartner aus Produktmanagement (Tarife)",
-    "Ansprechpartner aus IT (API-Anbindung)",
-    "Erst-Termin per Teams",
-    "Bestellung SIM-Karten",
-    "Starttermin: Launch Web / API",
-  ],
+  partnerEffort:
+    "Drei benannte Ansprechpartner (Geschäftsführung, Produktmanagement, IT) — keine eigene Technik, keine eigene Regulierung, keine SIM-Logistik.",
+  milestone: {
+    duration: "4–6 Wochen",
+    body: "Vom unterzeichneten NDA bis zum kommerziellen Launch der eigenen Mobilfunkmarke.",
+  },
+  keyMessage:
+    "Sie stellen drei Ansprechpartner und Ihre Marke — alles Weitere läuft über die Telnology®-Plattform von newSIM.",
 };
 
 export const legal = {
