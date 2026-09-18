@@ -26,7 +26,7 @@ export interface NavChild {
   external?: boolean;
   comingSoon?: boolean;
   featured?: boolean;
-  images?: string[];
+  mockupImage?: string;
 }
 
 export interface NavItem {
@@ -124,7 +124,7 @@ export const mainNav: NavItem[] = [
         description: "Eigene Mobilfunk-App für Endkunden.",
         icon: "smartphone",
         external: true,
-        images: ["easytel-1.webp", "easytel-2.webp"],
+        mockupImage: "easytel-mockup.webp",
       },
       {
         label: "One Mobile World",
@@ -132,6 +132,7 @@ export const mainNav: NavItem[] = [
         description: "Reise-eSIM für über 200 Länder.",
         icon: "wifi",
         external: true,
+        mockupImage: "onemobile-mockup.webp",
       },
       {
         label: "Hardware Shop",

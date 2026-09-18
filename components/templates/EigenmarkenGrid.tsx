@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Container } from "../Container";
 import { Reveal, RevealGroup, revealItem } from "../Reveal";
 import { PhoneMockup } from "../PhoneMockup";
-import { IPhoneMockup } from "../IPhoneMockup";
 import type { NavChild } from "@/lib/content";
+import { basePath } from "@/lib/basePath";
 
 export function EigenmarkenGrid({ items }: { items: NavChild[] }) {
   return (
@@ -27,17 +28,14 @@ export function EigenmarkenGrid({ items }: { items: NavChild[] }) {
               variants={revealItem}
               className="flex flex-col overflow-hidden rounded-3xl border border-dark-line card-dark-gradient p-8"
             >
-              {item.images && item.images.length >= 2 ? (
-                <div className="flex h-52 items-center justify-center gap-3">
-                  <IPhoneMockup
-                    src={item.images[0]}
-                    alt={`${item.label} Screenshot 1`}
-                    className="h-48 -rotate-3"
-                  />
-                  <IPhoneMockup
-                    src={item.images[1]}
-                    alt={`${item.label} Screenshot 2`}
-                    className="h-52 translate-y-1 rotate-3"
+              {item.mockupImage ? (
+                <div className="relative h-52">
+                  <Image
+                    src={`${basePath}/${item.mockupImage}`}
+                    alt={`${item.label} App-Mockup`}
+                    fill
+                    sizes="360px"
+                    className="object-contain"
                   />
                 </div>
               ) : (
