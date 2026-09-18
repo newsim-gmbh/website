@@ -2,17 +2,20 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { mainNav, contacts } from "@/lib/content";
+import { models, contacts } from "@/lib/content";
 
-const topics = [...mainNav.map((n) => n.label), "Sonstiges"];
+const products = [...models.map((m) => m.navLabel), "Sonstiges"];
+const brekoOptions = ["Keine Angabe", "Ja", "Nein"];
 
 export function ContactForm() {
   const [form, setForm] = useState({
     name: "",
     company: "",
+    position: "",
     email: "",
     phone: "",
-    topic: topics[0],
+    product: products[0],
+    brekoMember: brekoOptions[0],
     message: "",
   });
   const [sent, setSent] = useState(false);
@@ -29,13 +32,15 @@ export function ContactForm() {
     }
     setError(null);
 
-    const subject = `Kontaktanfrage (${form.topic}) — ${form.name}`;
+    const subject = `Kontaktanfrage (${form.product}) — ${form.name}`;
     const body = [
       `Name: ${form.name}`,
       form.company && `Firma: ${form.company}`,
+      form.position && `Position: ${form.position}`,
       `E-Mail: ${form.email}`,
       form.phone && `Telefon: ${form.phone}`,
-      `Thema: ${form.topic}`,
+      `Produkt: ${form.product}`,
+      form.brekoMember !== brekoOptions[0] && `BREKO-Mitglied: ${form.brekoMember}`,
       "",
       form.message,
     ]
@@ -61,6 +66,15 @@ export function ContactForm() {
           <input value={form.company} onChange={update("company")} className={inputClass} placeholder="Unternehmen" />
         </div>
         <div>
+          <label className="mb-1.5 block text-sm font-medium text-ink">Position im Unternehmen</label>
+          <input
+            value={form.position}
+            onChange={update("position")}
+            className={inputClass}
+            placeholder="z. B. Geschäftsführung, Einkauf"
+          />
+        </div>
+        <div>
           <label className="mb-1.5 block text-sm font-medium text-ink">E-Mail *</label>
           <input required type="email" value={form.email} onChange={update("email")} className={inputClass} placeholder="name@firma.de" />
         </div>
@@ -68,12 +82,22 @@ export function ContactForm() {
           <label className="mb-1.5 block text-sm font-medium text-ink">Telefon</label>
           <input value={form.phone} onChange={update("phone")} className={inputClass} placeholder="Optional" />
         </div>
-        <div className="sm:col-span-2">
-          <label className="mb-1.5 block text-sm font-medium text-ink">Thema</label>
-          <select value={form.topic} onChange={update("topic")} className={inputClass}>
-            {topics.map((t) => (
-              <option key={t} value={t}>
-                {t}
+        <div>
+          <label className="mb-1.5 block text-sm font-medium text-ink">Produkt</label>
+          <select value={form.product} onChange={update("product")} className={inputClass}>
+            {products.map((p) => (
+              <option key={p} value={p}>
+                {p}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className="mb-1.5 block text-sm font-medium text-ink">BREKO-Mitglied</label>
+          <select value={form.brekoMember} onChange={update("brekoMember")} className={inputClass}>
+            {brekoOptions.map((o) => (
+              <option key={o} value={o}>
+                {o}
               </option>
             ))}
           </select>
