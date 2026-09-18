@@ -25,6 +25,7 @@ export interface NavChild {
   icon: IconName;
   external?: boolean;
   comingSoon?: boolean;
+  featured?: boolean;
 }
 
 export interface NavItem {
@@ -51,12 +52,14 @@ export const mainNav: NavItem[] = [
         href: "/produkte/branded-reseller",
         description: "Eigene Marke in 4 Wochen, minimaler Aufwand.",
         icon: "flag",
+        featured: true,
       },
       {
         label: "White Label Reseller",
         href: "/produkte/white-label-reseller",
         description: "Eigenes Pricing, maximaler Gestaltungsspielraum.",
         icon: "sliders",
+        featured: true,
       },
       {
         label: "White Label MVNE Plattform",
