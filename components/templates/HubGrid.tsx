@@ -26,7 +26,7 @@ export function HubGrid({
   items: HubGridItem[];
 }) {
   return (
-    <section className="bg-dark pb-24 text-white sm:pb-32">
+    <section className="bg-dark pt-16 pb-24 text-white sm:pt-24 sm:pb-32">
       <Container>
         <SectionHeading eyebrow={eyebrow} title={title} body={intro} dark />
 
