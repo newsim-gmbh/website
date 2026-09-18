@@ -259,6 +259,8 @@ export interface BusinessModel {
   newSimResponsibilities: string[];
   partnerResponsibilities: string[];
   keyBenefits?: { title: string; body: string }[];
+  process?: string[];
+  faq?: { q: string; a: string }[];
   ownershipLevel: number; // 1–4, für die visuelle Vergleichsleiste
   icon: IconName;
 }
@@ -277,6 +279,22 @@ export const models: BusinessModel[] = [
     idealFor: "Geschäftskunden mit individuellem Mobilfunkbedarf, ohne eigenen Reseller-Aufwand",
     newSimResponsibilities: ["Tarif-Portfolio", "Rufnummern-Management", "SIM-Karten-Logistik"],
     partnerResponsibilities: ["Aktivierung / Deaktivierung", "Endkundenbeziehung"],
+    process: [
+      "Platzhalter: Erstgespräch zur Abstimmung des Tarifbedarfs",
+      "Individuelles Tarifportfolio wird für den Geschäftskundenbereich konfiguriert",
+      "Rufnummern-Management und SIM-Karten-Logistik werden eingerichtet",
+      "Platzhalter: Live-Schaltung für die Aktivierung durch den Partner",
+    ],
+    faq: [
+      {
+        q: "Wer betreut die Endkunden im Alltag?",
+        a: "newSIM betreibt Tarif-Portfolio, Rufnummern-Management und SIM-Karten-Logistik direkt für den Geschäftskunden — Sie übernehmen Aktivierung, Deaktivierung und die Kundenbeziehung.",
+      },
+      {
+        q: "Wie lange dauert die Einrichtung?",
+        a: "Platzhalter: Angaben zur Umsetzungsdauer folgen.",
+      },
+    ],
     ownershipLevel: 1,
     icon: "support",
   },
@@ -298,6 +316,30 @@ export const models: BusinessModel[] = [
       { title: "10% Marge", body: "Fixierte Abschlussprovision pro Vertrag" },
       { title: "Niedrige Komplexität", body: "newSIM übernimmt fast die gesamte Wertschöpfung" },
       { title: "Fertige Bausteine", body: "Landingpage, Bestellstrecke, Support gerouted" },
+    ],
+    process: [
+      "Kickoff & Vertragsabschluss",
+      "Branding: Landingpage und Bestellstrecke im eigenen Look & Feel",
+      "Tarif-Portfolio und Provisionsmodell (10% Marge) werden eingerichtet",
+      "Live-Start nach 4 Wochen",
+    ],
+    faq: [
+      {
+        q: "Wie schnell ist mein Tarif live?",
+        a: "In der Regel innerhalb von 4 Wochen ab Vertragsabschluss.",
+      },
+      {
+        q: "Wie hoch ist meine Marge?",
+        a: "10% fixierte Abschlussprovision pro Vertrag.",
+      },
+      {
+        q: "Was muss ich selbst übernehmen?",
+        a: "Sie liefern Marke, Marketing & Sales sowie die Endkundenbeziehung — newSIM übernimmt Customer Service 1st Level, Billing & Inkasso und das Tarif-Portfolio.",
+      },
+      {
+        q: "Brauche ich eine eigene Kundenhotline?",
+        a: "Platzhalter: Angaben zu optionalen Support-Erweiterungen folgen.",
+      },
     ],
     ownershipLevel: 2,
     icon: "flag",
@@ -326,6 +368,22 @@ export const models: BusinessModel[] = [
       { title: "Direkter Kundenkontakt", body: "Kundenhotline beim Partner gerouted" },
       { title: "Skalierbar", body: "B2C, B2B und Projektgeschäft kombinierbar" },
     ],
+    process: [
+      "Platzhalter: Kickoff & Abstimmung Commercial Ownership",
+      "Eigenes Pricing und Tarif-Portfolio werden gestaltet",
+      "1st-Level-Support-Prozesse werden beim Partner aufgesetzt",
+      "Platzhalter: Live-Start nach individueller Vorlaufzeit",
+    ],
+    faq: [
+      {
+        q: "Wer legt die Tarifpreise fest?",
+        a: "Sie — mit eigener Pricing-Logik und individueller Marge.",
+      },
+      {
+        q: "Wer übernimmt den Support?",
+        a: "1st Level Support liegt bei Ihnen, 2nd Level Support, Plattform-Betrieb und Regulierung (BNetzA) übernimmt newSIM.",
+      },
+    ],
     ownershipLevel: 3,
     icon: "sliders",
   },
@@ -346,6 +404,22 @@ export const models: BusinessModel[] = [
       "Tarif-Portfolio",
       "Customer Service End-to-End",
       "Regulierung BNetzA",
+    ],
+    process: [
+      "Platzhalter: Kickoff & technische Anbindung",
+      "Telefónica-Netzanbindung wird eingerichtet",
+      "Eigenes Tarif-Portfolio und Customer-Service-Prozesse werden aufgebaut",
+      "Platzhalter: Live-Start als vollwertiger MVNO",
+    ],
+    faq: [
+      {
+        q: "Was liefert newSIM bei diesem Modell?",
+        a: "Nur die Kernplattform im Hintergrund und die Telefónica-Anbindung — die volle Customer Ownership bleibt bei Ihnen.",
+      },
+      {
+        q: "Wer übernimmt Regulierung und Support?",
+        a: "Beides liegt vollständig bei Ihnen: Customer Service End-to-End sowie die Regulierung gegenüber der BNetzA.",
+      },
     ],
     ownershipLevel: 4,
     icon: "crown",
@@ -733,6 +807,10 @@ export interface UseCase {
   heroTagline: string;
   challenge: string;
   solution: string;
+  painPoints?: string[];
+  solutionSteps?: string[];
+  exampleLabel?: string;
+  faq?: { q: string; a: string }[];
   recommendedModelIds: ModelId[];
 }
 
@@ -747,6 +825,20 @@ export const useCases: UseCase[] = [
       "Platzhalter: Fachhändler brauchen ein wettbewerbsfähiges Mobilfunk-Portfolio, ohne selbst Netzbetreiber-Know-how oder eigene Regulierungs-Zulassung aufzubauen.",
     solution:
       "Platzhalter: Über die Telnology®-Plattform lässt sich ein eigenes Tarif-Portfolio direkt in die bestehende Verkaufsstrecke integrieren — im Laden wie im Online-Shop.",
+    painPoints: [
+      "Platzhalter: Kein wettbewerbsfähiges Mobilfunk-Portfolio ohne eigenes Netzbetreiber-Know-how.",
+      "Platzhalter: Eigene Regulierungs-Zulassung ist zu aufwändig, um sie selbst aufzubauen.",
+      "Platzhalter: Ladengeschäft und Online-Shop sollen ein einheitliches Portfolio zeigen.",
+    ],
+    solutionSteps: [
+      "Platzhalter: Tarif-Portfolio über die Telnology®-Plattform direkt in die Verkaufsstrecke integrieren.",
+      "Platzhalter: Einheitliche Nutzung im Laden und im Online-Shop.",
+      "Platzhalter: newSIM übernimmt Netzanbindung und Regulierung im Hintergrund.",
+    ],
+    faq: [
+      { q: "Platzhalter: Frage zur Einrichtung im Ladengeschäft.", a: "Platzhalter: Antwort folgt." },
+      { q: "Platzhalter: Frage zur Online-Integration.", a: "Platzhalter: Antwort folgt." },
+    ],
     recommendedModelIds: ["branded-reseller", "white-label-reseller"],
   },
   {
@@ -759,6 +851,20 @@ export const useCases: UseCase[] = [
       "Platzhalter: Stadtwerke und regionale ISPs wollen ihr Glasfaser-Portfolio um Mobilfunk erweitern, um Kunden ganzheitlich zu binden — klassischerweise ein hoher regulatorischer und technischer Einstiegsaufwand.",
     solution:
       "Platzhalter: newSIM übernimmt Netzanbindung, Regulierung und Plattform-Betrieb, während der Partner sein Portfolio unter eigener Marke vermarktet — inklusive Flying-Start-Glasfaser-Lösung als Überbrückung bis zur FTTH-Aktivierung.",
+    painPoints: [
+      "Platzhalter: Glasfaser-Portfolio soll um Mobilfunk erweitert werden, um Kunden ganzheitlich zu binden.",
+      "Platzhalter: Hoher regulatorischer und technischer Einstiegsaufwand für ein eigenes Mobilfunkangebot.",
+      "Platzhalter: Übergangszeit bis zur FTTH-Aktivierung muss überbrückt werden.",
+    ],
+    solutionSteps: [
+      "Platzhalter: newSIM übernimmt Netzanbindung, Regulierung und Plattform-Betrieb.",
+      "Platzhalter: Vermarktung des Portfolios unter eigener Marke.",
+      "Platzhalter: Flying-Start-Glasfaser-Lösung als Überbrückung bis zur FTTH-Aktivierung.",
+    ],
+    faq: [
+      { q: "Platzhalter: Frage zur Flying-Start-Lösung.", a: "Platzhalter: Antwort folgt." },
+      { q: "Platzhalter: Frage zum regulatorischen Aufwand.", a: "Platzhalter: Antwort folgt." },
+    ],
     recommendedModelIds: ["white-label-reseller", "white-label-mvno"],
   },
   {
@@ -771,6 +877,20 @@ export const useCases: UseCase[] = [
       "Platzhalter: ITK-Systemhäuser betreuen Geschäftskunden ganzheitlich — Mobilfunk fehlt oft als eigenständiger, margenstarker Baustein im Portfolio.",
     solution:
       "Platzhalter: Individuelle B2B-Tarife und IoT/M2M-Konnektivität lassen sich direkt in bestehende Kundenbeziehungen integrieren, ohne eigene Netzinfrastruktur.",
+    painPoints: [
+      "Platzhalter: Mobilfunk fehlt als eigenständiger, margenstarker Baustein im B2B-Portfolio.",
+      "Platzhalter: Keine eigene Netzinfrastruktur vorhanden, um Mobilfunk selbst anzubieten.",
+      "Platzhalter: Geschäftskunden erwarten ganzheitliche Betreuung aus einer Hand.",
+    ],
+    solutionSteps: [
+      "Platzhalter: Individuelle B2B-Tarife direkt in bestehende Kundenbeziehungen integrieren.",
+      "Platzhalter: IoT/M2M-Konnektivität als zusätzlichen Baustein ergänzen.",
+      "Platzhalter: newSIM übernimmt Netzanbindung und Plattform-Betrieb im Hintergrund.",
+    ],
+    faq: [
+      { q: "Platzhalter: Frage zur IoT/M2M-Integration.", a: "Platzhalter: Antwort folgt." },
+      { q: "Platzhalter: Frage zur Margenstruktur.", a: "Platzhalter: Antwort folgt." },
+    ],
     recommendedModelIds: ["full-service", "branded-reseller"],
   },
   {
@@ -783,6 +903,20 @@ export const useCases: UseCase[] = [
       "Platzhalter: Banken und Versicherungen suchen nach zusätzlichen, alltagsrelevanten Produkten zur Kundenbindung — mit hohen Anforderungen an Regulierung und Markenauftritt.",
     solution:
       "Platzhalter: Ein vollständig White-Label-fähiges Mobilfunkprodukt lässt sich unter eigener Marke und im eigenen Compliance-Rahmen anbieten, während newSIM die regulatorische und technische Basis stellt.",
+    painPoints: [
+      "Platzhalter: Zusätzliche, alltagsrelevante Produkte zur Kundenbindung werden gesucht.",
+      "Platzhalter: Hohe Anforderungen an Regulierung und Markenauftritt in der Finanzbranche.",
+      "Platzhalter: Ein Fremdprodukt ohne eigenes Branding wirkt nicht vertrauenswürdig genug.",
+    ],
+    solutionSteps: [
+      "Platzhalter: Vollständig White-Label-fähiges Mobilfunkprodukt unter eigener Marke.",
+      "Platzhalter: Betrieb im eigenen Compliance-Rahmen.",
+      "Platzhalter: newSIM stellt die regulatorische und technische Basis.",
+    ],
+    faq: [
+      { q: "Platzhalter: Frage zu Compliance-Anforderungen.", a: "Platzhalter: Antwort folgt." },
+      { q: "Platzhalter: Frage zur Markenintegration.", a: "Platzhalter: Antwort folgt." },
+    ],
     recommendedModelIds: ["white-label-reseller", "white-label-mvno"],
   },
   {
@@ -795,6 +929,31 @@ export const useCases: UseCase[] = [
       "Platzhalter: Creator mit großer Reichweite wollen ein eigenes, glaubwürdiges Produkt für ihre Community anbieten — ohne selbst ein Telekommunikationsunternehmen aufzubauen.",
     solution:
       "Platzhalter: Ein Branded-Reseller-Tarif ist in wenigen Wochen startklar und lässt sich vollständig unter eigenem Namen und Look & Feel vermarkten.",
+    painPoints: [
+      "Ihre Community erwartet ein eigenes, glaubwürdiges Angebot — keine austauschbare Werbepartnerschaft.",
+      "Ein eigenes Telekommunikationsunternehmen aufzubauen ist regulatorisch und technisch viel zu aufwändig.",
+      "Ohne echte Markenkontrolle wirkt ein fremder Tarif nicht authentisch für die eigene Marke.",
+    ],
+    solutionSteps: [
+      "Ein Branded-Reseller-Tarif unter Ihrem eigenen Namen und Look & Feel.",
+      "Startklar in wenigen Wochen statt Monaten.",
+      "newSIM übernimmt Betrieb, Abrechnung und Support im Hintergrund.",
+    ],
+    exampleLabel: "In 4 Wochen live · Ihre Marke",
+    faq: [
+      {
+        q: "Wie schnell ist mein eigener Tarif startklar?",
+        a: "Als Branded Reseller in der Regel innerhalb von 4 Wochen.",
+      },
+      {
+        q: "Wie viel verdiene ich pro Vertrag?",
+        a: "Als Branded Reseller erhalten Sie eine fixierte Abschlussprovision von 10% pro Vertrag.",
+      },
+      {
+        q: "Brauche ich eine eigene Firma für einen eigenen Mobilfunktarif?",
+        a: "Platzhalter: Angaben zu den rechtlichen Voraussetzungen folgen.",
+      },
+    ],
     recommendedModelIds: ["branded-reseller"],
   },
   {
@@ -807,6 +966,15 @@ export const useCases: UseCase[] = [
       "Platzhalter: Vereine suchen nach zusätzlichen Mitgliedervorteilen und Einnahmequellen, ohne eigenen administrativen Mehraufwand.",
     solution:
       "Platzhalter: Ein einfacher, unter Vereinsmarke vermarkteter Mobilfunktarif schafft einen Mitgliedervorteil mit geringem Betriebsaufwand für den Verein selbst.",
+    painPoints: [
+      "Platzhalter: Zusätzliche Mitgliedervorteile und Einnahmequellen werden gesucht.",
+      "Platzhalter: Kein eigener administrativer Mehraufwand soll entstehen.",
+    ],
+    solutionSteps: [
+      "Platzhalter: Einfacher, unter Vereinsmarke vermarkteter Mobilfunktarif.",
+      "Platzhalter: Mitgliedervorteil mit geringem Betriebsaufwand für den Verein.",
+    ],
+    faq: [{ q: "Platzhalter: Frage zum administrativen Aufwand.", a: "Platzhalter: Antwort folgt." }],
     recommendedModelIds: ["full-service", "branded-reseller"],
   },
 ];
