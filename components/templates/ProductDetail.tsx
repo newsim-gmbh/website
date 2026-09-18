@@ -9,6 +9,7 @@ import { Icon } from "../Icon";
 import { StepList } from "../StepList";
 import { FaqAccordion } from "../FaqAccordion";
 import { WhiteLabelBlocksGrid } from "../WhiteLabelBlocksGrid";
+import { ComparisonTable } from "../sections/ComparisonTable";
 import type { BusinessModel } from "@/lib/content";
 import { models, useCases, site, whiteLabelBuildingBlocksSection } from "@/lib/content";
 
@@ -109,6 +110,25 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
           </div>
         </Container>
       </section>
+
+      {whiteLabelEligible.includes(model.id) && (
+        <section className="bg-background py-16 sm:py-20">
+          <Container>
+            <Reveal className="max-w-2xl">
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Einordnung</p>
+              <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                Zwei Wege zur eigenen Mobilfunkmarke.
+              </h2>
+              <p className="balance mt-4 text-base leading-relaxed text-ink-soft">
+                Branded Reseller und White Label Reseller verfolgen dasselbe Ziel: Ihre eigene Mobilfunkmarke im
+                Markt. Der Unterschied liegt darin, wie viel Verantwortung, Kontrolle und Marge Sie selbst
+                übernehmen — im direkten Vergleich:
+              </p>
+            </Reveal>
+            <ComparisonTable />
+          </Container>
+        </section>
+      )}
 
       {whiteLabelEligible.includes(model.id) && (
         <section id="bausteine" className="bg-dark py-20 text-white sm:py-28">
