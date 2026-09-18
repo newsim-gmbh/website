@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import clsx from "clsx";
 import { Container } from "../Container";
 import { PageHero } from "./PageHero";
 import { PhoneMockup } from "../PhoneMockup";
@@ -50,6 +51,87 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
           </RevealGroup>
         </Container>
       </section>
+
+      {useCase.quadPlay && (
+        <section className="bg-surface py-20 sm:py-28">
+          <Container>
+            <Reveal className="max-w-2xl">
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">
+                {useCase.quadPlay.eyebrow}
+              </p>
+              <h2 className="font-heading balance mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                {useCase.quadPlay.title}
+              </h2>
+              <p className="balance mt-4 text-base leading-relaxed text-ink-soft">{useCase.quadPlay.subtitle}</p>
+            </Reveal>
+
+            <Reveal delay={0.1} className="mt-10 rounded-3xl border border-line bg-background p-8 sm:p-10">
+              <p className="text-xs font-medium tracking-wide text-ink-soft uppercase">Portfolio im Vergleich</p>
+              <div className="mt-6 grid items-center gap-6 sm:grid-cols-[1fr_auto_1fr] sm:gap-8">
+                <div>
+                  <p className="font-heading text-sm font-bold text-ink">Triple Play</p>
+                  <p className="text-xs text-ink-soft">Carrier</p>
+                  <div className="mt-3 space-y-2">
+                    {useCase.quadPlay.triplePlay.map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-xl bg-line/50 px-4 py-3 text-center text-sm font-medium text-ink-soft"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex justify-center">
+                  <span aria-hidden className="text-2xl text-ink-soft/60">
+                    →
+                  </span>
+                </div>
+
+                <div>
+                  <p className="font-heading text-sm font-bold text-ink">Quad Play</p>
+                  <p className="text-xs text-primary-ink">{useCase.quadPlay.quadPlayLabel}</p>
+                  <div className="mt-3 space-y-2">
+                    {useCase.quadPlay.quadPlay.map((item) => (
+                      <div
+                        key={item}
+                        className={clsx(
+                          "rounded-xl px-4 py-3 text-center text-sm font-medium",
+                          item === "Mobilfunk" ? "bg-sky text-ink" : "bg-line/50 text-ink-soft"
+                        )}
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <RevealGroup className="mt-6 grid gap-5 sm:grid-cols-3">
+              {useCase.quadPlay.points.map((point, i) => (
+                <motion.div
+                  key={point.title}
+                  variants={revealItem}
+                  className="rounded-2xl border border-line bg-background p-6"
+                >
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-sm font-semibold text-white">
+                    {i + 1}
+                  </span>
+                  <p className="font-heading mt-3 text-sm font-bold text-ink">{point.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">{point.body}</p>
+                </motion.div>
+              ))}
+            </RevealGroup>
+
+            <Reveal delay={0.15} className="mt-6 rounded-2xl bg-ink p-6 text-white">
+              <p className="text-xs font-medium tracking-wide text-white/50 uppercase">Key Message</p>
+              <p className="mt-2 text-base leading-relaxed">{useCase.quadPlay.keyMessage}</p>
+            </Reveal>
+          </Container>
+        </section>
+      )}
 
       <section className="bg-dark py-20 text-white sm:py-28">
         <Container>

@@ -843,6 +843,17 @@ export const contacts = [
 // Kundenreferenzen. Werden im nächsten Schritt durch finale Texte ersetzt.
 // ---------------------------------------------------------------------------
 
+export interface QuadPlayComparison {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  triplePlay: string[];
+  quadPlay: string[];
+  quadPlayLabel: string;
+  points: { title: string; body: string }[];
+  keyMessage: string;
+}
+
 export interface UseCase {
   slug: string;
   name: string;
@@ -854,6 +865,7 @@ export interface UseCase {
   painPoints?: string[];
   solutionSteps?: string[];
   exampleLabel?: string;
+  quadPlay?: QuadPlayComparison;
   faq?: { q: string; a: string }[];
   recommendedModelIds: ModelId[];
 }
@@ -896,18 +908,46 @@ export const useCases: UseCase[] = [
     solution:
       "Platzhalter: newSIM übernimmt Netzanbindung, Regulierung und Plattform-Betrieb, während der Partner sein Portfolio unter eigener Marke vermarktet — inklusive Flying-Start-Glasfaser-Lösung als Überbrückung bis zur FTTH-Aktivierung.",
     painPoints: [
-      "Platzhalter: Glasfaser-Portfolio soll um Mobilfunk erweitert werden, um Kunden ganzheitlich zu binden.",
-      "Platzhalter: Hoher regulatorischer und technischer Einstiegsaufwand für ein eigenes Mobilfunkangebot.",
-      "Platzhalter: Übergangszeit bis zur FTTH-Aktivierung muss überbrückt werden.",
+      "Nationale Anbieter wie Telekom, Vodafone, Telefónica, 1&1 und freenet verkaufen Internet, Festnetz, TV und Mobilfunk aus einer Hand — mit Bundle-Rabatt.",
+      "Sobald Open Access das eigene Netz für den Wettbewerb öffnet, entscheidet das Gesamtpaket über den Endkunden — nicht die Leitung.",
+      "Ohne Mobilfunk fehlt Bundling-Umsatz im Bestand, und das Churn-Risiko steigt bei jedem Vertragsende des Glasfaseranschlusses.",
     ],
     solutionSteps: [
-      "Platzhalter: newSIM übernimmt Netzanbindung, Regulierung und Plattform-Betrieb.",
-      "Platzhalter: Vermarktung des Portfolios unter eigener Marke.",
-      "Platzhalter: Flying-Start-Glasfaser-Lösung als Überbrückung bis zur FTTH-Aktivierung.",
+      "Mobilfunk wird zur vierten Säule direkt neben Internet, Festnetz und TV — vom Triple Play zum Quad Play.",
+      "newSIM übernimmt Netzanbindung, Regulierung und Plattform-Betrieb im Hintergrund.",
+      "Flying-Start-Glasfaser-Lösung überbrückt die Zeit bis zur FTTH-Aktivierung.",
     ],
+    quadPlay: {
+      eyebrow: "Die Herausforderung",
+      title: "Ohne Mobilfunk fehlt die vierte Säule im Open-Access-Wettbewerb.",
+      subtitle:
+        "Nationale Anbieter verkaufen Komplettpakete, regionale Netzbetreiber in der Regel nur drei von vier Diensten.",
+      triplePlay: ["TV", "Telefonie", "Internet"],
+      quadPlay: ["Mobilfunk", "TV", "Telefonie", "Internet"],
+      quadPlayLabel: "mit newSIM",
+      points: [
+        {
+          title: "Komplettportfolio der nationalen Diensteanbieter",
+          body: "Telekom, Vodafone, Telefónica, 1&1 und freenet verkaufen Internet, Festnetz, TV und Mobilfunk aus einer Hand — mit Bundle-Rabatt.",
+        },
+        {
+          title: "Open Access öffnet das eigene Netz für den Wettbewerb",
+          body: "Sobald nationale Anbieter auf das regionale Netz dürfen, entscheidet das Gesamtpaket über den Endkunden — nicht die Leitung.",
+        },
+        {
+          title: "Fehlender Mobilfunk kostet doppelt",
+          body: "Mobilfunk ergänzt das Produktsortiment als Dienst und Access-Alternative. Kein Bundling-Umsatz im Bestand und höhere Churn-Gefahr bei jedem Vertragsende des Glasfaseranschlusses.",
+        },
+      ],
+      keyMessage:
+        "Der Wettbewerb wird über das Bündel entschieden. Wer Mobilfunk nicht anbietet, verteidigt seinen Glasfaseranschluss allein über den Preis.",
+    },
     faq: [
+      {
+        q: "Was ist Open Access?",
+        a: "Regulatorisch verpflichtete Öffnung des eigenen Glasfasernetzes für andere Anbieter — sobald das gilt, entscheidet das Gesamtpaket über den Endkunden, nicht mehr die Leitung allein.",
+      },
       { q: "Platzhalter: Frage zur Flying-Start-Lösung.", a: "Platzhalter: Antwort folgt." },
-      { q: "Platzhalter: Frage zum regulatorischen Aufwand.", a: "Platzhalter: Antwort folgt." },
     ],
     recommendedModelIds: ["white-label-reseller", "white-label-mvno"],
   },
