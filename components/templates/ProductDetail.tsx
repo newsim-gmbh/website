@@ -20,7 +20,7 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
       <PageHero eyebrow="Produkte" title={model.navLabel} tagline={model.tagline} image={model.image} />
 
       {model.keyBenefits && (
-        <section className="border-t border-white/10 bg-dark py-14 text-white">
+        <section className="bg-dark py-14 text-white">
           <Container>
             <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4">
               {model.keyBenefits.map((b) => (
