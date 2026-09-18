@@ -6,50 +6,56 @@ import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem, Reveal } from "../Reveal";
 import { launchProcess } from "@/lib/content";
 
-function Steps({ label, steps }: { label: string; steps: readonly string[] }) {
-  return (
-    <motion.div
-      variants={revealItem}
-      className="rounded-3xl border border-dark-line card-dark-gradient p-8"
-    >
-      <p className="text-sm font-medium tracking-wide text-white/50 uppercase">{label}</p>
-      <ol className="mt-5 space-y-4">
-        {steps.map((step, i) => (
-          <li key={step} className="flex gap-4">
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/10 text-xs font-semibold text-white">
-              {i + 1}
-            </span>
-            <span className="pt-0.5 text-sm leading-relaxed text-white/70">{step}</span>
-          </li>
-        ))}
-      </ol>
-    </motion.div>
-  );
-}
-
 export function LaunchProcess() {
   return (
     <section className="bg-dark py-24 text-white sm:py-32">
       <Container>
-        <SectionHeading
-          eyebrow={launchProcess.eyebrow}
-          title={launchProcess.title}
-          body="Paralleles Onboarding auf beiden Seiten — von NDA und Vertragsentwurf bis zum Starttermin."
-          dark
-        />
+        <SectionHeading eyebrow={launchProcess.eyebrow} title={launchProcess.title} body={launchProcess.subtitle} dark />
 
-        <RevealGroup className="mt-14 grid gap-6 lg:grid-cols-2">
-          <Steps label="Auf Seiten newSIM" steps={launchProcess.newsim} />
-          <Steps label="Auf Seiten Carrier / Partner" steps={launchProcess.partner} />
+        <RevealGroup className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {launchProcess.phases.map((phase, i) => (
+            <motion.div key={phase.week} variants={revealItem} className="flex flex-col">
+              <div className="rounded-2xl bg-white/10 px-4 py-2.5 text-center text-sm font-semibold text-white">
+                {phase.week}
+              </div>
+
+              <div className="mt-4 flex flex-1 flex-col rounded-3xl border border-dark-line card-dark-gradient p-6">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-xs font-semibold text-white">
+                  {i + 1}
+                </span>
+                <p className="font-heading mt-4 text-base font-bold text-white">{phase.title}</p>
+                <ul className="mt-3 space-y-1.5">
+                  {phase.newsim.map((step) => (
+                    <li key={step} className="text-sm leading-relaxed text-white/60">
+                      {step}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-5 border-t border-white/10 pt-4">
+                  <p className="text-[11px] font-medium tracking-wide text-primary uppercase">Sie stellen</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-white/80">{phase.partner}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </RevealGroup>
 
-        <Reveal
-          delay={0.15}
-          className="mt-6 flex items-center justify-center gap-4 rounded-3xl border border-primary/30 bg-primary/10 px-8 py-8 text-center"
-        >
-          <p className="text-lg font-semibold text-white sm:text-xl">
-            Einfacher kommerzieller Launch in <span className="text-primary">4–6 Wochen</span> live!
-          </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-[1.3fr_1fr]">
+          <Reveal delay={0.1} className="rounded-3xl border border-dark-line card-dark-gradient p-7">
+            <p className="text-sm font-medium tracking-wide text-white/50 uppercase">Aufwand auf Partnerseite</p>
+            <p className="mt-3 text-base leading-relaxed text-white/80">{launchProcess.partnerEffort}</p>
+          </Reveal>
+          <Reveal delay={0.15} className="rounded-3xl border border-primary/30 bg-primary/10 p-7">
+            <p className="text-sm font-medium tracking-wide text-white/50 uppercase">Meilenstein</p>
+            <p className="mt-3 font-heading text-3xl font-bold text-primary">{launchProcess.milestone.duration}</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-white/70">{launchProcess.milestone.body}</p>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.2} className="mt-4 rounded-2xl bg-ink p-6">
+          <p className="text-xs font-medium tracking-wide text-white/50 uppercase">Key Message</p>
+          <p className="mt-2 text-base leading-relaxed text-white">{launchProcess.keyMessage}</p>
         </Reveal>
       </Container>
     </section>
