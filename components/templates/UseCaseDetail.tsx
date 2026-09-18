@@ -124,11 +124,6 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
                 </motion.div>
               ))}
             </RevealGroup>
-
-            <Reveal delay={0.15} className="mt-6 rounded-2xl bg-ink p-6 text-white">
-              <p className="text-xs font-medium tracking-wide text-white/50 uppercase">Key Message</p>
-              <p className="mt-2 text-base leading-relaxed">{useCase.quadPlay.keyMessage}</p>
-            </Reveal>
           </Container>
         </section>
       )}

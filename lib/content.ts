@@ -837,7 +837,6 @@ export interface QuadPlayComparison {
   quadPlay: string[];
   quadPlayLabel: string;
   points: { title: string; body: string }[];
-  keyMessage: string;
 }
 
 export interface UseCase {
@@ -925,8 +924,6 @@ export const useCases: UseCase[] = [
           body: "Mobilfunk ergänzt das Produktsortiment als Dienst und Access-Alternative. Kein Bundling-Umsatz im Bestand und höhere Churn-Gefahr bei jedem Vertragsende des Glasfaseranschlusses.",
         },
       ],
-      keyMessage:
-        "Der Wettbewerb wird über das Bündel entschieden. Wer Mobilfunk nicht anbietet, verteidigt seinen Glasfaseranschluss allein über den Preis.",
     },
     faq: [
       {
