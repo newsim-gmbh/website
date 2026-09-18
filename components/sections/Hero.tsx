@@ -13,7 +13,7 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden bg-dark pt-40 pb-24 text-white sm:pb-32">
       <Container className="relative">
         <div className="card-dark-gradient relative overflow-hidden rounded-[2rem] sm:rounded-[3rem]">
-          <div className="relative px-6 py-14 sm:px-10 sm:py-16 lg:py-20 lg:pl-16 lg:pr-[380px] xl:pr-[460px]">
+          <div className="relative px-6 py-14 sm:px-10 sm:py-16 lg:py-24 lg:pl-16 lg:pr-[460px] xl:pr-[580px]">
             <div>
               <motion.h1
                 initial={{ opacity: 0, y: 18 }}
@@ -59,7 +59,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-none absolute right-0 bottom-0 hidden w-[360px] lg:block xl:w-[440px]"
+            className="pointer-events-none absolute right-0 bottom-0 hidden w-[440px] lg:block xl:w-[560px]"
           >
             <Image
               src={`${basePath}/hero-phone.webp`}
@@ -68,12 +68,16 @@ export function Hero() {
               height={1457}
               priority
               className="h-auto w-full"
+              style={{
+                maskImage: "linear-gradient(205deg, black 55%, transparent 88%)",
+                WebkitMaskImage: "linear-gradient(205deg, black 55%, transparent 88%)",
+              }}
             />
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="pointer-events-auto absolute -top-14 -left-4 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
+              className="pointer-events-auto absolute -top-8 left-6 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
             >
               <Icon name="shield" className="h-4 w-4 text-primary" />
               Diensteanbieter gem. TKG
