@@ -564,57 +564,6 @@ export const socialProof = {
   disclaimer: "Logo-Darstellung als Platzhalter. Originale Partner-Logos auf Anfrage und mit Freigabe einsetzbar.",
 };
 
-export const solutions = {
-  eyebrow: "Solutions",
-  title: "Vier Lösungen für Ihr Portfolio.",
-  items: [
-    {
-      title: "Flying Start Glasfaser",
-      badge: "B2B Special",
-      body: "Internet-Ersatzprodukt Mobil überbrückt die Zeit bis zum aktiven Glasfaseranschluss — 500 GB, 100 Mbit/s Download im 5G-Netz, Aktivierung bei Glasfaser-Abschluss ohne Wartezeit.",
-      points: ["Flexibel einsetzbar", "Keine Wartezeit", "Sofortige Aktivierung", "Passgenaue Laufzeit in Eigenregie"],
-      icon: "pulse" as const,
-    },
-    {
-      title: "B2B Connectivity",
-      badge: "Business Solutions",
-      body: "Individuelle Tarifangebote für den Geschäftskundenbereich mit flexiblen Laufzeiten sowie Upgrade- und Downgrade-Möglichkeiten ganz nach Kundenwunsch.",
-      points: ["Flexible Laufzeiten", "Upgrade & Downgrade", "Individuell konfigurierbar"],
-      icon: "link" as const,
-    },
-    {
-      title: "IoT / M2M",
-      badge: "White-Label Konnektivität",
-      body: "Eigenes IoT-Portfolio für Konnektivitäts-Dienstleistungen in B2B, B2B2B und B2B2C — auf der Telnology®-Plattform mit eigener APN-Verbindung und maximaler Sicherheit.",
-      points: ["SIM Diversity", "Secure Data Cloud", "National Roaming", "Private Networking", "Dynamic Datapooling"],
-      icon: "chip" as const,
-    },
-    {
-      title: "White Label App",
-      badge: "Digital Distribution",
-      body: "End-to-End Bestell- und Aktivierungsprozess auf easyTEL-Basis: Der Endkunde managt seinen Dienst vollständig selbst, der Partner vermarktet mit eigenem Brand im App Store und bei Google Play.",
-      points: ["Eigene Tarife", "Eigenes Logo & Design", "Bestellen · Aktivieren · Verwalten · Kündigen"],
-      icon: "smartphone" as const,
-    },
-  ],
-};
-
-export const iot = {
-  eyebrow: "IoT-Modell",
-  title: "Mobile Access, Mobile Back-up und M2M-Konnektivität.",
-  concept:
-    "newSIM stellt IoT- und M2M-Tarife auf der Telnology®-Plattform als White-Label-Modell zur Verfügung. Die Cloud-Infrastruktur bietet APN-Verbindungen mit maximaler Sicherheit für jeden Anwendungsfall.",
-  features: [
-    { title: "SIM Diversity", body: "Standard · M2M · Industrial · Embedded SIM" },
-    { title: "Secure Data Cloud", body: "Eigene APN-Verbindung mit Verschlüsselung" },
-    { title: "IoT Connectivity", body: "Anbindung von Devices über das Telefónica-Netz" },
-    { title: "National Roaming", body: "Backup über alle deutschen Netze" },
-    { title: "SMS Lock & Project Pricing", body: "Klassen-Restriktion & projektbezogene Preise" },
-    { title: "Private Networking", body: "Auf Wunsch isolierte Netzsegmente pro Use Case" },
-    { title: "Dynamic Datapooling", body: "Volumenoptimierung über das gesamte Portfolio" },
-  ],
-};
-
 export const launchProcess = {
   eyebrow: "Launch-Prozess",
   title: "Einfacher kommerzieller Launch in 4–6 Wochen — live!",
@@ -751,6 +700,21 @@ export const pricing = {
         inclusiveGb: 300,
         tariffHint: "inkl. Versandlogistik & Refurbishment-Service",
       },
+    ],
+  },
+
+  iotM2m: {
+    title: "IoT- & M2M-Plattform",
+    subtitle:
+      "newSIM stellt IoT- und M2M-Tarife auf der Telnology®-Plattform als White-Label-Modell zur Verfügung — für Konnektivitäts-Dienstleistungen im B2B, B2B2B und B2B2C. Unabhängig vom gewählten Geschäftsmodell: Branded Reseller, White Label Reseller oder White Label MVNO-Plattform.",
+    highlights: [
+      { title: "SIM Diversity", points: ["Standard · M2M · Industrial · Embedded SIM"], icon: "simCard" as const },
+      { title: "IoT Connectivity", points: ["Anbindung von Devices über das Telefónica-Netz"], icon: "wifi" as const },
+      { title: "Secure Data Cloud", points: ["Eigene APN-Verbindung mit Verschlüsselung"], icon: "shield" as const },
+      { title: "Private Networking", points: ["Auf Wunsch isolierte Netzsegmente pro Use Case"], icon: "layers" as const },
+      { title: "National Roaming", points: ["Backup über alle deutschen Netze"], icon: "tower" as const },
+      { title: "Dynamic Datapooling", points: ["Volumenoptimierung über das gesamte Portfolio"], icon: "sliders" as const },
+      { title: "SMS Lock & Project Pricing", points: ["Klassen-Restriktion & projektbezogene Preise"], icon: "tariff" as const },
     ],
   },
 
