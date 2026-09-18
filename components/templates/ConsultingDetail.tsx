@@ -104,13 +104,17 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
                 Was die Beratung im Detail umfasst.
               </h2>
             </Reveal>
-            <RevealGroup className="mt-10 grid gap-x-10 gap-y-12 sm:grid-cols-3">
+            <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {service.serviceBlocks.map((block) => (
-                <motion.div key={block.title} variants={revealItem}>
-                  <Icon name={block.icon} className="h-8 w-8 text-primary" />
-                  <p className="font-heading mt-4 border-t border-white/20 pt-3 text-lg font-bold text-white">
-                    {block.title}
-                  </p>
+                <motion.div
+                  key={block.title}
+                  variants={revealItem}
+                  className="rounded-3xl border border-dark-line card-dark-gradient p-7"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-primary">
+                    <Icon name={block.icon} className="h-5 w-5" />
+                  </div>
+                  <p className="font-heading mt-4 text-base font-bold text-white">{block.title}</p>
                   <p className="mt-2 text-sm leading-relaxed text-white/60">{block.body}</p>
                 </motion.div>
               ))}
