@@ -1031,8 +1031,10 @@ export interface ConsultingService {
   image: string;
   icon: IconName;
   heroTagline: string;
+  overview?: string;
   forWhom: string;
   phases: { title: string; body: string }[];
+  serviceBlocks?: { title: string; body: string; icon: IconName }[];
   deliverables: string[];
   duration?: string;
   relatedModelIds?: ModelId[];
@@ -1046,11 +1048,21 @@ export const consultingServices: ConsultingService[] = [
     image: "consulting-g2m-strategie.webp",
     icon: "chart",
     heroTagline: "Go-to-Market-Strategie für den eigenen Mobilfunk-Start.",
-    forWhom: "Platzhalter: Für Unternehmen, die den Einstieg in ein eigenes Mobilfunk-Angebot strategisch vorbereiten wollen.",
+    overview:
+      "Wir beraten und entwickeln für Unternehmen Konzepte für einen erfolgreichen Markteintritt mit Mobilfunktarifen und begleiten die Etablierung am deutschen Markt. Wir analysieren das Marktpotential und entwickeln für Ihr Unternehmen den End-to-End-Prozess von Neuprodukten im Offline- und Online-Bereich, optional unterstützt durch eine App-basierte digitale Customer Journey und inklusive Aufbau eines Ökosystems mit den passenden digitalen Services, Bundles, Up- und Cross-Selling. Feste Bestandteile unseres Leistungsspektrums sind zielorientierte Vermarktungskonzepte, messbare Ergebnisse sowie maßgeschneiderte und bedarfsorientierte Lösungen.",
+    forWhom:
+      "Für Unternehmen, die mit Mobilfunktarifen erfolgreich in den deutschen Markt eintreten und sich dort langfristig etablieren wollen.",
     phases: [
-      { title: "Analyse", body: "Platzhalter: Ausgangslage, Zielgruppe und Ambitionslevel klären." },
-      { title: "Strategie", body: "Platzhalter: Modellwahl, Positionierung und Preislogik entwickeln." },
-      { title: "Umsetzung", body: "Platzhalter: Launch-Fahrplan gemeinsam mit dem newSIM-Onboarding abstimmen." },
+      { title: "Analyse", body: "Wir analysieren das Marktpotential und Ihre Ausgangslage für den Markteintritt mit Mobilfunktarifen." },
+      { title: "Strategie", body: "Modellwahl, Positionierung und Preislogik für einen langfristigen Erfolg im Mobilfunkmarkt entwickeln." },
+      { title: "Umsetzung", body: "Tarifkonzept, App-basierte Customer Journey und Anbindung an die Mobilfunk-as-a-Service-Plattform werden gemeinsam umgesetzt." },
+    ],
+    serviceBlocks: [
+      { title: "Tarifkonzept", body: "Wir erstellen das optimale, zielgruppenspezifische Tarifkonzept.", icon: "tariff" },
+      { title: "Marketing", body: "Wir entwickeln für Ihr Unternehmen den End-to-End-Prozess für eine App-basierte digitale Customer Journey.", icon: "chart" },
+      { title: "Infrastruktur", body: "Mithilfe des Know-hows aus unserer Mobilfunk-as-a-Service-Plattform entwickeln wir passende End-to-End-Prozesse.", icon: "layers" },
+      { title: "Billing", body: "Wir beraten zur optimalen Integration und Abwicklung von Forderungsmanagement von Mobilfunkdiensten.", icon: "invoice" },
+      { title: "Strategie", body: "Wir beraten und entwickeln eine Strategie für einen langfristigen Erfolg im Mobilfunkmarkt.", icon: "link" },
     ],
     deliverables: ["G2M-Strategiepapier", "Modell- und Positionierungsempfehlung", "Launch-Fahrplan"],
     duration: "Platzhalter: ca. 2–3 Wochen",
@@ -1098,9 +1110,10 @@ export const consultingServices: ConsultingService[] = [
     image: "consulting-sales-strategie.webp",
     icon: "link",
     heroTagline: "Vertriebsstrategie über alle Kanäle hinweg.",
-    forWhom: "Platzhalter: Für Partner, die ihr Mobilfunk-Portfolio sowohl online als auch über den stationären Vertrieb erfolgreich vermarkten wollen.",
+    forWhom:
+      "Für Partner, die ihr Mobilfunk-Portfolio im B2C-E-Commerce, im B2B2C-Retail sowie im B2B-Geschäftskundenvertrieb erfolgreich vermarkten wollen.",
     phases: [
-      { title: "Kanalanalyse", body: "Platzhalter: Bestehende Vertriebskanäle und deren Potential bewerten." },
+      { title: "Kanalanalyse", body: "Bestehende Kanäle in B2C-E-Commerce, B2B2C-Retail und B2B-Geschäftskundenvertrieb werden erfasst und bewertet." },
       { title: "Konzept", body: "Platzhalter: Vertriebsstrategie über Online- und Offline-Kanäle entwickeln." },
       { title: "Rollout", body: "Platzhalter: Umsetzung gemeinsam mit dem Vertriebsteam begleiten." },
     ],

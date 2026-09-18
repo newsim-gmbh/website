@@ -47,7 +47,18 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
         </Container>
       </section>
 
-      <section className="bg-background pt-16 sm:pt-20">
+      {service.overview && (
+        <section className="bg-background pt-16 sm:pt-20">
+          <Container>
+            <Reveal>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Leistung</p>
+              <p className="balance mt-4 max-w-3xl text-xl leading-relaxed text-ink">{service.overview}</p>
+            </Reveal>
+          </Container>
+        </section>
+      )}
+
+      <section className={service.overview ? "bg-background py-16 sm:py-20" : "bg-background pt-16 sm:pt-20"}>
         <Container>
           <Reveal className="rounded-3xl bg-sky p-8 sm:p-10">
             <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Für wen</p>
@@ -84,7 +95,31 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
         </Container>
       </section>
 
-      <section className="bg-background pb-16 sm:pb-20">
+      {service.serviceBlocks && (
+        <section className="bg-dark py-20 text-white sm:py-28">
+          <Container>
+            <Reveal>
+              <p className="text-sm font-medium tracking-wide text-primary uppercase">Leistungsbausteine</p>
+              <h2 className="font-heading balance mt-3 max-w-xl text-2xl font-bold tracking-tight sm:text-3xl">
+                Was die Beratung im Detail umfasst.
+              </h2>
+            </Reveal>
+            <RevealGroup className="mt-10 grid gap-x-10 gap-y-12 sm:grid-cols-3">
+              {service.serviceBlocks.map((block) => (
+                <motion.div key={block.title} variants={revealItem}>
+                  <Icon name={block.icon} className="h-8 w-8 text-primary" />
+                  <p className="font-heading mt-4 border-t border-white/20 pt-3 text-lg font-bold text-white">
+                    {block.title}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-white/60">{block.body}</p>
+                </motion.div>
+              ))}
+            </RevealGroup>
+          </Container>
+        </section>
+      )}
+
+      <section className="bg-background py-16 sm:py-20">
         <Container>
           <Reveal className="rounded-3xl bg-cream p-8">
             <p className="font-heading text-lg font-bold text-ink">Ergebnisse</p>
