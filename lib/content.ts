@@ -1034,6 +1034,9 @@ export interface ConsultingService {
   forWhom: string;
   phases: { title: string; body: string }[];
   deliverables: string[];
+  duration?: string;
+  relatedModelIds?: ModelId[];
+  faq?: { q: string; a: string }[];
 }
 
 export const consultingServices: ConsultingService[] = [
@@ -1050,6 +1053,18 @@ export const consultingServices: ConsultingService[] = [
       { title: "Umsetzung", body: "Platzhalter: Launch-Fahrplan gemeinsam mit dem newSIM-Onboarding abstimmen." },
     ],
     deliverables: ["G2M-Strategiepapier", "Modell- und Positionierungsempfehlung", "Launch-Fahrplan"],
+    duration: "Platzhalter: ca. 2–3 Wochen",
+    relatedModelIds: ["branded-reseller", "white-label-reseller"],
+    faq: [
+      {
+        q: "Ist die Erstberatung kostenpflichtig?",
+        a: "Platzhalter: Angaben zu Konditionen folgen.",
+      },
+      {
+        q: "Bin ich nach der Beratung zu einem Modell verpflichtet?",
+        a: "Nein. Die Strategie liefert eine Empfehlung — die Entscheidung für ein Modell treffen Sie unabhängig davon.",
+      },
+    ],
   },
   {
     slug: "potentialanalyse-mobilfunk-glasfaser",
@@ -1064,6 +1079,18 @@ export const consultingServices: ConsultingService[] = [
       { title: "Empfehlung", body: "Platzhalter: Konkrete Handlungsempfehlung mit Modellvorschlag." },
     ],
     deliverables: ["Potentialanalyse-Report", "Modellempfehlung", "Wirtschaftlichkeitseinschätzung"],
+    duration: "Platzhalter: ca. 2–4 Wochen",
+    relatedModelIds: ["white-label-reseller", "white-label-mvno"],
+    faq: [
+      {
+        q: "Brauche ich dafür bereits Mobilfunk-Erfahrung?",
+        a: "Nein. Die Potentialanalyse setzt genau da an, wo Sie heute stehen — auch ohne bisherige Mobilfunk-Erfahrung.",
+      },
+      {
+        q: "Was, wenn sich kein Potential zeigt?",
+        a: "Platzhalter: Angaben zum Vorgehen bei negativer Einschätzung folgen.",
+      },
+    ],
   },
   {
     slug: "sales-strategie-online-offline",
@@ -1078,6 +1105,18 @@ export const consultingServices: ConsultingService[] = [
       { title: "Rollout", body: "Platzhalter: Umsetzung gemeinsam mit dem Vertriebsteam begleiten." },
     ],
     deliverables: ["Vertriebsstrategie-Konzept", "Kanal-Priorisierung", "Rollout-Plan"],
+    duration: "Platzhalter: ca. 2–3 Wochen",
+    relatedModelIds: ["branded-reseller", "full-service"],
+    faq: [
+      {
+        q: "Deckt das auch den stationären Vertrieb ab?",
+        a: "Ja — die Strategie berücksichtigt sowohl Online- als auch Offline-Kanäle wie den stationären Handel.",
+      },
+      {
+        q: "Begleitet newSIM auch die Umsetzung?",
+        a: "Platzhalter: Angaben zum Umfang der Umsetzungsbegleitung folgen.",
+      },
+    ],
   },
   {
     slug: "kupfer-glasfaser-transformation",
@@ -1092,6 +1131,18 @@ export const consultingServices: ConsultingService[] = [
       { title: "Begleitung", body: "Platzhalter: Kommunikation und Rollout gemeinsam begleiten." },
     ],
     deliverables: ["Transformationskonzept", "Kommunikationsleitfaden", "Rollout-Begleitung"],
+    duration: "Platzhalter: abhängig vom Migrationszeitplan",
+    relatedModelIds: ["white-label-reseller", "white-label-mvno"],
+    faq: [
+      {
+        q: "Was ist Flying Start Glasfaser genau?",
+        a: "Eine Mobile-Broadband-Lösung, die Kunden während der Migration von Kupfer- auf Glasfaseranschlüsse überbrückt.",
+      },
+      {
+        q: "Wie früh sollte ich das planen?",
+        a: "Platzhalter: Angaben zum empfohlenen Planungsvorlauf folgen.",
+      },
+    ],
   },
 ];
 
