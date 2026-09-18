@@ -4,13 +4,17 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Container } from "../Container";
 import { PageHero } from "./PageHero";
+import { PhoneMockup } from "../PhoneMockup";
 import { RevealGroup, revealItem, Reveal } from "../Reveal";
 import { Icon } from "../Icon";
+import { FaqAccordion } from "../FaqAccordion";
 import type { UseCase } from "@/lib/content";
-import { models } from "@/lib/content";
+import { models, site } from "@/lib/content";
 
 export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
   const recommended = models.filter((m) => useCase.recommendedModelIds.includes(m.id));
+  const painPoints = useCase.painPoints ?? [useCase.challenge];
+  const solutionSteps = useCase.solutionSteps ?? [useCase.solution];
 
   return (
     <>
@@ -20,45 +24,146 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
         <Container>
           <RevealGroup className="grid gap-6 lg:grid-cols-2">
             <motion.div variants={revealItem} className="rounded-3xl bg-cream p-8">
-              <p className="font-heading text-lg font-bold text-ink">Die Herausforderung</p>
-              <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{useCase.challenge}</p>
+              <p className="font-heading text-lg font-bold text-ink">Kennen Sie das?</p>
+              <ul className="mt-4 space-y-3">
+                {painPoints.map((point) => (
+                  <li key={point} className="flex gap-3 text-[15px] leading-relaxed text-ink-soft">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ink/40" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
             <motion.div variants={revealItem} className="rounded-3xl bg-sky p-8">
               <p className="font-heading text-lg font-bold text-ink">Wie newSIM hilft</p>
-              <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{useCase.solution}</p>
+              <ol className="mt-4 space-y-3">
+                {solutionSteps.map((step, i) => (
+                  <li key={step} className="flex gap-3 text-[15px] leading-relaxed text-ink-soft">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-[11px] font-semibold text-white">
+                      {i + 1}
+                    </span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ol>
             </motion.div>
           </RevealGroup>
         </Container>
       </section>
 
-      <section className="bg-surface py-20 sm:py-28">
+      <section className="bg-dark py-20 text-white sm:py-28">
+        <Container>
+          <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <Reveal className="flex justify-center lg:justify-start">
+              <PhoneMockup
+                tone="sky"
+                label={useCase.exampleLabel ?? "Ihre Marke · Ihr Tarif"}
+                className="aspect-[9/16] w-full max-w-[240px]"
+              />
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-sm font-medium tracking-wide text-white/50 uppercase">Konkretes Beispiel</p>
+              <h2 className="font-heading balance mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
+                So könnte Ihr Angebot aussehen
+              </h2>
+              <p className="balance mt-4 max-w-lg text-base leading-relaxed text-white/70">
+                Platzhalter: beispielhafte Darstellung — reale Screenshots aus Ihrem individuellen Branding
+                folgen.
+              </p>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-background py-20 sm:py-28">
         <Container>
           <Reveal>
             <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Empfehlung</p>
             <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-              Passende Modelle für {useCase.name}
+              Passendes Modell für {useCase.name}
             </h2>
           </Reveal>
-          <RevealGroup className="mt-10 grid gap-6 sm:grid-cols-2">
-            {recommended.map((m) => (
-              <motion.div key={m.id} variants={revealItem}>
-                <Link
-                  href={`/produkte/${m.slug}`}
-                  className="group flex h-full flex-col rounded-3xl border border-line bg-background p-7 transition-colors hover:border-primary/40"
-                >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary-ink">
-                    <Icon name={m.icon} className="h-5 w-5" />
+
+          {recommended.length === 1 ? (
+            <Reveal delay={0.1} className="mt-10">
+              <Link
+                href={`/produkte/${recommended[0].slug}`}
+                className="group flex flex-col gap-6 rounded-3xl border border-line bg-surface p-8 transition-colors hover:border-primary/40 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-ink text-white">
+                    <Icon name={recommended[0].icon} className="h-6 w-6" />
                   </div>
-                  <p className="font-heading mt-4 text-lg font-bold text-ink">{m.navLabel}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">{m.tagline}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary-ink">
-                    Modell ansehen
-                    <span className="transition-transform group-hover:translate-x-1">→</span>
-                  </span>
-                </Link>
-              </motion.div>
-            ))}
-          </RevealGroup>
+                  <div>
+                    <p className="font-heading text-xl font-bold text-ink">{recommended[0].navLabel}</p>
+                    <p className="mt-1.5 max-w-md text-sm leading-relaxed text-ink-soft">
+                      {recommended[0].tagline}
+                    </p>
+                  </div>
+                </div>
+                <span className="font-heading inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition-colors group-hover:bg-primary group-hover:text-ink">
+                  Modell ansehen
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </span>
+              </Link>
+            </Reveal>
+          ) : (
+            <RevealGroup className="mt-10 grid gap-6 sm:grid-cols-2">
+              {recommended.map((m) => (
+                <motion.div key={m.id} variants={revealItem}>
+                  <Link
+                    href={`/produkte/${m.slug}`}
+                    className="group flex h-full flex-col rounded-3xl border border-line bg-surface p-7 transition-colors hover:border-primary/40"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary-ink">
+                      <Icon name={m.icon} className="h-5 w-5" />
+                    </div>
+                    <p className="font-heading mt-4 text-lg font-bold text-ink">{m.navLabel}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{m.tagline}</p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary-ink">
+                      Modell ansehen
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </span>
+                  </Link>
+                </motion.div>
+              ))}
+            </RevealGroup>
+          )}
+        </Container>
+      </section>
+
+      {useCase.faq && useCase.faq.length > 0 && (
+        <section className="bg-surface py-20 sm:py-28">
+          <Container>
+            <Reveal>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">FAQ</p>
+              <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                Häufige Fragen
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1} className="mt-10 max-w-3xl">
+              <FaqAccordion items={useCase.faq} />
+            </Reveal>
+          </Container>
+        </section>
+      )}
+
+      <section className="bg-dark py-20 text-white sm:py-28">
+        <Container className="text-center">
+          <Reveal>
+            <h2 className="font-heading balance mx-auto max-w-xl text-3xl font-bold tracking-tight sm:text-4xl">
+              Passt das zu Ihnen?
+            </h2>
+            <p className="balance mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/70">
+              Lassen Sie uns in einem unverbindlichen Gespräch klären, wie {useCase.name} für Sie aussehen kann.
+            </p>
+            <Link
+              href={site.calendlyUrl}
+              className="font-heading mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
+            >
+              {site.primaryCta}
+            </Link>
+          </Reveal>
         </Container>
       </section>
     </>
