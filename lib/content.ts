@@ -312,7 +312,7 @@ export const models: BusinessModel[] = [
     description:
       "Eigene Mobilfunkmarke in nur 4 Wochen startklar. newSIM übernimmt den Großteil der Wertschöpfung — der Partner liefert Brand und Vertrieb.",
     idealFor: "ISPs und Carrier zum Start — einfache Bestellstrecke, fertige Provision",
-    newSimResponsibilities: ["Customer Service 1st Level", "Billing & Inkasso", "Tarif-Portfolio"],
+    newSimResponsibilities: ["Netzanbindung (Telefónica)", "Customer Service 1st Level", "Billing & Inkasso", "Tarif-Portfolio"],
     partnerResponsibilities: ["Brand / Marke", "Marketing & Sales", "Endkundenbeziehung"],
     keyBenefits: [
       { title: "Live in 4 Wochen", body: "Schnellster Weg zur eigenen Marke" },
@@ -337,7 +337,7 @@ export const models: BusinessModel[] = [
       },
       {
         q: "Was muss ich selbst übernehmen?",
-        a: "Sie liefern Marke, Marketing & Sales sowie die Endkundenbeziehung — newSIM übernimmt Customer Service 1st Level, Billing & Inkasso und das Tarif-Portfolio.",
+        a: "Sie liefern Marke, Marketing & Sales sowie die Endkundenbeziehung — newSIM übernimmt Netzanbindung, Customer Service 1st Level, Billing & Inkasso und das Tarif-Portfolio.",
       },
       {
         q: "Brauche ich eine eigene Kundenhotline?",
@@ -358,7 +358,12 @@ export const models: BusinessModel[] = [
     description:
       "Customizing in Look & Feel mit voller Commercial Ownership. Der Partner gestaltet das Tarif-Portfolio aktiv mit und hat maximalen Marge- und Gestaltungsspielraum.",
     idealFor: "ISPs & Carrier, die ihr FTTH-Portfolio um Mobilfunk in Eigenregie erweitern wollen",
-    newSimResponsibilities: ["Billing & Inkasso", "2nd Level Support", "Plattform-Betrieb", "Regulierung BNetzA"],
+    newSimResponsibilities: [
+      "Netzanbindung & Plattform-Betrieb (Telefónica)",
+      "Billing & Inkasso",
+      "2nd Level Support",
+      "Regulierung BNetzA",
+    ],
     partnerResponsibilities: [
       "Commercial Ownership / Pricing",
       "1st Level Support",
