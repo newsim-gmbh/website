@@ -52,11 +52,6 @@ export function LaunchProcess() {
             <p className="mt-1.5 text-sm leading-relaxed text-white/70">{launchProcess.milestone.body}</p>
           </Reveal>
         </div>
-
-        <Reveal delay={0.2} className="mt-4 rounded-2xl bg-ink p-6">
-          <p className="text-xs font-medium tracking-wide text-white/50 uppercase">Key Message</p>
-          <p className="mt-2 text-base leading-relaxed text-white">{launchProcess.keyMessage}</p>
-        </Reveal>
       </Container>
     </section>
   );
