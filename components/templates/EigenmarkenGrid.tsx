@@ -21,20 +21,20 @@ export function EigenmarkenGrid({ items }: { items: NavChild[] }) {
           </h1>
         </Reveal>
 
-        <RevealGroup className="mt-16 grid gap-6 sm:grid-cols-2">
+        <RevealGroup className="mt-16 grid gap-6 lg:grid-cols-2">
           {items.map((item) => (
             <motion.div
               key={item.label}
               variants={revealItem}
-              className="flex flex-col overflow-hidden rounded-3xl border border-dark-line card-dark-gradient p-8"
+              className="grid grid-cols-1 items-center gap-6 overflow-hidden rounded-3xl border border-dark-line card-dark-gradient p-8 sm:grid-cols-[0.85fr_1.15fr] sm:gap-8 sm:p-10"
             >
               {item.mockupImage ? (
-                <div className="relative h-52">
+                <div className="relative h-72 sm:h-[26rem]">
                   <Image
                     src={`${basePath}/${item.mockupImage}`}
                     alt={`${item.label} App-Mockup`}
                     fill
-                    sizes="360px"
+                    sizes="(min-width: 640px) 340px, 80vw"
                     className="object-contain"
                   />
                 </div>
@@ -42,26 +42,28 @@ export function EigenmarkenGrid({ items }: { items: NavChild[] }) {
                 <PhoneMockup
                   tone={item.comingSoon ? "dark" : "sky"}
                   label={item.label}
-                  className="h-52"
+                  className="h-72 sm:h-[26rem]"
                 />
               )}
-              <h2 className="font-heading mt-6 text-xl font-bold text-white">{item.label}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-white/60">{item.description}</p>
+              <div>
+                <h2 className="font-heading text-xl font-bold text-white">{item.label}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-white/60">{item.description}</p>
 
-              {item.comingSoon ? (
-                <span className="font-heading mt-6 inline-flex w-fit items-center rounded-full bg-white/10 px-5 py-2.5 text-xs font-bold text-white/50">
-                  Bald verfügbar
-                </span>
-              ) : (
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-heading mt-6 inline-flex w-fit items-center rounded-full bg-white px-5 py-2.5 text-xs font-bold text-ink transition-colors hover:bg-primary"
-                >
-                  Zur Website ↗
-                </a>
-              )}
+                {item.comingSoon ? (
+                  <span className="font-heading mt-6 inline-flex w-fit items-center rounded-full bg-white/10 px-5 py-2.5 text-xs font-bold text-white/50">
+                    Bald verfügbar
+                  </span>
+                ) : (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-heading mt-6 inline-flex w-fit items-center rounded-full bg-white px-5 py-2.5 text-xs font-bold text-ink transition-colors hover:bg-primary"
+                  >
+                    Zur Website ↗
+                  </a>
+                )}
+              </div>
             </motion.div>
           ))}
         </RevealGroup>
