@@ -6,6 +6,7 @@ import { TrustBar } from "@/components/sections/TrustBar";
 import { BusinessValue } from "@/components/sections/BusinessValue";
 import { ModelComparison } from "@/components/sections/ModelComparison";
 import { Capabilities } from "@/components/sections/Capabilities";
+import { WhiteLabelBlocks } from "@/components/sections/WhiteLabelBlocks";
 import { Platform } from "@/components/sections/Platform";
 import { SocialProof } from "@/components/sections/SocialProof";
 import { UseCaseTeaser } from "@/components/sections/UseCaseTeaser";
@@ -24,6 +25,7 @@ export default function Home() {
         <BusinessValue />
         <ModelComparison />
         <Capabilities />
+        <WhiteLabelBlocks />
         <Platform />
         <SocialProof />
         <UseCaseTeaser />

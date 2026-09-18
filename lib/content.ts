@@ -447,6 +447,47 @@ export const comparisonTable = {
   ],
 };
 
+export interface WhiteLabelBuildingBlock {
+  id: string;
+  title: string;
+  body: string;
+  icon: IconName;
+}
+
+export const whiteLabelBuildingBlocksSection = {
+  eyebrow: "Optionale Bausteine",
+  title: "Nicht nur die Plattform — auch die komplette Customer Journey.",
+  intro:
+    "Bestellstrecke, Website, App und Kundenportal lassen sich einzeln oder kombiniert dazubuchen — vollständig individualisierbar in Farben, Typographie, Logo/Icons/Bildern und Tonalität.",
+};
+
+export const whiteLabelBuildingBlocks: WhiteLabelBuildingBlock[] = [
+  {
+    id: "bestellstrecke",
+    title: "Bestellstrecke",
+    body: "Vollständiger Checkout in 5 Schritten — Warenkorb, Rufnummer, Bezahlung, Daten, Übersicht. Inklusive Express-Checkout (PayPal, Apple Pay), eSIM und Freunde-Code.",
+    icon: "cart",
+  },
+  {
+    id: "website",
+    title: "Website",
+    body: "Eigene Marken-Website mit Tarifübersicht, Vorteilen, FAQ und Support-Bereich — vollständig im eigenen Look & Feel.",
+    icon: "monitor",
+  },
+  {
+    id: "app",
+    title: "App",
+    body: "White-Label-App zur Tarifverwaltung: Datenvolumen, Rechnungen, Family-SIM, Freunde werben — im eigenen Branding für iOS und Android.",
+    icon: "smartphone",
+  },
+  {
+    id: "kundenportal",
+    title: "Kundenportal",
+    body: "Web-Login für Endkunden ohne App-Installation — Vertrag, Verbrauch und Optionen direkt im Browser verwalten.",
+    icon: "userCircle",
+  },
+];
+
 export const capabilities = {
   eyebrow: "Was newSIM übernimmt",
   title: "Sie liefern Marke und Vertrieb – newSIM übernimmt den Rest.",
