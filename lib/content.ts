@@ -600,8 +600,6 @@ export const launchProcess = {
     duration: "4–6 Wochen",
     body: "Vom unterzeichneten NDA bis zum kommerziellen Launch der eigenen Mobilfunkmarke.",
   },
-  keyMessage:
-    "Sie stellen drei Ansprechpartner und Ihre Marke — alles Weitere läuft über die Telnology®-Plattform von newSIM.",
 };
 
 export const legal = {
