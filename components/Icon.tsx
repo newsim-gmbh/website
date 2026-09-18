@@ -20,7 +20,10 @@ export type IconName =
   | "layers"
   | "flag"
   | "crown"
-  | "sliders";
+  | "sliders"
+  | "cart"
+  | "monitor"
+  | "userCircle";
 
 const common = {
   fill: "none",
@@ -170,6 +173,30 @@ function Path({ name }: { name: IconName }) {
           <circle cx="12" cy="15" r="2" fill="currentColor" stroke="none" />
           <line x1="18" y1="4" x2="18" y2="20" {...common} />
           <circle cx="18" cy="7" r="2" fill="currentColor" stroke="none" />
+        </>
+      );
+    case "cart":
+      return (
+        <>
+          <path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 8H6" {...common} />
+          <circle cx="9" cy="20" r="1.3" fill="currentColor" stroke="none" />
+          <circle cx="17" cy="20" r="1.3" fill="currentColor" stroke="none" />
+        </>
+      );
+    case "monitor":
+      return (
+        <>
+          <rect x="3" y="4" width="18" height="12" rx="1.5" {...common} />
+          <line x1="8" y1="20" x2="16" y2="20" {...common} />
+          <line x1="12" y1="16" x2="12" y2="20" {...common} />
+        </>
+      );
+    case "userCircle":
+      return (
+        <>
+          <circle cx="12" cy="12" r="9" {...common} />
+          <circle cx="12" cy="10" r="3" {...common} />
+          <path d="M6.5 18.5a6 6 0 0 1 11 0" {...common} />
         </>
       );
   }

@@ -8,8 +8,11 @@ import { RevealGroup, revealItem, Reveal } from "../Reveal";
 import { Icon } from "../Icon";
 import { StepList } from "../StepList";
 import { FaqAccordion } from "../FaqAccordion";
+import { WhiteLabelBlocksGrid } from "../WhiteLabelBlocksGrid";
 import type { BusinessModel } from "@/lib/content";
-import { models, useCases, site } from "@/lib/content";
+import { models, useCases, site, whiteLabelBuildingBlocksSection } from "@/lib/content";
+
+const whiteLabelEligible: BusinessModel["id"][] = ["branded-reseller", "white-label-reseller"];
 
 export function ProductDetail({ model }: { model: BusinessModel }) {
   const otherModels = models.filter((m) => m.id !== model.id);
@@ -106,6 +109,27 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
           </div>
         </Container>
       </section>
+
+      {whiteLabelEligible.includes(model.id) && (
+        <section id="bausteine" className="bg-dark py-20 text-white sm:py-28">
+          <Container>
+            <Reveal>
+              <p className="text-sm font-medium tracking-wide text-primary uppercase">
+                {whiteLabelBuildingBlocksSection.eyebrow}
+              </p>
+              <h2 className="font-heading balance mt-3 max-w-2xl text-2xl font-bold tracking-tight sm:text-3xl">
+                {whiteLabelBuildingBlocksSection.title}
+              </h2>
+              <p className="balance mt-4 max-w-2xl text-base leading-relaxed text-white/70">
+                {whiteLabelBuildingBlocksSection.intro}
+              </p>
+            </Reveal>
+            <div className="mt-10">
+              <WhiteLabelBlocksGrid />
+            </div>
+          </Container>
+        </section>
+      )}
 
       {relatedUseCases.length > 0 && (
         <section className="bg-surface py-20 sm:py-28">
