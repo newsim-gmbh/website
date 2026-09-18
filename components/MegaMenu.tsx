@@ -27,17 +27,28 @@ export function MegaMenu({ item, onNavigate }: { item: NavItem; onNavigate?: () 
       <div className="mt-2 grid gap-1 sm:grid-cols-2">
         {item.children.map((child) => {
           const itemClassName = clsx(
-            "flex items-start gap-3 rounded-2xl px-3 py-3 transition-colors hover:bg-background",
+            "flex items-start gap-3 rounded-2xl px-3 py-3 transition-colors",
+            child.featured ? "bg-sky/60 hover:bg-sky" : "hover:bg-background",
             child.comingSoon && "pointer-events-none opacity-50"
           );
           const content = (
             <>
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary-ink">
+              <span
+                className={clsx(
+                  "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl",
+                  child.featured ? "bg-white/70 text-primary-ink" : "bg-primary/15 text-primary-ink"
+                )}
+              >
                 <Icon name={child.icon} className="h-4.5 w-4.5" />
               </span>
               <span>
                 <span className="flex items-center gap-2 text-sm font-medium text-ink">
                   {child.label}
+                  {child.featured && (
+                    <span className="rounded-full bg-primary/20 px-2 py-0.5 text-[10px] font-bold text-primary-ink">
+                      Empfohlen
+                    </span>
+                  )}
                   {child.comingSoon && (
                     <span className="rounded-full bg-line px-2 py-0.5 text-[10px] font-medium text-ink-soft">
                       bald
