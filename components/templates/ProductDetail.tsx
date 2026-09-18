@@ -82,28 +82,59 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
                 </div>
                 <p className="font-heading text-lg font-bold text-ink">Verantwortungs-Split</p>
               </div>
-              <div className="grid grid-cols-2 gap-6 text-sm">
+
+              {(() => {
+                const newSimCount = model.newSimResponsibilities.length;
+                const partnerCount = model.partnerResponsibilities.length;
+                const total = newSimCount + partnerCount;
+                const newSimShare = Math.round((newSimCount / total) * 100);
+                return (
+                  <>
+                    <div className="flex h-2 w-full overflow-hidden rounded-full bg-line">
+                      <motion.span
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${newSimShare}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        className="h-full bg-primary"
+                      />
+                      <span className="h-full flex-1 bg-ink" />
+                    </div>
+                    <div className="mt-2 flex items-center justify-between text-xs font-medium text-ink-soft">
+                      <span>
+                        newSIM · {newSimCount} {newSimCount === 1 ? "Aufgabe" : "Aufgaben"}
+                      </span>
+                      <span>
+                        Sie · {partnerCount} {partnerCount === 1 ? "Aufgabe" : "Aufgaben"}
+                      </span>
+                    </div>
+                  </>
+                );
+              })()}
+
+              <div className="mt-6 grid grid-cols-2 gap-6">
                 <div className="min-w-0">
-                  <p className="font-medium text-ink">newSIM übernimmt</p>
-                  <ul className="mt-3 space-y-2 text-ink-soft">
+                  <p className="text-sm font-medium text-ink">newSIM übernimmt</p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
                     {model.newSimResponsibilities.map((r) => (
-                      <li key={r} className="flex min-w-0 gap-2">
-                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                        <span className="min-w-0 break-words hyphens-auto">{r}</span>
-                      </li>
+                      <span
+                        key={r}
+                        className="inline-flex rounded-full bg-primary/15 px-2.5 py-1 text-xs font-medium text-primary-ink"
+                      >
+                        {r}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
                 <div className="min-w-0">
-                  <p className="font-medium text-ink">Sie übernehmen</p>
-                  <ul className="mt-3 space-y-2 text-ink-soft">
+                  <p className="text-sm font-medium text-ink">Sie übernehmen</p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
                     {model.partnerResponsibilities.map((r) => (
-                      <li key={r} className="flex min-w-0 gap-2">
-                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ink" />
-                        <span className="min-w-0 break-words hyphens-auto">{r}</span>
-                      </li>
+                      <span key={r} className="inline-flex rounded-full bg-ink px-2.5 py-1 text-xs font-medium text-white">
+                        {r}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             </Reveal>

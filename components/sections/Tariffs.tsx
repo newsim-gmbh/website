@@ -9,7 +9,7 @@ import { pricing, site } from "@/lib/content";
 import { Icon } from "../Icon";
 
 export function Tariffs() {
-  const { tariffPortfolio, flyingStart, commercial, disclaimer } = pricing;
+  const { tariffPortfolio, flyingStart, iotM2m, commercial, disclaimer } = pricing;
 
   return (
     <section id="tarife" className="bg-background py-24 sm:py-32">
@@ -53,6 +53,11 @@ export function Tariffs() {
                 <span className="font-medium text-ink">DATA-Option: </span>
                 {tariffPortfolio.dataOption}
               </p>
+            </div>
+            <div className="mt-6 border-t border-line pt-6">
+              <a href="#iot-m2m" className="text-sm font-medium text-primary-ink hover:text-ink">
+                Neben Mobilfunktarifen bieten wir auch ein eigenes IoT- &amp; M2M-Tarifportfolio →
+              </a>
             </div>
           </div>
         </Reveal>
@@ -154,6 +159,33 @@ export function Tariffs() {
               Preise im persönlichen Gespräch erfragen
             </Link>
           </Reveal>
+        </div>
+
+        <div id="iot-m2m" className="mt-24 scroll-mt-24">
+          <Reveal>
+            <h3 className="font-heading text-2xl font-bold tracking-tight text-ink sm:text-3xl">{iotM2m.title}</h3>
+            <p className="mt-3 max-w-2xl text-ink-soft">{iotM2m.subtitle}</p>
+          </Reveal>
+
+          <RevealGroup className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {iotM2m.highlights.map((h) => (
+              <motion.div
+                key={h.title}
+                variants={revealItem}
+                className="rounded-3xl border border-line bg-surface p-6"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary-ink">
+                  <Icon name={h.icon} className="h-5 w-5" />
+                </div>
+                <p className="font-heading mt-4 text-sm font-bold text-ink">{h.title}</p>
+                <ul className="mt-2 space-y-1 text-sm text-ink-soft">
+                  {h.points.map((p) => (
+                    <li key={p}>{p}</li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </RevealGroup>
         </div>
 
         <div className="mt-24">
