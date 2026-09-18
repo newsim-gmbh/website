@@ -316,14 +316,14 @@ export const models: BusinessModel[] = [
     partnerResponsibilities: ["Brand / Marke", "Marketing & Sales", "Endkundenbeziehung"],
     keyBenefits: [
       { title: "Live in 4 Wochen", body: "Schnellster Weg zur eigenen Marke" },
-      { title: "10% Marge", body: "Fixierte Abschlussprovision pro Vertrag" },
+      { title: "Airtime pro Monat", body: "Zzgl. einmaliger Abschlussprovision pro Vertrag" },
       { title: "Niedrige Komplexität", body: "newSIM übernimmt fast die gesamte Wertschöpfung" },
       { title: "Fertige Bausteine", body: "Landingpage, Bestellstrecke, Support gerouted" },
     ],
     process: [
       "Kickoff & Vertragsabschluss",
       "Branding: Landingpage und Bestellstrecke im eigenen Look & Feel",
-      "Tarif-Portfolio und Provisionsmodell (10% Marge) werden eingerichtet",
+      "Tarif-Portfolio und Provisionsmodell (Airtime-Provision + Abschlussprovision) werden eingerichtet",
       "Live-Start nach 4 Wochen",
     ],
     faq: [
@@ -332,8 +332,8 @@ export const models: BusinessModel[] = [
         a: "In der Regel innerhalb von 4 Wochen ab Vertragsabschluss.",
       },
       {
-        q: "Wie hoch ist meine Marge?",
-        a: "10% fixierte Abschlussprovision pro Vertrag.",
+        q: "Wie verdiene ich als Branded Reseller?",
+        a: "Über eine monatliche Airtime-Provision auf jeden aktiven Vertrag sowie eine einmalige Abschlussprovision pro Vertragsabschluss.",
       },
       {
         q: "Was muss ich selbst übernehmen?",
@@ -991,7 +991,7 @@ export const useCases: UseCase[] = [
       },
       {
         q: "Wie viel verdiene ich pro Vertrag?",
-        a: "Als Branded Reseller erhalten Sie eine fixierte Abschlussprovision von 10% pro Vertrag.",
+        a: "Als Branded Reseller erhalten Sie eine monatliche Airtime-Provision auf jeden aktiven Vertrag sowie eine einmalige Abschlussprovision.",
       },
       {
         q: "Brauche ich eine eigene Firma für einen eigenen Mobilfunktarif?",
