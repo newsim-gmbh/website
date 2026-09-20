@@ -70,7 +70,7 @@ export function PageHero({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="relative hidden aspect-square overflow-hidden rounded-[2.5rem] border border-dark-line lg:block"
+              className="relative aspect-square overflow-hidden rounded-[2rem] border border-dark-line sm:rounded-[2.5rem]"
             >
               <Image
                 src={`${basePath}/${image}`}
