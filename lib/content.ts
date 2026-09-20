@@ -439,16 +439,16 @@ export const comparisonTable = {
   note: '"optional" = beim White Label Modell wählbar',
   columns: ["Funktion", "Branded Reseller", "White Label Partner", "Anmerkung"],
   rows: [
-    ["Commercial Ownership", "newSIM", "Partner", "Wer besitzt die Kundenbeziehung"],
-    ["Forderungseinzug", "newSIM", "Partner", "Inkasso & Mahnwesen"],
-    ["Tarif-Portfolio", "newSIM", "Partner", "GB-Volumen / Bandbreite"],
     ["Brand (Logo)", "Partner", "Partner", "Logo / Tarifname"],
-    ["1st Level Support", "newSIM", "optional", "Eigene Kundenhotline beim Partner"],
-    ["2nd Level Support", "newSIM", "newSIM", "Technische Eskalation"],
-    ["Order Management", "newSIM", "optional", "Web-Interface oder API"],
-    ["Billing & Rechnung", "newSIM", "optional", "Rechnungsservice & Versand"],
+    ["Tarif-Portfolio", "newSIM", "Partner", "GB-Volumen / Bandbreite"],
     ["Landing Page", "newSIM", "optional", "Bestellstrecke"],
     ["Marketing & Sales", "Partner", "Partner", "Abschlussprovision an Partner"],
+    ["Order Management", "newSIM", "optional", "Web-Interface oder API"],
+    ["1st Level Support", "newSIM", "optional", "Eigene Kundenhotline beim Partner"],
+    ["2nd Level Support", "newSIM", "newSIM", "Technische Eskalation"],
+    ["Billing & Rechnung", "newSIM", "optional", "Rechnungsservice & Versand"],
+    ["Forderungseinzug", "newSIM", "Partner", "Inkasso & Mahnwesen"],
+    ["Commercial Ownership", "newSIM", "Partner", "Wer besitzt die Kundenbeziehung"],
   ],
 };
 

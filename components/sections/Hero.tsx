@@ -52,6 +52,21 @@ export function Hero() {
                   Die 4 Modelle ansehen
                 </a>
               </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="relative mt-10 aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/10 sm:rounded-[2rem] lg:hidden"
+              >
+                <Image
+                  src={`${basePath}/hero-phone.webp`}
+                  alt="newSIM App auf dem Smartphone: In 4 Wochen zum eigenen Mobilfunkbrand"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                />
+              </motion.div>
             </div>
           </div>
 
