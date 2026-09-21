@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { models, site } from "@/lib/content";
+import { ContactSuccessModal } from "./ContactSuccessModal";
 
 const products = [...models.map((m) => m.navLabel), "Sonstiges"];
 const brekoOptions = ["Keine Angabe", "Ja", "Nein"];
@@ -23,6 +23,7 @@ export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const requiredFields = ["name", "company", "email", "message"] as const;
 
@@ -73,6 +74,7 @@ export function ContactForm() {
       if (data.success) {
         setStatus("sent");
         setForm(emptyForm);
+        setShowSuccessModal(true);
       } else {
         throw new Error(data.message || "Unbekannter Fehler");
       }
@@ -152,15 +154,6 @@ export function ContactForm() {
       </div>
 
       {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
-      {status === "sent" && (
-        <motion.p
-          initial={{ opacity: 0, y: -6 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mt-4 text-sm text-primary-ink"
-        >
-          Ihre Nachricht wurde erfolgreich gesendet — wir melden uns zeitnah.
-        </motion.p>
-      )}
 
       <button
         type="submit"
@@ -169,6 +162,8 @@ export function ContactForm() {
       >
         {status === "submitting" ? "Wird gesendet…" : "Nachricht senden"}
       </button>
+
+      <ContactSuccessModal open={showSuccessModal} onClose={() => setShowSuccessModal(false)} />
     </form>
   );
 }
