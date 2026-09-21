@@ -39,8 +39,8 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
               <p className="font-heading text-lg font-bold text-ink">Wie newSIM hilft</p>
               <ol className="mt-4 space-y-3">
                 {solutionSteps.map((step, i) => (
-                  <li key={step} className="flex items-center gap-3 text-[15px] leading-relaxed text-ink-soft">
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-[11px] font-semibold text-white">
+                  <li key={step} className="flex items-start gap-3 text-[15px] leading-relaxed text-ink-soft">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-[11px] font-semibold text-white">
                       {i + 1}
                     </span>
                     <span>{step}</span>
