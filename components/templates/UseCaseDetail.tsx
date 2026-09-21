@@ -21,6 +21,24 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
     <>
       <PageHero eyebrow="Use Case" title={useCase.name} tagline={useCase.heroTagline} image={useCase.image} />
 
+      {useCase.audience && useCase.audience.length > 0 && (
+        <section className="bg-background pt-10 pb-2 sm:pt-12">
+          <Container>
+            <Reveal className="flex flex-wrap items-center gap-2.5">
+              <span className="text-xs font-medium tracking-wide text-ink-soft uppercase">Passt zu</span>
+              {useCase.audience.map((a) => (
+                <span
+                  key={a}
+                  className="rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium text-ink"
+                >
+                  {a}
+                </span>
+              ))}
+            </Reveal>
+          </Container>
+        </section>
+      )}
+
       <section className="bg-background py-24 sm:py-32">
         <Container>
           <RevealGroup className="grid gap-6 lg:grid-cols-2">
@@ -146,8 +164,11 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
                 So könnte Ihr Angebot aussehen
               </h2>
               <p className="balance mt-4 max-w-lg text-base leading-relaxed text-white/70">
-                Platzhalter: beispielhafte Darstellung — reale Screenshots aus Ihrem individuellen Branding
-                folgen.
+                {useCase.exampleCaption ??
+                  "Platzhalter: beispielhafte Darstellung — reale Screenshots aus Ihrem individuellen Branding folgen."}
+              </p>
+              <p className="mt-3 text-xs text-white/40">
+                Beispielhafte Darstellung — reale Screenshots aus Ihrem individuellen Branding folgen.
               </p>
             </Reveal>
           </div>
