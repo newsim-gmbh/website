@@ -22,14 +22,14 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
       <PageHero eyebrow="Use Case" title={useCase.name} tagline={useCase.heroTagline} image={useCase.image} />
 
       {useCase.audience && useCase.audience.length > 0 && (
-        <section className="bg-background pt-10 pb-2 sm:pt-12">
+        <section className="bg-dark border-t border-dark-line pt-8 pb-8 text-white sm:pt-10">
           <Container>
             <Reveal className="flex flex-wrap items-center gap-2.5">
-              <span className="text-xs font-medium tracking-wide text-ink-soft uppercase">Passt zu</span>
+              <span className="text-xs font-medium tracking-wide text-white/40 uppercase">Passt zu</span>
               {useCase.audience.map((a) => (
                 <span
                   key={a}
-                  className="rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium text-ink"
+                  className="rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-white/80"
                 >
                   {a}
                 </span>
