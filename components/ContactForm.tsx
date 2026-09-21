@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { models, contacts } from "@/lib/content";
+import { models, site } from "@/lib/content";
 
 const products = [...models.map((m) => m.navLabel), "Sonstiges"];
 const brekoOptions = ["Keine Angabe", "Ja", "Nein"];
@@ -47,7 +47,7 @@ export function ContactForm() {
       .filter(Boolean)
       .join("\n");
 
-    window.location.href = `mailto:${contacts[1].email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${site.contactFormEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };
 
