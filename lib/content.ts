@@ -1055,6 +1055,7 @@ export interface DeveloperPage {
   heroTagline: string;
   overview: string;
   capabilities: string[];
+  faq?: { q: string; a: string }[];
 }
 
 export const developerPages: DeveloperPage[] = [
@@ -1080,12 +1081,26 @@ export const developerPages: DeveloperPage[] = [
     icon: "layers",
     heroTagline: "Die Enabling-Plattform hinter allen newSIM-Modellen.",
     overview:
-      "Platzhalter: Telnology® ist die Business-Support-System- und Enabling-Plattform, die Vertriebskanäle, Billing, Customer Service und die Netzanbindung an Telefónica miteinander verbindet.",
+      "Telnology® ist die Enabling-Plattform und das Business Support System (BSS) im Hintergrund aller newSIM-Modelle — sie verbindet Vertriebskanäle, Order Management, Billing und Customer Service mit der Netzanbindung an Telefónica, für B2C und B2B gleichermaßen.",
     capabilities: [
       "Billing & Rating (CDR, Rufnummern, Inkasso)",
       "Customer Service (1st & 2nd Level)",
       "Order Management (Activation, MNP, SIM-Logistik)",
       "Reporting & API",
+    ],
+    faq: [
+      {
+        q: "Ist Telnology® eine App für Endkunden?",
+        a: "Nein. Telnology® ist die Business-Support-System- und Enabling-Plattform im Hintergrund — sie bündelt Order Management, Billing, Customer Service und Netzanbindung für alle Vertriebskanäle, unabhängig von der jeweiligen Endkunden-App oder -Website.",
+      },
+      {
+        q: "Welche Vertriebskanäle bindet Telnology® an?",
+        a: "Privatkunden, Geschäftskunden, ISP-Carrier und Stadtwerke, Mobilfunk-Partner sowie ITK-Systemhäuser laufen über dieselbe Plattform — B2C, B2B und B2B2C.",
+      },
+      {
+        q: "An welches Netz ist Telnology® angebunden?",
+        a: "An das Telefónica-Netzwerk (LTE/5G sowie IoT/M2M) — mit BNetzA-Diensteanbieter-Status gemäß TKG und TR-AAV sowie API-, Web-Interface- und SFTP-Anbindung.",
+      },
     ],
   },
 ];
