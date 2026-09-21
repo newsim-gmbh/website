@@ -16,6 +16,7 @@ export const site = {
   primaryCta: "Gespräch vereinbaren",
   calendlyUrl: "/kontakt",
   loginUrl: "https://cms.newsim.de",
+  contactFormEmail: "max@newsim.de",
 };
 
 export interface NavChild {
