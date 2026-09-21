@@ -781,7 +781,7 @@ export const faq = [
   },
   {
     q: "Wer hat die Kundenbeziehung — wir oder newSIM?",
-    a: "Das hängt vom gewählten Modell ab. Im Branded-Reseller-Modell liegt die Endkundenbeziehung beim Partner, Commercial Ownership bei newSIM. Im White-Label- und MVNO-Modell liegt die Customer Ownership vollständig beim Partner.",
+    a: "Rechtlich ist newSIM als Diensteanbieter gemäß TKG bis zur White-Label-MVNO-Plattform der direkte Vertragspartner des Endkunden — Endkundenvertrag und Rechnung laufen im Namen newSIM, der Partner erhält dafür Provision. Was sich unterscheidet, ist die Commercial Ownership (Marke, Pricing): Beim Branded Reseller liegt sie bei newSIM, beim White Label Reseller beim Partner. Erst bei der White-Label-MVNO-Plattform übernimmt der Partner als eigener Diensteanbieter auch den direkten Endkundenvertrag selbst.",
   },
   {
     q: "Können wir später von einem Modell ins nächste wechseln?",
@@ -797,7 +797,7 @@ export const faq = [
   },
   {
     q: "Was kostet der Einstieg?",
-    a: "Die Konditionen bestehen aus einem einmaligen Set-up, einer monatlichen Betriebspauschale und optionalem Managed Service — Details dazu im Tarif-Bereich. Der Break-Even liegt bei ca. 500 aktiven Kunden im Full-Managed-Service. Genaue Konditionen besprechen wir im persönlichen Gespräch.",
+    a: "Die Konditionen bestehen aus einem einmaligen Set-up, einer monatlichen Betriebspauschale und optionalem Managed Service — Details dazu im Tarif-Bereich. Genaue Konditionen besprechen wir im persönlichen Gespräch.",
   },
   {
     q: "Ist auch IoT/M2M-Konnektivität möglich, nicht nur klassischer Mobilfunk?",

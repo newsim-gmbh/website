@@ -71,7 +71,7 @@ export function Hero() {
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
               priority
-              className="object-cover"
+              className="object-contain object-bottom"
             />
           </motion.div>
         </div>
@@ -80,7 +80,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-white/10 pt-10 sm:grid-cols-4"
+          className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4"
         >
           {proofPoints.map((p) => (
             <div key={p.label}>
