@@ -39,6 +39,21 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
         </section>
       )}
 
+      {useCase.revenueStreams && (
+        <section className="bg-dark py-14 text-white">
+          <Container>
+            <RevealGroup className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4">
+              {useCase.revenueStreams.map((r) => (
+                <motion.div key={r.title} variants={revealItem}>
+                  <p className="font-heading text-lg font-bold tracking-tight">{r.title}</p>
+                  <p className="mt-2 text-sm leading-snug text-white/60">{r.body}</p>
+                </motion.div>
+              ))}
+            </RevealGroup>
+          </Container>
+        </section>
+      )}
+
       <section className="bg-background py-24 sm:py-32">
         <Container>
           <RevealGroup className="grid gap-6 lg:grid-cols-2">
