@@ -4,108 +4,74 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "../Container";
-import { Icon } from "../Icon";
 import { hero, proofPoints, site } from "@/lib/content";
 import { basePath } from "@/lib/basePath";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-dark pt-40 pb-24 text-white sm:pb-32">
+    <section id="top" className="relative overflow-hidden bg-dark pt-36 pb-20 text-white sm:pt-40 sm:pb-24">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(600px circle at 15% 10%, rgba(148,184,233,0.25), transparent 60%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+        }}
+      />
+
       <Container className="relative">
-        <div className="card-dark-gradient relative overflow-hidden rounded-[2rem] sm:rounded-[3rem]">
-          <div className="relative px-6 py-14 sm:px-10 sm:py-16 lg:py-24 lg:pl-16 lg:pr-[460px] xl:pr-[580px]">
-            <div>
-              <motion.h1
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-                className="font-heading balance max-w-4xl whitespace-pre-line text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
-              >
-                {hero.headline}
-              </motion.h1>
+        <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center lg:gap-14">
+          <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}>
+            <h1 className="font-heading balance whitespace-pre-line text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+              {hero.headline}
+            </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-                className="balance mt-8 max-w-2xl text-lg leading-relaxed text-white/70 sm:text-xl"
-              >
-                {hero.sub}
-              </motion.p>
+            <p className="balance mt-6 max-w-xl text-lg leading-relaxed text-white/70 sm:text-xl">{hero.sub}</p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.25 }}
-                className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
+            >
+              <Link
+                href={site.calendlyUrl}
+                className="font-heading inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
               >
-                <Link
-                  href={site.calendlyUrl}
-                  className="font-heading inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
-                >
-                  {site.primaryCta}
-                </Link>
-                <a
-                  href="#modelle"
-                  className="inline-flex items-center justify-center rounded-full border border-primary/40 px-7 py-3.5 text-sm font-medium text-white/90 transition-colors hover:bg-primary/10"
-                >
-                  Die 4 Modelle ansehen
-                </a>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3 }}
-                className="relative mt-10 aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/10 sm:rounded-[2rem] lg:hidden"
+                {site.primaryCta}
+              </Link>
+              <a
+                href="#modelle"
+                className="inline-flex items-center justify-center rounded-full border border-primary/40 px-7 py-3.5 text-sm font-medium text-white/90 transition-colors hover:bg-primary/10"
               >
-                <Image
-                  src={`${basePath}/hero-phone.webp`}
-                  alt="newSIM App auf dem Smartphone: In 4 Wochen zum eigenen Mobilfunkbrand"
-                  fill
-                  sizes="100vw"
-                  className="object-cover"
-                />
-              </motion.div>
-            </div>
-          </div>
+                Die 4 Modelle ansehen
+              </a>
+            </motion.div>
+          </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-none absolute right-0 bottom-0 hidden w-[440px] lg:block xl:w-[560px]"
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="relative aspect-square overflow-hidden rounded-[2rem] border border-dark-line sm:rounded-[2.5rem]"
           >
             <Image
               src={`${basePath}/hero-phone.webp`}
               alt="newSIM App auf dem Smartphone: In 4 Wochen zum eigenen Mobilfunkbrand"
-              width={1600}
-              height={1457}
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
               priority
-              className="h-auto w-full"
-              style={{
-                maskImage: "linear-gradient(205deg, black 55%, transparent 88%)",
-                WebkitMaskImage: "linear-gradient(205deg, black 55%, transparent 88%)",
-              }}
+              className="object-cover"
             />
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="pointer-events-auto absolute -top-8 left-6 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
-            >
-              <Icon name="shield" className="h-4 w-4 text-primary" />
-              Diensteanbieter gem. TKG
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.75 }}
-              className="pointer-events-auto absolute -left-10 bottom-28 flex items-center gap-2 rounded-2xl border border-white/10 bg-dark/90 px-3 py-2.5 text-xs font-medium text-white/80 shadow-xl backdrop-blur"
-            >
-              <Icon name="wifi" className="h-4 w-4 text-primary" />
-              MVNO · Telefónica
-            </motion.div>
           </motion.div>
         </div>
 
