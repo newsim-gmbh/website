@@ -851,7 +851,9 @@ export interface UseCase {
   solution: string;
   painPoints?: string[];
   solutionSteps?: string[];
+  audience?: string[];
   exampleLabel?: string;
+  exampleCaption?: string;
   quadPlay?: QuadPlayComparison;
   faq?: { q: string; a: string }[];
   recommendedModelIds: ModelId[];
@@ -878,6 +880,10 @@ export const useCases: UseCase[] = [
       "Platzhalter: Einheitliche Nutzung im Laden und im Online-Shop.",
       "Platzhalter: newSIM übernimmt Netzanbindung und Regulierung im Hintergrund.",
     ],
+    audience: ["Elektronikfachhandel", "Mobilfunk-Shops", "Multi-Filialisten"],
+    exampleLabel: "Ihr Shop · Ihr Tarif",
+    exampleCaption:
+      "Platzhalter: Tarif-Portfolio direkt in Ihre bestehende Verkaufsstrecke integriert — im Laden wie im Online-Shop.",
     faq: [
       { q: "Platzhalter: Frage zur Einrichtung im Ladengeschäft.", a: "Platzhalter: Antwort folgt." },
       { q: "Platzhalter: Frage zur Online-Integration.", a: "Platzhalter: Antwort folgt." },
@@ -904,6 +910,10 @@ export const useCases: UseCase[] = [
       "newSIM übernimmt Netzanbindung, Regulierung und Plattform-Betrieb im Hintergrund.",
       "Flying-Start-Glasfaser-Lösung überbrückt die Zeit bis zur FTTH-Aktivierung.",
     ],
+    audience: ["Stadtwerke", "Regionale ISPs", "Glasfaseranbieter"],
+    exampleLabel: "Ihr Glasfaser-Bundle",
+    exampleCaption:
+      "Mobilfunk wird zur vierten Säule direkt neben Internet, Festnetz und TV — vom Triple Play zum Quad Play.",
     quadPlay: {
       eyebrow: "Die Herausforderung",
       title: "Ohne Mobilfunk fehlt die vierte Säule im Open-Access-Wettbewerb.",
@@ -956,6 +966,10 @@ export const useCases: UseCase[] = [
       "Platzhalter: IoT/M2M-Konnektivität als zusätzlichen Baustein ergänzen.",
       "Platzhalter: newSIM übernimmt Netzanbindung und Plattform-Betrieb im Hintergrund.",
     ],
+    audience: ["Systemhäuser", "IT-Dienstleister", "TK-Reseller"],
+    exampleLabel: "Ihr B2B-Tarif",
+    exampleCaption:
+      "Platzhalter: Individuelle B2B-Tarife direkt in Ihre bestehenden Kundenbeziehungen integriert.",
     faq: [
       { q: "Platzhalter: Frage zur IoT/M2M-Integration.", a: "Platzhalter: Antwort folgt." },
       { q: "Platzhalter: Frage zur Margenstruktur.", a: "Platzhalter: Antwort folgt." },
@@ -982,6 +996,10 @@ export const useCases: UseCase[] = [
       "Platzhalter: Betrieb im eigenen Compliance-Rahmen.",
       "Platzhalter: newSIM stellt die regulatorische und technische Basis.",
     ],
+    audience: ["Banken", "Versicherungen", "Finanzdienstleister"],
+    exampleLabel: "Ihre Marke · Ihr Mobilfunk",
+    exampleCaption:
+      "Platzhalter: Vollständig White-Label-fähiges Mobilfunkprodukt unter Ihrer eigenen Marke.",
     faq: [
       { q: "Platzhalter: Frage zu Compliance-Anforderungen.", a: "Platzhalter: Antwort folgt." },
       { q: "Platzhalter: Frage zur Markenintegration.", a: "Platzhalter: Antwort folgt." },
@@ -1008,7 +1026,9 @@ export const useCases: UseCase[] = [
       "Startklar in wenigen Wochen statt Monaten.",
       "newSIM übernimmt Betrieb, Abrechnung und Support im Hintergrund.",
     ],
+    audience: ["Content Creator", "Social-Media-Marken", "Community-Brands"],
     exampleLabel: "In 4 Wochen live · Ihre Marke",
+    exampleCaption: "Ein Branded-Reseller-Tarif unter Ihrem eigenen Namen und Look & Feel.",
     faq: [
       {
         q: "Wie schnell ist mein eigener Tarif startklar?",
@@ -1043,6 +1063,10 @@ export const useCases: UseCase[] = [
       "Platzhalter: Einfacher, unter Vereinsmarke vermarkteter Mobilfunktarif.",
       "Platzhalter: Mitgliedervorteil mit geringem Betriebsaufwand für den Verein.",
     ],
+    audience: ["Sportvereine", "Verbände", "Fanclubs"],
+    exampleLabel: "Ihre Vereins-Flat",
+    exampleCaption:
+      "Platzhalter: Einfacher, unter Ihrer Vereinsmarke vermarkteter Mobilfunktarif.",
     faq: [{ q: "Platzhalter: Frage zum administrativen Aufwand.", a: "Platzhalter: Antwort folgt." }],
     recommendedModelIds: ["full-service", "branded-reseller"],
   },
