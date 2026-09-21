@@ -20,16 +20,30 @@ export function ContactForm() {
   });
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
 
-  const update = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+  const requiredFields = ["name", "company", "email", "message"] as const;
+
+  const update = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((f) => ({ ...f, [key]: e.target.value }));
+    if (e.target.value && invalidFields.has(key)) {
+      setInvalidFields((prev) => {
+        const next = new Set(prev);
+        next.delete(key);
+        return next;
+      });
+    }
+  };
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.company || !form.email || !form.message) {
-      setError("Bitte Name, Firma, E-Mail und Nachricht ausfüllen.");
+    const missing = requiredFields.filter((key) => !form[key]);
+    if (missing.length > 0) {
+      setInvalidFields(new Set(missing));
+      setError("Bitte alle rot markierten Pflichtfelder ausfüllen.");
       return;
     }
+    setInvalidFields(new Set());
     setError(null);
 
     const subject = form.product ? `Kontaktanfrage (${form.product}) — ${form.name}` : `Kontaktanfrage — ${form.name}`;
@@ -53,17 +67,19 @@ export function ContactForm() {
 
   const inputClass =
     "w-full rounded-xl border border-line bg-background px-4 py-3 text-sm text-ink placeholder:text-ink-soft/60 outline-none transition-colors focus:border-primary";
+  const fieldClass = (key: (typeof requiredFields)[number]) =>
+    invalidFields.has(key) ? `${inputClass} border-red-500 focus:border-red-500` : inputClass;
 
   return (
-    <form onSubmit={onSubmit} className="rounded-3xl border border-line bg-surface p-8 sm:p-10">
+    <form onSubmit={onSubmit} noValidate className="rounded-3xl border border-line bg-surface p-8 sm:p-10">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink">Name *</label>
-          <input required value={form.name} onChange={update("name")} className={inputClass} placeholder="Vor- und Nachname" />
+          <input required value={form.name} onChange={update("name")} className={fieldClass("name")} placeholder="Vor- und Nachname" />
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink">Firma *</label>
-          <input required value={form.company} onChange={update("company")} className={inputClass} placeholder="Unternehmen" />
+          <input required value={form.company} onChange={update("company")} className={fieldClass("company")} placeholder="Unternehmen" />
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink">Position im Unternehmen</label>
@@ -76,7 +92,7 @@ export function ContactForm() {
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink">E-Mail *</label>
-          <input required type="email" value={form.email} onChange={update("email")} className={inputClass} placeholder="name@firma.de" />
+          <input required type="email" value={form.email} onChange={update("email")} className={fieldClass("email")} placeholder="name@firma.de" />
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink">Telefon</label>
@@ -110,7 +126,7 @@ export function ContactForm() {
             rows={5}
             value={form.message}
             onChange={update("message")}
-            className={inputClass}
+            className={fieldClass("message")}
             placeholder="Wie können wir helfen?"
           />
         </div>
