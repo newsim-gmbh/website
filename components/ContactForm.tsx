@@ -7,6 +7,10 @@ import { ContactSuccessModal } from "./ContactSuccessModal";
 const products = [...models.map((m) => m.navLabel), "Sonstiges"];
 const brekoOptions = ["Keine Angabe", "Ja", "Nein"];
 
+// Gleiches Muster, das Browser intern für <input type="email"> verwenden (WHATWG-Spezifikation).
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+
 const emptyForm = {
   name: "",
   company: "",
@@ -16,6 +20,7 @@ const emptyForm = {
   product: "",
   brekoMember: brekoOptions[0],
   message: "",
+  botcheck: "",
 };
 
 export function ContactForm() {
@@ -40,10 +45,17 @@ export function ContactForm() {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (form.botcheck) return;
     const missing = requiredFields.filter((key) => !form[key]);
-    if (missing.length > 0) {
-      setInvalidFields(new Set(missing));
-      setError("Bitte alle rot markierten Pflichtfelder ausfüllen.");
+    const invalidEmail = !missing.includes("email") && !EMAIL_REGEX.test(form.email);
+
+    if (missing.length > 0 || invalidEmail) {
+      setInvalidFields(new Set(invalidEmail ? [...missing, "email"] : missing));
+      setError(
+        invalidEmail && missing.length === 0
+          ? "Bitte eine gültige E-Mail-Adresse eingeben."
+          : "Bitte alle rot markierten Pflichtfelder ausfüllen."
+      );
       return;
     }
     setInvalidFields(new Set());
@@ -64,10 +76,12 @@ export function ContactForm() {
           Firma: form.company,
           Position: form.position || undefined,
           email: form.email,
+          replyto: form.email,
           Telefon: form.phone || undefined,
           Produkt: form.product || undefined,
           "BREKO-Mitglied": form.brekoMember !== brekoOptions[0] ? form.brekoMember : undefined,
           message: form.message,
+          botcheck: "",
         }),
       });
       const data = await res.json();
@@ -93,6 +107,16 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate className="rounded-3xl border border-line bg-surface p-8 sm:p-10">
+      <input
+        type="text"
+        name="botcheck"
+        value={form.botcheck}
+        onChange={update("botcheck")}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute h-0 w-0 overflow-hidden opacity-0"
+      />
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink">Name *</label>
