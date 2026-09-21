@@ -378,10 +378,10 @@ export const models: BusinessModel[] = [
       { title: "Skalierbar", body: "B2C, B2B und Projektgeschäft kombinierbar" },
     ],
     process: [
-      "Platzhalter: Kickoff & Abstimmung Commercial Ownership",
+      "Kickoff & Abstimmung Commercial Ownership",
       "Eigenes Pricing und Tarif-Portfolio werden gestaltet",
       "1st-Level-Support-Prozesse werden beim Partner aufgesetzt",
-      "Platzhalter: Live-Start nach individueller Vorlaufzeit",
+      "Live-Start, sobald Pricing, Support und Billing-Anbindung stehen",
     ],
     faq: [
       {
@@ -415,10 +415,10 @@ export const models: BusinessModel[] = [
       "Regulierung BNetzA",
     ],
     process: [
-      "Platzhalter: Kickoff & technische Anbindung",
+      "Kickoff & technische Anbindung",
       "Telefónica-Netzanbindung wird eingerichtet",
       "Eigenes Tarif-Portfolio und Customer-Service-Prozesse werden aufgebaut",
-      "Platzhalter: Live-Start als vollwertiger MVNO",
+      "Live-Start, sobald Tarif-Portfolio, Customer Service und BNetzA-Regulierung stehen",
     ],
     faq: [
       {
@@ -851,7 +851,17 @@ export interface UseCase {
   solution: string;
   painPoints?: string[];
   solutionSteps?: string[];
-  revenueStreams?: { title: string; body: string }[];
+  revenueStreams?: {
+    eyebrow: string;
+    title: string;
+    items: { icon: IconName; title: string; body: string }[];
+  };
+  nonMonetaryBenefits?: string[];
+  whyItPays?: {
+    eyebrow: string;
+    title: string;
+    points: { title: string; body: string }[];
+  };
   audience?: string[];
   exampleLabel?: string;
   exampleCaption?: string;
@@ -868,37 +878,49 @@ export const useCases: UseCase[] = [
     icon: "smartphone",
     heroTagline: "Das eigene Mobilfunk-Portfolio im Laden und online erweitern.",
     challenge:
-      "Im klassischen Vertragsverlängerungsgeschäft (VVL) der großen Netzbetreiber erhalten Fachhändler meist nur eine Einmalprovision — und verlieren den Kunden danach oft an die eigenen Online-Kanäle der Netzbetreiber.",
+      "Im klassischen Vertragsverlängerungsgeschäft (VVL) der großen Netzbetreiber verdienen Fachhändler über eine vergleichsweise einfache Provision — und verlieren den Kunden danach oft an die eigenen Online-Kanäle der Netzbetreiber.",
     solution:
-      "Über die Telnology®-Plattform bietet newSIM ein eigenes, unter der Händlermarke geführtes Tarif-Portfolio mit mehreren parallelen Ertragsquellen statt einer Einmalprovision — der Kunde bleibt dauerhaft bei Ihnen.",
+      "Über die Telnology®-Plattform bietet newSIM ein eigenes, unter der Händlermarke geführtes Tarif-Portfolio mit mehreren zusätzlichen, parallelen Ertragsquellen — der Kunde bleibt dauerhaft bei Ihnen.",
     painPoints: [
-      "Im klassischen VVL-Geschäft gibt es meist nur eine Einmalprovision bei Vertragsabschluss — laufende Erträge bleiben aus.",
+      "Im klassischen VVL-Geschäft bleibt es meist bei einer einzelnen, vergleichsweise einfachen Provision — zusätzliche Ertragshebel bleiben ungenutzt.",
       "Vertragsverlängerungen wandern zunehmend in die eigenen Online-Kanäle der Netzbetreiber ab — der Handel verliert den Bestand.",
       "Ein Tarif unter fremder Netzbetreiber-Marke schafft keine Kundenbindung an den eigenen Laden.",
     ],
     solutionSteps: [
-      "Eigenes Tarif-Portfolio unter Ihrer Handelsmarke — eigener Tarifname und Logo auf der Rechnung.",
-      "Mehrere parallele Ertragsquellen statt einer Einmalprovision: laufende Airtime-Provision, volumenabhängiger Margenhebel und Abschlussprovision je Tarif.",
-      "Volle Kundenverwaltung direkt über die Telnology®-Plattform — Up-/Downsell, Verlängerung und Dokumente, ohne eigene Hotline.",
-      "Vertragsverlängerung findet bei Ihnen im Laden statt — nicht im Onlinekanal eines Netzbetreibers.",
+      "Mehrere zusätzliche, parallele Ertragsquellen: laufende Airtime-Provision, volumenabhängiger Margenhebel und Abschlussprovision je Tarif.",
+      "newSIM übernimmt Netzanbindung, Regulierung und Plattform-Betrieb im Hintergrund.",
     ],
-    revenueStreams: [
-      {
-        title: "Laufende Airtime-Provision",
-        body: "Monatlich, solange der Kunde aktiv ist — nicht nur einmalig bei Vertragsabschluss.",
-      },
-      {
-        title: "Volumenabhängiger Margenhebel",
-        body: "Zusätzlicher Hebel oberhalb der Tarif-Untergrenze, skaliert mit dem gewählten Tarif.",
-      },
-      {
-        title: "Einmalige Abschlussprovision",
-        body: "Nach Tarifgröße gestaffelt, direkt bei Vertragsabschluss.",
-      },
-      {
-        title: "Anteil am Bereitstellungspreis",
-        body: "Zusätzlich flexibel steuerbar über Rabattcodes.",
-      },
+    revenueStreams: {
+      eyebrow: "Value Proposition Händler",
+      title: "Vier Ertragsquellen für Ihr Mobilfunkgeschäft",
+      items: [
+        {
+          icon: "invoice",
+          title: "Laufende Airtime-Provision",
+          body: "Monatlich, solange der Kunde aktiv ist — nicht nur einmalig bei Vertragsabschluss.",
+        },
+        {
+          icon: "chart",
+          title: "Volumenabhängiger Margenhebel",
+          body: "Zusätzlicher Hebel oberhalb der Tarif-Untergrenze, skaliert mit dem gewählten Tarif.",
+        },
+        {
+          icon: "tariff",
+          title: "Einmalige Abschlussprovision",
+          body: "Nach Tarifgröße gestaffelt, direkt bei Vertragsabschluss.",
+        },
+        {
+          icon: "sliders",
+          title: "Anteil am Bereitstellungspreis",
+          body: "Zusätzlich flexibel steuerbar über Rabattcodes.",
+        },
+      ],
+    },
+    nonMonetaryBenefits: [
+      "Eigene Tarifnamen und Ihr Logo auf der Rechnung — der Kunde erlebt Ihre Handelsmarke.",
+      "Volle Kundenverwaltung direkt über die Telnology®-Plattform: Up-/Downsell, Verlängerung und Dokumente, ohne eigene Hotline.",
+      "Vertragsverlängerung findet bei Ihnen im Laden statt — nicht im Onlinekanal eines Netzbetreibers.",
+      "Hardware-Marge bleibt unberührt: newSIM-Tarife sind SIM-only, Geräte verkaufen Sie weiterhin aus Ihrem eigenen Sortiment.",
     ],
     audience: ["Elektronikfachhandel", "Mobilfunk-Shops", "Multi-Filialisten"],
     exampleLabel: "Ihr Shop · Ihr Tarif",
@@ -1059,6 +1081,28 @@ export const useCases: UseCase[] = [
     audience: ["Content Creator", "Social-Media-Marken", "Community-Brands"],
     exampleLabel: "In 4 Wochen live · Ihre Marke",
     exampleCaption: "Ein Branded-Reseller-Tarif unter Ihrem eigenen Namen und Look & Feel.",
+    whyItPays: {
+      eyebrow: "Abo-Produkt",
+      title: "Ihr eigener Mobilfunktarif",
+      points: [
+        {
+          title: "Wiederkehrender Umsatz",
+          body: "Jeder Kunde zahlt über die gesamte Vertragslaufzeit von bis zu 24 Monaten, jeden Monat — nicht nur einmalig.",
+        },
+        {
+          title: "Hype-resistent",
+          body: "Die Vertragslaufzeit sichert Umsatz weit über den Launch-Hype hinaus.",
+        },
+        {
+          title: "Null Operations",
+          body: "newSIM übernimmt Service, Billing, SIM-Logistik und Regulierung im Hintergrund.",
+        },
+        {
+          title: "Echtes Asset",
+          body: "Ihre Kundenbasis hat einen eigenen Marktwert — wie das öffentlich bekannte Beispiel Mint Mobile zeigt.",
+        },
+      ],
+    },
     faq: [
       {
         q: "Wie schnell ist mein eigener Tarif startklar?",

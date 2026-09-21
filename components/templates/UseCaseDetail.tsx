@@ -40,13 +40,57 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
       )}
 
       {useCase.revenueStreams && (
-        <section className="bg-dark py-14 text-white">
+        <section className="bg-dark border-t border-dark-line py-20 text-white sm:py-28">
           <Container>
-            <RevealGroup className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4">
-              {useCase.revenueStreams.map((r) => (
-                <motion.div key={r.title} variants={revealItem}>
-                  <p className="font-heading text-lg font-bold tracking-tight">{r.title}</p>
-                  <p className="mt-2 text-sm leading-snug text-white/60">{r.body}</p>
+            <Reveal>
+              <p className="text-sm font-medium tracking-wide text-primary uppercase">
+                {useCase.revenueStreams.eyebrow}
+              </p>
+              <h2 className="font-heading balance mt-3 max-w-xl text-2xl font-bold tracking-tight sm:text-3xl">
+                {useCase.revenueStreams.title}
+              </h2>
+            </Reveal>
+            <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {useCase.revenueStreams.items.map((r) => (
+                <motion.div
+                  key={r.title}
+                  variants={revealItem}
+                  className="rounded-3xl border border-dark-line card-dark-gradient p-6"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-primary">
+                    <Icon name={r.icon} className="h-5 w-5" />
+                  </div>
+                  <p className="font-heading mt-4 text-base font-bold text-white">{r.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-white/60">{r.body}</p>
+                </motion.div>
+              ))}
+            </RevealGroup>
+          </Container>
+        </section>
+      )}
+
+      {useCase.nonMonetaryBenefits && useCase.nonMonetaryBenefits.length > 0 && (
+        <section className="bg-surface py-20 sm:py-28">
+          <Container>
+            <Reveal>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Weitere Vorteile</p>
+              <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                Nicht-monetäre Vorteile
+              </h2>
+            </Reveal>
+            <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2">
+              {useCase.nonMonetaryBenefits.map((b) => (
+                <motion.div
+                  key={b}
+                  variants={revealItem}
+                  className="flex items-start gap-3 rounded-2xl border border-line bg-background p-5 text-[15px] leading-relaxed text-ink-soft"
+                >
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-white">
+                    <svg viewBox="0 0 16 16" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M3.5 8.5l3 3 6-7" />
+                    </svg>
+                  </span>
+                  <span>{b}</span>
                 </motion.div>
               ))}
             </RevealGroup>
@@ -86,6 +130,35 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
           </RevealGroup>
         </Container>
       </section>
+
+      {useCase.whyItPays && (
+        <section className="bg-background pb-24 sm:pb-32">
+          <Container>
+            <Reveal className="rounded-3xl bg-cream p-8 sm:p-10">
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">
+                {useCase.whyItPays.eyebrow}
+              </p>
+              <h3 className="font-heading mt-2 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                {useCase.whyItPays.title}
+              </h3>
+              <ul className="mt-6 space-y-4">
+                {useCase.whyItPays.points.map((p) => (
+                  <li key={p.title} className="flex items-start gap-3 text-[15px] leading-relaxed text-ink-soft">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-white">
+                      <svg viewBox="0 0 16 16" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M3.5 8.5l3 3 6-7" />
+                      </svg>
+                    </span>
+                    <span>
+                      <span className="font-semibold text-ink">{p.title}</span> — {p.body}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </Container>
+        </section>
+      )}
 
       {useCase.quadPlay && (
         <section className="bg-surface py-20 sm:py-28">
