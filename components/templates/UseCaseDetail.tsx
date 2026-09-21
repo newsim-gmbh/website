@@ -24,7 +24,7 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
       <section className="bg-background py-24 sm:py-32">
         <Container>
           <RevealGroup className="grid gap-6 lg:grid-cols-2">
-            <motion.div variants={revealItem} className="rounded-3xl bg-cream p-8">
+            <motion.div variants={revealItem} className="rounded-3xl bg-sky p-8">
               <p className="font-heading text-lg font-bold text-ink">Kennen Sie das?</p>
               <ul className="mt-4 space-y-3">
                 {painPoints.map((point) => (
@@ -35,18 +35,20 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
                 ))}
               </ul>
             </motion.div>
-            <motion.div variants={revealItem} className="rounded-3xl bg-sky p-8">
+            <motion.div variants={revealItem} className="rounded-3xl bg-cream p-8">
               <p className="font-heading text-lg font-bold text-ink">Wie newSIM hilft</p>
-              <ol className="mt-4 space-y-3">
-                {solutionSteps.map((step, i) => (
+              <ul className="mt-4 space-y-3">
+                {solutionSteps.map((step) => (
                   <li key={step} className="flex items-start gap-3 text-[15px] leading-relaxed text-ink-soft">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-[11px] font-semibold text-white">
-                      {i + 1}
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-white">
+                      <svg viewBox="0 0 16 16" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M3.5 8.5l3 3 6-7" />
+                      </svg>
                     </span>
                     <span>{step}</span>
                   </li>
                 ))}
-              </ol>
+              </ul>
             </motion.div>
           </RevealGroup>
         </Container>
