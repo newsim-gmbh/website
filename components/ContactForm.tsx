@@ -7,18 +7,20 @@ import { models, site } from "@/lib/content";
 const products = [...models.map((m) => m.navLabel), "Sonstiges"];
 const brekoOptions = ["Keine Angabe", "Ja", "Nein"];
 
+const emptyForm = {
+  name: "",
+  company: "",
+  position: "",
+  email: "",
+  phone: "",
+  product: "",
+  brekoMember: brekoOptions[0],
+  message: "",
+};
+
 export function ContactForm() {
-  const [form, setForm] = useState({
-    name: "",
-    company: "",
-    position: "",
-    email: "",
-    phone: "",
-    product: "",
-    brekoMember: brekoOptions[0],
-    message: "",
-  });
-  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState(emptyForm);
+  const [status, setStatus] = useState<"idle" | "submitting" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
 
@@ -35,7 +37,7 @@ export function ContactForm() {
     }
   };
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const missing = requiredFields.filter((key) => !form[key]);
     if (missing.length > 0) {
@@ -45,24 +47,41 @@ export function ContactForm() {
     }
     setInvalidFields(new Set());
     setError(null);
+    setStatus("submitting");
 
     const subject = form.product ? `Kontaktanfrage (${form.product}) — ${form.name}` : `Kontaktanfrage — ${form.name}`;
-    const body = [
-      `Name: ${form.name}`,
-      form.company && `Firma: ${form.company}`,
-      form.position && `Position: ${form.position}`,
-      `E-Mail: ${form.email}`,
-      form.phone && `Telefon: ${form.phone}`,
-      form.product && `Produkt: ${form.product}`,
-      form.brekoMember !== brekoOptions[0] && `BREKO-Mitglied: ${form.brekoMember}`,
-      "",
-      form.message,
-    ]
-      .filter(Boolean)
-      .join("\n");
 
-    window.location.href = `mailto:${site.contactFormEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: site.web3formsAccessKey,
+          subject,
+          from_name: "newSIM Kontaktformular",
+          name: form.name,
+          Firma: form.company,
+          Position: form.position || undefined,
+          email: form.email,
+          Telefon: form.phone || undefined,
+          Produkt: form.product || undefined,
+          "BREKO-Mitglied": form.brekoMember !== brekoOptions[0] ? form.brekoMember : undefined,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("sent");
+        setForm(emptyForm);
+      } else {
+        throw new Error(data.message || "Unbekannter Fehler");
+      }
+    } catch {
+      setStatus("error");
+      setError(
+        `Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an ${site.contactFormEmail}.`
+      );
+    }
   };
 
   const inputClass =
@@ -133,21 +152,22 @@ export function ContactForm() {
       </div>
 
       {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
-      {sent && (
+      {status === "sent" && (
         <motion.p
           initial={{ opacity: 0, y: -6 }}
           animate={{ opacity: 1, y: 0 }}
           className="mt-4 text-sm text-primary-ink"
         >
-          Ihr E-Mail-Programm öffnet sich mit einer vorausgefüllten Nachricht — bitte dort absenden.
+          Ihre Nachricht wurde erfolgreich gesendet — wir melden uns zeitnah.
         </motion.p>
       )}
 
       <button
         type="submit"
-        className="font-heading mt-8 inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink"
+        disabled={status === "submitting"}
+        className="font-heading mt-8 inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink disabled:cursor-not-allowed disabled:opacity-60"
       >
-        Nachricht senden
+        {status === "submitting" ? "Wird gesendet…" : "Nachricht senden"}
       </button>
     </form>
   );
