@@ -284,10 +284,10 @@ export const models: BusinessModel[] = [
     newSimResponsibilities: ["Tarif-Portfolio", "Rufnummern-Management", "SIM-Karten-Logistik"],
     partnerResponsibilities: ["Aktivierung / Deaktivierung", "Endkundenbeziehung"],
     process: [
-      "Platzhalter: Erstgespräch zur Abstimmung des Tarifbedarfs",
+      "Erstgespräch zur Abstimmung des Tarifbedarfs",
       "Individuelles Tarifportfolio wird für den Geschäftskundenbereich konfiguriert",
       "Rufnummern-Management und SIM-Karten-Logistik werden eingerichtet",
-      "Platzhalter: Live-Schaltung für die Aktivierung durch den Partner",
+      "Aktivierung und Deaktivierung einzelner Verträge liegen ab sofort bei Ihnen",
     ],
     faq: [
       {
