@@ -26,8 +26,8 @@ export function ContactForm() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) {
-      setError("Bitte Name, E-Mail und Nachricht ausfüllen.");
+    if (!form.name || !form.company || !form.email || !form.message) {
+      setError("Bitte Name, Firma, E-Mail und Nachricht ausfüllen.");
       return;
     }
     setError(null);
@@ -62,8 +62,8 @@ export function ContactForm() {
           <input required value={form.name} onChange={update("name")} className={inputClass} placeholder="Vor- und Nachname" />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">Firma</label>
-          <input value={form.company} onChange={update("company")} className={inputClass} placeholder="Unternehmen" />
+          <label className="mb-1.5 block text-sm font-medium text-ink">Firma *</label>
+          <input required value={form.company} onChange={update("company")} className={inputClass} placeholder="Unternehmen" />
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink">Position im Unternehmen</label>

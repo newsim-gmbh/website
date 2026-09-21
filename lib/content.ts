@@ -156,16 +156,17 @@ export const mainNav: NavItem[] = [
     intro: "Technische Anbindung an die Telnology®-Plattform.",
     children: [
       {
-        label: "API",
-        href: "/developer/api",
-        description: "Order Management, Reporting & BSS/OSS-Schnittstellen.",
-        icon: "chip",
-      },
-      {
         label: "Telnology®",
         href: "/developer/telnology",
         description: "Die Enabling-Plattform und ihre Architektur.",
         icon: "layers",
+      },
+      {
+        label: "API",
+        href: "/developer/api",
+        description: "Order Management, Reporting & BSS/OSS-Schnittstellen.",
+        icon: "chip",
+        comingSoon: true,
       },
     ],
   },
