@@ -851,6 +851,7 @@ export interface UseCase {
   solution: string;
   painPoints?: string[];
   solutionSteps?: string[];
+  revenueStreams?: { title: string; body: string }[];
   audience?: string[];
   exampleLabel?: string;
   exampleCaption?: string;
@@ -867,26 +868,55 @@ export const useCases: UseCase[] = [
     icon: "smartphone",
     heroTagline: "Das eigene Mobilfunk-Portfolio im Laden und online erweitern.",
     challenge:
-      "Platzhalter: Fachhändler brauchen ein wettbewerbsfähiges Mobilfunk-Portfolio, ohne selbst Netzbetreiber-Know-how oder eigene Regulierungs-Zulassung aufzubauen.",
+      "Im klassischen Vertragsverlängerungsgeschäft (VVL) der großen Netzbetreiber erhalten Fachhändler meist nur eine Einmalprovision — und verlieren den Kunden danach oft an die eigenen Online-Kanäle der Netzbetreiber.",
     solution:
-      "Platzhalter: Über die Telnology®-Plattform lässt sich ein eigenes Tarif-Portfolio direkt in die bestehende Verkaufsstrecke integrieren — im Laden wie im Online-Shop.",
+      "Über die Telnology®-Plattform bietet newSIM ein eigenes, unter der Händlermarke geführtes Tarif-Portfolio mit mehreren parallelen Ertragsquellen statt einer Einmalprovision — der Kunde bleibt dauerhaft bei Ihnen.",
     painPoints: [
-      "Platzhalter: Kein wettbewerbsfähiges Mobilfunk-Portfolio ohne eigenes Netzbetreiber-Know-how.",
-      "Platzhalter: Eigene Regulierungs-Zulassung ist zu aufwändig, um sie selbst aufzubauen.",
-      "Platzhalter: Ladengeschäft und Online-Shop sollen ein einheitliches Portfolio zeigen.",
+      "Im klassischen VVL-Geschäft gibt es meist nur eine Einmalprovision bei Vertragsabschluss — laufende Erträge bleiben aus.",
+      "Vertragsverlängerungen wandern zunehmend in die eigenen Online-Kanäle der Netzbetreiber ab — der Handel verliert den Bestand.",
+      "Ein Tarif unter fremder Netzbetreiber-Marke schafft keine Kundenbindung an den eigenen Laden.",
     ],
     solutionSteps: [
-      "Platzhalter: Tarif-Portfolio über die Telnology®-Plattform direkt in die Verkaufsstrecke integrieren.",
-      "Platzhalter: Einheitliche Nutzung im Laden und im Online-Shop.",
-      "Platzhalter: newSIM übernimmt Netzanbindung und Regulierung im Hintergrund.",
+      "Eigenes Tarif-Portfolio unter Ihrer Handelsmarke — eigener Tarifname und Logo auf der Rechnung.",
+      "Mehrere parallele Ertragsquellen statt einer Einmalprovision: laufende Airtime-Provision, volumenabhängiger Margenhebel und Abschlussprovision je Tarif.",
+      "Volle Kundenverwaltung direkt über die Telnology®-Plattform — Up-/Downsell, Verlängerung und Dokumente, ohne eigene Hotline.",
+      "Vertragsverlängerung findet bei Ihnen im Laden statt — nicht im Onlinekanal eines Netzbetreibers.",
+    ],
+    revenueStreams: [
+      {
+        title: "Laufende Airtime-Provision",
+        body: "Monatlich, solange der Kunde aktiv ist — nicht nur einmalig bei Vertragsabschluss.",
+      },
+      {
+        title: "Volumenabhängiger Margenhebel",
+        body: "Zusätzlicher Hebel oberhalb der Tarif-Untergrenze, skaliert mit dem gewählten Tarif.",
+      },
+      {
+        title: "Einmalige Abschlussprovision",
+        body: "Nach Tarifgröße gestaffelt, direkt bei Vertragsabschluss.",
+      },
+      {
+        title: "Anteil am Bereitstellungspreis",
+        body: "Zusätzlich flexibel steuerbar über Rabattcodes.",
+      },
     ],
     audience: ["Elektronikfachhandel", "Mobilfunk-Shops", "Multi-Filialisten"],
     exampleLabel: "Ihr Shop · Ihr Tarif",
     exampleCaption:
-      "Platzhalter: Tarif-Portfolio direkt in Ihre bestehende Verkaufsstrecke integriert — im Laden wie im Online-Shop.",
+      "Eigene Tarifnamen und Ihr Logo auf der Rechnung — der Kunde erlebt Ihre Handelsmarke, nicht die des Netzbetreibers.",
     faq: [
-      { q: "Platzhalter: Frage zur Einrichtung im Ladengeschäft.", a: "Platzhalter: Antwort folgt." },
-      { q: "Platzhalter: Frage zur Online-Integration.", a: "Platzhalter: Antwort folgt." },
+      {
+        q: "Verdiene ich nur einmalig bei Vertragsabschluss?",
+        a: "Nein — zur einmaligen Abschlussprovision kommt eine laufende Airtime-Provision hinzu, solange der Kunde aktiv ist, sowie ein volumenabhängiger Margenhebel.",
+      },
+      {
+        q: "Verliere ich den Kunden bei der Vertragsverlängerung an den Netzbetreiber?",
+        a: "Nein — die Vertragsverlängerung findet direkt bei Ihnen im Laden statt, nicht im Onlinekanal eines Netzbetreibers.",
+      },
+      {
+        q: "Was passiert mit meiner Hardware-Marge?",
+        a: "Die bleibt unberührt — newSIM-Tarife sind SIM-only, Geräte verkaufen Sie weiterhin aus Ihrem eigenen Sortiment.",
+      },
     ],
     recommendedModelIds: ["branded-reseller", "white-label-reseller"],
   },
