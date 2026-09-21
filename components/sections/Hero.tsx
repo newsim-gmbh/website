@@ -63,6 +63,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
             className="relative aspect-square overflow-hidden rounded-[2rem] border border-dark-line sm:rounded-[2.5rem]"
+            style={{ backgroundImage: "linear-gradient(to right, #a7bce3, #c9dbea)" }}
           >
             <Image
               src={`${basePath}/hero-phone.webp`}

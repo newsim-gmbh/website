@@ -625,14 +625,15 @@ export const pricing = {
   disclaimer: "Alle Angaben zu Volumina, Bandbreiten und Leistungsumfang ohne Gewähr — individuelle Konditionen und Preise besprechen wir gerne im persönlichen Gespräch.",
 
   tariffPortfolio: {
-    title: "Vorleistungstarife bis 300 GB",
+    title: "Vorleistungstarife bis 500 GB",
     subtitle: "Allnet Voice- & SMS-Flat — sofort verfügbar, mit DATA-Promos und individuellen Snacks",
     maxGb: 300,
+    maxGbWithOption: 500,
     minGb: 5,
     bandwidthTiers: ["50 Mbit/s", "100 Mbit/s"],
     availableVolumesGb: [5, 15, 20, 25, 30, 35, 40, 45, 60, 120, 150, 300],
     dataPromo: "+5 GB · +10 GB · +15 GB",
-    dataOption: "+100 GB",
+    dataOption: "+100 GB (bis zu 2× buchbar)",
     conditions: {
       provision: [
         "Aktivierungsprovision einmalig bei Abschluss",

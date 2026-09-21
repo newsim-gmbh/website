@@ -43,6 +43,9 @@ export function Tariffs() {
                   {gb} GB
                 </span>
               ))}
+              <span className="flex h-11 items-center justify-center rounded-full bg-primary/15 px-4 text-sm font-semibold text-primary-ink">
+                bis zu {tariffPortfolio.maxGbWithOption} GB mit DATA-Option
+              </span>
             </div>
             <div className="mt-6 grid gap-3 border-t border-line pt-6 text-sm sm:grid-cols-2">
               <p className="text-ink-soft">
@@ -51,7 +54,8 @@ export function Tariffs() {
               </p>
               <p className="text-ink-soft">
                 <span className="font-medium text-ink">DATA-Option: </span>
-                {tariffPortfolio.dataOption}
+                {tariffPortfolio.dataOption} — im {tariffPortfolio.maxGb}-GB-Tarif damit bis zu{" "}
+                {tariffPortfolio.maxGbWithOption} GB
               </p>
             </div>
             <div className="mt-6 border-t border-line pt-6">
