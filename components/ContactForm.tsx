@@ -14,7 +14,7 @@ export function ContactForm() {
     position: "",
     email: "",
     phone: "",
-    product: products[0],
+    product: "",
     brekoMember: brekoOptions[0],
     message: "",
   });
@@ -32,14 +32,14 @@ export function ContactForm() {
     }
     setError(null);
 
-    const subject = `Kontaktanfrage (${form.product}) — ${form.name}`;
+    const subject = form.product ? `Kontaktanfrage (${form.product}) — ${form.name}` : `Kontaktanfrage — ${form.name}`;
     const body = [
       `Name: ${form.name}`,
       form.company && `Firma: ${form.company}`,
       form.position && `Position: ${form.position}`,
       `E-Mail: ${form.email}`,
       form.phone && `Telefon: ${form.phone}`,
-      `Produkt: ${form.product}`,
+      form.product && `Produkt: ${form.product}`,
       form.brekoMember !== brekoOptions[0] && `BREKO-Mitglied: ${form.brekoMember}`,
       "",
       form.message,
@@ -85,6 +85,7 @@ export function ContactForm() {
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink">Produkt</label>
           <select value={form.product} onChange={update("product")} className={inputClass}>
+            <option value="">Bitte auswählen</option>
             {products.map((p) => (
               <option key={p} value={p}>
                 {p}
