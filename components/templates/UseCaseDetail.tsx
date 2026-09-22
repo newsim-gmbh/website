@@ -75,7 +75,7 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
             <Reveal>
               <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Weitere Vorteile</p>
               <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Nicht-monetäre Vorteile
+                Vorteile einer Eigenmarke
               </h2>
             </Reveal>
             <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2">

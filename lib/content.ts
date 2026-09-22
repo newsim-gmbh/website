@@ -314,7 +314,7 @@ export const models: BusinessModel[] = [
     tagline: "Eigene Marke in 4 Wochen — newSIM trägt den Großteil der Wertschöpfung.",
     description:
       "Eigene Mobilfunkmarke in nur 4 Wochen startklar. newSIM übernimmt den Großteil der Wertschöpfung — der Partner liefert Brand und Vertrieb.",
-    idealFor: "ISPs und Carrier zum Start — einfache Bestellstrecke, fertige Provision",
+    idealFor: "Mobilfunkfachhändler und Carrier zum Start — einfache Bestellstrecke, fertige Provision",
     newSimResponsibilities: ["Netzanbindung (Telefónica)", "Customer Service 1st Level", "Billing & Inkasso", "Tarif-Portfolio"],
     partnerResponsibilities: ["Brand / Marke", "Marketing & Sales", "Endkundenbeziehung"],
     keyBenefits: [
@@ -542,7 +542,7 @@ export const businessAreas = {
     {
       badge: "B2B2C · White Label",
       title: "White-Label Mobilfunk",
-      body: "Mit BREKO eG und Telefónica entwickelt — ohne Mindest-Kommitment. Carrier und Stadtwerke bieten ein eigenes Mobilfunk- und IoT/M2M-Portfolio an.",
+      body: "Mit der Telefónica ohne Mindest-Kommitment konzipiert. Alle Partner bieten ihr eigenes Mobilfunk-Portfolio an.",
       tags: ["Mobilfunk", "IoT / M2M", "Voice & Daten"],
     },
     {
@@ -563,7 +563,7 @@ export const businessAreas = {
 export const socialProof = {
   eyebrow: "Referenzen",
   title: "30+ White-Label-Partner unter Vertrag",
-  body: "Stadtwerke, regionale ISPs, Energieversorger und etablierte Carrier vertrauen auf die Telnology®-Plattform — jeder mit eigener Marke vermarktet.",
+  body: "Stadtwerke, regionale ISPs, Mobilfunkhändler, Energieversorger und etablierte Carrier vertrauen auf die Telnology®-Plattform — jeder vermarktet seinen eigenen Brand.",
   disclaimer: "Logo-Darstellung als Platzhalter. Originale Partner-Logos auf Anfrage und mit Freigabe einsetzbar.",
 };
 
@@ -878,7 +878,7 @@ export const useCases: UseCase[] = [
     name: "Mobilfunk Fachhandel",
     image: "usecase-mobilfunk-fachhandel.webp",
     icon: "smartphone",
-    heroTagline: "Das eigene Mobilfunk-Portfolio im Laden und online erweitern.",
+    heroTagline: "Das eigene Mobilfunk-Portfolio mit einer Eigenmarke einfach ergänzen und den Ertrag selbst steuern.",
     challenge:
       "Im klassischen Vertragsverlängerungsgeschäft (VVL) der großen Netzbetreiber verdienen Fachhändler über eine vergleichsweise einfache Provision — und verlieren den Kunden danach oft an die eigenen Online-Kanäle der Netzbetreiber.",
     solution:
@@ -924,7 +924,7 @@ export const useCases: UseCase[] = [
       "Vertragsverlängerung findet bei Ihnen im Laden statt — nicht im Onlinekanal eines Netzbetreibers.",
       "Hardware-Marge bleibt unberührt: newSIM-Tarife sind SIM-only, Geräte verkaufen Sie weiterhin aus Ihrem eigenen Sortiment.",
     ],
-    audience: ["Elektronikfachhandel", "Mobilfunk-Shops", "Multi-Filialisten"],
+    audience: ["Mobilfunk-Shops", "Filialisten", "Elektronikfachhandel"],
     exampleLabel: "Ihr Shop · Ihr Tarif",
     exampleCaption:
       "Eigene Tarifnamen und Ihr Logo auf der Rechnung — der Kunde erlebt Ihre Handelsmarke, nicht die des Netzbetreibers.",
@@ -949,7 +949,7 @@ export const useCases: UseCase[] = [
     name: "Stadtwerke, ISP & Glasfaseranbieter",
     image: "usecase-stadtwerke-isp-glasfaser.webp",
     icon: "building",
-    heroTagline: "Mobilfunk als natürliche Ergänzung zum Glasfaser-Portfolio.",
+    heroTagline: "Mobilfunk als natürliche und notwendige Ergänzung zum Glasfaser-Portfolio.",
     challenge:
       "Platzhalter: Stadtwerke und regionale ISPs wollen ihr Glasfaser-Portfolio um Mobilfunk erweitern, um Kunden ganzheitlich zu binden — klassischerweise ein hoher regulatorischer und technischer Einstiegsaufwand.",
     solution:
@@ -962,7 +962,7 @@ export const useCases: UseCase[] = [
     solutionSteps: [
       "Mobilfunk wird zur vierten Säule direkt neben Internet, Festnetz und TV — vom Triple Play zum Quad Play.",
       "newSIM übernimmt Netzanbindung, Regulierung und Plattform-Betrieb im Hintergrund.",
-      "Flying-Start-Glasfaser-Lösung überbrückt die Zeit bis zur FTTH-Aktivierung.",
+      "Mobile Broadband - Flying-Start-Glasfaser-Lösung überbrückt die Zeit bis zur FTTH-Aktivierung.",
     ],
     audience: ["Stadtwerke", "Regionale ISPs", "Glasfaseranbieter"],
     exampleLabel: "Ihr Glasfaser-Bundle",
@@ -996,7 +996,10 @@ export const useCases: UseCase[] = [
         q: "Was ist Open Access?",
         a: "Regulatorisch verpflichtete Öffnung des eigenen Glasfasernetzes für andere Anbieter — sobald das gilt, entscheidet das Gesamtpaket über den Endkunden, nicht mehr die Leitung allein.",
       },
-      { q: "Platzhalter: Frage zur Flying-Start-Lösung.", a: "Platzhalter: Antwort folgt." },
+      {
+        q: "Ist die Mobile Broadband-Lösung flexibel in der Laufzeit?",
+        a: "Ja, die Lösung wurde zusammen mit der Telefónica konzipiert und kann zum Zeitpunkt der Glasfaser-Aktivierung beendet werden.",
+      },
     ],
     recommendedModelIds: ["white-label-reseller", "white-label-mvno"],
   },
@@ -1005,20 +1008,20 @@ export const useCases: UseCase[] = [
     name: "ITK Systemhäuser",
     image: "usecase-itk-systemhaeuser.webp",
     icon: "chip",
-    heroTagline: "Mobilfunk als Baustein im B2B-Portfolio für Geschäftskunden.",
+    heroTagline: "Mobilfunk als Baustein im B2B-Portfolio für spezielle Lösungen für Geschäftskunden.",
     challenge:
       "Platzhalter: ITK-Systemhäuser betreuen Geschäftskunden ganzheitlich — Mobilfunk fehlt oft als eigenständiger, margenstarker Baustein im Portfolio.",
     solution:
       "Platzhalter: Individuelle B2B-Tarife und IoT/M2M-Konnektivität lassen sich direkt in bestehende Kundenbeziehungen integrieren, ohne eigene Netzinfrastruktur.",
     painPoints: [
-      "Platzhalter: Mobilfunk fehlt als eigenständiger, margenstarker Baustein im B2B-Portfolio.",
-      "Platzhalter: Keine eigene Netzinfrastruktur vorhanden, um Mobilfunk selbst anzubieten.",
-      "Platzhalter: Geschäftskunden erwarten ganzheitliche Betreuung aus einer Hand.",
+      "Mobilfunk Konnektivität fehlt als eigenständiger, margenstarker Baustein im B2B-Portfolio.",
+      "Keine eigene Netzinfrastruktur vorhanden, um Mobilfunk selbst anzubieten.",
+      "Geschäftskunden erwarten ganzheitliche Betreuung aus einer Hand mit der Möglichkeit die Tarife selbst zu managen.",
     ],
     solutionSteps: [
-      "Platzhalter: Individuelle B2B-Tarife direkt in bestehende Kundenbeziehungen integrieren.",
-      "Platzhalter: IoT/M2M-Konnektivität als zusätzlichen Baustein ergänzen.",
-      "Platzhalter: newSIM übernimmt Netzanbindung und Plattform-Betrieb im Hintergrund.",
+      "Individuelle B2B-Tarife gestalten und in die Kunden-Lösung integrieren.",
+      "Zusätzliche Margen generieren und kommerzielle Ownership behalten.",
+      "newSIM übernimmt Netzanbindung und Plattform-Betrieb im Hintergrund.",
     ],
     audience: ["Systemhäuser", "IT-Dienstleister", "TK-Reseller"],
     exampleLabel: "Ihr B2B-Tarif",
@@ -1028,32 +1031,32 @@ export const useCases: UseCase[] = [
       { q: "Platzhalter: Frage zur IoT/M2M-Integration.", a: "Platzhalter: Antwort folgt." },
       { q: "Platzhalter: Frage zur Margenstruktur.", a: "Platzhalter: Antwort folgt." },
     ],
-    recommendedModelIds: ["full-service", "branded-reseller"],
+    recommendedModelIds: ["full-service", "white-label-reseller"],
   },
   {
     slug: "banken-versicherungen",
     name: "Banken & Versicherungen",
     image: "usecase-banken-versicherungen.webp",
     icon: "shield",
-    heroTagline: "Mobilfunk als Cross-Selling- und Bindungsprodukt.",
+    heroTagline: "Mobilfunk als Cross-Selling- und Kundenbindungsprodukt.",
     challenge:
       "Platzhalter: Banken und Versicherungen suchen nach zusätzlichen, alltagsrelevanten Produkten zur Kundenbindung — mit hohen Anforderungen an Regulierung und Markenauftritt.",
     solution:
       "Platzhalter: Ein vollständig White-Label-fähiges Mobilfunkprodukt lässt sich unter eigener Marke und im eigenen Compliance-Rahmen anbieten, während newSIM die regulatorische und technische Basis stellt.",
     painPoints: [
-      "Platzhalter: Zusätzliche, alltagsrelevante Produkte zur Kundenbindung werden gesucht.",
-      "Platzhalter: Hohe Anforderungen an Regulierung und Markenauftritt in der Finanzbranche.",
-      "Platzhalter: Ein Fremdprodukt ohne eigenes Branding wirkt nicht vertrauenswürdig genug.",
+      "Wie kann der eigene Kundenstamm mit zusätzlichen, alltagsrelevanten Produkten zur Kundenbindung ergänzt und die Retention erhöht werden?",
+      "Wie kann ich das eigene Produktsortiment ideal ergänzen und das Kundenkonto mit einem Vorteil versehen?",
+      "Ein Fremdprodukt ohne eigenes Branding wirkt nicht vertrauenswürdig genug.",
     ],
     solutionSteps: [
-      "Platzhalter: Vollständig White-Label-fähiges Mobilfunkprodukt unter eigener Marke.",
-      "Platzhalter: Betrieb im eigenen Compliance-Rahmen.",
-      "Platzhalter: newSIM stellt die regulatorische und technische Basis.",
+      "Vollständig White-Label-fähiges Mobilfunkprodukt unter eigener Marke.",
+      "Volle Integration per API in die Customer Journey.",
+      "newSIM stellt die regulatorische und technische Basis.",
     ],
     audience: ["Banken", "Versicherungen", "Finanzdienstleister"],
     exampleLabel: "Ihre Marke · Ihr Mobilfunk",
     exampleCaption:
-      "Platzhalter: Vollständig White-Label-fähiges Mobilfunkprodukt unter Ihrer eigenen Marke.",
+      "Vollständig White-Label-fähiges Mobilfunkprodukt unter Ihrer eigenen Marke.",
     faq: [
       { q: "Platzhalter: Frage zu Compliance-Anforderungen.", a: "Platzhalter: Antwort folgt." },
       { q: "Platzhalter: Frage zur Markenintegration.", a: "Platzhalter: Antwort folgt." },
