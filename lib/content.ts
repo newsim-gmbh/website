@@ -1341,9 +1341,9 @@ export const consultingServices: ConsultingService[] = [
     forWhom:
       "Für Netzanbieter, die ihre kupferbasierten Dienste im Portfolio bereinigen wollen, damit die operativen Betriebskosten zügig gesenkt werden und die Wettbewerbsfähigkeit in Zukunft erhalten bleibt.",
     phases: [
-      { title: "Analyse", body: "Platzhalter: Betroffene Kundensegmente und Migrationszeitplan erfassen." },
-      { title: "Konzept", body: "Platzhalter: Mobilfunk-Überbrückungslösung (z. B. Flying Start Glasfaser) einplanen." },
-      { title: "Begleitung", body: "Platzhalter: Kommunikation und Rollout gemeinsam begleiten." },
+      { title: "Bestandsaufnahme", body: "Bestehendes Portfolio und Bestandskunden analysieren." },
+      { title: "IT und Plattform Check", body: "Prüfen der technischen Möglichkeiten und Schnittstellenanbindungen für die Zielprodukte." },
+      { title: "Projektleitung", body: "Verantwortliche Übernahme der Projektleitung in der Organisation für die End-to-End-Transformation." },
     ],
     serviceBlocks: [
       {
@@ -1362,7 +1362,11 @@ export const consultingServices: ConsultingService[] = [
         icon: "layers",
       },
     ],
-    deliverables: ["Transformationskonzept", "Kommunikationsleitfaden", "Rollout-Begleitung"],
+    deliverables: [
+      "Transformationskonzept zur Migration der Kundenbasis xDSL",
+      "Kostensenkungspotential erreichen",
+      "Anbindung neuer Anbieter (Open Access)",
+    ],
     duration: "Platzhalter: abhängig vom Migrationszeitplan",
     relatedModelIds: ["white-label-reseller", "white-label-mvno"],
     faq: [
@@ -1373,6 +1377,14 @@ export const consultingServices: ConsultingService[] = [
       {
         q: "Wie früh sollte ich das planen?",
         a: "Platzhalter: Angaben zum empfohlenen Planungsvorlauf folgen.",
+      },
+      {
+        q: "Begleitet newSIM auch die Umsetzung der Kupfer-Glasfaser-Transformation?",
+        a: "Ja, newSIM begleitet im Beratungsprojekt auch die Implementierung und Umsetzung der Strategie.",
+      },
+      {
+        q: "Ist newSIM auch vor Ort, um das Projekt zu leiten?",
+        a: "newSIM stellt sicher, dass das Projekt durchgängig begleitet wird, und ist selbstverständlich auch vor Ort.",
       },
     ],
   },
