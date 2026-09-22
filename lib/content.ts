@@ -1000,6 +1000,10 @@ export const useCases: UseCase[] = [
         q: "Ist die Mobile Broadband-Lösung flexibel in der Laufzeit?",
         a: "Ja, die Lösung wurde zusammen mit der Telefónica konzipiert und kann zum Zeitpunkt der Glasfaser-Aktivierung beendet werden.",
       },
+      {
+        q: "Kann der Kunde jeden Tag streamen und ist das Datenvolumen dafür ausreichend?",
+        a: "Ja, die Lösung bietet eine 100-Mbit/s-Download-Geschwindigkeit mit max. 500 GB Datenvolumen im Monat. Damit kann der Kunde täglich bis zu 3 Stunden TV streamen.",
+      },
     ],
     recommendedModelIds: ["white-label-reseller", "white-label-mvno"],
   },
