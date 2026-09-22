@@ -26,24 +26,35 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
 
       <section className="bg-dark py-14 text-white">
         <Container>
-          <div className="grid grid-cols-3 gap-x-8 gap-y-10">
-            <div>
-              <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">
-                {service.phases.length} Phasen
-              </p>
-              <p className="mt-2 text-sm leading-snug text-white/60">Strukturiertes Vorgehen</p>
+          {service.serviceBlocks ? (
+            <div className="grid gap-x-8 gap-y-10 sm:grid-cols-3">
+              {service.serviceBlocks.map((block) => (
+                <div key={block.title}>
+                  <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">{block.title}</p>
+                  <p className="mt-2 text-sm leading-snug text-white/60">{block.body}</p>
+                </div>
+              ))}
             </div>
-            <div>
-              <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">
-                {service.deliverables.length} Deliverables
-              </p>
-              <p className="mt-2 text-sm leading-snug text-white/60">Konkrete Ergebnisse</p>
+          ) : (
+            <div className="grid grid-cols-3 gap-x-8 gap-y-10">
+              <div>
+                <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">
+                  {service.phases.length} Phasen
+                </p>
+                <p className="mt-2 text-sm leading-snug text-white/60">Strukturiertes Vorgehen</p>
+              </div>
+              <div>
+                <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">
+                  {service.deliverables.length} Deliverables
+                </p>
+                <p className="mt-2 text-sm leading-snug text-white/60">Konkrete Ergebnisse</p>
+              </div>
+              <div>
+                <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">{service.duration}</p>
+                <p className="mt-2 text-sm leading-snug text-white/60">Dauer</p>
+              </div>
             </div>
-            <div>
-              <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">{service.duration}</p>
-              <p className="mt-2 text-sm leading-snug text-white/60">Dauer</p>
-            </div>
-          </div>
+          )}
         </Container>
       </section>
 
