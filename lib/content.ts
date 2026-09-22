@@ -502,13 +502,13 @@ export const capabilities = {
   items: [
     { title: "Netz", body: "MVNO im Netz der Telefónica, LTE/5G, bundesweite Abdeckung.", icon: "wifi" as const },
     { title: "Tarife", body: "200+ Tarife im White-Label-Portfolio, 5–500 GB, Allnetflat & SMS-Flat.", icon: "tariff" as const },
-    { title: "Billing", body: "Billing & Rating inkl. CDR, Rufnummern-Verwaltung, Inkasso.", icon: "invoice" as const },
-    { title: "SIM / eSIM", body: "SIM-Karten-Logistik, Aktivierung, Refurbishment & Retoure.", icon: "simCard" as const },
+    { title: "Billing", body: "Rating & Billing inkl. der CDR, Rufnummern-Verwaltung.", icon: "invoice" as const },
+    { title: "SIM / eSIM", body: "SIM-Karten-Verwaltung und Endkundenlogistik & Retourenmanagement.", icon: "simCard" as const },
     { title: "MNP", body: "Rufnummernportierung und Aktivierungsprozesse End-to-End.", icon: "portability" as const },
     { title: "Support", body: "1st & 2nd Level Support, Endkunden-Hotline, technische Eskalation.", icon: "support" as const },
     { title: "Regulierung", body: "Diensteanbieter-Status gemäß TKG, BNetzA, TR-AAV, SARV-Server, Roaming.", icon: "shield" as const },
     { title: "Order Management", body: "Aktivierung, MNP und SIM-Logistik über die Telnology®-Plattform.", icon: "clipboard" as const },
-    { title: "Reporting / API", body: "BSS/OSS-Schnittstellen mit Web-Interface und API-Anbindung.", icon: "chart" as const },
+    { title: "Partnerportal / API", body: "Web-Interface und API-Anbindung für die Kundenverwaltung.", icon: "chart" as const },
   ],
 };
 
@@ -1246,11 +1246,9 @@ export const consultingServices: ConsultingService[] = [
       { title: "Umsetzung", body: "Tarifkonzept, App-basierte Customer Journey und Anbindung an die Mobilfunk-as-a-Service-Plattform werden gemeinsam umgesetzt." },
     ],
     serviceBlocks: [
-      { title: "Tarifkonzept", body: "Wir erstellen das optimale, zielgruppenspezifische Tarifkonzept.", icon: "tariff" },
-      { title: "Marketing", body: "Wir entwickeln für Ihr Unternehmen den End-to-End-Prozess für eine App-basierte digitale Customer Journey.", icon: "chart" },
-      { title: "Infrastruktur", body: "Mithilfe des Know-hows aus unserer Mobilfunk-as-a-Service-Plattform entwickeln wir passende End-to-End-Prozesse.", icon: "layers" },
-      { title: "Billing", body: "Wir beraten zur optimalen Integration und Abwicklung von Forderungsmanagement von Mobilfunkdiensten.", icon: "invoice" },
-      { title: "Strategie", body: "Wir beraten und entwickeln eine Strategie für einen langfristigen Erfolg im Mobilfunkmarkt.", icon: "link" },
+      { title: "Potentialanalyse", body: "Markt- und Wettbewerb.", icon: "pulse" },
+      { title: "Business Case", body: "3–5 Jahres Planung.", icon: "chart" },
+      { title: "Go-to-Market Konzept", body: "Planung erfolgreiche Produkt- und Vertriebsstrategie.", icon: "link" },
     ],
     deliverables: ["G2M-Strategiepapier", "Modell- und Positionierungsempfehlung", "Launch-Fahrplan"],
     duration: "Platzhalter: ca. 2–3 Wochen",
@@ -1271,14 +1269,20 @@ export const consultingServices: ConsultingService[] = [
     name: "Potentialanalyse Mobilfunk & Glasfaser",
     image: "consulting-potentialanalyse.webp",
     icon: "pulse",
-    heroTagline: "Marktpotential für Ihr Portfolio einschätzen.",
-    forWhom: "Platzhalter: Für Carrier, Stadtwerke und ISPs, die vor der Entscheidung stehen, ob und wie sich Mobilfunk in ihr Portfolio integrieren lässt.",
+    heroTagline: "Marktpotential für Ihr Portfolio einschätzen und bewerten für Ihre Geschäftsplanung.",
+    forWhom:
+      "Für Unternehmen und Netzanbieter, die ihr Produktportfolio und das Kundenangebot für Glasfaser und Mobilfunk optimieren und neu ausrichten.",
     phases: [
-      { title: "Bestandsaufnahme", body: "Platzhalter: Bestehendes Portfolio und Kundenbasis analysieren." },
-      { title: "Potentialbewertung", body: "Platzhalter: Marktpotential und Modelloptionen einordnen." },
-      { title: "Empfehlung", body: "Platzhalter: Konkrete Handlungsempfehlung mit Modellvorschlag." },
+      { title: "Bestandsaufnahme", body: "Bestehendes Portfolio und Vertriebsprozesse analysieren." },
+      { title: "Potentialbewertung", body: "Markt- und Kundenpotential auf Ertrag und Wettbewerbsfähigkeit überprüfen." },
+      { title: "Handlungsempfehlung", body: "Konkrete Maßnahmenplanung zur Umsatz- und Ertragssteigerung auf Produkt- und Vertriebsebene." },
     ],
-    deliverables: ["Potentialanalyse-Report", "Modellempfehlung", "Wirtschaftlichkeitseinschätzung"],
+    serviceBlocks: [
+      { title: "Potentialanalyse", body: "Markt- und Wettbewerb.", icon: "pulse" },
+      { title: "Sales und Marketing Planung", body: "G2M-Konzept und Initiativen.", icon: "chart" },
+      { title: "Transformation", body: "Neuausrichtung und Monitoring sämtlicher Sales-Aktivitäten.", icon: "layers" },
+    ],
+    deliverables: ["Maßnahmenplanung Vertriebsinitiativen", "Modellempfehlung", "Wirtschaftlichkeitseinschätzung"],
     duration: "Platzhalter: ca. 2–4 Wochen",
     relatedModelIds: ["white-label-reseller", "white-label-mvno"],
     faq: [
@@ -1288,7 +1292,7 @@ export const consultingServices: ConsultingService[] = [
       },
       {
         q: "Was, wenn sich kein Potential zeigt?",
-        a: "Platzhalter: Angaben zum Vorgehen bei negativer Einschätzung folgen.",
+        a: "Unsere Erfahrungen haben gezeigt, dass es in der Regel immer ein Potential zur Vertriebseffizienzsteigerung gibt.",
       },
     ],
   },
@@ -1299,13 +1303,18 @@ export const consultingServices: ConsultingService[] = [
     icon: "link",
     heroTagline: "Vertriebsstrategie über alle Kanäle hinweg.",
     forWhom:
-      "Für Partner, die ihr Mobilfunk-Portfolio im B2C-E-Commerce, im B2B2C-Retail sowie im B2B-Geschäftskundenvertrieb erfolgreich vermarkten wollen.",
+      "Für Unternehmen und Netzanbieter, die ihr Mobilfunk-Portfolio im B2C-E-Commerce, im B2B2C-Retail sowie im B2B-Geschäftskundenvertrieb erfolgreich vermarkten wollen.",
     phases: [
       { title: "Kanalanalyse", body: "Bestehende Kanäle in B2C-E-Commerce, B2B2C-Retail und B2B-Geschäftskundenvertrieb werden erfasst und bewertet." },
-      { title: "Konzept", body: "Platzhalter: Vertriebsstrategie über Online- und Offline-Kanäle entwickeln." },
-      { title: "Rollout", body: "Platzhalter: Umsetzung gemeinsam mit dem Vertriebsteam begleiten." },
+      { title: "Konzept", body: "Vertriebsstrategie für die Neukundengewinnung im B2C (Telesales & Retail) und B2B (SME) für Online- und Offline-Kanäle." },
+      { title: "Rollout", body: "Implementierung und Umsetzung der Vertriebsinitiativen mit dem Team." },
     ],
-    deliverables: ["Vertriebsstrategie-Konzept", "Kanal-Priorisierung", "Rollout-Plan"],
+    serviceBlocks: [
+      { title: "Vertriebsstrategie", body: "Where to play und how to win.", icon: "chart" },
+      { title: "Effizienzsteigerung", body: "Prozesse, Organisation, Zielsysteme, Monitoring.", icon: "sliders" },
+      { title: "Kundenbindung", body: "Retention, Cross- und Upselling, Loyalitätsprogramme.", icon: "link" },
+    ],
+    deliverables: ["Planung der Vertriebsziele und -strategie", "Kanal-Priorisierung", "Maßnahmenplanung Neukunden und Cross- / Upsell"],
     duration: "Platzhalter: ca. 2–3 Wochen",
     relatedModelIds: ["branded-reseller", "full-service"],
     faq: [
@@ -1315,7 +1324,11 @@ export const consultingServices: ConsultingService[] = [
       },
       {
         q: "Begleitet newSIM auch die Umsetzung?",
-        a: "Platzhalter: Angaben zum Umfang der Umsetzungsbegleitung folgen.",
+        a: "Ja, newSIM begleitet im Beratungsprojekt auch die Implementierung und Umsetzung der Strategie.",
+      },
+      {
+        q: "Kann newSIM auch die Bestellstrecke im E-Commerce zur Verfügung stellen?",
+        a: "newSIM stellt optional eine White-Label-Bestellstrecke und die dazugehörige Webseite für den Partner zur Verfügung.",
       },
     ],
   },

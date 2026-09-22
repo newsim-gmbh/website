@@ -144,22 +144,22 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
           <Reveal>
             <p className="text-sm font-medium tracking-wide text-primary uppercase">Warum newSIM</p>
             <h2 className="font-heading balance mt-3 max-w-xl text-2xl font-bold tracking-tight sm:text-3xl">
-              Beratung von denen, die die Plattform selbst betreiben.
+              Beratung von denen, die wissen, was in einer Plattform für ungenutztes Potential für den Vertrieb steckt.
             </h2>
           </Reveal>
           <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-3">
             {[
               {
                 title: "Kein reines Theoriepapier",
-                body: "Wir beraten nicht nur — wir betreiben die Enabling-Plattform, Order Management und Netzanbindung selbst.",
+                body: "Wir beraten nicht nur — wir betreiben selbst eine Enabling-Plattform und wissen, wie alle kundenrelevanten Prozesse funktionieren.",
               },
               {
-                title: "Direkter Anschluss",
-                body: "Empfehlungen basieren auf Systemen, die Sie danach auch tatsächlich nutzen würden.",
+                title: "Keine zusätzlichen IT-Investitionen",
+                body: "Unsere Empfehlungen basieren auf den aktuell genutzten Systemen.",
               },
               {
-                title: "Nahtloser Übergang",
-                body: "Aus der Beratung wird bei Bedarf ein laufendes Produkt — ohne Systemwechsel oder neuen Partner.",
+                title: "Nahtlose Umsetzung",
+                body: "Die Initiativen berücksichtigen bestehende Prozesse und können in kurzer Zeit implementiert und organisatorisch optimiert werden.",
               },
             ].map((point) => (
               <motion.div
