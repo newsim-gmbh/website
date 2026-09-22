@@ -97,12 +97,20 @@ export function Footer() {
               <p key={i}>{line}</p>
             ))}
           </div>
-          <div className="flex items-start sm:justify-end">
+          <div className="flex items-start gap-3 sm:justify-end">
             <div className="inline-flex w-28 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-2 shadow-sm">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`${basePath}/BMWi_Fz_2021_WebSVG_de.svg`}
                 alt="Gefördert durch: Bundesministerium für Wirtschaft und Klimaschutz, aufgrund eines Beschlusses des Deutschen Bundestages"
+                className="h-auto w-full"
+              />
+            </div>
+            <div className="inline-flex w-28 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-2 shadow-sm">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${basePath}/breko-eg-guetesiegel.webp`}
+                alt="BREKO Einkaufsgemeinschaft eG — zertifizierter Listungspartner"
                 className="h-auto w-full"
               />
             </div>
