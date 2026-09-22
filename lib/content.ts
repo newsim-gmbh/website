@@ -1337,12 +1337,30 @@ export const consultingServices: ConsultingService[] = [
     name: "Kupfer-Glasfaser-Transformation",
     image: "consulting-kupfer-glasfaser-transformation.webp",
     icon: "tower",
-    heroTagline: "Mobilfunk als Brücke bei der Netz-Transformation.",
-    forWhom: "Platzhalter: Für Netzbetreiber, die Kunden während der Migration von Kupfer- auf Glasfaseranschlüsse überbrücken müssen.",
+    heroTagline: "Digitalisierung basiert in der Zukunft auf Glasfaser und Mobilfunk. Wir beraten bei der Netz-Transformation.",
+    forWhom:
+      "Für Netzanbieter, die ihre kupferbasierten Dienste im Portfolio bereinigen wollen, damit die operativen Betriebskosten zügig gesenkt werden und die Wettbewerbsfähigkeit in Zukunft erhalten bleibt.",
     phases: [
       { title: "Analyse", body: "Platzhalter: Betroffene Kundensegmente und Migrationszeitplan erfassen." },
       { title: "Konzept", body: "Platzhalter: Mobilfunk-Überbrückungslösung (z. B. Flying Start Glasfaser) einplanen." },
       { title: "Begleitung", body: "Platzhalter: Kommunikation und Rollout gemeinsam begleiten." },
+    ],
+    serviceBlocks: [
+      {
+        title: "Konzeptionelle Beratung",
+        body: "Entwicklung eines zielgruppen- und produktgerechten Marktangangs auf Basis des bestehenden xDSL-Portfolios.",
+        icon: "pulse",
+      },
+      {
+        title: "Projektleitung End-to-End",
+        body: "Gesamtheitliche Leitung aller relevanten Stakeholder und Prozess-Owner.",
+        icon: "clipboard",
+      },
+      {
+        title: "Transformation",
+        body: "Kontinuierliches Nachhalten des Projektfortschritts und Prüfung der bestehenden Verträge mit Anbietern bzw. Dienstleistern.",
+        icon: "layers",
+      },
     ],
     deliverables: ["Transformationskonzept", "Kommunikationsleitfaden", "Rollout-Begleitung"],
     duration: "Platzhalter: abhängig vom Migrationszeitplan",
