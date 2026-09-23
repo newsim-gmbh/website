@@ -168,7 +168,6 @@ export const mainNav: NavItem[] = [
         href: "/developer/api",
         description: "Order Management, Reporting & BSS/OSS-Schnittstellen.",
         icon: "chip",
-        comingSoon: true,
       },
     ],
   },
@@ -1167,14 +1166,14 @@ export const developerPages: DeveloperPage[] = [
     name: "API",
     image: "developer-api.webp",
     icon: "chip",
-    heroTagline: "Order Management, Reporting und BSS/OSS-Schnittstellen.",
+    heroTagline: "Der externe Zugang zur Telnology®-Plattform — für Ihre eigenen Systeme.",
     overview:
-      "Platzhalter: Die newSIM API bindet Order Management, Aktivierung, MNP und Reporting direkt an Ihre bestehenden Systeme an — als Alternative oder Ergänzung zum Web-Interface.",
+      "Die newSIM API bietet denselben Funktionsumfang wie die Telnology®-Plattform — sie ist der externe, programmatische Zugang, über den Partner-Systeme newSIM direkt ansprechen und die Rückmeldungen in Echtzeit erhalten.",
     capabilities: [
       "Order Management & Aktivierung",
       "MNP-Prozesse",
+      "Billing & Rating (CDR)",
       "Reporting & Datenexport",
-      "BSS/OSS-Schnittstellen",
     ],
   },
   {

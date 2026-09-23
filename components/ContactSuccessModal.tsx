@@ -24,7 +24,17 @@ function buildVCard() {
   return lines.join("\n");
 }
 
-export function ContactSuccessModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function ContactSuccessModal({
+  open,
+  onClose,
+  title = "Nachricht gesendet!",
+  body = "Vielen Dank für Ihre Anfrage — wir melden uns zeitnah bei Ihnen.",
+}: {
+  open: boolean;
+  onClose: () => void;
+  title?: string;
+  body?: string;
+}) {
   const [qrDataUrl, setQrDataUrl] = useState<string | null>(null);
 
   useEffect(() => {
@@ -89,10 +99,8 @@ export function ContactSuccessModal({ open, onClose }: { open: boolean; onClose:
               </svg>
             </motion.div>
 
-            <h3 className="font-heading mt-5 text-2xl font-bold tracking-tight text-ink">Nachricht gesendet!</h3>
-            <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
-              Vielen Dank für Ihre Anfrage — wir melden uns zeitnah bei Ihnen.
-            </p>
+            <h3 className="font-heading mt-5 text-2xl font-bold tracking-tight text-ink">{title}</h3>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">{body}</p>
 
             <div className="mt-7 rounded-2xl border border-line bg-background p-6">
               <p className="text-xs font-medium tracking-wide text-ink-soft uppercase">Bis dahin</p>
