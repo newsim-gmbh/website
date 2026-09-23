@@ -90,7 +90,7 @@ export default function IotPage() {
                   Jetzt individuelles IoT-Angebot anfragen.
                 </h2>
                 <p className="mt-4 max-w-lg text-ink-soft">
-                  In drei kurzen Schritten schicken Sie uns Ihr Projekt — wir melden uns mit einem passenden Angebot zurück.
+                  In drei kurzen Schritten schicken Sie uns Ihr Projekt — wir melden uns zeitnah bei Ihnen.
                 </p>
                 <Link
                   href={hero.primaryCtaHref}
