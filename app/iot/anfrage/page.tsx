@@ -34,7 +34,7 @@ export default function IotAnfragePage() {
                 Jetzt Ihr individuelles IoT-Angebot anfragen.
               </h1>
               <p className="balance mt-5 max-w-lg text-lg leading-relaxed text-white/70">
-                Drei kurze Schritte — wir melden uns mit einem passenden Angebot für Ihr Projekt zurück.
+                Drei kurze Schritte — wir melden uns zeitnah bei Ihnen zu Ihrem Projekt.
               </p>
             </Reveal>
           </Container>

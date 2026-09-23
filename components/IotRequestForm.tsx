@@ -25,17 +25,18 @@ const emptyForm = {
   firstName: "",
   lastName: "",
   phone: "",
-  companyCountry: "",
   heardFrom: "",
   botcheck: "",
 };
 
-const companyCountries = ["Deutschland", "Österreich", "Schweiz", "Anderes Land"];
 const heardFromOptions = ["Google-Suche", "Empfehlung", "Social Media", "Messe / Event", "Sonstiges"];
 
 const benefits = [
   { icon: "tower" as const, text: "LTE/5G & IoT/M2M auf dem Telefónica-Netz" },
   { icon: "shield" as const, text: "BNetzA-reguliert gemäß TKG & TR-AAV" },
+  { icon: "sliders" as const, text: "Dynamisches Datenpooling" },
+  { icon: "wifi" as const, text: "Nationales Roaming" },
+  { icon: "link" as const, text: "Individueller APN" },
   { icon: "layers" as const, text: "Skalierbar vom Pilotprojekt bis zur Großflotte" },
   { icon: "support" as const, text: "Persönlicher Ansprechpartner aus Deutschland" },
 ];
@@ -90,7 +91,7 @@ export function IotRequestForm() {
     }
 
     if (step.key === "kontakt") {
-      const required = ["company", "firstName", "lastName", "phone", "companyCountry"] as const;
+      const required = ["company", "firstName", "lastName", "phone"] as const;
       const missing = required.filter((key) => !form[key]);
       const invalidPhone = !missing.includes("phone") && !isPlausiblePhone(form.phone);
       const invalid = new Set<string>([...missing, ...(invalidPhone ? ["phone"] : [])]);
@@ -140,7 +141,6 @@ export function IotRequestForm() {
           email: form.email,
           replyto: form.email,
           Telefon: form.phone,
-          "Land (Unternehmen)": form.companyCountry,
           Einsatzbereich: form.useCase,
           "SIM-Karten pro Jahr": form.simCount,
           "Ø Datenverbrauch je SIM": form.avgDataUsage || undefined,
@@ -179,7 +179,7 @@ export function IotRequestForm() {
         </motion.div>
         <h3 className="font-heading mt-6 text-2xl font-bold tracking-tight text-ink">Anfrage gesendet!</h3>
         <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-ink-soft">
-          Vielen Dank für Ihr Interesse an newSIM IoT — wir melden uns zeitnah mit einem passenden Angebot bei Ihnen.
+          Vielen Dank für Ihr Interesse an newSIM IoT — wir melden uns zeitnah bei Ihnen zu Ihrem Projekt.
         </p>
         <Link
           href="/iot"
@@ -201,7 +201,7 @@ export function IotRequestForm() {
                 <span
                   className={clsx(
                     "flex h-8 w-8 shrink-0 items-center justify-center rounded-full",
-                    i <= stepIndex ? "bg-ink text-white" : "bg-line text-ink-soft"
+                    i <= stepIndex ? "bg-primary text-sky" : "bg-primary/15 text-primary-ink"
                   )}
                 >
                   <Icon name={s.icon} className="h-4 w-4" />
@@ -211,7 +211,7 @@ export function IotRequestForm() {
                 </span>
               </div>
               {i < steps.length - 1 && (
-                <span className={clsx("mx-3 h-px flex-1", i < stepIndex ? "bg-ink" : "bg-line")} />
+                <span className={clsx("mx-3 h-px flex-1", i < stepIndex ? "bg-primary" : "bg-line")} />
               )}
             </div>
           ))}
@@ -341,7 +341,7 @@ export function IotRequestForm() {
                       <label className="mb-1.5 block text-sm font-medium text-ink">Nachname *</label>
                       <input required value={form.lastName} onChange={update("lastName")} className={fieldClass("lastName")} placeholder="Schmidt" />
                     </div>
-                    <div>
+                    <div className="sm:col-span-2">
                       <label className="mb-1.5 block text-sm font-medium text-ink">Telefonnummer *</label>
                       <input
                         required
@@ -351,17 +351,6 @@ export function IotRequestForm() {
                         className={fieldClass("phone")}
                         placeholder="+49 151 23456789"
                       />
-                    </div>
-                    <div>
-                      <label className="mb-1.5 block text-sm font-medium text-ink">Land *</label>
-                      <select required value={form.companyCountry} onChange={update("companyCountry")} className={fieldClass("companyCountry")}>
-                        <option value="">Bitte auswählen</option>
-                        {companyCountries.map((c) => (
-                          <option key={c} value={c}>
-                            {c}
-                          </option>
-                        ))}
-                      </select>
                     </div>
                     <div className="sm:col-span-2">
                       <label className="mb-1.5 block text-sm font-medium text-ink">Wie sind Sie auf uns aufmerksam geworden?</label>
