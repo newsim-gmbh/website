@@ -57,9 +57,11 @@ export default function KontaktPage() {
                     <a href={`mailto:${c.email}`} className="mt-3 block text-sm text-primary-ink">
                       {c.email}
                     </a>
-                    <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="mt-1 block text-sm text-primary-ink">
-                      {c.phone}
-                    </a>
+                    {c.phone && (
+                      <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="mt-1 block text-sm text-primary-ink">
+                        {c.phone}
+                      </a>
+                    )}
                   </div>
                 ))}
               </Reveal>

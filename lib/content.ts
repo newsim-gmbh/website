@@ -814,18 +814,11 @@ export const finalCta = {
   body: "In einem kurzen Gespräch klären wir, welches Modell zu Ihrem Ambitionslevel passt — vom Full Service bis zur eigenen MVNO-Plattform.",
 };
 
-export const contacts = [
+export const contacts: { name: string; role: string; email: string; phone?: string }[] = [
   {
-    name: "Matthias P. Engelke",
-    role: "Geschäftsführer",
-    email: "mpe@newsim.de",
-    phone: "+49 178 5546622",
-  },
-  {
-    name: "Alexandra Burger",
-    role: "Sales & Business Development",
-    email: "burger@newsim.de",
-    phone: "+49 176 55904313",
+    name: "newSIM",
+    role: "Partnermanagement",
+    email: "service@newsim.de",
   },
 ];
 

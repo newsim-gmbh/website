@@ -155,7 +155,7 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
           <Reveal>
             <p className="text-sm font-medium tracking-wide text-primary uppercase">Warum newSIM</p>
             <h2 className="font-heading balance mt-3 max-w-xl text-2xl font-bold tracking-tight sm:text-3xl">
-              Beratung von denen, die wissen, was in einer Plattform für ungenutztes Potential für den Vertrieb steckt.
+              Beratung von Experten, die wissen, was in einer Plattform für ungenutztes Potential für den Vertrieb steckt.
             </h2>
           </Reveal>
           <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-3">
