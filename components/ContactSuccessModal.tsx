@@ -9,20 +9,19 @@ function buildVCard() {
   const c = contacts[0];
   const parts = c.name.split(" ");
   const firstName = parts[0];
-  const familyName = parts[parts.length - 1];
-  const middleName = parts.slice(1, -1).join(" ");
-  return [
+  const familyName = parts.length > 1 ? parts[parts.length - 1] : "";
+  const middleName = parts.length > 2 ? parts.slice(1, -1).join(" ") : "";
+  const lines = [
     "BEGIN:VCARD",
     "VERSION:3.0",
     `N:${familyName};${firstName};${middleName};;`,
     `FN:${c.name}`,
     `ORG:${site.legalName}`,
     `TITLE:${c.role}`,
-    `TEL;TYPE=CELL:${c.phone}`,
-    `EMAIL:${c.email}`,
-    `URL:https://${site.domain}`,
-    "END:VCARD",
-  ].join("\n");
+  ];
+  if (c.phone) lines.push(`TEL;TYPE=CELL:${c.phone}`);
+  lines.push(`EMAIL:${c.email}`, `URL:https://${site.domain}`, "END:VCARD");
+  return lines.join("\n");
 }
 
 export function ContactSuccessModal({ open, onClose }: { open: boolean; onClose: () => void }) {
