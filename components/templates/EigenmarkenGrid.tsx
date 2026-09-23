@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "../Container";
 import { Reveal, RevealGroup, revealItem } from "../Reveal";
 import { PhoneMockup } from "../PhoneMockup";
@@ -53,7 +54,7 @@ export function EigenmarkenGrid({ items }: { items: NavChild[] }) {
                   <span className="font-heading mt-6 inline-flex w-fit items-center rounded-full bg-white/10 px-5 py-2.5 text-xs font-bold text-white/50">
                     Bald verfügbar
                   </span>
-                ) : (
+                ) : item.external ? (
                   <a
                     href={item.href}
                     target="_blank"
@@ -62,6 +63,13 @@ export function EigenmarkenGrid({ items }: { items: NavChild[] }) {
                   >
                     Zur Website ↗
                   </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="font-heading mt-6 inline-flex w-fit items-center rounded-full bg-white px-5 py-2.5 text-xs font-bold text-ink transition-colors hover:bg-primary"
+                  >
+                    Jetzt entdecken →
+                  </Link>
                 )}
               </div>
             </motion.div>

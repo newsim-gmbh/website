@@ -145,10 +145,9 @@ export const mainNav: NavItem[] = [
       },
       {
         label: "IoT / M2M Shop",
-        href: "#",
-        description: "IoT-Konnektivität — in Kürze.",
+        href: "/iot",
+        description: "IoT-Konnektivität für Ihre Devices.",
         icon: "layers",
-        comingSoon: true,
       },
     ],
   },
@@ -1206,6 +1205,69 @@ export const developerPages: DeveloperPage[] = [
     ],
   },
 ];
+
+export interface IotFeatureTab {
+  key: string;
+  label: string;
+  icon: IconName;
+  title: string;
+  body: string;
+  points: string[];
+}
+
+export const iotShop = {
+  hero: {
+    eyebrow: "IoT & M2M",
+    title: "IoT-Konnektivität, die zu Ihrem Business passt.",
+    tagline:
+      "SIM-Karten für vernetzte Devices — auf dem Telefónica-Netz, White-Label-fähig und direkt über die Telnology®-Plattform verwaltet.",
+    bullets: [
+      "M2M-SIM für LTE/5G und dediziertes IoT/M2M auf dem Telefónica-Netz.",
+      "BNetzA-reguliert als Diensteanbieter gemäß TKG & TR-AAV.",
+      "Skalierbar vom Pilotprojekt bis zur Großflotte — White-Label-fähig für B2B, B2B2B und B2B2C.",
+    ],
+    image: "developer-api.webp",
+    primaryCtaLabel: "IoT-Angebot anfragen",
+    primaryCtaHref: "/iot/anfrage",
+    secondaryCtaLabel: "IoT-Tarife ansehen",
+    secondaryCtaHref: "/#iot-m2m",
+  },
+  featureTabs: [
+    {
+      key: "sim",
+      label: "M2M-SIM",
+      icon: "simCard",
+      title: "Eine SIM für Ihr gesamtes Device-Portfolio",
+      body: "Ihre Devices funken auf dem Telefónica-Netz — LTE/5G sowie dediziertes IoT/M2M. Eine SIM-Generation für Pilotprojekt und Rollout.",
+      points: ["LTE/5G sowie IoT/M2M", "BNetzA-Diensteanbieter gemäß TKG & TR-AAV", "Skalierbar von Testmenge bis Großflotte"],
+    },
+    {
+      key: "portal",
+      label: "Portal",
+      icon: "monitor",
+      title: "Verwaltung über die Telnology®-Plattform",
+      body: "SIM-Karten aktivieren, überwachen und verwalten — über das Web-Interface oder direkt per API- bzw. SFTP-Anbindung in Ihre eigenen Systeme.",
+      points: ["Aktivierung & Monitoring im Web-Interface", "API- und SFTP-Anbindung", "White-Label-fähig für eigene Systeme"],
+    },
+    {
+      key: "sicherheit",
+      label: "Sicherheit",
+      icon: "shield",
+      title: "Sicher für B2B, B2B2B und B2B2C",
+      body: "SIM Diversity, Secure Data Cloud und Dynamic Datapooling schützen Ihre Konnektivität — unabhängig vom Geschäftsmodell.",
+      points: ["SIM Diversity", "Secure Data Cloud", "Dynamic Datapooling"],
+    },
+  ] as IotFeatureTab[],
+  trust: {
+    eyebrow: "Warum newSIM",
+    title: "Regulierte Konnektivität mit persönlichem Service.",
+    points: [
+      { icon: "shield" as const, title: "BNetzA-reguliert", body: "Diensteanbieter gemäß TKG und TR-AAV." },
+      { icon: "tower" as const, title: "Telefónica-Netz", body: "LTE/5G sowie dediziertes IoT/M2M." },
+      { icon: "support" as const, title: "Support aus Deutschland", body: `Persönlicher Ansprechpartner aus ${site.locations}.` },
+    ],
+  },
+};
 
 export interface ConsultingService {
   slug: string;

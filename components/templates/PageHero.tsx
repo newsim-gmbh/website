@@ -17,6 +17,9 @@ export function PageHero({
   phoneLabel,
   ctaLabel,
   ctaHref,
+  bullets,
+  secondaryCtaLabel,
+  secondaryCtaHref,
 }: {
   eyebrow: string;
   title: string;
@@ -26,6 +29,9 @@ export function PageHero({
   phoneLabel?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  bullets?: string[];
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
 }) {
   return (
     <section className="relative overflow-hidden bg-dark pt-36 pb-20 text-white sm:pt-40 sm:pb-24">
@@ -57,12 +63,36 @@ export function PageHero({
               {title}
             </h1>
             <p className="balance mt-6 max-w-xl text-lg leading-relaxed text-white/70">{tagline}</p>
-            <Link
-              href={ctaHref ?? site.calendlyUrl}
-              className="font-heading mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
-            >
-              {ctaLabel ?? site.primaryCta}
-            </Link>
+
+            {bullets && bullets.length > 0 && (
+              <ul className="mt-6 max-w-xl space-y-2.5">
+                {bullets.map((b) => (
+                  <li key={b} className="flex gap-2.5 text-[15px] leading-snug text-white/85">
+                    <svg viewBox="0 0 16 16" className="mt-1 h-4 w-4 shrink-0 text-primary" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M3.5 8.5l3 3 6-7" />
+                    </svg>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                href={ctaHref ?? site.calendlyUrl}
+                className="font-heading inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
+              >
+                {ctaLabel ?? site.primaryCta}
+              </Link>
+              {secondaryCtaLabel && secondaryCtaHref && (
+                <Link
+                  href={secondaryCtaHref}
+                  className="font-heading inline-flex items-center justify-center rounded-full border border-white/20 px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-white/10"
+                >
+                  {secondaryCtaLabel}
+                </Link>
+              )}
+            </div>
           </motion.div>
 
           {image ? (
