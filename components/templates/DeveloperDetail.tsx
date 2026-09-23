@@ -8,12 +8,14 @@ import { RevealGroup, revealItem, Reveal } from "../Reveal";
 import { Icon } from "../Icon";
 import { FaqAccordion } from "../FaqAccordion";
 import { PlatformArchitecture } from "../PlatformArchitecture";
+import { ApiRequestForm } from "../ApiRequestForm";
 import type { DeveloperPage } from "@/lib/content";
 import { developerPages, platform, site } from "@/lib/content";
 
 export function DeveloperDetail({ page }: { page: DeveloperPage }) {
   const otherPages = developerPages.filter((p) => p.slug !== page.slug);
   const isTelnology = page.slug === "telnology";
+  const isApi = page.slug === "api";
 
   return (
     <>
@@ -51,10 +53,10 @@ export function DeveloperDetail({ page }: { page: DeveloperPage }) {
               <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Überblick</p>
               <p className="balance mt-4 text-xl leading-relaxed text-ink">{page.overview}</p>
               <Link
-                href="/kontakt"
+                href={isApi ? "#api-anfrage" : "/kontakt"}
                 className="font-heading mt-8 inline-flex items-center rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink"
               >
-                Zugang anfragen
+                {isApi ? "Dokumentation anfragen" : "Zugang anfragen"}
               </Link>
             </Reveal>
 
@@ -85,6 +87,25 @@ export function DeveloperDetail({ page }: { page: DeveloperPage }) {
             </Reveal>
             <Reveal delay={0.1} className="mt-10">
               <PlatformArchitecture />
+            </Reveal>
+          </Container>
+        </section>
+      )}
+
+      {isApi && (
+        <section id="api-anfrage" className="scroll-mt-24 bg-surface py-20 sm:py-28">
+          <Container>
+            <Reveal>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">API-Zugang</p>
+              <h2 className="font-heading mt-3 max-w-xl text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                API-Dokumentation anfragen
+              </h2>
+              <p className="mt-3 max-w-xl text-ink-soft">
+                Wir schicken Ihnen die technische Dokumentation zu Endpunkten, Authentifizierung und Datenmodellen zu.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1} className="mt-10 max-w-2xl">
+              <ApiRequestForm />
             </Reveal>
           </Container>
         </section>

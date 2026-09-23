@@ -1,12 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { models, site } from "@/lib/content";
+import { site } from "@/lib/content";
 import { EMAIL_REGEX, isPlausiblePhone } from "@/lib/formValidation";
 import { ContactSuccessModal } from "./ContactSuccessModal";
-
-const products = [...models.map((m) => m.navLabel), "Sonstiges"];
-const brekoOptions = ["Keine Angabe", "Ja", "Nein"];
 
 const emptyForm = {
   name: "",
@@ -14,22 +11,20 @@ const emptyForm = {
   position: "",
   email: "",
   phone: "",
-  product: "",
-  brekoMember: brekoOptions[0],
   message: "",
   botcheck: "",
 };
 
-export function ContactForm() {
+export function ApiRequestForm() {
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState<"idle" | "submitting" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-  const requiredFields = ["name", "company", "email", "phone", "message"] as const;
+  const requiredFields = ["name", "company", "email", "phone"] as const;
 
-  const update = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const update = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((f) => ({ ...f, [key]: e.target.value }));
     if (e.target.value && invalidFields.has(key)) {
       setInvalidFields((prev) => {
@@ -65,25 +60,21 @@ export function ContactForm() {
     setError(null);
     setStatus("submitting");
 
-    const subject = form.product ? `Kontaktanfrage (${form.product}) — ${form.name}` : `Kontaktanfrage — ${form.name}`;
-
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: site.web3formsAccessKey,
-          subject,
-          from_name: "newSIM Kontaktformular",
+          subject: `API-Dokumentation anfragen — ${form.name}`,
+          from_name: "newSIM API-Anfrage",
           name: form.name,
           Firma: form.company,
           Position: form.position || undefined,
           email: form.email,
           replyto: form.email,
           Telefon: form.phone,
-          Produkt: form.product || undefined,
-          "BREKO-Mitglied": form.brekoMember !== brekoOptions[0] ? form.brekoMember : undefined,
-          message: form.message,
+          message: form.message || undefined,
           botcheck: "",
         }),
       });
@@ -98,7 +89,7 @@ export function ContactForm() {
     } catch {
       setStatus("error");
       setError(
-        `Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an ${site.contactFormEmail}.`
+        `Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an ${site.contactFormEmail}.`
       );
     }
   };
@@ -135,7 +126,7 @@ export function ContactForm() {
             value={form.position}
             onChange={update("position")}
             className={inputClass}
-            placeholder="z. B. Geschäftsführung, Einkauf"
+            placeholder="z. B. IT, Entwicklung"
           />
         </div>
         <div>
@@ -153,36 +144,14 @@ export function ContactForm() {
             placeholder="+49 151 23456789"
           />
         </div>
-        <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">Produkt</label>
-          <select value={form.product} onChange={update("product")} className={inputClass}>
-            <option value="">Bitte auswählen</option>
-            {products.map((p) => (
-              <option key={p} value={p}>
-                {p}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">BREKO-Mitglied</label>
-          <select value={form.brekoMember} onChange={update("brekoMember")} className={inputClass}>
-            {brekoOptions.map((o) => (
-              <option key={o} value={o}>
-                {o}
-              </option>
-            ))}
-          </select>
-        </div>
         <div className="sm:col-span-2">
-          <label className="mb-1.5 block text-sm font-medium text-ink">Nachricht *</label>
+          <label className="mb-1.5 block text-sm font-medium text-ink">Anmerkungen</label>
           <textarea
-            required
-            rows={5}
+            rows={4}
             value={form.message}
             onChange={update("message")}
-            className={fieldClass("message")}
-            placeholder="Wie können wir helfen?"
+            className={inputClass}
+            placeholder="Optional — z. B. geplanter Anwendungsfall oder Systemumgebung"
           />
         </div>
       </div>
@@ -194,10 +163,15 @@ export function ContactForm() {
         disabled={status === "submitting"}
         className="font-heading mt-8 inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {status === "submitting" ? "Wird gesendet…" : "Nachricht senden"}
+        {status === "submitting" ? "Wird gesendet…" : "API-Dokumentation anfragen"}
       </button>
 
-      <ContactSuccessModal open={showSuccessModal} onClose={() => setShowSuccessModal(false)} />
+      <ContactSuccessModal
+        open={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        title="Anfrage gesendet!"
+        body="Vielen Dank für Ihr Interesse — wir schicken Ihnen die API-Dokumentation zeitnah zu."
+      />
     </form>
   );
 }
