@@ -23,7 +23,8 @@ export type IconName =
   | "sliders"
   | "cart"
   | "monitor"
-  | "userCircle";
+  | "userCircle"
+  | "mail";
 
 const common = {
   fill: "none",
@@ -197,6 +198,13 @@ function Path({ name }: { name: IconName }) {
           <circle cx="12" cy="12" r="9" {...common} />
           <circle cx="12" cy="10" r="3" {...common} />
           <path d="M6.5 18.5a6 6 0 0 1 11 0" {...common} />
+        </>
+      );
+    case "mail":
+      return (
+        <>
+          <rect x="3" y="5" width="18" height="14" rx="2" {...common} />
+          <path d="M4 7l8 6 8-6" {...common} />
         </>
       );
   }
