@@ -149,7 +149,7 @@ export function Tariffs() {
                 <p className="font-semibold text-ink">{hw.name}</p>
                 <p className="mt-1 text-sm text-ink-soft">{hw.router}</p>
                 <p className="mt-4 text-sm text-ink-soft">
-                  {hw.inclusiveGb} GB inklusive · {hw.tariffHint}
+                  {hw.volumeHint} · {hw.tariffHint}
                 </p>
               </motion.div>
             ))}
