@@ -5,7 +5,9 @@ import { MobileCta } from "@/components/MobileCta";
 import { Container } from "@/components/Container";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
-import { contacts } from "@/lib/content";
+import { BenefitTiles } from "@/components/BenefitTiles";
+import { ContactTile } from "@/components/ContactTile";
+import { contacts, trustBar } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Kontakt — newSIM",
@@ -49,21 +51,14 @@ export default function KontaktPage() {
                 <ContactForm />
               </Reveal>
 
-              <Reveal delay={0.1} className="space-y-6">
-                {contacts.map((c) => (
-                  <div key={c.email} className="rounded-3xl border border-line bg-surface p-6">
-                    <p className="font-heading text-base font-bold text-ink">{c.name}</p>
-                    <p className="mt-1 text-sm text-ink-soft">{c.role}</p>
-                    <a href={`mailto:${c.email}`} className="mt-3 block text-sm text-primary-ink">
-                      {c.email}
-                    </a>
-                    {c.phone && (
-                      <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="mt-1 block text-sm text-primary-ink">
-                        {c.phone}
-                      </a>
-                    )}
-                  </div>
-                ))}
+              <Reveal delay={0.1} className="rounded-3xl border border-line bg-surface p-6 sm:p-7">
+                <p className="font-heading text-sm font-bold text-ink">Ihre Vorteile mit newSIM</p>
+                <div className="mt-4">
+                  <BenefitTiles items={trustBar} />
+                </div>
+                <div className="mt-6 border-t border-line pt-5">
+                  <ContactTile contact={contacts[0]} />
+                </div>
               </Reveal>
             </div>
           </Container>

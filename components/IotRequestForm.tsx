@@ -5,6 +5,8 @@ import Link from "next/link";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { Icon, type IconName } from "./Icon";
+import { BenefitTiles } from "./BenefitTiles";
+import { ContactTile } from "./ContactTile";
 import { site, contacts } from "@/lib/content";
 import { EMAIL_REGEX, isPlausiblePhone } from "@/lib/formValidation";
 
@@ -20,16 +22,12 @@ const emptyForm = {
   simCount: "",
   avgDataUsage: "",
   countries: "",
-  testSimInterest: false,
   company: "",
   firstName: "",
   lastName: "",
   phone: "",
-  heardFrom: "",
   botcheck: "",
 };
-
-const heardFromOptions = ["Google-Suche", "Empfehlung", "Social Media", "Messe / Event", "Sonstiges"];
 
 const benefits = [
   { icon: "tower" as const, text: "LTE/5G & IoT/M2M auf dem Telefónica-Netz" },
@@ -145,8 +143,6 @@ export function IotRequestForm() {
           "SIM-Karten pro Jahr": form.simCount,
           "Ø Datenverbrauch je SIM": form.avgDataUsage || undefined,
           "Einsatzländer der SIM-Karten": form.countries,
-          "Interesse an Test-SIM-Karten": form.testSimInterest ? "Ja" : "Nein",
-          "Wie aufmerksam geworden": form.heardFrom || undefined,
           botcheck: "",
         }),
       });
@@ -194,30 +190,36 @@ export function IotRequestForm() {
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_0.6fr] lg:items-start">
       <div className="rounded-3xl border border-line bg-surface p-6 sm:p-8">
-        <div className="flex items-center">
-          {steps.map((s, i) => (
-            <div key={s.key} className="flex flex-1 items-center last:flex-none">
-              <div className="flex items-center gap-2">
+        <div className="grid gap-6 sm:grid-cols-[auto_1fr]">
+          <div className="flex flex-col">
+            {steps.map((s, i) => (
+              <div key={s.key} className="flex items-start gap-3">
+                <div className="flex flex-col items-center">
+                  <span
+                    className={clsx(
+                      "flex h-8 w-8 shrink-0 items-center justify-center rounded-full",
+                      i <= stepIndex ? "bg-primary text-sky" : "bg-primary/15 text-primary-ink"
+                    )}
+                  >
+                    <Icon name={s.icon} className="h-4 w-4" />
+                  </span>
+                  {i < steps.length - 1 && (
+                    <span className={clsx("my-1 h-6 w-px flex-1", i < stepIndex ? "bg-primary" : "bg-line")} />
+                  )}
+                </div>
                 <span
                   className={clsx(
-                    "flex h-8 w-8 shrink-0 items-center justify-center rounded-full",
-                    i <= stepIndex ? "bg-primary text-sky" : "bg-primary/15 text-primary-ink"
+                    "pt-1.5 text-sm font-semibold whitespace-nowrap",
+                    i <= stepIndex ? "text-ink" : "text-ink-soft"
                   )}
                 >
-                  <Icon name={s.icon} className="h-4 w-4" />
-                </span>
-                <span className={clsx("hidden text-sm font-semibold sm:inline", i <= stepIndex ? "text-ink" : "text-ink-soft")}>
                   {i + 1}. {s.label}
                 </span>
               </div>
-              {i < steps.length - 1 && (
-                <span className={clsx("mx-3 h-px flex-1", i < stepIndex ? "bg-primary" : "bg-line")} />
-              )}
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <form onSubmit={onSubmit} noValidate className="mt-8">
+          <form onSubmit={onSubmit} noValidate>
           <input
             type="text"
             name="botcheck"
@@ -263,7 +265,7 @@ export function IotRequestForm() {
                   <h3 className="font-heading text-xl font-bold tracking-tight text-ink">Erzählen Sie uns von Ihrem Projekt</h3>
                   <div className="mt-6 grid gap-5">
                     <div>
-                      <label className="mb-1.5 block text-sm font-medium text-ink">Einsatzbereich *</label>
+                      <label className="mb-1.5 block text-sm font-medium text-ink">Einsatzbereich — kurze Beschreibung *</label>
                       <textarea
                         autoFocus
                         required
@@ -305,15 +307,6 @@ export function IotRequestForm() {
                         placeholder="z. B. Deutschland, EU"
                       />
                     </div>
-                    <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-line bg-background px-4 py-3 text-sm text-ink">
-                      <input
-                        type="checkbox"
-                        checked={form.testSimInterest}
-                        onChange={update("testSimInterest")}
-                        className="h-4 w-4 accent-ink"
-                      />
-                      Ich interessiere mich zusätzlich für Test-SIM-Karten
-                    </label>
                   </div>
                 </div>
               )}
@@ -351,17 +344,6 @@ export function IotRequestForm() {
                         className={fieldClass("phone")}
                         placeholder="+49 151 23456789"
                       />
-                    </div>
-                    <div className="sm:col-span-2">
-                      <label className="mb-1.5 block text-sm font-medium text-ink">Wie sind Sie auf uns aufmerksam geworden?</label>
-                      <select value={form.heardFrom} onChange={update("heardFrom")} className={inputClass}>
-                        <option value="">Bitte auswählen</option>
-                        {heardFromOptions.map((o) => (
-                          <option key={o} value={o}>
-                            {o}
-                          </option>
-                        ))}
-                      </select>
                     </div>
                   </div>
                   <p className="mt-5 text-xs leading-relaxed text-ink-soft">
@@ -409,27 +391,17 @@ export function IotRequestForm() {
               </button>
             )}
           </div>
-        </form>
+          </form>
+        </div>
       </div>
 
       <div className="rounded-3xl border border-line bg-surface p-6 sm:p-7">
         <p className="font-heading text-sm font-bold text-ink">Ihre Vorteile mit newSIM IoT</p>
-        <ul className="mt-4 space-y-3">
-          {benefits.map((b) => (
-            <li key={b.text} className="flex items-start gap-2.5 text-sm text-ink-soft">
-              <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary-ink">
-                <Icon name={b.icon} className="h-3.5 w-3.5" />
-              </span>
-              {b.text}
-            </li>
-          ))}
-        </ul>
+        <div className="mt-4">
+          <BenefitTiles items={benefits} />
+        </div>
         <div className="mt-6 border-t border-line pt-5">
-          <p className="text-sm font-medium text-ink">Lieber direkt sprechen?</p>
-          <p className="mt-1 text-sm text-ink-soft">{contacts[0].name} · {contacts[0].role}</p>
-          <a href={`mailto:${contacts[0].email}`} className="mt-1 block text-sm font-medium text-primary-ink">
-            {contacts[0].email}
-          </a>
+          <ContactTile contact={contacts[0]} />
         </div>
       </div>
     </div>
