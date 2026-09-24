@@ -1078,8 +1078,14 @@ export const useCases: UseCase[] = [
     exampleCaption:
       "Vollständig White-Label-fähiges Mobilfunkprodukt unter Ihrer eigenen Marke.",
     faq: [
-      { q: "Platzhalter: Frage zu Compliance-Anforderungen.", a: "Platzhalter: Antwort folgt." },
-      { q: "Platzhalter: Frage zur Markenintegration.", a: "Platzhalter: Antwort folgt." },
+      {
+        q: "Wer trägt die regulatorische Verantwortung gegenüber der BNetzA?",
+        a: "newSIM ist als Diensteanbieter gemäß TKG bei der BNetzA reguliert und übernimmt die regulatorische Verantwortung im Hintergrund — Sie bieten das Produkt vollständig unter Ihrer eigenen Marke an, ohne selbst als Telekommunikationsanbieter aufzutreten.",
+      },
+      {
+        q: "Ist das Mobilfunkprodukt für unsere Kunden als eigenes Produkt erkennbar?",
+        a: "Ja. Als vollständig White-Label-fähiges Produkt tritt ausschließlich Ihre Marke gegenüber dem Endkunden auf — newSIM stellt Netzanbindung, Regulierung und Technik im Hintergrund.",
+      },
     ],
     recommendedModelIds: ["white-label-reseller", "white-label-mvno"],
   },
