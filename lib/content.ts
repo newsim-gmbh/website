@@ -579,7 +579,7 @@ export const socialProof = {
     { name: "mps communication", file: "mps.png" },
     { name: "One Mobile", file: "one-mobile.png" },
     { name: "read+talk", file: "read+talk.png" },
-    { name: "SWN", file: "swn.png" },
+    { name: "Stadtwerke Neuwied", file: "swn.png" },
     { name: "SWN — Stadtwerke Neumünster", file: "swn2.png" },
     { name: "SWP", file: "swp.png" },
   ],
