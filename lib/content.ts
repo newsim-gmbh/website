@@ -881,6 +881,7 @@ export interface UseCase {
   audience?: string[];
   exampleLabel?: string;
   exampleCaption?: string;
+  exampleImage?: string;
   quadPlay?: QuadPlayComparison;
   faq?: { q: string; a: string }[];
   recommendedModelIds: ModelId[];
@@ -1172,8 +1173,9 @@ export const useCases: UseCase[] = [
     ],
     audience: ["Sportvereine", "Verbände", "Fanclubs"],
     exampleLabel: "Ihre Vereins-Flat",
+    exampleImage: "fancell_fenertalk_phone-1.png.webp",
     exampleCaption:
-      "Ein Mobilfunktarif unter Ihrer Vereinsmarke — ein weiteres Fanartikel mit spürbarer Nähe im Alltag Ihrer Mitglieder.",
+      "So sieht ein Mobilfunktarif unter Vereinsmarke in der Praxis aus — am Beispiel fenertalk, dem Tarif des türkischen Erstligisten Fenerbahçe.",
     whyItPays: {
       eyebrow: "Merchandising-Produkt",
       title: "Ihr Mobilfunktarif als Fanartikel",
