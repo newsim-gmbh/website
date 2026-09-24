@@ -5,7 +5,6 @@ import Link from "next/link";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { Icon, type IconName } from "./Icon";
-import { BenefitTiles } from "./BenefitTiles";
 import { ContactTile } from "./ContactTile";
 import { site, contacts } from "@/lib/content";
 import { EMAIL_REGEX, isPlausiblePhone } from "@/lib/formValidation";
@@ -120,8 +119,7 @@ export function IotRequestForm() {
     setStepIndex((i) => Math.max(i - 1, 0));
   };
 
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     if (form.botcheck) return;
     if (!validateStep()) return;
     setStatus("submitting");
@@ -226,7 +224,7 @@ export function IotRequestForm() {
             })}
           </div>
 
-          <form onSubmit={onSubmit} noValidate className="flex flex-col">
+          <form onSubmit={(e) => e.preventDefault()} noValidate className="flex flex-col">
           <input
             type="text"
             name="botcheck"
@@ -382,7 +380,8 @@ export function IotRequestForm() {
 
             {step.key === "kontakt" ? (
               <button
-                type="submit"
+                type="button"
+                onClick={handleSubmit}
                 disabled={status === "submitting"}
                 className="font-heading inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink disabled:cursor-not-allowed disabled:opacity-60"
               >
@@ -404,10 +403,17 @@ export function IotRequestForm() {
 
       <div className="rounded-3xl border border-line bg-surface p-6 sm:p-7">
         <p className="font-heading text-sm font-bold text-ink">Ihre Vorteile mit newSIM IoT</p>
-        <div className="mt-4">
-          <BenefitTiles items={benefits} />
-        </div>
-        <div className="mt-6 border-t border-line pt-5">
+        <ul className="mt-3.5 space-y-2">
+          {benefits.map((b) => (
+            <li key={b.text} className="flex items-center gap-2.5 text-[13px] leading-snug text-ink-soft">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary-ink">
+                <Icon name={b.icon} className="h-3 w-3" />
+              </span>
+              {b.text}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 border-t border-line pt-4">
           <ContactTile contact={contacts[0]} />
         </div>
       </div>
