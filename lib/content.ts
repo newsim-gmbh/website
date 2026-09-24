@@ -1046,7 +1046,10 @@ export const useCases: UseCase[] = [
       "Platzhalter: Individuelle B2B-Tarife direkt in Ihre bestehenden Kundenbeziehungen integriert.",
     faq: [
       { q: "Platzhalter: Frage zur IoT/M2M-Integration.", a: "Platzhalter: Antwort folgt." },
-      { q: "Platzhalter: Frage zur Margenstruktur.", a: "Platzhalter: Antwort folgt." },
+      {
+        q: "Wie sieht die Margenstruktur aus?",
+        a: "Im White-Label-Reseller-Modell definieren Sie Ihre Endkundenpreise selbst und damit auch Ihre eigene Marge — Sie behalten die volle kommerzielle Ownership über Ihr Pricing.",
+      },
     ],
     recommendedModelIds: ["full-service", "white-label-reseller"],
   },
