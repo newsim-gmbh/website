@@ -1327,12 +1327,11 @@ export const consultingServices: ConsultingService[] = [
       { title: "Go-to-Market Konzept", body: "Planung erfolgreiche Produkt- und Vertriebsstrategie.", icon: "link" },
     ],
     deliverables: ["G2M-Strategiepapier", "Modell- und Positionierungsempfehlung", "Launch-Fahrplan"],
-    duration: "Platzhalter: ca. 2–3 Wochen",
     relatedModelIds: ["branded-reseller", "white-label-reseller"],
     faq: [
       {
         q: "Ist die Erstberatung kostenpflichtig?",
-        a: "Platzhalter: Angaben zu Konditionen folgen.",
+        a: "Nein. Das Erstgespräch ist unverbindlich und kostenfrei — wir lernen Ihr Vorhaben kennen und geben eine erste Einschätzung, bevor über den weiteren Beratungsumfang gesprochen wird.",
       },
       {
         q: "Bin ich nach der Beratung zu einem Modell verpflichtet?",
@@ -1359,7 +1358,6 @@ export const consultingServices: ConsultingService[] = [
       { title: "Transformation", body: "Neuausrichtung und Monitoring sämtlicher Sales-Aktivitäten.", icon: "layers" },
     ],
     deliverables: ["Maßnahmenplanung Vertriebsinitiativen", "Modellempfehlung", "Wirtschaftlichkeitseinschätzung"],
-    duration: "Platzhalter: ca. 2–4 Wochen",
     relatedModelIds: ["white-label-reseller", "white-label-mvno"],
     faq: [
       {
@@ -1391,7 +1389,6 @@ export const consultingServices: ConsultingService[] = [
       { title: "Kundenbindung", body: "Retention, Cross- und Upselling, Loyalitätsprogramme.", icon: "link" },
     ],
     deliverables: ["Planung der Vertriebsziele und -strategie", "Kanal-Priorisierung", "Maßnahmenplanung Neukunden und Cross- / Upsell"],
-    duration: "Platzhalter: ca. 2–3 Wochen",
     relatedModelIds: ["branded-reseller", "full-service"],
     faq: [
       {
@@ -1443,16 +1440,11 @@ export const consultingServices: ConsultingService[] = [
       "Kostensenkungspotential erreichen",
       "Anbindung neuer Anbieter (Open Access)",
     ],
-    duration: "Platzhalter: abhängig vom Migrationszeitplan",
     relatedModelIds: ["white-label-reseller", "white-label-mvno"],
     faq: [
       {
         q: "Was ist Flying Start Glasfaser genau?",
         a: "Eine Mobile-Broadband-Lösung, die Kunden während der Migration von Kupfer- auf Glasfaseranschlüsse überbrückt.",
-      },
-      {
-        q: "Wie früh sollte ich das planen?",
-        a: "Platzhalter: Angaben zum empfohlenen Planungsvorlauf folgen.",
       },
       {
         q: "Begleitet newSIM auch die Umsetzung der Kupfer-Glasfaser-Transformation?",
