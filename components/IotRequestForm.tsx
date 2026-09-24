@@ -351,13 +351,6 @@ export function IotRequestForm() {
                       />
                     </div>
                   </div>
-                  <p className="mt-5 text-xs leading-relaxed text-ink-soft">
-                    Mit dem Absenden willigen Sie ein, dass newSIM Ihre Daten gemäß unserer{" "}
-                    <Link href="/datenschutz" target="_blank" rel="noopener noreferrer" className="text-primary-ink underline">
-                      Datenschutzerklärung
-                    </Link>{" "}
-                    verarbeitet.
-                  </p>
                 </div>
               )}
             </motion.div>
