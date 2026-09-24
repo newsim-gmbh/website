@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 import { Container } from "../Container";
@@ -11,6 +12,7 @@ import { Icon } from "../Icon";
 import { FaqAccordion } from "../FaqAccordion";
 import type { UseCase } from "@/lib/content";
 import { models, site } from "@/lib/content";
+import { basePath } from "@/lib/basePath";
 
 export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
   const recommended = models.filter((m) => useCase.recommendedModelIds.includes(m.id));
@@ -240,11 +242,23 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <Reveal className="flex justify-center lg:justify-start">
-              <PhoneMockup
-                tone="sky"
-                label={useCase.exampleLabel ?? "Ihre Marke · Ihr Tarif"}
-                className="aspect-[9/16] w-full max-w-[240px]"
-              />
+              {useCase.exampleImage ? (
+                <div className="relative aspect-[9/16] w-full max-w-[240px]">
+                  <Image
+                    src={`${basePath}/${useCase.exampleImage}`}
+                    alt={useCase.exampleLabel ?? useCase.name}
+                    fill
+                    sizes="240px"
+                    className="object-contain"
+                  />
+                </div>
+              ) : (
+                <PhoneMockup
+                  tone="sky"
+                  label={useCase.exampleLabel ?? "Ihre Marke · Ihr Tarif"}
+                  className="aspect-[9/16] w-full max-w-[240px]"
+                />
+              )}
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-sm font-medium tracking-wide text-white/50 uppercase">Konkretes Beispiel</p>
@@ -255,9 +269,11 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
                 {useCase.exampleCaption ??
                   "Platzhalter: beispielhafte Darstellung — reale Screenshots aus Ihrem individuellen Branding folgen."}
               </p>
-              <p className="mt-3 text-xs text-white/40">
-                Beispielhafte Darstellung — reale Screenshots aus Ihrem individuellen Branding folgen.
-              </p>
+              {!useCase.exampleImage && (
+                <p className="mt-3 text-xs text-white/40">
+                  Beispielhafte Darstellung — reale Screenshots aus Ihrem individuellen Branding folgen.
+                </p>
+              )}
             </Reveal>
           </div>
         </Container>
