@@ -1046,7 +1046,10 @@ export const useCases: UseCase[] = [
     exampleCaption:
       "Individuelle B2B-Tarife unter Ihrer Marke — direkt in Ihre bestehenden Kundenbeziehungen integriert.",
     faq: [
-      { q: "Platzhalter: Frage zur IoT/M2M-Integration.", a: "Platzhalter: Antwort folgt." },
+      {
+        q: "Können wir auch IoT/M2M-Konnektivität für unsere Kunden anbieten?",
+        a: "Ja. Über die Telnology®-Plattform steht Ihnen ein eigenes White-Label-IoT/M2M-Portfolio zur Verfügung — inklusive SIM Diversity, Secure Data Cloud und Dynamic Datapooling, ideal für Connectivity- und Smart-Building-Projekte Ihrer Geschäftskunden.",
+      },
       {
         q: "Wie sieht die Margenstruktur aus?",
         a: "Im White-Label-Reseller-Modell definieren Sie Ihre Endkundenpreise selbst und damit auch Ihre eigene Marge — Sie behalten die volle kommerzielle Ownership über Ihr Pricing.",
