@@ -1043,7 +1043,7 @@ export const useCases: UseCase[] = [
     audience: ["Systemhäuser", "IT-Dienstleister", "TK-Reseller"],
     exampleLabel: "Ihr B2B-Tarif",
     exampleCaption:
-      "Platzhalter: Individuelle B2B-Tarife direkt in Ihre bestehenden Kundenbeziehungen integriert.",
+      "Individuelle B2B-Tarife unter Ihrer Marke — direkt in Ihre bestehenden Kundenbeziehungen integriert.",
     faq: [
       { q: "Platzhalter: Frage zur IoT/M2M-Integration.", a: "Platzhalter: Antwort folgt." },
       {
