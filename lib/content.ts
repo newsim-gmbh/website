@@ -1134,10 +1134,6 @@ export const useCases: UseCase[] = [
         q: "Wie viel verdiene ich pro Vertrag?",
         a: "Als Branded Reseller erhalten Sie eine monatliche Airtime-Provision auf jeden aktiven Vertrag sowie eine einmalige Abschlussprovision.",
       },
-      {
-        q: "Brauche ich eine eigene Firma für einen eigenen Mobilfunktarif?",
-        a: "Platzhalter: Angaben zu den rechtlichen Voraussetzungen folgen.",
-      },
     ],
     recommendedModelIds: ["branded-reseller"],
   },
@@ -1148,22 +1144,51 @@ export const useCases: UseCase[] = [
     icon: "flag",
     heroTagline: "Mobilfunk-Vorteile für Mitglieder und Fans.",
     challenge:
-      "Platzhalter: Vereine suchen nach zusätzlichen Mitgliedervorteilen und Einnahmequellen, ohne eigenen administrativen Mehraufwand.",
+      "Vereine suchen nach neuen Wegen, Mitglieder und Fans über die Saison hinaus enger an den Verein zu binden — und nach zusätzlichen, wiederkehrenden Einnahmequellen jenseits von Mitgliedsbeiträgen und einmaligen Fanartikel-Verkäufen.",
     solution:
-      "Platzhalter: Ein einfacher, unter Vereinsmarke vermarkteter Mobilfunktarif schafft einen Mitgliedervorteil mit geringem Betriebsaufwand für den Verein selbst.",
+      "Ein Mobilfunktarif unter der eigenen Vereinsmarke wird zu einem weiteren Merchandising-Produkt — eines, das Mitglieder täglich nutzen und das der Verein ohne eigenen Betriebsaufwand anbietet.",
     painPoints: [
-      "Platzhalter: Zusätzliche Mitgliedervorteile und Einnahmequellen werden gesucht.",
-      "Platzhalter: Kein eigener administrativer Mehraufwand soll entstehen.",
+      "Klassisches Merchandising wie Trikots oder Fanartikel bindet nur einmalig — für dauerhafte Fannähe fehlt ein Produkt, das Mitglieder täglich begleitet.",
+      "Zusätzliche, wiederkehrende Einnahmequellen neben Mitgliedsbeiträgen und Ticketing sind gefragt.",
+      "Ein eigenes Mobilfunkangebot aufzubauen ist regulatorisch und administrativ viel zu aufwändig für den Verein.",
     ],
     solutionSteps: [
-      "Platzhalter: Einfacher, unter Vereinsmarke vermarkteter Mobilfunktarif.",
-      "Platzhalter: Mitgliedervorteil mit geringem Betriebsaufwand für den Verein.",
+      "Ein Mobilfunktarif unter Ihrer Vereinsmarke — ein weiteres Fanartikel, das Mitglieder jeden Tag in der Hand halten.",
+      "Der Vereinsname begleitet Mitglieder und Fans im Alltag — spürbar mehr Nähe als ein Schal im Schrank.",
+      "newSIM übernimmt Betrieb, Abrechnung und Support im Hintergrund — kein administrativer Mehraufwand für den Verein.",
     ],
     audience: ["Sportvereine", "Verbände", "Fanclubs"],
     exampleLabel: "Ihre Vereins-Flat",
     exampleCaption:
-      "Platzhalter: Einfacher, unter Ihrer Vereinsmarke vermarkteter Mobilfunktarif.",
-    faq: [{ q: "Platzhalter: Frage zum administrativen Aufwand.", a: "Platzhalter: Antwort folgt." }],
+      "Ein Mobilfunktarif unter Ihrer Vereinsmarke — ein weiteres Fanartikel mit spürbarer Nähe im Alltag Ihrer Mitglieder.",
+    whyItPays: {
+      eyebrow: "Merchandising-Produkt",
+      title: "Ihr Mobilfunktarif als Fanartikel",
+      points: [
+        {
+          title: "Wiederkehrender Umsatz",
+          body: "Jedes Mitglied zahlt über die gesamte Vertragslaufzeit monatlich — eine zusätzliche, planbare Einnahmequelle neben Mitgliedsbeiträgen und Fanartikeln.",
+        },
+        {
+          title: "Mehr Fannähe",
+          body: "Der Vereinsname begleitet Mitglieder und Fans jeden Tag auf dem Smartphone — sichtbarer und präsenter als die meisten Fanartikel.",
+        },
+        {
+          title: "Null Operations",
+          body: "newSIM übernimmt Service, Billing, SIM-Logistik und Regulierung im Hintergrund — kein Mehraufwand für Verein oder Geschäftsstelle.",
+        },
+      ],
+    },
+    faq: [
+      {
+        q: "Entsteht für den Verein zusätzlicher administrativer Aufwand?",
+        a: "Nein. newSIM übernimmt Tarif-Betrieb, Abrechnung, SIM-Logistik und Support im Hintergrund — für den Verein entsteht kein zusätzlicher Aufwand.",
+      },
+      {
+        q: "Wie profitiert der Verein finanziell?",
+        a: "Als Branded Reseller erhalten Sie eine monatliche Airtime-Provision auf jeden aktiven Vertrag sowie eine einmalige Abschlussprovision — zusätzlich zum ideellen Wert der stärkeren Fanbindung.",
+      },
+    ],
     recommendedModelIds: ["full-service", "branded-reseller"],
   },
 ];
