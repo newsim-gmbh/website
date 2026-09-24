@@ -19,7 +19,7 @@ function buildVCard() {
     `ORG:${site.legalName}`,
     `TITLE:${c.role}`,
   ];
-  if (c.phone) lines.push(`TEL;TYPE=CELL:${c.phone}`);
+  if (c.phone) lines.push(`TEL;TYPE=WORK,VOICE:${c.phone}`);
   lines.push(`EMAIL:${c.email}`, `URL:https://${site.domain}`, "END:VCARD");
   return lines.join("\n");
 }
