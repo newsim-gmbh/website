@@ -837,6 +837,7 @@ export const contacts: { name: string; role: string; email: string; phone?: stri
     name: "newSIM",
     role: "Partnermanagement",
     email: "service@newsim.de",
+    phone: "(06421) 620 36 111",
   },
 ];
 
