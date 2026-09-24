@@ -294,10 +294,6 @@ export const models: BusinessModel[] = [
         q: "Wer betreut die Endkunden im Alltag?",
         a: "newSIM betreibt Tarif-Portfolio, Rufnummern-Management und SIM-Karten-Logistik direkt für den Geschäftskunden — Sie übernehmen Aktivierung, Deaktivierung und die Kundenbeziehung.",
       },
-      {
-        q: "Wie lange dauert die Einrichtung?",
-        a: "Platzhalter: Angaben zur Umsetzungsdauer folgen.",
-      },
     ],
     ownershipLevel: 1,
     icon: "support",
@@ -342,7 +338,7 @@ export const models: BusinessModel[] = [
       },
       {
         q: "Brauche ich eine eigene Kundenhotline?",
-        a: "Platzhalter: Angaben zu optionalen Support-Erweiterungen folgen.",
+        a: "Nein. newSIM übernimmt den kompletten Customer Service im 1st Level für Ihre Endkunden.",
       },
     ],
     ownershipLevel: 2,
