@@ -188,38 +188,45 @@ export function IotRequestForm() {
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1fr_0.6fr] lg:items-start">
+    <div className="grid gap-6 lg:grid-cols-[1fr_0.6fr]">
       <div className="rounded-3xl border border-line bg-surface p-6 sm:p-8">
-        <div className="grid gap-6 sm:grid-cols-[auto_1fr]">
-          <div className="flex flex-col">
-            {steps.map((s, i) => (
-              <div key={s.key} className="flex items-start gap-3">
-                <div className="flex flex-col items-center">
+        <div className="grid h-full gap-6 sm:grid-cols-[auto_1fr]">
+          <div className="flex h-full flex-col">
+            {steps.map((s, i) => {
+              const isLast = i === steps.length - 1;
+              return (
+                <div key={s.key} className={clsx("flex items-start gap-3", isLast && "flex-1")}>
+                  <div className={clsx("flex flex-col items-center", isLast && "h-full")}>
+                    <span
+                      className={clsx(
+                        "flex h-8 w-8 shrink-0 items-center justify-center rounded-full",
+                        i <= stepIndex ? "bg-primary text-sky" : "bg-primary/15 text-primary-ink"
+                      )}
+                    >
+                      <Icon name={s.icon} className="h-4 w-4" />
+                    </span>
+                    <span
+                      className={clsx(
+                        "my-1 w-px",
+                        isLast ? "flex-1" : "h-6",
+                        i < stepIndex ? "bg-primary" : "bg-line"
+                      )}
+                    />
+                  </div>
                   <span
                     className={clsx(
-                      "flex h-8 w-8 shrink-0 items-center justify-center rounded-full",
-                      i <= stepIndex ? "bg-primary text-sky" : "bg-primary/15 text-primary-ink"
+                      "pt-1.5 text-sm font-semibold whitespace-nowrap",
+                      i <= stepIndex ? "text-ink" : "text-ink-soft"
                     )}
                   >
-                    <Icon name={s.icon} className="h-4 w-4" />
+                    {i + 1}. {s.label}
                   </span>
-                  {i < steps.length - 1 && (
-                    <span className={clsx("my-1 h-6 w-px flex-1", i < stepIndex ? "bg-primary" : "bg-line")} />
-                  )}
                 </div>
-                <span
-                  className={clsx(
-                    "pt-1.5 text-sm font-semibold whitespace-nowrap",
-                    i <= stepIndex ? "text-ink" : "text-ink-soft"
-                  )}
-                >
-                  {i + 1}. {s.label}
-                </span>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
-          <form onSubmit={onSubmit} noValidate>
+          <form onSubmit={onSubmit} noValidate className="flex flex-col">
           <input
             type="text"
             name="botcheck"
@@ -360,7 +367,7 @@ export function IotRequestForm() {
 
           {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
 
-          <div className="mt-8 flex items-center justify-between">
+          <div className="mt-auto pt-8 flex items-center justify-between">
             {stepIndex > 0 ? (
               <button
                 type="button"
