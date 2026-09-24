@@ -103,6 +103,10 @@ export function Footer() {
               <img
                 src={`${basePath}/BMWi_Fz_2021_WebSVG_de.svg`}
                 alt="Gefördert durch: Bundesministerium für Wirtschaft und Klimaschutz, aufgrund eines Beschlusses des Deutschen Bundestages"
+                width={172}
+                height={175}
+                loading="lazy"
+                decoding="async"
                 className="h-auto w-full"
               />
             </div>
@@ -111,6 +115,10 @@ export function Footer() {
               <img
                 src={`${basePath}/breko-eg-guetesiegel.webp`}
                 alt="BREKO Einkaufsgemeinschaft eG — zertifizierter Listungspartner"
+                width={400}
+                height={400}
+                loading="lazy"
+                decoding="async"
                 className="h-auto w-full"
               />
             </div>

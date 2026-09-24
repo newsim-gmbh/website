@@ -122,16 +122,17 @@ export function ContactForm() {
       />
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">Name *</label>
-          <input required value={form.name} onChange={update("name")} className={fieldClass("name")} placeholder="Vor- und Nachname" />
+          <label htmlFor="contact-name" className="mb-1.5 block text-sm font-medium text-ink">Name *</label>
+          <input id="contact-name" required value={form.name} onChange={update("name")} className={fieldClass("name")} placeholder="Vor- und Nachname" />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">Firma *</label>
-          <input required value={form.company} onChange={update("company")} className={fieldClass("company")} placeholder="Unternehmen" />
+          <label htmlFor="contact-company" className="mb-1.5 block text-sm font-medium text-ink">Firma *</label>
+          <input id="contact-company" required value={form.company} onChange={update("company")} className={fieldClass("company")} placeholder="Unternehmen" />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">Position im Unternehmen</label>
+          <label htmlFor="contact-position" className="mb-1.5 block text-sm font-medium text-ink">Position im Unternehmen</label>
           <input
+            id="contact-position"
             value={form.position}
             onChange={update("position")}
             className={inputClass}
@@ -139,12 +140,13 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">E-Mail *</label>
-          <input required type="email" value={form.email} onChange={update("email")} className={fieldClass("email")} placeholder="name@firma.de" />
+          <label htmlFor="contact-email" className="mb-1.5 block text-sm font-medium text-ink">E-Mail *</label>
+          <input id="contact-email" required type="email" value={form.email} onChange={update("email")} className={fieldClass("email")} placeholder="name@firma.de" />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">Telefon *</label>
+          <label htmlFor="contact-phone" className="mb-1.5 block text-sm font-medium text-ink">Telefon *</label>
           <input
+            id="contact-phone"
             required
             type="tel"
             value={form.phone}
@@ -154,8 +156,8 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">Produkt</label>
-          <select value={form.product} onChange={update("product")} className={inputClass}>
+          <label htmlFor="contact-product" className="mb-1.5 block text-sm font-medium text-ink">Produkt</label>
+          <select id="contact-product" value={form.product} onChange={update("product")} className={inputClass}>
             <option value="">Bitte auswählen</option>
             {products.map((p) => (
               <option key={p} value={p}>
@@ -165,8 +167,8 @@ export function ContactForm() {
           </select>
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">BREKO-Mitglied</label>
-          <select value={form.brekoMember} onChange={update("brekoMember")} className={inputClass}>
+          <label htmlFor="contact-breko" className="mb-1.5 block text-sm font-medium text-ink">BREKO-Mitglied</label>
+          <select id="contact-breko" value={form.brekoMember} onChange={update("brekoMember")} className={inputClass}>
             {brekoOptions.map((o) => (
               <option key={o} value={o}>
                 {o}
@@ -175,8 +177,9 @@ export function ContactForm() {
           </select>
         </div>
         <div className="sm:col-span-2">
-          <label className="mb-1.5 block text-sm font-medium text-ink">Nachricht *</label>
+          <label htmlFor="contact-message" className="mb-1.5 block text-sm font-medium text-ink">Nachricht *</label>
           <textarea
+            id="contact-message"
             required
             rows={5}
             value={form.message}

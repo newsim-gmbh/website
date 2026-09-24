@@ -113,16 +113,17 @@ export function ApiRequestForm() {
       />
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">Name *</label>
-          <input required value={form.name} onChange={update("name")} className={fieldClass("name")} placeholder="Vor- und Nachname" />
+          <label htmlFor="api-name" className="mb-1.5 block text-sm font-medium text-ink">Name *</label>
+          <input id="api-name" required value={form.name} onChange={update("name")} className={fieldClass("name")} placeholder="Vor- und Nachname" />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">Firma *</label>
-          <input required value={form.company} onChange={update("company")} className={fieldClass("company")} placeholder="Unternehmen" />
+          <label htmlFor="api-company" className="mb-1.5 block text-sm font-medium text-ink">Firma *</label>
+          <input id="api-company" required value={form.company} onChange={update("company")} className={fieldClass("company")} placeholder="Unternehmen" />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">Position im Unternehmen</label>
+          <label htmlFor="api-position" className="mb-1.5 block text-sm font-medium text-ink">Position im Unternehmen</label>
           <input
+            id="api-position"
             value={form.position}
             onChange={update("position")}
             className={inputClass}
@@ -130,12 +131,13 @@ export function ApiRequestForm() {
           />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">E-Mail *</label>
-          <input required type="email" value={form.email} onChange={update("email")} className={fieldClass("email")} placeholder="name@firma.de" />
+          <label htmlFor="api-email" className="mb-1.5 block text-sm font-medium text-ink">E-Mail *</label>
+          <input id="api-email" required type="email" value={form.email} onChange={update("email")} className={fieldClass("email")} placeholder="name@firma.de" />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">Telefon *</label>
+          <label htmlFor="api-phone" className="mb-1.5 block text-sm font-medium text-ink">Telefon *</label>
           <input
+            id="api-phone"
             required
             type="tel"
             value={form.phone}
@@ -145,8 +147,9 @@ export function ApiRequestForm() {
           />
         </div>
         <div className="sm:col-span-2">
-          <label className="mb-1.5 block text-sm font-medium text-ink">Anmerkungen</label>
+          <label htmlFor="api-message" className="mb-1.5 block text-sm font-medium text-ink">Anmerkungen</label>
           <textarea
+            id="api-message"
             rows={4}
             value={form.message}
             onChange={update("message")}

@@ -251,8 +251,9 @@ export function IotRequestForm() {
                     Bitte beachten Sie: Wir verkaufen weder einzelne SIM-Karten noch an Privatpersonen.
                   </p>
                   <div className="mt-6">
-                    <label className="mb-1.5 block text-sm font-medium text-ink">Geschäftliche E-Mail-Adresse *</label>
+                    <label htmlFor="iot-email" className="mb-1.5 block text-sm font-medium text-ink">Geschäftliche E-Mail-Adresse *</label>
                     <input
+                      id="iot-email"
                       autoFocus
                       required
                       type="email"
@@ -270,8 +271,9 @@ export function IotRequestForm() {
                   <h3 className="font-heading text-xl font-bold tracking-tight text-ink">Erzählen Sie uns von Ihrem Projekt</h3>
                   <div className="mt-6 grid gap-5">
                     <div>
-                      <label className="mb-1.5 block text-sm font-medium text-ink">Einsatzbereich — kurze Beschreibung *</label>
+                      <label htmlFor="iot-usecase" className="mb-1.5 block text-sm font-medium text-ink">Einsatzbereich — kurze Beschreibung *</label>
                       <textarea
+                        id="iot-usecase"
                         autoFocus
                         required
                         rows={3}
@@ -283,8 +285,9 @@ export function IotRequestForm() {
                     </div>
                     <div className="grid gap-5 sm:grid-cols-2">
                       <div>
-                        <label className="mb-1.5 block text-sm font-medium text-ink">Benötigte SIM-Karten pro Jahr *</label>
+                        <label htmlFor="iot-simcount" className="mb-1.5 block text-sm font-medium text-ink">Benötigte SIM-Karten pro Jahr *</label>
                         <input
+                          id="iot-simcount"
                           required
                           value={form.simCount}
                           onChange={update("simCount")}
@@ -293,8 +296,9 @@ export function IotRequestForm() {
                         />
                       </div>
                       <div>
-                        <label className="mb-1.5 block text-sm font-medium text-ink">Ø Datenverbrauch je SIM/Monat</label>
+                        <label htmlFor="iot-datausage" className="mb-1.5 block text-sm font-medium text-ink">Ø Datenverbrauch je SIM/Monat</label>
                         <input
+                          id="iot-datausage"
                           value={form.avgDataUsage}
                           onChange={update("avgDataUsage")}
                           className={inputClass}
@@ -303,8 +307,9 @@ export function IotRequestForm() {
                       </div>
                     </div>
                     <div>
-                      <label className="mb-1.5 block text-sm font-medium text-ink">Länder, in denen die SIM-Karten eingesetzt werden *</label>
+                      <label htmlFor="iot-countries" className="mb-1.5 block text-sm font-medium text-ink">Länder, in denen die SIM-Karten eingesetzt werden *</label>
                       <input
+                        id="iot-countries"
                         required
                         value={form.countries}
                         onChange={update("countries")}
@@ -321,8 +326,9 @@ export function IotRequestForm() {
                   <h3 className="font-heading text-xl font-bold tracking-tight text-ink">Ihre Kontaktdaten</h3>
                   <div className="mt-6 grid gap-5 sm:grid-cols-2">
                     <div className="sm:col-span-2">
-                      <label className="mb-1.5 block text-sm font-medium text-ink">Name der Firma *</label>
+                      <label htmlFor="iot-company" className="mb-1.5 block text-sm font-medium text-ink">Name der Firma *</label>
                       <input
+                        id="iot-company"
                         autoFocus
                         required
                         value={form.company}
@@ -332,16 +338,17 @@ export function IotRequestForm() {
                       />
                     </div>
                     <div>
-                      <label className="mb-1.5 block text-sm font-medium text-ink">Vorname *</label>
-                      <input required value={form.firstName} onChange={update("firstName")} className={fieldClass("firstName")} placeholder="Anna" />
+                      <label htmlFor="iot-firstname" className="mb-1.5 block text-sm font-medium text-ink">Vorname *</label>
+                      <input id="iot-firstname" required value={form.firstName} onChange={update("firstName")} className={fieldClass("firstName")} placeholder="Anna" />
                     </div>
                     <div>
-                      <label className="mb-1.5 block text-sm font-medium text-ink">Nachname *</label>
-                      <input required value={form.lastName} onChange={update("lastName")} className={fieldClass("lastName")} placeholder="Schmidt" />
+                      <label htmlFor="iot-lastname" className="mb-1.5 block text-sm font-medium text-ink">Nachname *</label>
+                      <input id="iot-lastname" required value={form.lastName} onChange={update("lastName")} className={fieldClass("lastName")} placeholder="Schmidt" />
                     </div>
                     <div className="sm:col-span-2">
-                      <label className="mb-1.5 block text-sm font-medium text-ink">Telefonnummer *</label>
+                      <label htmlFor="iot-phone" className="mb-1.5 block text-sm font-medium text-ink">Telefonnummer *</label>
                       <input
+                        id="iot-phone"
                         required
                         type="tel"
                         value={form.phone}

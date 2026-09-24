@@ -1,17 +1,19 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCta } from "@/components/MobileCta";
 import { PageHero } from "@/components/templates/PageHero";
 import { HubGrid } from "@/components/templates/HubGrid";
 import { mainNav } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
 const item = mainNav.find((n) => n.href === "/produkte")!;
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/produkte",
   title: "Produkte — newSIM",
   description: "Vier Mobilfunk-Modelle, ein Ambitionslevel-Baukasten: von Business Solutions bis zur eigenen White-Label-MVNE-Plattform.",
-};
+  image: "/produkt-white-label-mvne.webp",
+});
 
 export default function ProduktePage() {
   return (

@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { MobileCta } from "@/components/MobileCta";
 import { DeveloperDetail } from "@/components/templates/DeveloperDetail";
 import { developerPages } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
 type Params = Promise<{ slug: string }>;
 
@@ -15,10 +16,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params;
   const page = developerPages.find((p) => p.slug === slug);
-  return {
+  return pageMetadata({
+    path: `/developer/${slug}`,
     title: page ? `${page.name} — newSIM Developer` : "Developer — newSIM",
     description: page?.heroTagline,
-  };
+    image: page ? `/${page.image}` : undefined,
+  });
 }
 
 export default async function DeveloperSubPage({ params }: { params: Params }) {

@@ -108,6 +108,7 @@ export function PageHero({
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"
+                priority
               />
             </motion.div>
           ) : (

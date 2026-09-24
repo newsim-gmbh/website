@@ -1,17 +1,19 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCta } from "@/components/MobileCta";
 import { PageHero } from "@/components/templates/PageHero";
 import { HubGrid } from "@/components/templates/HubGrid";
 import { mainNav } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
 const item = mainNav.find((n) => n.href === "/consulting")!;
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/consulting",
   title: "Consulting — newSIM",
   description: "Strategische Beratung rund um Mobilfunk & Glasfaser: G2M-Strategie, Potentialanalyse, Sales-Strategie, Netz-Transformation.",
-};
+  image: "/consulting-potentialanalyse.webp",
+});
 
 export default function ConsultingPage() {
   return (

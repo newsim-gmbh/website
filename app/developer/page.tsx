@@ -1,17 +1,19 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCta } from "@/components/MobileCta";
 import { PageHero } from "@/components/templates/PageHero";
 import { HubGrid } from "@/components/templates/HubGrid";
 import { mainNav } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
 const item = mainNav.find((n) => n.href === "/developer")!;
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/developer",
   title: "Developer — newSIM",
   description: "API und Telnology®-Plattform: die technische Anbindung an die newSIM Enabling-Plattform.",
-};
+  image: "/developer-telnology.webp",
+});
 
 export default function DeveloperPage() {
   return (
