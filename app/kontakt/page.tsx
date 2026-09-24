@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCta } from "@/components/MobileCta";
@@ -8,11 +7,14 @@ import { ContactForm } from "@/components/ContactForm";
 import { BenefitTiles } from "@/components/BenefitTiles";
 import { ContactTile } from "@/components/ContactTile";
 import { contacts, trustBar } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/kontakt",
   title: "Kontakt — newSIM",
   description: "Sprechen Sie mit uns über Ihr Mobilfunk-Vorhaben — wir melden uns zeitnah zurück.",
-};
+  image: "/hero-phone.webp",
+});
 
 export default function KontaktPage() {
   return (

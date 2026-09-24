@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { MobileCta } from "@/components/MobileCta";
 import { UseCaseDetail } from "@/components/templates/UseCaseDetail";
 import { useCases } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
 type Params = Promise<{ slug: string }>;
 
@@ -15,10 +16,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params;
   const useCase = useCases.find((u) => u.slug === slug);
-  return {
+  return pageMetadata({
+    path: `/use-cases/${slug}`,
     title: useCase ? `${useCase.name} — newSIM Use Cases` : "Use Case — newSIM",
     description: useCase?.heroTagline,
-  };
+    image: useCase ? `/${useCase.image}` : undefined,
+  });
 }
 
 export default async function UseCasePage({ params }: { params: Params }) {

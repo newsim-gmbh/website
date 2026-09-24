@@ -1,17 +1,19 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCta } from "@/components/MobileCta";
 import { PageHero } from "@/components/templates/PageHero";
 import { HubGrid } from "@/components/templates/HubGrid";
 import { mainNav } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
 const item = mainNav.find((n) => n.href === "/use-cases")!;
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/use-cases",
   title: "Use Cases — newSIM",
   description: "Passende Mobilfunk-Lösungen für Fachhandel, Stadtwerke, Systemhäuser, Banken, Influencer und Vereine.",
-};
+  image: "/hub-use-cases.webp",
+});
 
 export default function UseCasesPage() {
   return (

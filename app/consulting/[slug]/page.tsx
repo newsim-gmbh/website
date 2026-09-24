@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { MobileCta } from "@/components/MobileCta";
 import { ConsultingDetail } from "@/components/templates/ConsultingDetail";
 import { consultingServices } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
 type Params = Promise<{ slug: string }>;
 
@@ -15,10 +16,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params;
   const service = consultingServices.find((s) => s.slug === slug);
-  return {
+  return pageMetadata({
+    path: `/consulting/${slug}`,
     title: service ? `${service.name} — newSIM Consulting` : "Consulting — newSIM",
     description: service?.heroTagline,
-  };
+    image: service ? `/${service.image}` : undefined,
+  });
 }
 
 export default async function ConsultingSubPage({ params }: { params: Params }) {

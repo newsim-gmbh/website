@@ -1,10 +1,10 @@
 import type { NextConfig } from "next";
 
-// Statischer Export für GitHub Pages (Project Page unter /website/).
+// Statischer Export für GitHub Pages mit Custom Domain (newsim.de), Auslieferung unter der Domain-Root.
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/website",
-  assetPrefix: "/website/",
+  basePath: "",
+  assetPrefix: "",
   images: {
     unoptimized: true,
   },

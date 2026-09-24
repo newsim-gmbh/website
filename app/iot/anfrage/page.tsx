@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCta } from "@/components/MobileCta";
 import { Container } from "@/components/Container";
 import { Reveal } from "@/components/Reveal";
 import { IotRequestForm } from "@/components/IotRequestForm";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/iot/anfrage",
   title: "IoT-Angebot anfragen — newSIM",
   description: "In drei kurzen Schritten Ihr individuelles IoT-/M2M-SIM-Angebot anfragen.",
-};
+});
 
 export default function IotAnfragePage() {
   return (

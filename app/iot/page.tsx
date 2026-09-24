@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Header } from "@/components/Header";
@@ -11,11 +10,14 @@ import { IotFeatureTabs } from "@/components/IotFeatureTabs";
 import { IotTrustGrid } from "@/components/IotTrustGrid";
 import { iotShop } from "@/lib/content";
 import { basePath } from "@/lib/basePath";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/iot",
   title: "IoT / M2M Shop — newSIM",
   description: iotShop.hero.tagline,
-};
+  image: `/${iotShop.hero.image}`,
+});
 
 export default function IotPage() {
   const { hero, featureTabs, trust } = iotShop;
@@ -67,6 +69,10 @@ export default function IotPage() {
                 <img
                   src={`${basePath}/BMWi_Fz_2021_WebSVG_de.svg`}
                   alt="Gefördert durch: Bundesministerium für Wirtschaft und Klimaschutz"
+                  width={172}
+                  height={175}
+                  loading="lazy"
+                  decoding="async"
                   className="h-auto w-full"
                 />
               </div>
@@ -75,6 +81,10 @@ export default function IotPage() {
                 <img
                   src={`${basePath}/breko-eg-guetesiegel.webp`}
                   alt="BREKO Einkaufsgemeinschaft eG — zertifizierter Listungspartner"
+                  width={400}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
                   className="h-auto w-full"
                 />
               </div>
