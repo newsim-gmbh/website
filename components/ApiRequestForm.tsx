@@ -66,6 +66,7 @@ export function ApiRequestForm() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: site.web3formsAccessKey,
+          cc: site.contactFormCc,
           subject: `API-Dokumentation anfragen — ${form.name}`,
           from_name: "newSIM API-Anfrage",
           name: form.name,

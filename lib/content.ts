@@ -17,6 +17,7 @@ export const site = {
   calendlyUrl: "/kontakt",
   loginUrl: "https://cms.newsim.de",
   contactFormEmail: "max@newsim.de",
+  contactFormCc: "service@newsim.de",
   web3formsAccessKey: "8c8823ab-072e-4aad-ad72-846019d14409",
 };
 
