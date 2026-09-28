@@ -73,7 +73,6 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: site.web3formsAccessKey,
-          ccemail: site.contactFormCc,
           subject,
           from_name: "newSIM Kontaktformular",
           name: form.name,
