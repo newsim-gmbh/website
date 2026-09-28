@@ -130,7 +130,6 @@ export function IotRequestForm() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: site.web3formsAccessKey,
-          ccemail: site.contactFormCc,
           subject: `IoT-Angebot anfragen — ${form.firstName} ${form.lastName} (${form.company})`,
           from_name: "newSIM IoT-Anfrage",
           name: `${form.firstName} ${form.lastName}`,
