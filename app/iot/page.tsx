@@ -34,8 +34,6 @@ export default function IotPage() {
           image={hero.image}
           ctaLabel={hero.primaryCtaLabel}
           ctaHref={hero.primaryCtaHref}
-          secondaryCtaLabel={hero.secondaryCtaLabel}
-          secondaryCtaHref={hero.secondaryCtaHref}
         />
 
         <section className="bg-background py-20 sm:py-28">
