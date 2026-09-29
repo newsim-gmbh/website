@@ -139,8 +139,8 @@ export function IotRequestForm() {
           Telefon: form.phone,
           Einsatzbereich: form.useCase,
           "SIM-Karten pro Jahr": form.simCount,
-          "Ø Datenverbrauch je SIM": form.avgDataUsage || undefined,
-          "Einsatzländer der SIM-Karten": form.countries,
+          "Durchschnittlicher Datenverbrauch je SIM": form.avgDataUsage || undefined,
+          "Einsatzlaender der SIM-Karten": form.countries,
           botcheck: "",
         }),
       });
