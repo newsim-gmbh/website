@@ -570,7 +570,6 @@ export const socialProof = {
     { name: "Stiegeler", file: "Stiegeler.png" },
     { name: "TeGe Deutschland", file: "TeGe.png" },
     { name: "Telefónica", file: "Telefonica.png" },
-    { name: "Telgea", file: "Telga.png" },
     { name: "Waldfunk", file: "Waldfunk-Logo_positiv.svg" },
     { name: "easyTEL", file: "easytel_transparent_logo.svg" },
     { name: "fenertalk", file: "fenertalk.png" },
