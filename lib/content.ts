@@ -964,7 +964,7 @@ export const useCases: UseCase[] = [
     name: "Stadtwerke, ISP & Glasfaseranbieter",
     image: "usecase-stadtwerke-isp-glasfaser.webp",
     icon: "building",
-    heroTagline: "Mobilfunk als natürliche und notwendige Ergänzung zum Glasfaser-Portfolio.",
+    heroTagline: "Mobilfunk als natürliche und notwendige Ergänzung zum Glasfaser-Portfolio — und als Hebel für ARPU-Uplift je Kunde.",
     challenge:
       "Platzhalter: Stadtwerke und regionale ISPs wollen ihr Glasfaser-Portfolio um Mobilfunk erweitern, um Kunden ganzheitlich zu binden — klassischerweise ein hoher regulatorischer und technischer Einstiegsaufwand.",
     solution:
