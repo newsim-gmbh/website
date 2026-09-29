@@ -148,6 +148,7 @@ export const mainNav: NavItem[] = [
         href: "/iot",
         description: "IoT-Konnektivität für Ihre Devices.",
         icon: "layers",
+        mockupImage: "IoT-Shop.jpg",
       },
     ],
   },
