@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem, Reveal } from "../Reveal";
-import { launchProcess } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function LaunchProcess() {
+  const { content } = useLocale();
+  const { launchProcess } = content;
   return (
     <section className="bg-dark py-24 text-white sm:py-32">
       <Container>

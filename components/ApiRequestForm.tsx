@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { site } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 import { EMAIL_REGEX, isPlausiblePhone } from "@/lib/formValidation";
 import { ContactSuccessModal } from "./ContactSuccessModal";
 
@@ -16,6 +16,8 @@ const emptyForm = {
 };
 
 export function ApiRequestForm() {
+  const { content } = useLocale();
+  const { site } = content;
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState<"idle" | "submitting" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);

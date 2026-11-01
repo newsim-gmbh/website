@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { RevealGroup, revealItem } from "./Reveal";
 import { Icon } from "./Icon";
-import { platform } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function PlatformArchitecture() {
+  const { content } = useLocale();
+  const { platform } = content;
   return (
     <div className="overflow-hidden rounded-3xl border border-dark-line">
       {/* Schicht 1: Vertriebskanäle */}

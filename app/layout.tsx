@@ -3,6 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { site } from "@/lib/content";
 import { siteUrl } from "@/lib/seo";
+import { locales } from "@/lib/i18n/config";
+import { localizedPath } from "@/lib/i18n/paths";
+import { LocaleRedirect } from "@/components/LocaleRedirect";
 
 const halcom = localFont({
   variable: "--font-halcom",
@@ -18,7 +21,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: Object.fromEntries([
+      ...locales.map((loc) => [loc, `${siteUrl}${localizedPath("/", loc) === "/" ? "" : localizedPath("/", loc)}`]),
+      ["x-default", siteUrl],
+    ]),
+  },
   robots: { index: true, follow: true },
   openGraph: {
     title,
@@ -68,6 +77,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
+        <LocaleRedirect />
         {children}
       </body>
     </html>

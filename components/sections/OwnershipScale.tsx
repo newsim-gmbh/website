@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { models } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function OwnershipScale() {
+  const { content } = useLocale();
+  const { models } = content;
   return (
     <div className="mt-14">
       <div className="flex items-center justify-between text-sm font-medium text-ink-soft">

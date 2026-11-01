@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { site } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function MobileCta() {
+  const { content } = useLocale();
+  const { site } = content;
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

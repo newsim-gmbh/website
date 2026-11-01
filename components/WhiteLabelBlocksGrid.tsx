@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { RevealGroup, revealItem } from "./Reveal";
 import { Icon } from "./Icon";
-import { whiteLabelBuildingBlocks } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function WhiteLabelBlocksGrid() {
+  const { content } = useLocale();
+  const { whiteLabelBuildingBlocks } = content;
   return (
     <RevealGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {whiteLabelBuildingBlocks.map((block) => (

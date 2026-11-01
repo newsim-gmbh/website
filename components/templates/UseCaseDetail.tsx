@@ -11,10 +11,12 @@ import { RevealGroup, revealItem, Reveal } from "../Reveal";
 import { Icon } from "../Icon";
 import { FaqAccordion } from "../FaqAccordion";
 import type { UseCase } from "@/lib/content";
-import { models, site } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 import { basePath } from "@/lib/basePath";
 
 export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
+  const { content } = useLocale();
+  const { models, site } = content;
   const recommended = models.filter((m) => useCase.recommendedModelIds.includes(m.id));
   const painPoints = useCase.painPoints ?? [useCase.challenge];
   const solutionSteps = useCase.solutionSteps ?? [useCase.solution];

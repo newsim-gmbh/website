@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "../Container";
-import { hero, proofPoints, site } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 import { basePath } from "@/lib/basePath";
 
 export function Hero() {
+  const { content } = useLocale();
+  const { hero, proofPoints, site } = content;
   return (
     <section id="top" className="relative overflow-hidden bg-dark pt-36 pb-20 text-white sm:pt-40 sm:pb-24">
       <div

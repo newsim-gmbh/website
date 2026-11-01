@@ -5,9 +5,11 @@ import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem } from "../Reveal";
 import { Icon } from "../Icon";
-import { capabilities } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function Capabilities() {
+  const { content } = useLocale();
+  const { capabilities } = content;
   return (
     <section className="bg-dark py-24 text-white sm:py-32">
       <Container>

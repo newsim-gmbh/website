@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "../Container";
 import { PhoneMockup } from "../PhoneMockup";
-import { site } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 import { basePath } from "@/lib/basePath";
 
 export function PageHero({
@@ -33,6 +33,8 @@ export function PageHero({
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
 }) {
+  const { content } = useLocale();
+  const { site } = content;
   return (
     <section className="relative overflow-hidden bg-dark pt-36 pb-20 text-white sm:pt-40 sm:pb-24">
       <div

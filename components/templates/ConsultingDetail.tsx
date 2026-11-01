@@ -8,9 +8,11 @@ import { RevealGroup, revealItem, Reveal } from "../Reveal";
 import { Icon } from "../Icon";
 import { FaqAccordion } from "../FaqAccordion";
 import type { ConsultingService } from "@/lib/content";
-import { consultingServices, models, site } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function ConsultingDetail({ service }: { service: ConsultingService }) {
+  const { content } = useLocale();
+  const { consultingServices, models, site } = content;
   const otherServices = consultingServices.filter((s) => s.slug !== service.slug);
   const relatedModels = models.filter((m) => service.relatedModelIds?.includes(m.id));
 

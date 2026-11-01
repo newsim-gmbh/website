@@ -5,9 +5,11 @@ import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem, Reveal } from "../Reveal";
 import { PlatformArchitecture } from "../PlatformArchitecture";
-import { platform, businessAreas } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function Platform() {
+  const { content } = useLocale();
+  const { platform, businessAreas } = content;
   return (
     <section id="plattform" className="bg-dark border-t border-dark-line py-24 text-white sm:py-32">
       <Container>

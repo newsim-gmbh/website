@@ -6,9 +6,11 @@ import { RevealGroup } from "../Reveal";
 import { OwnershipScale } from "./OwnershipScale";
 import { ModelCard } from "./ModelCard";
 import { ComparisonTable } from "./ComparisonTable";
-import { models } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function ModelComparison() {
+  const { content } = useLocale();
+  const { models } = content;
   return (
     <section id="modelle" className="bg-background py-24 sm:py-32">
       <Container>

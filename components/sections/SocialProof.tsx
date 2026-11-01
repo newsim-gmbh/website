@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { Container } from "../Container";
 import { Reveal } from "../Reveal";
-import { socialProof } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 import { basePath } from "@/lib/basePath";
 
 export function SocialProof() {
+  const { content } = useLocale();
+  const { socialProof } = content;
   const track = [...socialProof.logos, ...socialProof.logos];
 
   return (
