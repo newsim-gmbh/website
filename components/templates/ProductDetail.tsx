@@ -12,18 +12,20 @@ import { WhiteLabelBlocksGrid } from "../WhiteLabelBlocksGrid";
 import { ComparisonTable } from "../sections/ComparisonTable";
 import type { BusinessModel } from "@/lib/content";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 
 const whiteLabelEligible: BusinessModel["id"][] = ["branded-reseller", "white-label-reseller"];
 
 export function ProductDetail({ model }: { model: BusinessModel }) {
   const { content } = useLocale();
   const { models, useCases, site, whiteLabelBuildingBlocksSection } = content;
+  const t = useStrings().productDetail;
   const otherModels = models.filter((m) => m.id !== model.id);
   const relatedUseCases = useCases.filter((uc) => uc.recommendedModelIds.includes(model.id));
 
   return (
     <>
-      <PageHero eyebrow="Produkte" title={model.navLabel} tagline={model.tagline} image={model.image} />
+      <PageHero eyebrow={t.eyebrow} title={model.navLabel} tagline={model.tagline} image={model.image} />
 
       {model.keyBenefits && (
         <section className="bg-dark py-14 text-white">
@@ -44,7 +46,7 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
         <section className="bg-background pt-16 sm:pt-20">
           <Container>
             <Reveal className="rounded-3xl bg-sky p-8 sm:p-10">
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Ideal für</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.idealFor}</p>
               <p className="balance mt-3 max-w-2xl text-xl font-medium leading-relaxed text-ink">
                 {model.idealFor}
               </p>
@@ -57,9 +59,9 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
         <section className="bg-background py-16 sm:py-20">
           <Container>
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Ablauf</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.process}</p>
               <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                So kommen Sie live
+                {t.processTitle}
               </h2>
             </Reveal>
             <div className="mt-10">
@@ -73,7 +75,7 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
         <Container>
           <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr]">
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Im Detail</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.inDetail}</p>
               <p className="balance mt-4 text-xl leading-relaxed text-ink">{model.description}</p>
             </Reveal>
 
@@ -82,7 +84,7 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-ink text-white">
                   <Icon name={model.icon} className="h-5 w-5" />
                 </div>
-                <p className="font-heading text-lg font-bold text-ink">Verantwortungs-Split</p>
+                <p className="font-heading text-lg font-bold text-ink">{t.responsibilitySplit}</p>
               </div>
 
               {(() => {
@@ -104,10 +106,10 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
                     </div>
                     <div className="mt-2 flex items-center justify-between text-xs font-medium text-ink-soft">
                       <span>
-                        newSIM · {newSimCount} {newSimCount === 1 ? "Aufgabe" : "Aufgaben"}
+                        newSIM · {newSimCount} {newSimCount === 1 ? t.task : t.tasks}
                       </span>
                       <span>
-                        Sie · {partnerCount} {partnerCount === 1 ? "Aufgabe" : "Aufgaben"}
+                        {t.you} · {partnerCount} {partnerCount === 1 ? t.task : t.tasks}
                       </span>
                     </div>
                   </>
@@ -116,7 +118,7 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
 
               <div className="mt-6 grid grid-cols-2 gap-6">
                 <div className="min-w-0">
-                  <p className="text-sm font-medium text-ink">newSIM übernimmt</p>
+                  <p className="text-sm font-medium text-ink">{t.newSimHandles}</p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
                     {model.newSimResponsibilities.map((r) => (
                       <span
@@ -129,7 +131,7 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
                   </div>
                 </div>
                 <div className="min-w-0">
-                  <p className="text-sm font-medium text-ink">Sie übernehmen</p>
+                  <p className="text-sm font-medium text-ink">{t.youHandle}</p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
                     {model.partnerResponsibilities.map((r) => (
                       <span key={r} className="inline-flex rounded-full bg-ink px-2.5 py-1 text-xs font-medium text-white">
@@ -148,14 +150,12 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
         <section className="bg-background py-16 sm:py-20">
           <Container>
             <Reveal className="max-w-2xl">
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Einordnung</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.classification}</p>
               <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Zwei Wege zur eigenen Mobilfunkmarke.
+                {t.twoWaysTitle}
               </h2>
               <p className="balance mt-4 text-base leading-relaxed text-ink-soft">
-                Branded Reseller und White Label Reseller verfolgen dasselbe Ziel: Ihre eigene Mobilfunkmarke im
-                Markt. Der Unterschied liegt darin, wie viel Verantwortung, Kontrolle und Marge Sie selbst
-                übernehmen — im direkten Vergleich:
+                {t.twoWaysBody}
               </p>
             </Reveal>
             <ComparisonTable />
@@ -188,9 +188,9 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
         <section className="bg-surface py-20 sm:py-28">
           <Container>
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Anwendung</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.application}</p>
               <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Wo {model.navLabel} eingesetzt wird
+                {t.usedIn(model.navLabel)}
               </h2>
             </Reveal>
             <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -204,7 +204,7 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
                     <p className="font-heading mt-3 text-base font-bold text-ink">{uc.name}</p>
                     <p className="mt-1.5 text-xs leading-relaxed text-ink-soft">{uc.heroTagline}</p>
                     <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-primary-ink">
-                      Use Case ansehen
+                      {t.viewUseCase}
                       <span className="transition-transform group-hover:translate-x-1">→</span>
                     </span>
                   </Link>
@@ -219,9 +219,9 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
         <section className="bg-background py-20 sm:py-28">
           <Container>
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">FAQ</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.faq}</p>
               <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Häufige Fragen zu {model.navLabel}
+                {t.faqFor(model.navLabel)}
               </h2>
             </Reveal>
             <Reveal delay={0.1} className="mt-10 max-w-3xl">
@@ -234,9 +234,9 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
       <section className="bg-surface py-20 sm:py-28">
         <Container>
           <Reveal>
-            <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Andere Modelle</p>
+            <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.otherModels}</p>
             <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-              Passt ein anderes Modell besser?
+              {t.otherModelsTitle}
             </h2>
           </Reveal>
           <RevealGroup className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -255,7 +255,7 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
           </RevealGroup>
           <Reveal delay={0.15} className="mt-8">
             <Link href="/produkte" className="text-sm font-medium text-primary-ink">
-              Alle Produkte im Vergleich →
+              {t.allModelsCompare}
             </Link>
           </Reveal>
         </Container>
@@ -265,10 +265,10 @@ export function ProductDetail({ model }: { model: BusinessModel }) {
         <Container className="text-center">
           <Reveal>
             <h2 className="font-heading balance mx-auto max-w-xl text-3xl font-bold tracking-tight sm:text-4xl">
-              Bereit für {model.navLabel}?
+              {t.readyFor(model.navLabel)}
             </h2>
             <p className="balance mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/70">
-              Unverbindliches Gespräch vereinbaren — ohne Mindest-Kommitment.
+              {t.noCommitment}
             </p>
             <Link
               href={site.calendlyUrl}

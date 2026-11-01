@@ -204,12 +204,12 @@ export const mainNav: NavItem[] = [
   },
 ];
 
-export const proofPoints = [
+export const proofPoints: { value: string; suffix?: string; label: string }[] = [
   { value: "30+", label: "Kooperationspartner unter Vertrag" },
   { value: "200+", label: "Tarife im White-Label-Portfolio" },
   { value: "5–500", suffix: "GB", label: "Datenpakete, Allnetflat & SMS-Flat" },
   { value: "4–6", suffix: "Wochen", label: "bis zum kommerziellen Launch" },
-] as const;
+];
 
 // Trust-Leiste direkt unter dem Hero — sofortiger Vertrauensbeweis, bevor
 // Zweifel entstehen (Qonto-Prinzip: Beweis vor Erklärung).
@@ -788,7 +788,7 @@ export const pricing = {
   },
 };
 
-export const faq = [
+export const faq: { q: string; a: string }[] = [
   {
     q: "Brauchen wir eine eigene Netzinfrastruktur oder Regulierungs-Lizenz?",
     a: "Nein. newSIM ist bereits Diensteanbieter gemäß TKG und MVNO im Netz der Telefónica. Sie nutzen die bestehende regulatorische Abdeckung und das LTE/5G-Netz mit — ohne eigene BNetzA-Anmeldung.",
@@ -825,7 +825,7 @@ export const faq = [
     q: "Ist auch IoT/M2M-Konnektivität möglich, nicht nur klassischer Mobilfunk?",
     a: "Ja. Über die Telnology®-Plattform steht ein eigenes White-Label-IoT/M2M-Portfolio für B2B, B2B2B und B2B2C zur Verfügung — inklusive SIM Diversity, Secure Data Cloud und Dynamic Datapooling.",
   },
-] as const;
+];
 
 export const finalCta = {
   title: "Bereit für Ihre eigene Mobilfunkmarke?",

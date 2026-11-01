@@ -7,6 +7,7 @@ import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem } from "../Reveal";
 import { Icon, type IconName } from "../Icon";
+import { useStrings } from "@/lib/i18n/strings";
 
 export interface HubGridItem {
   label: string;
@@ -27,6 +28,7 @@ export function HubGrid({
   intro?: string;
   items: HubGridItem[];
 }) {
+  const t = useStrings().hubGrid;
   return (
     <section className="bg-dark pt-16 pb-24 text-white sm:pt-24 sm:pb-32">
       <Container>
@@ -47,11 +49,11 @@ export function HubGrid({
                 <p className="mt-3 text-[15px] leading-relaxed text-white/60">{item.description}</p>
                 {item.comingSoon ? (
                   <span className="font-heading mt-5 inline-flex w-fit items-center rounded-full bg-white/10 px-4 py-2 text-xs font-bold text-white/50">
-                    Bald verfügbar
+                    {t.comingSoon}
                   </span>
                 ) : (
                   <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-primary">
-                    Mehr erfahren
+                    {t.learnMore}
                     <span className="transition-transform group-hover:translate-x-1">→</span>
                   </span>
                 )}

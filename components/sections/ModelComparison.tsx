@@ -7,18 +7,16 @@ import { OwnershipScale } from "./OwnershipScale";
 import { ModelCard } from "./ModelCard";
 import { ComparisonTable } from "./ComparisonTable";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 
 export function ModelComparison() {
   const { content } = useLocale();
   const { models } = content;
+  const t = useStrings().modelComparison;
   return (
     <section id="modelle" className="bg-background py-24 sm:py-32">
       <Container>
-        <SectionHeading
-          eyebrow="Geschäftsmodelle"
-          title="Wie viel möchten Sie selbst übernehmen?"
-          body="Vier Modelle für die Vermarktung — vom schlanken Full Service bis zur kompletten MVNO-Plattform, passend zu Ihrem Ambitionslevel."
-        />
+        <SectionHeading eyebrow={t.eyebrow} title={t.title} body={t.body} />
 
         <OwnershipScale />
 

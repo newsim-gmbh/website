@@ -5,11 +5,13 @@ import { LocalizedLink as Link } from "../LocalizedLink";
 import Image from "next/image";
 import { Container } from "../Container";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 import { basePath } from "@/lib/basePath";
 
 export function Hero() {
   const { content } = useLocale();
   const { hero, proofPoints, site } = content;
+  const t = useStrings().hero;
   return (
     <section id="top" className="relative overflow-hidden bg-dark pt-36 pb-20 text-white sm:pt-40 sm:pb-24">
       <div
@@ -55,7 +57,7 @@ export function Hero() {
                 href="#modelle"
                 className="inline-flex items-center justify-center rounded-full border border-primary/40 px-7 py-3.5 text-sm font-medium text-white/90 transition-colors hover:bg-primary/10"
               >
-                Die 4 Modelle ansehen
+                {t.viewModels}
               </a>
             </motion.div>
           </motion.div>
@@ -69,7 +71,7 @@ export function Hero() {
           >
             <Image
               src={`${basePath}/hero-phone.webp`}
-              alt="newSIM App auf dem Smartphone: In 4 Wochen zum eigenen Mobilfunkbrand"
+              alt={t.heroImageAlt}
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
               priority

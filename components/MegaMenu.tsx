@@ -4,8 +4,10 @@ import { LocalizedLink as Link } from "./LocalizedLink";
 import clsx from "clsx";
 import { Icon } from "./Icon";
 import type { NavItem } from "@/lib/content";
+import { useStrings } from "@/lib/i18n/strings";
 
 export function MegaMenu({ item, onNavigate }: { item: NavItem; onNavigate?: () => void }) {
+  const t = useStrings().megaMenu;
   if (!item.children) return null;
 
   return (
@@ -20,7 +22,7 @@ export function MegaMenu({ item, onNavigate }: { item: NavItem; onNavigate?: () 
           onClick={onNavigate}
           className="font-heading shrink-0 rounded-full bg-ink px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-primary hover:text-ink"
         >
-          Übersicht
+          {t.overview}
         </Link>
       </div>
 
@@ -46,12 +48,12 @@ export function MegaMenu({ item, onNavigate }: { item: NavItem; onNavigate?: () 
                   {child.label}
                   {child.featured && (
                     <span className="rounded-full bg-primary/20 px-2 py-0.5 text-[10px] font-bold text-primary-ink">
-                      Empfohlen
+                      {t.featured}
                     </span>
                   )}
                   {child.comingSoon && (
                     <span className="rounded-full bg-line px-2 py-0.5 text-[10px] font-medium text-ink-soft">
-                      bald
+                      {t.comingSoon}
                     </span>
                   )}
                 </span>

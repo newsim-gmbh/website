@@ -9,10 +9,12 @@ import { MegaMenu } from "./MegaMenu";
 import { Logo } from "./Logo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 
 export function Header() {
   const { content } = useLocale();
   const { mainNav, site } = content;
+  const t = useStrings().header;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -119,7 +121,7 @@ export function Header() {
                 onDark ? "text-white/70 hover:text-white" : "text-ink-soft hover:text-ink"
               )}
             >
-              Login
+              {t.login}
             </a>
             <Link
               href={site.calendlyUrl}
@@ -130,12 +132,12 @@ export function Header() {
                   : "bg-ink text-white hover:bg-primary hover:text-ink"
               )}
             >
-              Kontakt
+              {t.kontakt}
             </Link>
           </div>
 
           <button
-            aria-label="Menü öffnen"
+            aria-label={t.menuOpen}
             className="flex h-10 w-10 items-center justify-center lg:hidden"
             onClick={() => setOpen((v) => !v)}
           >
@@ -177,7 +179,7 @@ export function Header() {
                   </Link>
                   {item.children && (
                     <button
-                      aria-label={`${item.label} Untermenü`}
+                      aria-label={t.submenu(item.label)}
                       onClick={() => setMobileOpenIndex(mobileOpenIndex === i ? null : i)}
                       className="flex h-10 w-10 shrink-0 items-center justify-center text-ink-soft"
                     >
@@ -238,14 +240,14 @@ export function Header() {
               rel="noopener noreferrer"
               className="mt-3 inline-flex items-center justify-center rounded-full border border-line px-5 py-3 text-sm font-medium text-ink"
             >
-              Login
+              {t.login}
             </a>
             <Link
               href={site.calendlyUrl}
               onClick={() => setOpen(false)}
               className="font-heading mt-2 inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink"
             >
-              Kontakt
+              {t.kontakt}
             </Link>
           </Container>
         </motion.div>

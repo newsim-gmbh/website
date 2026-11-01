@@ -8,17 +8,19 @@ import { Reveal, RevealGroup, revealItem } from "../Reveal";
 import { PhoneMockup } from "../PhoneMockup";
 import type { NavChild } from "@/lib/content";
 import { basePath } from "@/lib/basePath";
+import { useStrings } from "@/lib/i18n/strings";
 
 export function EigenmarkenGrid({ items }: { items: NavChild[] }) {
+  const t = useStrings().eigenmarkenGrid;
   return (
     <section className="bg-dark pt-36 pb-24 text-white sm:pt-40 sm:pb-32">
       <Container>
         <Reveal className="max-w-xl">
           <p className="mb-5 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-wide text-white/70 uppercase">
-            Eigenmarken
+            {t.eyebrow}
           </p>
           <h1 className="font-heading balance text-4xl font-bold tracking-tight sm:text-5xl">
-            Unsere eigenen Marken.
+            {t.title}
           </h1>
         </Reveal>
 
@@ -52,7 +54,7 @@ export function EigenmarkenGrid({ items }: { items: NavChild[] }) {
 
                 {item.comingSoon ? (
                   <span className="font-heading mt-6 inline-flex w-fit items-center rounded-full bg-white/10 px-5 py-2.5 text-xs font-bold text-white/50">
-                    Bald verfügbar
+                    {t.comingSoon}
                   </span>
                 ) : item.external ? (
                   <a
@@ -61,14 +63,14 @@ export function EigenmarkenGrid({ items }: { items: NavChild[] }) {
                     rel="noopener noreferrer"
                     className="font-heading mt-6 inline-flex w-fit items-center rounded-full bg-white px-5 py-2.5 text-xs font-bold text-ink transition-colors hover:bg-primary"
                   >
-                    Zur Website ↗
+                    {t.toWebsite}
                   </a>
                 ) : (
                   <Link
                     href={item.href}
                     className="font-heading mt-6 inline-flex w-fit items-center rounded-full bg-white px-5 py-2.5 text-xs font-bold text-ink transition-colors hover:bg-primary"
                   >
-                    Jetzt entdecken →
+                    {t.discover}
                   </Link>
                 )}
               </div>
