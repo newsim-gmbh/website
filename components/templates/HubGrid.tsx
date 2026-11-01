@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocalizedLink as Link } from "../LocalizedLink";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { Container } from "../Container";

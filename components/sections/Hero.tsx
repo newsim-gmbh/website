@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { LocalizedLink as Link } from "../LocalizedLink";
 import Image from "next/image";
 import { Container } from "../Container";
 import { useLocale } from "@/lib/i18n/context";

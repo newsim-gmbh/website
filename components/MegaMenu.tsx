@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocalizedLink as Link } from "./LocalizedLink";
 import clsx from "clsx";
 import { Icon } from "./Icon";
 import type { NavItem } from "@/lib/content";

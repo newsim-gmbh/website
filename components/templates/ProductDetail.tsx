@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocalizedLink as Link } from "../LocalizedLink";
 import { motion } from "framer-motion";
 import { Container } from "../Container";
 import { PageHero } from "./PageHero";

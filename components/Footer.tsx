@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { LocalizedLink } from "./LocalizedLink";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { companyLegal } from "@/lib/content";
@@ -26,15 +27,15 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               {mainNav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-white/70 hover:text-white">
+                  <LocalizedLink href={item.href} className="text-sm text-white/70 hover:text-white">
                     {item.label}
-                  </Link>
+                  </LocalizedLink>
                 </li>
               ))}
               <li>
-                <Link href="/kontakt" className="text-sm text-white/70 hover:text-white">
+                <LocalizedLink href="/kontakt" className="text-sm text-white/70 hover:text-white">
                   Kontakt
-                </Link>
+                </LocalizedLink>
               </li>
               <li>
                 <a

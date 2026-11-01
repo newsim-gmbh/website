@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { LocalizedLink as Link } from "./LocalizedLink";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { Icon, type IconName } from "./Icon";
