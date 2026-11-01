@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import { LocalizedLink as Link } from "../LocalizedLink";
 import { Container } from "../Container";
 import { Reveal, RevealGroup, revealItem } from "../Reveal";
 import { PhoneMockup } from "../PhoneMockup";
