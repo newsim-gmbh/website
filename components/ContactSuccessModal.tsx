@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import QRCode from "qrcode";
-import { contacts, site } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
+import type { ContentModule } from "@/lib/i18n/config";
 
-function buildVCard() {
+function buildVCard(contacts: ContentModule["contacts"], site: ContentModule["site"]) {
   const c = contacts[0];
   const parts = c.name.split(" ");
   const firstName = parts[0];
@@ -35,12 +36,14 @@ export function ContactSuccessModal({
   title?: string;
   body?: string;
 }) {
+  const { content } = useLocale();
+  const { contacts, site } = content;
   const [qrDataUrl, setQrDataUrl] = useState<string | null>(null);
 
   useEffect(() => {
     if (!open) return;
     let cancelled = false;
-    QRCode.toDataURL(buildVCard(), { width: 240, margin: 1, color: { dark: "#191919", light: "#ffffff" } })
+    QRCode.toDataURL(buildVCard(contacts, site), { width: 240, margin: 1, color: { dark: "#191919", light: "#ffffff" } })
       .then((url) => {
         if (!cancelled) setQrDataUrl(url);
       })
@@ -48,7 +51,7 @@ export function ContactSuccessModal({
     return () => {
       cancelled = true;
     };
-  }, [open]);
+  }, [open, contacts, site]);
 
   useEffect(() => {
     if (!open) return;

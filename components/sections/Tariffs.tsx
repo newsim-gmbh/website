@@ -5,10 +5,12 @@ import Link from "next/link";
 import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem, Reveal } from "../Reveal";
-import { pricing, site } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 import { Icon } from "../Icon";
 
 export function Tariffs() {
+  const { content } = useLocale();
+  const { pricing, site } = content;
   const { tariffPortfolio, flyingStart, iotM2m, commercial, disclaimer } = pricing;
 
   return (

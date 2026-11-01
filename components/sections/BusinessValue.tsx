@@ -5,9 +5,11 @@ import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem } from "../Reveal";
 import { Icon } from "../Icon";
 import { motion } from "framer-motion";
-import { businessValue, proofPoints } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function BusinessValue() {
+  const { content } = useLocale();
+  const { businessValue, proofPoints } = content;
   return (
     <section className="bg-background pt-24 sm:pt-32">
       <Container>

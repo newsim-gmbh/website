@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Container } from "../Container";
-import { finalCta, site } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function FinalCta() {
+  const { content } = useLocale();
+  const { finalCta, site } = content;
   return (
     <section id="kontakt" className="relative overflow-hidden bg-dark py-28 text-white sm:py-36">
       <div

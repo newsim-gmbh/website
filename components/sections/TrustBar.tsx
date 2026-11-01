@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { Container } from "../Container";
 import { Icon } from "../Icon";
-import { trustBar } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function TrustBar() {
+  const { content } = useLocale();
+  const { trustBar } = content;
   return (
     <section className="border-b border-line bg-surface py-6">
       <Container>

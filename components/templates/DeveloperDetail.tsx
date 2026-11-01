@@ -10,9 +10,11 @@ import { FaqAccordion } from "../FaqAccordion";
 import { PlatformArchitecture } from "../PlatformArchitecture";
 import { ApiRequestForm } from "../ApiRequestForm";
 import type { DeveloperPage } from "@/lib/content";
-import { developerPages, platform, site } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function DeveloperDetail({ page }: { page: DeveloperPage }) {
+  const { content } = useLocale();
+  const { developerPages, platform, site } = content;
   const otherPages = developerPages.filter((p) => p.slug !== page.slug);
   const isTelnology = page.slug === "telnology";
   const isApi = page.slug === "api";

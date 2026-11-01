@@ -7,9 +7,12 @@ import { motion } from "framer-motion";
 import { Container } from "./Container";
 import { MegaMenu } from "./MegaMenu";
 import { Logo } from "./Logo";
-import { mainNav, site } from "@/lib/content";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useLocale } from "@/lib/i18n/context";
 
 export function Header() {
+  const { content } = useLocale();
+  const { mainNav, site } = content;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -106,6 +109,7 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
+            <LanguageSwitcher onDark={onDark} />
             <a
               href={site.loginUrl}
               target="_blank"
@@ -225,6 +229,9 @@ export function Header() {
               </div>
             ))}
 
+            <div className="mt-3 flex justify-center">
+              <LanguageSwitcher />
+            </div>
             <a
               href={site.loginUrl}
               target="_blank"

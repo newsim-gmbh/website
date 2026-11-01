@@ -11,11 +11,13 @@ import { FaqAccordion } from "../FaqAccordion";
 import { WhiteLabelBlocksGrid } from "../WhiteLabelBlocksGrid";
 import { ComparisonTable } from "../sections/ComparisonTable";
 import type { BusinessModel } from "@/lib/content";
-import { models, useCases, site, whiteLabelBuildingBlocksSection } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 const whiteLabelEligible: BusinessModel["id"][] = ["branded-reseller", "white-label-reseller"];
 
 export function ProductDetail({ model }: { model: BusinessModel }) {
+  const { content } = useLocale();
+  const { models, useCases, site, whiteLabelBuildingBlocksSection } = content;
   const otherModels = models.filter((m) => m.id !== model.id);
   const relatedUseCases = useCases.filter((uc) => uc.recommendedModelIds.includes(model.id));
 

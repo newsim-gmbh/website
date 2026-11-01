@@ -6,9 +6,11 @@ import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem, Reveal } from "../Reveal";
 import { Icon } from "../Icon";
-import { useCases } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function UseCaseTeaser() {
+  const { content } = useLocale();
+  const { useCases } = content;
   return (
     <section className="bg-background py-24 sm:py-32">
       <Container>

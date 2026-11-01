@@ -1,10 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
-import { site, mainNav, contacts, companyLegal } from "@/lib/content";
+import { companyLegal } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 import { basePath } from "@/lib/basePath";
 
 export function Footer() {
+  const { content } = useLocale();
+  const { site, mainNav, contacts } = content;
   return (
     <footer className="border-t border-dark-line bg-dark text-white">
       <Container className="py-16">

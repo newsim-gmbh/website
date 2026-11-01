@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { Icon, type IconName } from "./Icon";
 import { ContactTile } from "./ContactTile";
-import { site, contacts } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 import { EMAIL_REGEX, isPlausiblePhone } from "@/lib/formValidation";
 
 const steps: { key: "email" | "projekt" | "kontakt"; label: string; icon: IconName }[] = [
@@ -39,6 +39,8 @@ const benefits = [
 ];
 
 export function IotRequestForm() {
+  const { content } = useLocale();
+  const { site, contacts } = content;
   const [stepIndex, setStepIndex] = useState(0);
   const [form, setForm] = useState(emptyForm);
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());

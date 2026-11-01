@@ -4,9 +4,11 @@ import Link from "next/link";
 import { Container } from "../Container";
 import { Reveal } from "../Reveal";
 import { WhiteLabelBlocksGrid } from "../WhiteLabelBlocksGrid";
-import { whiteLabelBuildingBlocksSection } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 export function WhiteLabelBlocks() {
+  const { content } = useLocale();
+  const { whiteLabelBuildingBlocksSection } = content;
   return (
     <section className="bg-dark py-24 text-white sm:py-32">
       <Container>

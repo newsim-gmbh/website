@@ -3,7 +3,7 @@
 import { useState } from "react";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
-import { comparisonTable } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 
 function Pill({ value }: { value: string }) {
   const styles: Record<string, string> = {
@@ -24,6 +24,8 @@ function Pill({ value }: { value: string }) {
 }
 
 export function ComparisonTable() {
+  const { content } = useLocale();
+  const { comparisonTable } = content;
   const [open, setOpen] = useState(false);
 
   return (

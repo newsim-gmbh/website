@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { models, site } from "@/lib/content";
+import { useLocale } from "@/lib/i18n/context";
 import { EMAIL_REGEX, isPlausiblePhone } from "@/lib/formValidation";
 import { ContactSuccessModal } from "./ContactSuccessModal";
 
-const products = [...models.map((m) => m.navLabel), "Sonstiges"];
 const brekoOptions = ["Keine Angabe", "Ja", "Nein"];
 
 const emptyForm = {
@@ -21,6 +20,9 @@ const emptyForm = {
 };
 
 export function ContactForm() {
+  const { content } = useLocale();
+  const { models, site } = content;
+  const products = [...models.map((m) => m.navLabel), "Sonstiges"];
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState<"idle" | "submitting" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
