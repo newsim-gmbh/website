@@ -380,6 +380,8 @@ export const strings = {
       rightsReserved: "Alle Rechte vorbehalten.",
       impressum: "Impressum",
       datenschutz: "Datenschutz",
+      fundingAlt: "Gefördert durch: Bundesministerium für Wirtschaft und Klimaschutz, aufgrund eines Beschlusses des Deutschen Bundestages",
+      brekoAlt: "BREKO Einkaufsgemeinschaft eG — zertifizierter Listungspartner",
     },
   },
   en: {
@@ -754,6 +756,8 @@ export const strings = {
       rightsReserved: "All rights reserved.",
       impressum: "Imprint",
       datenschutz: "Privacy Policy",
+      fundingAlt: "Funded by: Federal Ministry for Economic Affairs and Climate Action, based on a resolution of the German Bundestag",
+      brekoAlt: "BREKO purchasing cooperative eG — certified listing partner",
     },
   },
   es: {
@@ -1131,6 +1135,8 @@ export const strings = {
       rightsReserved: "Todos los derechos reservados.",
       impressum: "Aviso legal",
       datenschutz: "Política de privacidad",
+      fundingAlt: "Gefördert durch: Bundesministerium für Wirtschaft und Klimaschutz, aufgrund eines Beschlusses des Deutschen Bundestages",
+      brekoAlt: "BREKO Einkaufsgemeinschaft eG — zertifizierter Listungspartner",
     },
   },
   fr: {
@@ -1508,6 +1514,8 @@ export const strings = {
       rightsReserved: "Tous droits réservés.",
       impressum: "Mentions légales",
       datenschutz: "Politique de confidentialité",
+      fundingAlt: "Gefördert durch: Bundesministerium für Wirtschaft und Klimaschutz, aufgrund eines Beschlusses des Deutschen Bundestages",
+      brekoAlt: "BREKO Einkaufsgemeinschaft eG — zertifizierter Listungspartner",
     },
   },
 } satisfies Record<Locale, unknown>;

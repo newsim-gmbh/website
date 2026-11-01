@@ -110,7 +110,7 @@ export function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`${basePath}/BMWi_Fz_2021_WebSVG_de.svg`}
-                alt="Gefördert durch: Bundesministerium für Wirtschaft und Klimaschutz, aufgrund eines Beschlusses des Deutschen Bundestages"
+                alt={t.fundingAlt}
                 width={172}
                 height={175}
                 loading="lazy"
@@ -122,7 +122,7 @@ export function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`${basePath}/breko-eg-guetesiegel.webp`}
-                alt="BREKO Einkaufsgemeinschaft eG — zertifizierter Listungspartner"
+                alt={t.brekoAlt}
                 width={400}
                 height={400}
                 loading="lazy"
