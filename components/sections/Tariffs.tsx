@@ -6,18 +6,20 @@ import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem, Reveal } from "../Reveal";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 import { Icon } from "../Icon";
 
 export function Tariffs() {
   const { content } = useLocale();
   const { pricing, site } = content;
   const { tariffPortfolio, flyingStart, iotM2m, commercial, disclaimer } = pricing;
+  const t = useStrings().tariffs;
 
   return (
     <section id="tarife" className="bg-background py-24 sm:py-32">
       <Container>
         <SectionHeading
-          eyebrow="Tarifportfolio"
+          eyebrow={t.eyebrow}
           title={tariffPortfolio.title}
           body={tariffPortfolio.subtitle}
         />
@@ -26,7 +28,7 @@ export function Tariffs() {
           <div className="rounded-3xl border border-line bg-surface p-8">
             <div className="flex flex-wrap items-baseline justify-between gap-4">
               <p className="text-sm font-medium text-ink-soft">
-                Verfügbare Datenvolumina (GB), Auszug aus dem Portfolio
+                {t.availableVolumes}
               </p>
               <div className="flex gap-2">
                 {tariffPortfolio.bandwidthTiers.map((b) => (
@@ -46,23 +48,22 @@ export function Tariffs() {
                 </span>
               ))}
               <span className="flex h-11 items-center justify-center rounded-full bg-primary/15 px-4 text-sm font-semibold text-primary-ink">
-                bis zu {tariffPortfolio.maxGbWithOption} GB mit DATA-Option
+                {t.upToGbWithOption(tariffPortfolio.maxGbWithOption)}
               </span>
             </div>
             <div className="mt-6 grid gap-3 border-t border-line pt-6 text-sm sm:grid-cols-2">
               <p className="text-ink-soft">
-                <span className="font-medium text-ink">DATA-Promo: </span>
+                <span className="font-medium text-ink">{t.dataPromo} </span>
                 {tariffPortfolio.dataPromo}
               </p>
               <p className="text-ink-soft">
-                <span className="font-medium text-ink">DATA-Option: </span>
-                {tariffPortfolio.dataOption} — im {tariffPortfolio.maxGb}-GB-Tarif damit bis zu{" "}
-                {tariffPortfolio.maxGbWithOption} GB
+                <span className="font-medium text-ink">{t.dataOption} </span>
+                {tariffPortfolio.dataOption} {t.dataOptionDetail(tariffPortfolio.maxGb, tariffPortfolio.maxGbWithOption)}
               </p>
             </div>
             <div className="mt-6 border-t border-line pt-6">
               <a href="#iot-m2m" className="text-sm font-medium text-primary-ink hover:text-ink">
-                Neben Mobilfunktarifen bieten wir auch ein eigenes IoT- &amp; M2M-Tarifportfolio →
+                {t.iotLinkText}
               </a>
             </div>
           </div>
@@ -70,9 +71,9 @@ export function Tariffs() {
 
         <RevealGroup className="mt-6 grid gap-6 sm:grid-cols-3">
           {[
-            { title: "Provision", items: tariffPortfolio.conditions.provision },
-            { title: "Flexibilität", items: tariffPortfolio.conditions.flexibilitaet },
-            { title: "Weiterentwicklung", items: tariffPortfolio.conditions.weiterentwicklung },
+            { title: t.provision, items: tariffPortfolio.conditions.provision },
+            { title: t.flexibility, items: tariffPortfolio.conditions.flexibilitaet },
+            { title: t.development, items: tariffPortfolio.conditions.weiterentwicklung },
           ].map((group) => (
             <motion.div
               key={group.title}
@@ -132,10 +133,10 @@ export function Tariffs() {
                   <span className="text-sm text-ink-soft">{pkg.product}</span>
                 </div>
                 <ul className="mt-6 space-y-2 border-t border-line pt-5 text-sm text-ink-soft">
-                  <li>{pkg.inclusiveGb} GB inklusive · {pkg.rebookable}</li>
+                  <li>{pkg.inclusiveGb} {t.gbIncluded} · {pkg.rebookable}</li>
                   <li>{pkg.bandwidth}</li>
                   <li>{pkg.streamingHint}</li>
-                  <li>Laufzeit: {pkg.term}</li>
+                  <li>{t.term}: {pkg.term}</li>
                 </ul>
               </motion.div>
             ))}
@@ -162,7 +163,7 @@ export function Tariffs() {
               href={site.calendlyUrl}
               className="font-heading inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink"
             >
-              Preise im persönlichen Gespräch erfragen
+              {t.requestPricing}
             </Link>
           </Reveal>
         </div>
@@ -207,8 +208,8 @@ export function Tariffs() {
               <table className="w-full min-w-[480px] border-collapse text-sm">
                 <thead>
                   <tr className="border-b border-line text-left text-xs font-medium tracking-wide text-ink-soft uppercase">
-                    <th className="px-6 py-4">Position</th>
-                    <th className="px-6 py-4">Leistung</th>
+                    <th className="px-6 py-4">{t.tablePosition}</th>
+                    <th className="px-6 py-4">{t.tablePerformance}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -230,7 +231,7 @@ export function Tariffs() {
                 href={site.calendlyUrl}
                 className="font-heading inline-flex shrink-0 items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink"
               >
-                Individuelles Angebot anfragen
+                {t.requestCustomOffer}
               </Link>
             </div>
           </Reveal>

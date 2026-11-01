@@ -7,25 +7,23 @@ import { SectionHeading } from "../SectionHeading";
 import { RevealGroup, revealItem, Reveal } from "../Reveal";
 import { Icon } from "../Icon";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 
 export function UseCaseTeaser() {
   const { content } = useLocale();
   const { useCases } = content;
+  const t = useStrings().useCaseTeaser;
   return (
     <section className="bg-background py-24 sm:py-32">
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading
-            eyebrow="Use Cases"
-            title="Für jede Branche das passende Modell."
-            body="Ob Fachhandel, Stadtwerke oder Bank — sechs Zielgruppen, sechs unterschiedliche Herausforderungen."
-          />
+          <SectionHeading eyebrow={t.eyebrow} title={t.title} body={t.body} />
           <Reveal delay={0.1}>
             <Link
               href="/use-cases"
               className="hidden shrink-0 text-sm font-medium text-primary-ink sm:inline-flex"
             >
-              Alle Use Cases ansehen →
+              {t.viewAll} →
             </Link>
           </Reveal>
         </div>
@@ -43,7 +41,7 @@ export function UseCaseTeaser() {
                 <h3 className="font-heading mt-4 text-base font-bold text-ink">{uc.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-soft">{uc.heroTagline}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-primary-ink">
-                  Mehr erfahren
+                  {t.more}
                   <span className="transition-transform group-hover:translate-x-1">→</span>
                 </span>
               </Link>
@@ -53,7 +51,7 @@ export function UseCaseTeaser() {
 
         <Reveal className="mt-8 sm:hidden">
           <Link href="/use-cases" className="text-sm font-medium text-primary-ink">
-            Alle Use Cases ansehen →
+            {t.viewAll} →
           </Link>
         </Reveal>
       </Container>

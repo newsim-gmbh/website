@@ -2,15 +2,17 @@
 
 import { motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 
 export function OwnershipScale() {
   const { content } = useLocale();
   const { models } = content;
+  const t = useStrings().ownershipScale;
   return (
     <div className="mt-14">
       <div className="flex items-center justify-between text-sm font-medium text-ink-soft">
-        <span>Minimaler Aufwand</span>
-        <span>Maximale Kontrolle</span>
+        <span>{t.minimal}</span>
+        <span>{t.maximal}</span>
       </div>
       <div className="relative mt-4 h-1.5 w-full overflow-hidden rounded-full bg-line">
         <motion.div

@@ -4,6 +4,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 
 function Pill({ value }: { value: string }) {
   const styles: Record<string, string> = {
@@ -26,6 +27,7 @@ function Pill({ value }: { value: string }) {
 export function ComparisonTable() {
   const { content } = useLocale();
   const { comparisonTable } = content;
+  const t = useStrings().comparisonTable;
   const [open, setOpen] = useState(false);
 
   return (
@@ -36,7 +38,7 @@ export function ComparisonTable() {
       >
         <div>
           <p className="font-medium text-ink">{comparisonTable.title}</p>
-          <p className="mt-1 text-sm text-ink-soft">Feature-für-Feature-Vergleich, Punkt für Punkt</p>
+          <p className="mt-1 text-sm text-ink-soft">{t.subtitle}</p>
         </div>
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}

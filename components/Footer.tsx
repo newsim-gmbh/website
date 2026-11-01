@@ -6,11 +6,13 @@ import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { companyLegal } from "@/lib/content";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 import { basePath } from "@/lib/basePath";
 
 export function Footer() {
   const { content } = useLocale();
   const { site, mainNav, contacts } = content;
+  const t = useStrings().footer;
   return (
     <footer className="border-t border-dark-line bg-dark text-white">
       <Container className="py-16">
@@ -23,7 +25,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-medium text-white/40 uppercase tracking-wide">Seite</p>
+            <p className="text-sm font-medium text-white/40 uppercase tracking-wide">{t.pageColumn}</p>
             <ul className="mt-4 space-y-3">
               {mainNav.map((item) => (
                 <li key={item.href}>
@@ -34,7 +36,7 @@ export function Footer() {
               ))}
               <li>
                 <LocalizedLink href="/kontakt" className="text-sm text-white/70 hover:text-white">
-                  Kontakt
+                  {t.kontakt}
                 </LocalizedLink>
               </li>
               <li>
@@ -44,14 +46,14 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-sm text-white/70 hover:text-white"
                 >
-                  Login
+                  {t.login}
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <p className="text-sm font-medium text-white/40 uppercase tracking-wide">Eigenmarken</p>
+            <p className="text-sm font-medium text-white/40 uppercase tracking-wide">{t.brandsColumn}</p>
             <ul className="mt-4 space-y-3">
               <li>
                 <a
@@ -77,7 +79,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-medium text-white/40 uppercase tracking-wide">Kontakt</p>
+            <p className="text-sm font-medium text-white/40 uppercase tracking-wide">{t.contactColumn}</p>
             <ul className="mt-4 space-y-4">
               {contacts.map((c) => (
                 <li key={c.email} className="text-sm">
@@ -133,14 +135,14 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col gap-4 border-t border-dark-line pt-8 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.legalName}. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} {site.legalName}. {t.rightsReserved}
           </p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <Link href="/impressum" className="hover:text-white/70">
-              Impressum
+              {t.impressum}
             </Link>
             <Link href="/datenschutz" className="hover:text-white/70">
-              Datenschutz
+              {t.datenschutz}
             </Link>
             <p>{site.domain}</p>
           </div>

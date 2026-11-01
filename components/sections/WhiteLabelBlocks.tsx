@@ -5,10 +5,12 @@ import { Container } from "../Container";
 import { Reveal } from "../Reveal";
 import { WhiteLabelBlocksGrid } from "../WhiteLabelBlocksGrid";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 
 export function WhiteLabelBlocks() {
   const { content } = useLocale();
   const { whiteLabelBuildingBlocksSection } = content;
+  const t = useStrings().whiteLabelBlocks;
   return (
     <section className="bg-dark py-24 text-white sm:py-32">
       <Container>
@@ -33,13 +35,13 @@ export function WhiteLabelBlocks() {
             href="/produkte/branded-reseller#bausteine"
             className="text-sm font-medium text-primary transition-colors hover:text-white"
           >
-            Bei Branded Reseller ansehen →
+            {t.viewAtBrandedReseller}
           </Link>
           <Link
             href="/produkte/white-label-reseller#bausteine"
             className="text-sm font-medium text-primary transition-colors hover:text-white"
           >
-            Bei White Label Reseller ansehen →
+            {t.viewAtWhiteLabelReseller}
           </Link>
         </Reveal>
       </Container>

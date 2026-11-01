@@ -5,9 +5,11 @@ import clsx from "clsx";
 import { revealItem } from "../Reveal";
 import { Icon } from "../Icon";
 import type { BusinessModel } from "@/lib/content";
+import { useStrings } from "@/lib/i18n/strings";
 
 export function ModelCard({ model }: { model: BusinessModel }) {
   const filled = model.ownershipLevel;
+  const t = useStrings().modelCard;
 
   return (
     <motion.div
@@ -53,7 +55,7 @@ export function ModelCard({ model }: { model: BusinessModel }) {
 
       {model.idealFor && (
         <p className="mt-4 rounded-xl bg-line/60 px-3 py-2.5 text-xs leading-relaxed text-ink-soft">
-          <span className="font-medium text-ink">Ideal für: </span>
+          <span className="font-medium text-ink">{t.idealFor} </span>
           {model.idealFor}
         </p>
       )}
