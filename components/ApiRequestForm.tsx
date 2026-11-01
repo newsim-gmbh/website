@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 import { EMAIL_REGEX, isPlausiblePhone } from "@/lib/formValidation";
 import { ContactSuccessModal } from "./ContactSuccessModal";
 
@@ -18,6 +19,7 @@ const emptyForm = {
 export function ApiRequestForm() {
   const { content } = useLocale();
   const { site } = content;
+  const t = useStrings().forms.apiRequest;
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState<"idle" | "submitting" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
@@ -49,12 +51,12 @@ export function ApiRequestForm() {
       setInvalidFields(invalid);
       setError(
         missing.length > 0
-          ? "Bitte alle rot markierten Pflichtfelder ausfüllen."
+          ? t.missingRequired
           : invalidEmail && invalidPhone
-            ? "Bitte eine gültige E-Mail-Adresse und Telefonnummer eingeben."
+            ? t.invalidEmailAndPhone
             : invalidEmail
-              ? "Bitte eine gültige E-Mail-Adresse eingeben."
-              : "Bitte eine gültige Telefonnummer eingeben."
+              ? t.invalidEmail
+              : t.invalidPhone
       );
       return;
     }
@@ -90,9 +92,7 @@ export function ApiRequestForm() {
       }
     } catch {
       setStatus("error");
-      setError(
-        `Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an ${site.contactFormEmail}.`
-      );
+      setError(t.sendError(site.contactFormEmail));
     }
   };
 
@@ -115,29 +115,29 @@ export function ApiRequestForm() {
       />
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="api-name" className="mb-1.5 block text-sm font-medium text-ink">Name *</label>
-          <input id="api-name" required value={form.name} onChange={update("name")} className={fieldClass("name")} placeholder="Vor- und Nachname" />
+          <label htmlFor="api-name" className="mb-1.5 block text-sm font-medium text-ink">{t.nameLabel}</label>
+          <input id="api-name" required value={form.name} onChange={update("name")} className={fieldClass("name")} placeholder={t.namePlaceholder} />
         </div>
         <div>
-          <label htmlFor="api-company" className="mb-1.5 block text-sm font-medium text-ink">Firma *</label>
-          <input id="api-company" required value={form.company} onChange={update("company")} className={fieldClass("company")} placeholder="Unternehmen" />
+          <label htmlFor="api-company" className="mb-1.5 block text-sm font-medium text-ink">{t.companyLabel}</label>
+          <input id="api-company" required value={form.company} onChange={update("company")} className={fieldClass("company")} placeholder={t.companyPlaceholder} />
         </div>
         <div>
-          <label htmlFor="api-position" className="mb-1.5 block text-sm font-medium text-ink">Position im Unternehmen</label>
+          <label htmlFor="api-position" className="mb-1.5 block text-sm font-medium text-ink">{t.positionLabel}</label>
           <input
             id="api-position"
             value={form.position}
             onChange={update("position")}
             className={inputClass}
-            placeholder="z. B. IT, Entwicklung"
+            placeholder={t.positionPlaceholder}
           />
         </div>
         <div>
-          <label htmlFor="api-email" className="mb-1.5 block text-sm font-medium text-ink">E-Mail *</label>
-          <input id="api-email" required type="email" value={form.email} onChange={update("email")} className={fieldClass("email")} placeholder="name@firma.de" />
+          <label htmlFor="api-email" className="mb-1.5 block text-sm font-medium text-ink">{t.emailLabel}</label>
+          <input id="api-email" required type="email" value={form.email} onChange={update("email")} className={fieldClass("email")} placeholder={t.emailPlaceholder} />
         </div>
         <div>
-          <label htmlFor="api-phone" className="mb-1.5 block text-sm font-medium text-ink">Telefon *</label>
+          <label htmlFor="api-phone" className="mb-1.5 block text-sm font-medium text-ink">{t.phoneLabel}</label>
           <input
             id="api-phone"
             required
@@ -145,18 +145,18 @@ export function ApiRequestForm() {
             value={form.phone}
             onChange={update("phone")}
             className={fieldClass("phone")}
-            placeholder="+49 151 23456789"
+            placeholder={t.phonePlaceholder}
           />
         </div>
         <div className="sm:col-span-2">
-          <label htmlFor="api-message" className="mb-1.5 block text-sm font-medium text-ink">Anmerkungen</label>
+          <label htmlFor="api-message" className="mb-1.5 block text-sm font-medium text-ink">{t.messageLabel}</label>
           <textarea
             id="api-message"
             rows={4}
             value={form.message}
             onChange={update("message")}
             className={inputClass}
-            placeholder="Optional — z. B. geplanter Anwendungsfall oder Systemumgebung"
+            placeholder={t.messagePlaceholder}
           />
         </div>
       </div>
@@ -168,14 +168,14 @@ export function ApiRequestForm() {
         disabled={status === "submitting"}
         className="font-heading mt-8 inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {status === "submitting" ? "Wird gesendet…" : "API-Dokumentation anfragen"}
+        {status === "submitting" ? t.submitting : t.submit}
       </button>
 
       <ContactSuccessModal
         open={showSuccessModal}
         onClose={() => setShowSuccessModal(false)}
-        title="Anfrage gesendet!"
-        body="Vielen Dank für Ihr Interesse — wir schicken Ihnen die API-Dokumentation zeitnah zu."
+        title={t.successTitle}
+        body={t.successBody}
       />
     </form>
   );

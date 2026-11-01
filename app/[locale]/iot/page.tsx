@@ -10,6 +10,7 @@ import { Reveal } from "@/components/Reveal";
 import { IotFeatureTabs } from "@/components/IotFeatureTabs";
 import { IotTrustGrid } from "@/components/IotTrustGrid";
 import { getContent, isLocale, type Locale } from "@/lib/i18n/config";
+import { strings } from "@/lib/i18n/strings";
 import { basePath } from "@/lib/basePath";
 import { pageMetadata } from "@/lib/seo";
 
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return pageMetadata({
     path: `/${loc}/iot`,
     canonicalPath: "/iot",
-    title: "IoT / M2M Shop — newSIM",
+    title: strings[loc].pages.iot.metaTitle,
     description: iotShop.hero.tagline,
     image: `/${iotShop.hero.image}`,
   });
@@ -32,6 +33,7 @@ export default async function LocaleIotPage({ params }: { params: Params }) {
   const { locale } = await params;
   const loc = (isLocale(locale) ? locale : "de") as Locale;
   const { hero, featureTabs, trust } = getContent(loc).iotShop;
+  const t = strings[loc].pages.iot;
 
   return (
     <>
@@ -50,9 +52,9 @@ export default async function LocaleIotPage({ params }: { params: Params }) {
         <section className="bg-background py-20 sm:py-28">
           <Container>
             <Reveal className="max-w-xl">
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Plattform</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.platformEyebrow}</p>
               <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Sichere &amp; zuverlässige IoT-Verbindungen
+                {t.connectionsTitle}
               </h2>
             </Reveal>
             <Reveal delay={0.1} className="mt-10">
@@ -77,7 +79,7 @@ export default async function LocaleIotPage({ params }: { params: Params }) {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`${basePath}/BMWi_Fz_2021_WebSVG_de.svg`}
-                  alt="Gefördert durch: Bundesministerium für Wirtschaft und Klimaschutz"
+                  alt={t.fundingAlt}
                   width={172}
                   height={175}
                   loading="lazy"
@@ -89,7 +91,7 @@ export default async function LocaleIotPage({ params }: { params: Params }) {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`${basePath}/breko-eg-guetesiegel.webp`}
-                  alt="BREKO Einkaufsgemeinschaft eG — zertifizierter Listungspartner"
+                  alt={t.brekoAlt}
                   width={400}
                   height={400}
                   loading="lazy"
@@ -106,10 +108,10 @@ export default async function LocaleIotPage({ params }: { params: Params }) {
             <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.8fr]">
               <Reveal>
                 <h2 className="font-heading balance text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                  Jetzt individuelles IoT-Angebot anfragen.
+                  {t.ctaTitle}
                 </h2>
                 <p className="mt-4 max-w-lg text-ink-soft">
-                  In drei kurzen Schritten schicken Sie uns Ihr Projekt — wir melden uns zeitnah bei Ihnen.
+                  {t.ctaBody}
                 </p>
                 <Link
                   href={hero.primaryCtaHref}
@@ -121,7 +123,7 @@ export default async function LocaleIotPage({ params }: { params: Params }) {
               <Reveal delay={0.1} className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-line">
                 <Image
                   src={`${basePath}/${hero.image}`}
-                  alt="newSIM IoT-Konnektivität"
+                  alt={t.ctaImageAlt}
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"
                   className="object-cover"

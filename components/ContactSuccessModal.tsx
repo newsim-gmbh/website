@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import QRCode from "qrcode";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 import type { ContentModule } from "@/lib/i18n/config";
 
 function buildVCard(contacts: ContentModule["contacts"], site: ContentModule["site"]) {
@@ -28,8 +29,8 @@ function buildVCard(contacts: ContentModule["contacts"], site: ContentModule["si
 export function ContactSuccessModal({
   open,
   onClose,
-  title = "Nachricht gesendet!",
-  body = "Vielen Dank für Ihre Anfrage — wir melden uns zeitnah bei Ihnen.",
+  title,
+  body,
 }: {
   open: boolean;
   onClose: () => void;
@@ -38,6 +39,9 @@ export function ContactSuccessModal({
 }) {
   const { content } = useLocale();
   const { contacts, site } = content;
+  const t = useStrings().forms.successModal;
+  const resolvedTitle = title ?? t.defaultTitle;
+  const resolvedBody = body ?? t.defaultBody;
   const [qrDataUrl, setQrDataUrl] = useState<string | null>(null);
 
   useEffect(() => {
@@ -83,7 +87,7 @@ export function ContactSuccessModal({
             <button
               type="button"
               onClick={onClose}
-              aria-label="Schließen"
+              aria-label={t.close}
               className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full text-ink-soft transition-colors hover:bg-line hover:text-ink"
             >
               <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round">
@@ -102,16 +106,16 @@ export function ContactSuccessModal({
               </svg>
             </motion.div>
 
-            <h3 className="font-heading mt-5 text-2xl font-bold tracking-tight text-ink">{title}</h3>
-            <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">{body}</p>
+            <h3 className="font-heading mt-5 text-2xl font-bold tracking-tight text-ink">{resolvedTitle}</h3>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">{resolvedBody}</p>
 
             <div className="mt-7 rounded-2xl border border-line bg-background p-6">
-              <p className="text-xs font-medium tracking-wide text-ink-soft uppercase">Bis dahin</p>
-              <p className="mt-1 text-sm font-medium text-ink">Unsere Kontaktdaten direkt aufs Handy speichern</p>
+              <p className="text-xs font-medium tracking-wide text-ink-soft uppercase">{t.untilThen}</p>
+              <p className="mt-1 text-sm font-medium text-ink">{t.saveContactPrompt}</p>
               <div className="mt-4 flex justify-center">
                 {qrDataUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={qrDataUrl} alt="QR-Code zum Speichern der newSIM-Kontaktdaten" className="h-40 w-40 rounded-xl border border-line" />
+                  <img src={qrDataUrl} alt={t.qrAlt} className="h-40 w-40 rounded-xl border border-line" />
                 ) : (
                   <div className="h-40 w-40 animate-pulse rounded-xl bg-line" />
                 )}
@@ -124,7 +128,7 @@ export function ContactSuccessModal({
               onClick={onClose}
               className="font-heading mt-7 inline-flex items-center justify-center rounded-full bg-ink px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink"
             >
-              Schließen
+              {t.close}
             </button>
           </motion.div>
         </motion.div>

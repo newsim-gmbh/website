@@ -740,7 +740,577 @@ export const contacts: typeof de.contacts = [
     phone: "(06421) 620 36 111",
   },
 ];
-export const useCases = de.useCases;
-export const developerPages = de.developerPages;
-export const iotShop = de.iotShop;
-export const consultingServices = de.consultingServices;
+export const useCases: typeof de.useCases = [
+  {
+    slug: "mobilfunk-fachhandel",
+    name: "Mobile Retailers",
+    image: "usecase-mobilfunk-fachhandel.webp",
+    icon: "smartphone",
+    heroTagline: "Simply extend your mobile portfolio with your own brand — and control the margin yourself.",
+    challenge:
+      "In the classic contract-renewal business (VVL) run by the major network operators, specialty retailers earn a comparatively simple commission — and often lose the customer afterwards to the operators' own online channels.",
+    solution:
+      "Via the Telnology® platform, newSIM offers your own tariff portfolio, run under your dealer brand, with several additional, parallel revenue streams — the customer stays with you for good.",
+    painPoints: [
+      "In the classic VVL business, it usually comes down to a single, comparatively simple commission — additional revenue levers go unused.",
+      "Contract renewals are increasingly migrating to the operators' own online channels — retailers lose their customer base.",
+      "A plan under someone else's network-operator brand creates no customer loyalty to your own store.",
+    ],
+    solutionSteps: [
+      "Several additional, parallel revenue streams: ongoing airtime commission, a volume-based margin lever, and a signup commission per plan.",
+      "newSIM handles network connectivity, regulatory compliance, and platform operations in the background.",
+    ],
+    revenueStreams: {
+      eyebrow: "Value Proposition for Retailers",
+      title: "Four revenue streams for your mobile business",
+      items: [
+        {
+          icon: "invoice",
+          title: "Ongoing airtime commission",
+          body: "Monthly, for as long as the customer stays active — not just a one-time payment at signup.",
+        },
+        {
+          icon: "chart",
+          title: "Volume-based margin lever",
+          body: "An additional lever above the plan's base rate, scaling with the plan chosen.",
+        },
+        {
+          icon: "tariff",
+          title: "One-time signup commission",
+          body: "Tiered by plan size, paid directly at signup.",
+        },
+        {
+          icon: "sliders",
+          title: "Share of the provisioning fee",
+          body: "Additionally adjustable via discount codes.",
+        },
+      ],
+    },
+    nonMonetaryBenefits: [
+      "Your own plan names and your logo on the invoice — the customer experiences your retail brand.",
+      "Full customer management directly via the Telnology® platform: up-/downsell, renewals, and documents — no hotline of your own required.",
+      "Contract renewals happen in your own store — not in a network operator's online channel.",
+      "Your hardware margin stays untouched: newSIM plans are SIM-only, and you keep selling devices from your own range.",
+    ],
+    audience: ["Mobile Phone Shops", "Chain Retailers", "Consumer Electronics Retailers"],
+    exampleLabel: "Your Shop · Your Plan",
+    exampleCaption:
+      "Your own plan names and your logo on the invoice — the customer experiences your retail brand, not the operator's.",
+    faq: [
+      {
+        q: "Do I only earn once, at signup?",
+        a: "No — on top of the one-time signup commission, you also earn an ongoing airtime commission for as long as the customer stays active, plus a volume-based margin lever.",
+      },
+      {
+        q: "Do I lose the customer to the network operator at contract renewal?",
+        a: "No — the contract renewal takes place directly in your store, not in a network operator's online channel.",
+      },
+      {
+        q: "What happens to my hardware margin?",
+        a: "It stays untouched — newSIM plans are SIM-only, and you keep selling devices from your own range.",
+      },
+    ],
+    recommendedModelIds: ["branded-reseller", "white-label-reseller"],
+  },
+  {
+    slug: "stadtwerke-isp-glasfaser",
+    name: "Utilities, ISPs & Fiber Providers",
+    image: "usecase-stadtwerke-isp-glasfaser.webp",
+    icon: "building",
+    heroTagline: "Mobile as a natural and necessary complement to your fiber portfolio — and a lever for ARPU uplift per customer.",
+    challenge:
+      "Placeholder: Municipal utilities and regional ISPs want to extend their fiber portfolio with mobile to bind customers holistically — classically a high regulatory and technical barrier to entry.",
+    solution:
+      "Placeholder: newSIM handles network connectivity, regulatory compliance, and platform operations, while the partner markets their portfolio under their own brand — including the Flying Start fiber solution to bridge the gap until FTTH activation.",
+    painPoints: [
+      "National providers like Telekom, Vodafone, Telefónica, 1&1, and freenet sell internet, landline, TV, and mobile all from a single source — with a bundle discount.",
+      "Once Open Access opens your own network to competitors, the complete package decides the end customer — not the line itself.",
+      "Without mobile, bundling revenue is missing from your customer base, and churn risk rises at every fiber contract's end.",
+    ],
+    solutionSteps: [
+      "Mobile becomes the fourth pillar alongside internet, landline, and TV — from triple play to quad play.",
+      "newSIM handles network connectivity, regulatory compliance, and platform operations in the background.",
+      "Mobile Broadband — the Flying Start fiber solution bridges the time until FTTH activation.",
+    ],
+    audience: ["Municipal Utilities", "Regional ISPs", "Fiber Providers"],
+    exampleLabel: "Your Fiber Bundle",
+    exampleCaption:
+      "Mobile becomes the fourth pillar alongside internet, landline, and TV — from triple play to quad play.",
+    quadPlay: {
+      eyebrow: "The Challenge",
+      title: "Without mobile, the fourth pillar is missing in Open Access competition.",
+      subtitle:
+        "National providers sell complete packages; regional network operators typically offer only three of the four services.",
+      triplePlay: ["TV", "Telephony", "Internet"],
+      quadPlay: ["Mobile", "TV", "Telephony", "Internet"],
+      quadPlayLabel: "with newSIM",
+      points: [
+        {
+          title: "Complete portfolios from national service providers",
+          body: "Telekom, Vodafone, Telefónica, 1&1, and freenet sell internet, landline, TV, and mobile all from a single source — with a bundle discount.",
+        },
+        {
+          title: "Open Access opens your own network to competitors",
+          body: "Once national providers gain access to the regional network, the complete package decides the end customer — not the line itself.",
+        },
+        {
+          title: "Missing mobile costs you twice",
+          body: "Mobile complements your product range both as a service and as an access alternative. No bundling revenue in your base, and higher churn risk at every fiber contract's end.",
+        },
+      ],
+    },
+    faq: [
+      {
+        q: "What is Open Access?",
+        a: "The regulatorily mandated opening of your own fiber network to other providers — once this applies, the complete package decides the end customer, not the line alone.",
+      },
+      {
+        q: "Is the Mobile Broadband solution flexible in contract term?",
+        a: "Yes, the solution was designed together with Telefónica and can be ended at the point of fiber activation.",
+      },
+      {
+        q: "Can the customer stream every day, and is the data volume enough for that?",
+        a: "Yes, the solution offers 100 Mbit/s download speed with up to 500 GB of data per month. That lets the customer stream up to 3 hours of TV every day.",
+      },
+    ],
+    recommendedModelIds: ["white-label-reseller", "white-label-mvno"],
+  },
+  {
+    slug: "itk-systemhaeuser",
+    name: "ICT System Integrators",
+    image: "usecase-itk-systemhaeuser.webp",
+    icon: "chip",
+    heroTagline: "Mobile as a building block in your B2B portfolio for specialized business-customer solutions.",
+    challenge:
+      "Placeholder: ICT system integrators serve business customers holistically — mobile is often missing as a standalone, high-margin building block in the portfolio.",
+    solution:
+      "Placeholder: Custom B2B plans and IoT/M2M connectivity can be integrated directly into existing customer relationships, without your own network infrastructure.",
+    painPoints: [
+      "Mobile connectivity is missing as a standalone, high-margin building block in the B2B portfolio.",
+      "No network infrastructure of your own to offer mobile directly.",
+      "Business customers expect holistic support from a single source, with the ability to manage their plans themselves.",
+    ],
+    solutionSteps: [
+      "Design custom B2B plans and integrate them into your customer solution.",
+      "Generate additional margin and keep full commercial ownership.",
+      "newSIM handles network connectivity and platform operations in the background.",
+    ],
+    audience: ["System Integrators", "IT Service Providers", "Telecom Resellers"],
+    exampleLabel: "Your B2B Plan",
+    exampleCaption:
+      "Custom B2B plans under your own brand — integrated directly into your existing customer relationships.",
+    faq: [
+      {
+        q: "Can we also offer IoT/M2M connectivity for our customers?",
+        a: "Yes. The Telnology® platform gives you your own white-label IoT/M2M portfolio — including SIM Diversity, Secure Data Cloud, and Dynamic Datapooling, ideal for connectivity and smart-building projects for your business customers.",
+      },
+      {
+        q: "What does the margin structure look like?",
+        a: "In the White Label Reseller model, you set your own end-customer prices and, with that, your own margin — you keep full commercial ownership of your pricing.",
+      },
+    ],
+    recommendedModelIds: ["full-service", "white-label-reseller"],
+  },
+  {
+    slug: "banken-versicherungen",
+    name: "Banks & Insurers",
+    image: "usecase-banken-versicherungen.webp",
+    icon: "shield",
+    heroTagline: "Mobile as a cross-selling and customer-retention product.",
+    challenge:
+      "Placeholder: Banks and insurers are looking for additional, everyday-relevant products for customer retention — with high requirements for regulatory compliance and brand presentation.",
+    solution:
+      "Placeholder: A fully white-label-capable mobile product can be offered under your own brand and within your own compliance framework, while newSIM provides the regulatory and technical foundation.",
+    painPoints: [
+      "How can your own customer base be extended with additional, everyday-relevant products for customer retention, and how can retention be improved?",
+      "How can I ideally round out my own product range and add a genuine benefit to the customer account?",
+      "A third-party product without your own branding doesn't feel trustworthy enough.",
+    ],
+    solutionSteps: [
+      "A fully white-label-capable mobile product under your own brand.",
+      "Full integration into the customer journey via API.",
+      "newSIM provides the regulatory and technical foundation.",
+    ],
+    audience: ["Banks", "Insurers", "Financial Service Providers"],
+    exampleLabel: "Your Brand · Your Mobile",
+    exampleCaption:
+      "A fully white-label-capable mobile product under your own brand.",
+    faq: [
+      {
+        q: "Who bears regulatory responsibility toward the BNetzA?",
+        a: "newSIM is regulated by the BNetzA as a service provider under the TKG and takes on regulatory responsibility in the background — you offer the product entirely under your own brand, without having to act as a telecommunications provider yourself.",
+      },
+      {
+        q: "Does the mobile product appear to our customers as our own product?",
+        a: "Yes. As a fully white-label-capable product, only your brand appears to the end customer — newSIM provides network connectivity, regulatory compliance, and technology in the background.",
+      },
+    ],
+    recommendedModelIds: ["white-label-reseller", "white-label-mvno"],
+  },
+  {
+    slug: "influencer",
+    name: "Influencers",
+    image: "usecase-influencer.webp",
+    icon: "link",
+    heroTagline: "Your own mobile plan for your own community.",
+    challenge:
+      "Placeholder: Creators with a large reach want to offer their own, credible product for their community — without building their own telecommunications company.",
+    solution:
+      "Placeholder: A Branded Reseller plan is ready to launch within a few weeks and can be marketed entirely under your own name and look & feel.",
+    painPoints: [
+      "Your community expects a genuine, credible offer — not an interchangeable advertising partnership.",
+      "Building your own telecommunications company is far too complex, both regulatorily and technically.",
+      "Without genuine brand control, a third-party plan doesn't feel authentic to your own brand.",
+    ],
+    solutionSteps: [
+      "A Branded Reseller plan under your own name and look & feel.",
+      "Ready to launch in a few weeks instead of months.",
+      "newSIM handles operations, billing, and support in the background.",
+    ],
+    audience: ["Content Creators", "Social Media Brands", "Community Brands"],
+    exampleLabel: "Live in 4 Weeks · Your Brand",
+    exampleCaption: "A Branded Reseller plan under your own name and look & feel.",
+    whyItPays: {
+      eyebrow: "Subscription Product",
+      title: "Your own mobile plan",
+      points: [
+        {
+          title: "Recurring revenue",
+          body: "Every customer pays every month, for the entire contract term of up to 24 months — not just once.",
+        },
+        {
+          title: "Hype-resistant",
+          body: "The contract term secures revenue well beyond the launch hype.",
+        },
+        {
+          title: "Zero operations",
+          body: "newSIM handles service, billing, SIM logistics, and regulatory compliance in the background.",
+        },
+        {
+          title: "A real asset",
+          body: "Your customer base has a market value of its own — as the well-known example of Mint Mobile shows.",
+        },
+      ],
+    },
+    faq: [
+      {
+        q: "How quickly is my own plan ready to launch?",
+        a: "As a Branded Reseller, typically within 4 weeks.",
+      },
+      {
+        q: "How much do I earn per contract?",
+        a: "As a Branded Reseller, you earn a monthly airtime commission on every active contract, plus a one-time signup commission.",
+      },
+    ],
+    recommendedModelIds: ["branded-reseller"],
+  },
+  {
+    slug: "vereine",
+    name: "Clubs & Associations",
+    image: "usecase-vereine.webp",
+    icon: "flag",
+    heroTagline: "Mobile benefits for members and fans.",
+    challenge:
+      "Clubs are looking for new ways to bind members and fans more closely beyond the season — and for additional, recurring revenue streams beyond membership fees and one-off merchandise sales.",
+    solution:
+      "A mobile plan under your own club brand becomes another merchandising product — one that members use every day, and that the club can offer without any operational effort of its own.",
+    painPoints: [
+      "Classic merchandise like jerseys or fan gear only creates a one-off bond — what's missing for lasting fan closeness is a product that accompanies members every day.",
+      "Additional, recurring revenue streams beyond membership fees and ticketing are in demand.",
+      "Building a mobile offering of your own is far too complex for the club, both regulatorily and administratively.",
+    ],
+    solutionSteps: [
+      "A mobile plan under your club brand — another piece of fan merchandise that members hold in their hand every day.",
+      "The club's name accompanies members and fans through everyday life — noticeably closer than a scarf in the closet.",
+      "newSIM handles operations, billing, and support in the background — no extra administrative effort for the club.",
+    ],
+    audience: ["Sports Clubs", "Associations", "Fan Clubs"],
+    exampleLabel: "Your Club Plan",
+    exampleImage: "fancell_fenertalk_phone-1.png.webp",
+    exampleCaption:
+      "This is what a mobile plan under a club brand looks like in practice — the example of fenertalk, the plan from Turkish top-flight club Fenerbahçe.",
+    whyItPays: {
+      eyebrow: "Merchandising Product",
+      title: "Your mobile plan as fan merchandise",
+      points: [
+        {
+          title: "Recurring revenue",
+          body: "Every member pays monthly for the entire contract term — an additional, predictable revenue stream alongside membership fees and merchandise.",
+        },
+        {
+          title: "Closer to fans",
+          body: "The club's name accompanies members and fans on their smartphone every day — more visible and more present than most merchandise.",
+        },
+        {
+          title: "Zero operations",
+          body: "newSIM handles service, billing, SIM logistics, and regulatory compliance in the background — no extra work for the club or its office.",
+        },
+      ],
+    },
+    faq: [
+      {
+        q: "Does the club face any extra administrative effort?",
+        a: "No. newSIM handles plan operations, billing, SIM logistics, and support in the background — the club faces no extra effort.",
+      },
+      {
+        q: "How does the club benefit financially?",
+        a: "As a Branded Reseller, you earn a monthly airtime commission on every active contract, plus a one-time signup commission — on top of the intangible value of stronger fan loyalty.",
+      },
+    ],
+    recommendedModelIds: ["full-service", "branded-reseller"],
+  },
+];
+
+export const developerPages: typeof de.developerPages = [
+  {
+    slug: "api",
+    name: "API",
+    image: "developer-api.webp",
+    icon: "chip",
+    heroTagline: "The external gateway to the Telnology® platform — for your own systems.",
+    overview:
+      "The newSIM API offers the same functional scope as the Telnology® platform — it's the external, programmatic gateway through which partner systems address newSIM directly and receive responses in real time.",
+    capabilities: [
+      "Order Management & Activation",
+      "MNP Processes",
+      "Billing & Rating (CDR)",
+      "Reporting & Data Export",
+    ],
+  },
+  {
+    slug: "telnology",
+    name: "Telnology®",
+    image: "developer-telnology.webp",
+    icon: "layers",
+    heroTagline: "The enabling platform behind every newSIM model.",
+    overview:
+      "Telnology® is the enabling platform and Business Support System (BSS) behind every newSIM model — it connects sales channels, order management, billing, and customer service with Telefónica network connectivity, for B2C and B2B alike.",
+    capabilities: [
+      "Billing & Rating (CDR, phone numbers, collections)",
+      "Customer Service (1st & 2nd level)",
+      "Order Management (activation, MNP, SIM logistics)",
+      "Reporting & API",
+    ],
+    faq: [
+      {
+        q: "Is Telnology® an app for end customers?",
+        a: "No. Telnology® is the Business Support System and enabling platform in the background — it combines order management, billing, customer service, and network connectivity for all sales channels, independent of any particular end-customer app or website.",
+      },
+      {
+        q: "Which sales channels does Telnology® connect?",
+        a: "Consumer customers, business customers, ISP carriers and municipal utilities, mobile partners, and ICT system integrators all run through the same platform — B2C, B2B, and B2B2C.",
+      },
+      {
+        q: "Which network is Telnology® connected to?",
+        a: "The Telefónica network (LTE/5G as well as IoT/M2M) — with BNetzA service-provider status under the TKG and TR-AAV, plus API, web-interface, and SFTP connectivity.",
+      },
+    ],
+  },
+];
+
+export const iotShop: typeof de.iotShop = {
+  hero: {
+    eyebrow: "IoT & M2M",
+    title: "IoT connectivity that fits your business.",
+    tagline:
+      "SIM cards for connected devices — on the Telefónica network, white-label capable, and managed directly via the Telnology® platform.",
+    bullets: [
+      "M2M SIM for LTE/5G and dedicated IoT/M2M on the Telefónica network.",
+      "BNetzA-regulated as a service provider under the TKG & TR-AAV.",
+      "Scalable from pilot project to large fleet — white-label capable for B2B, B2B2B, and B2B2C.",
+    ],
+    image: "developer-api.webp",
+    primaryCtaLabel: "Request IoT Offer",
+    primaryCtaHref: "/iot/anfrage",
+    secondaryCtaLabel: "View IoT Plans",
+    secondaryCtaHref: "/#iot-m2m",
+  },
+  featureTabs: [
+    {
+      key: "sim",
+      label: "M2M SIM",
+      icon: "simCard",
+      title: "One SIM for your entire device portfolio",
+      body: "Your devices connect on the Telefónica network — LTE/5G as well as dedicated IoT/M2M. One SIM generation for pilot project and rollout.",
+      points: ["LTE/5G as well as IoT/M2M", "BNetzA service provider under the TKG & TR-AAV", "Scalable from test quantities to large fleets"],
+    },
+    {
+      key: "portal",
+      label: "Portal",
+      icon: "monitor",
+      title: "Management via the Telnology® platform",
+      body: "Activate, monitor, and manage SIM cards — via the web interface or directly through API or SFTP connectivity into your own systems.",
+      points: ["Activation & monitoring in the web interface", "API and SFTP connectivity", "White-label capable for your own systems"],
+    },
+    {
+      key: "sicherheit",
+      label: "Security",
+      icon: "shield",
+      title: "Secure for B2B, B2B2B, and B2B2C",
+      body: "SIM Diversity, Secure Data Cloud, and Dynamic Datapooling protect your connectivity — regardless of your business model.",
+      points: ["SIM Diversity", "Secure Data Cloud", "Dynamic Datapooling"],
+    },
+  ],
+  trust: {
+    eyebrow: "Why newSIM",
+    title: "Regulated connectivity with a personal touch.",
+    points: [
+      { icon: "shield", title: "BNetzA-regulated", body: "Service provider under the TKG and TR-AAV." },
+      { icon: "tower", title: "Telefónica network", body: "LTE/5G as well as dedicated IoT/M2M." },
+      { icon: "support", title: "Support from Germany", body: `Your personal contact in ${site.locations}.` },
+    ],
+  },
+};
+
+export const consultingServices: typeof de.consultingServices = [
+  {
+    slug: "g2m-strategie-mvno",
+    name: "G2M Strategy for MVNOs",
+    image: "consulting-g2m-strategie.webp",
+    icon: "chart",
+    heroTagline: "Go-to-market strategy for launching your own mobile business.",
+    overview:
+      "We advise and develop concepts for companies seeking a successful market entry with mobile plans, and support their establishment in the German market. We analyze market potential and develop the end-to-end process for new products across offline and online channels for your company, optionally supported by an app-based digital customer journey and including the build-out of an ecosystem with the right digital services, bundles, and up- and cross-selling. Goal-oriented marketing concepts, measurable results, and tailored, needs-based solutions are a fixed part of our service offering.",
+    forWhom:
+      "For companies that want to enter the German market successfully with mobile plans and establish themselves there for the long term.",
+    phases: [
+      { title: "Analysis", body: "We analyze the market potential and your starting position for entering the market with mobile plans." },
+      { title: "Strategy", body: "Develop model choice, positioning, and pricing logic for long-term success in the mobile market." },
+      { title: "Implementation", body: "Plan concept, app-based customer journey, and connection to the Mobile-as-a-Service platform are implemented together." },
+    ],
+    serviceBlocks: [
+      { title: "Potential Analysis", body: "Market and competition.", icon: "pulse" },
+      { title: "Business Case", body: "3–5 year planning.", icon: "chart" },
+      { title: "Go-to-Market Concept", body: "Planning a successful product and sales strategy.", icon: "link" },
+    ],
+    deliverables: ["G2M strategy paper", "Model and positioning recommendation", "Launch roadmap"],
+    relatedModelIds: ["branded-reseller", "white-label-reseller"],
+    faq: [
+      {
+        q: "Is the initial consultation chargeable?",
+        a: "No. The initial conversation is non-binding and free of charge — we get to know your project and give an initial assessment before discussing the further scope of consulting.",
+      },
+      {
+        q: "Am I committed to a model after the consultation?",
+        a: "No. The strategy delivers a recommendation — the decision for a model is yours to make independently.",
+      },
+    ],
+  },
+  {
+    slug: "potentialanalyse-mobilfunk-glasfaser",
+    name: "Potential Analysis Mobile & Fiber",
+    image: "consulting-potentialanalyse.webp",
+    icon: "pulse",
+    heroTagline: "Assess and evaluate the market potential for your portfolio as part of your business planning.",
+    forWhom:
+      "For companies and network operators who want to optimize and realign their product portfolio and customer offering for fiber and mobile.",
+    phases: [
+      { title: "Assessment", body: "Analyze the existing portfolio and sales processes." },
+      { title: "Potential Evaluation", body: "Review market and customer potential for revenue and competitiveness." },
+      { title: "Recommendations", body: "Concrete action planning to increase revenue and margin at the product and sales level." },
+    ],
+    serviceBlocks: [
+      { title: "Potential Analysis", body: "Market and competition.", icon: "pulse" },
+      { title: "Sales & Marketing Planning", body: "G2M concept and initiatives.", icon: "chart" },
+      { title: "Transformation", body: "Realignment and monitoring of all sales activities.", icon: "layers" },
+    ],
+    deliverables: ["Action plan for sales initiatives", "Model recommendation", "Economic feasibility assessment"],
+    relatedModelIds: ["white-label-reseller", "white-label-mvno"],
+    faq: [
+      {
+        q: "Do I need prior mobile experience for this?",
+        a: "No. The potential analysis starts exactly where you stand today — even without prior mobile experience.",
+      },
+      {
+        q: "What if no potential is found?",
+        a: "Our experience has shown that there is generally always potential to increase sales efficiency.",
+      },
+    ],
+  },
+  {
+    slug: "sales-strategie-online-offline",
+    name: "Sales Strategy Online & Offline",
+    image: "consulting-sales-strategie.webp",
+    icon: "link",
+    heroTagline: "Sales strategy across every channel.",
+    forWhom:
+      "For companies and network operators who want to successfully market their mobile portfolio across B2C e-commerce, B2B2C retail, and B2B business-customer sales.",
+    phases: [
+      { title: "Channel Analysis", body: "Existing channels in B2C e-commerce, B2B2C retail, and B2B business-customer sales are captured and evaluated." },
+      { title: "Concept", body: "Sales strategy for new-customer acquisition in B2C (telesales & retail) and B2B (SME) across online and offline channels." },
+      { title: "Rollout", body: "Implementation and execution of the sales initiatives together with the team." },
+    ],
+    serviceBlocks: [
+      { title: "Sales Strategy", body: "Where to play and how to win.", icon: "chart" },
+      { title: "Efficiency Gains", body: "Processes, organization, target systems, monitoring.", icon: "sliders" },
+      { title: "Customer Retention", body: "Retention, cross- and upselling, loyalty programs.", icon: "link" },
+    ],
+    deliverables: ["Sales goal and strategy planning", "Channel prioritization", "Action plan for new customers and cross-/upsell"],
+    relatedModelIds: ["branded-reseller", "full-service"],
+    faq: [
+      {
+        q: "Does this also cover brick-and-mortar sales?",
+        a: "Yes — the strategy takes both online and offline channels into account, including brick-and-mortar retail.",
+      },
+      {
+        q: "Does newSIM also support the implementation?",
+        a: "Yes, as part of the consulting project, newSIM also supports the implementation and execution of the strategy.",
+      },
+      {
+        q: "Can newSIM also provide the e-commerce order flow?",
+        a: "newSIM can optionally provide a white-label order flow and the corresponding website for the partner.",
+      },
+    ],
+  },
+  {
+    slug: "kupfer-glasfaser-transformation",
+    name: "Copper-to-Fiber Transformation",
+    image: "consulting-kupfer-glasfaser-transformation.webp",
+    icon: "tower",
+    heroTagline: "The digital future runs on fiber and mobile. We advise on network transformation.",
+    forWhom:
+      "For network operators who want to phase out copper-based services from their portfolio, so that operating costs come down quickly and competitiveness is preserved for the future.",
+    phases: [
+      { title: "Assessment", body: "Analyze the existing portfolio and customer base." },
+      { title: "IT & Platform Check", body: "Review the technical capabilities and interface connections for the target products." },
+      { title: "Project Management", body: "Taking responsible project leadership within the organization for the end-to-end transformation." },
+    ],
+    serviceBlocks: [
+      {
+        title: "Conceptual Consulting",
+        body: "Development of a market approach tailored to target group and product, based on the existing xDSL portfolio.",
+        icon: "pulse",
+      },
+      {
+        title: "End-to-End Project Management",
+        body: "Holistic leadership of all relevant stakeholders and process owners.",
+        icon: "clipboard",
+      },
+      {
+        title: "Transformation",
+        body: "Continuous tracking of project progress and review of existing contracts with providers and service partners.",
+        icon: "layers",
+      },
+    ],
+    deliverables: [
+      "Transformation concept for migrating the xDSL customer base",
+      "Realizing cost-reduction potential",
+      "Connecting new providers (Open Access)",
+    ],
+    relatedModelIds: ["white-label-reseller", "white-label-mvno"],
+    faq: [
+      {
+        q: "What exactly is Flying Start Fiber?",
+        a: "A mobile broadband solution that bridges customers during the migration from copper to fiber connections.",
+      },
+      {
+        q: "Does newSIM also support the implementation of the copper-to-fiber transformation?",
+        a: "Yes, as part of the consulting project, newSIM also supports the implementation and execution of the strategy.",
+      },
+      {
+        q: "Is newSIM also on-site to lead the project?",
+        a: "newSIM ensures the project is supported throughout, and is of course also on-site.",
+      },
+    ],
+  },
+];

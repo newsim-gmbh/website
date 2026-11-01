@@ -8,6 +8,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { BenefitTiles } from "@/components/BenefitTiles";
 import { ContactTile } from "@/components/ContactTile";
 import { getContent, isLocale, type Locale } from "@/lib/i18n/config";
+import { strings } from "@/lib/i18n/strings";
 import { pageMetadata } from "@/lib/seo";
 
 type Params = Promise<{ locale: string }>;
@@ -15,11 +16,12 @@ type Params = Promise<{ locale: string }>;
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { locale } = await params;
   const loc = (isLocale(locale) ? locale : "de") as Locale;
+  const t = strings[loc].pages.kontakt;
   return pageMetadata({
     path: `/${loc}/kontakt`,
     canonicalPath: "/kontakt",
-    title: "Kontakt — newSIM",
-    description: "Sprechen Sie mit uns über Ihr Mobilfunk-Vorhaben — wir melden uns zeitnah zurück.",
+    title: t.metaTitle,
+    description: t.metaDescription,
     image: "/hero-phone.webp",
   });
 }
@@ -28,6 +30,8 @@ export default async function LocaleKontaktPage({ params }: { params: Params }) 
   const { locale } = await params;
   const loc = (isLocale(locale) ? locale : "de") as Locale;
   const { contacts, trustBar } = getContent(loc);
+  const t = strings[loc].pages.kontakt;
+  const contactTile = strings[loc].contactTile;
 
   return (
     <>
@@ -45,14 +49,13 @@ export default async function LocaleKontaktPage({ params }: { params: Params }) 
           <Container className="relative">
             <Reveal>
               <p className="mb-5 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-wide text-white/70 uppercase">
-                Kontakt
+                {t.eyebrow}
               </p>
               <h1 className="font-heading balance max-w-xl text-4xl font-bold tracking-tight sm:text-5xl">
-                Lassen Sie uns sprechen.
+                {t.title}
               </h1>
               <p className="balance mt-5 max-w-lg text-lg leading-relaxed text-white/70">
-                Egal ob Produkt, Use Case, Developer-Zugang oder Consulting — schreiben Sie uns, wir melden
-                uns zeitnah zurück.
+                {t.subtitle}
               </p>
             </Reveal>
           </Container>
@@ -66,12 +69,12 @@ export default async function LocaleKontaktPage({ params }: { params: Params }) 
               </Reveal>
 
               <Reveal delay={0.1} className="rounded-3xl border border-line bg-surface p-6 sm:p-7">
-                <p className="font-heading text-sm font-bold text-ink">Ihre Vorteile mit newSIM</p>
+                <p className="font-heading text-sm font-bold text-ink">{t.benefitsHeading}</p>
                 <div className="mt-4">
                   <BenefitTiles items={trustBar} />
                 </div>
                 <div className="mt-6 border-t border-line pt-5">
-                  <ContactTile contact={contacts[0]} />
+                  <ContactTile contact={contacts[0]} heading={contactTile.heading} />
                 </div>
               </Reveal>
             </div>
