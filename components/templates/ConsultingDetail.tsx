@@ -9,10 +9,12 @@ import { Icon } from "../Icon";
 import { FaqAccordion } from "../FaqAccordion";
 import type { ConsultingService } from "@/lib/content";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 
 export function ConsultingDetail({ service }: { service: ConsultingService }) {
   const { content } = useLocale();
   const { consultingServices, models, site } = content;
+  const t = useStrings().consultingDetail;
   const otherServices = consultingServices.filter((s) => s.slug !== service.slug);
   const relatedModels = models.filter((m) => service.relatedModelIds?.includes(m.id));
 
@@ -23,7 +25,7 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
         title={service.name}
         tagline={service.heroTagline}
         image={service.image}
-        ctaLabel="Beratungsgespräch anfragen"
+        ctaLabel={t.requestConsultCall}
       />
 
       <section className="bg-dark py-14 text-white">
@@ -41,19 +43,19 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
             <div className="grid grid-cols-3 gap-x-8 gap-y-10">
               <div>
                 <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">
-                  {service.phases.length} Phasen
+                  {t.phasesCount(service.phases.length)}
                 </p>
-                <p className="mt-2 text-sm leading-snug text-white/60">Strukturiertes Vorgehen</p>
+                <p className="mt-2 text-sm leading-snug text-white/60">{t.structuredApproach}</p>
               </div>
               <div>
                 <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">
-                  {service.deliverables.length} Deliverables
+                  {t.deliverablesCount(service.deliverables.length)}
                 </p>
-                <p className="mt-2 text-sm leading-snug text-white/60">Konkrete Ergebnisse</p>
+                <p className="mt-2 text-sm leading-snug text-white/60">{t.concreteResults}</p>
               </div>
               <div>
                 <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">{service.duration}</p>
-                <p className="mt-2 text-sm leading-snug text-white/60">Dauer</p>
+                <p className="mt-2 text-sm leading-snug text-white/60">{t.duration}</p>
               </div>
             </div>
           )}
@@ -64,7 +66,7 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
         <section className="bg-background pt-16 sm:pt-20">
           <Container>
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Leistung</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.serviceLabel}</p>
               <p className="balance mt-4 max-w-3xl text-xl leading-relaxed text-ink">{service.overview}</p>
             </Reveal>
           </Container>
@@ -74,7 +76,7 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
       <section className={service.overview ? "bg-background py-16 sm:py-20" : "bg-background pt-16 sm:pt-20"}>
         <Container>
           <Reveal className="rounded-3xl bg-sky p-8 sm:p-10">
-            <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Für wen</p>
+            <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.forWhom}</p>
             <p className="balance mt-3 max-w-2xl text-xl font-medium leading-relaxed text-ink">
               {service.forWhom}
             </p>
@@ -85,9 +87,9 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
       <section className="bg-background py-16 sm:py-20">
         <Container>
           <Reveal>
-            <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Vorgehen</p>
+            <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.approach}</p>
             <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-              So läuft die Beratung ab
+              {t.howConsultingWorks}
             </h2>
           </Reveal>
           <RevealGroup className="mt-10 grid gap-6 sm:grid-cols-3">
@@ -112,9 +114,9 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
         <section className="bg-dark py-20 text-white sm:py-28">
           <Container>
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary uppercase">Leistungsbausteine</p>
+              <p className="text-sm font-medium tracking-wide text-primary uppercase">{t.serviceBlocksEyebrow}</p>
               <h2 className="font-heading balance mt-3 max-w-xl text-2xl font-bold tracking-tight sm:text-3xl">
-                Was die Beratung im Detail umfasst.
+                {t.whatConsultingCoversTitle}
               </h2>
             </Reveal>
             <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -139,7 +141,7 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
       <section className="bg-background py-16 sm:py-20">
         <Container>
           <Reveal className="rounded-3xl bg-cream p-8">
-            <p className="font-heading text-lg font-bold text-ink">Ergebnisse</p>
+            <p className="font-heading text-lg font-bold text-ink">{t.resultsLabel}</p>
             <ul className="mt-4 grid gap-2 sm:grid-cols-3">
               {service.deliverables.map((d) => (
                 <li key={d} className="flex gap-2 text-sm text-ink-soft">
@@ -155,26 +157,13 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
       <section className="bg-dark py-20 text-white sm:py-28">
         <Container>
           <Reveal>
-            <p className="text-sm font-medium tracking-wide text-primary uppercase">Warum newSIM</p>
+            <p className="text-sm font-medium tracking-wide text-primary uppercase">{t.whyNewsim}</p>
             <h2 className="font-heading balance mt-3 max-w-xl text-2xl font-bold tracking-tight sm:text-3xl">
-              Beratung von Experten, die wissen, was in einer Plattform für ungenutztes Potential für den Vertrieb steckt.
+              {t.expertsTitle}
             </h2>
           </Reveal>
           <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-3">
-            {[
-              {
-                title: "Kein reines Theoriepapier",
-                body: "Wir beraten nicht nur — wir betreiben selbst eine Enabling-Plattform und wissen, wie alle kundenrelevanten Prozesse funktionieren.",
-              },
-              {
-                title: "Keine zusätzlichen IT-Investitionen",
-                body: "Unsere Empfehlungen basieren auf den aktuell genutzten Systemen.",
-              },
-              {
-                title: "Nahtlose Umsetzung",
-                body: "Die Initiativen berücksichtigen bestehende Prozesse und können in kurzer Zeit implementiert und organisatorisch optimiert werden.",
-              },
-            ].map((point) => (
+            {t.points.map((point) => (
               <motion.div
                 key={point.title}
                 variants={revealItem}
@@ -192,9 +181,9 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
         <section className="bg-surface py-20 sm:py-28">
           <Container>
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Anschluss</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.connectionEyebrow}</p>
               <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Passende Produkte für {service.name}
+                {t.matchingProductsFor(service.name)}
               </h2>
             </Reveal>
             <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-2">
@@ -208,7 +197,7 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
                     <p className="font-heading mt-3 text-base font-bold text-ink">{m.navLabel}</p>
                     <p className="mt-1.5 text-xs leading-relaxed text-ink-soft">{m.tagline}</p>
                     <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-primary-ink">
-                      Modell ansehen
+                      {t.viewModel}
                       <span className="transition-transform group-hover:translate-x-1">→</span>
                     </span>
                   </Link>
@@ -225,7 +214,7 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
             <Reveal>
               <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">FAQ</p>
               <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Häufige Fragen zu {service.name}
+                {t.faqTitleFor(service.name)}
               </h2>
             </Reveal>
             <Reveal delay={0.1} className="mt-10 max-w-3xl">
@@ -238,9 +227,9 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
       <section className="bg-surface py-20 sm:py-28">
         <Container>
           <Reveal>
-            <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Andere Themen</p>
+            <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.otherTopicsEyebrow}</p>
             <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-              Passt ein anderes Thema besser?
+              {t.differentTopicFits}
             </h2>
           </Reveal>
           <RevealGroup className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -259,7 +248,7 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
           </RevealGroup>
           <Reveal delay={0.15} className="mt-8">
             <Link href="/consulting" className="text-sm font-medium text-primary-ink">
-              Alle Consulting-Leistungen →
+              {t.allConsultingServices}
             </Link>
           </Reveal>
         </Container>
@@ -269,16 +258,16 @@ export function ConsultingDetail({ service }: { service: ConsultingService }) {
         <Container className="text-center">
           <Reveal>
             <h2 className="font-heading balance mx-auto max-w-xl text-3xl font-bold tracking-tight sm:text-4xl">
-              Bereit für {service.name}?
+              {t.readyFor(service.name)}
             </h2>
             <p className="balance mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/70">
-              Unverbindliches Beratungsgespräch anfragen.
+              {t.nonBindingConsultCall}
             </p>
             <Link
               href={site.calendlyUrl}
               className="font-heading mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
             >
-              Beratungsgespräch anfragen
+              {t.requestConsultCall}
             </Link>
           </Reveal>
         </Container>

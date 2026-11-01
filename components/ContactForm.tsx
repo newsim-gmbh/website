@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 import { EMAIL_REGEX, isPlausiblePhone } from "@/lib/formValidation";
 import { ContactSuccessModal } from "./ContactSuccessModal";
-
-const brekoOptions = ["Keine Angabe", "Ja", "Nein"];
 
 const emptyForm = {
   name: "",
@@ -14,7 +13,7 @@ const emptyForm = {
   email: "",
   phone: "",
   product: "",
-  brekoMember: brekoOptions[0],
+  brekoMember: "",
   message: "",
   botcheck: "",
 };
@@ -22,8 +21,10 @@ const emptyForm = {
 export function ContactForm() {
   const { content } = useLocale();
   const { models, site } = content;
-  const products = [...models.map((m) => m.navLabel), "Sonstiges"];
-  const [form, setForm] = useState(emptyForm);
+  const t = useStrings().forms.contact;
+  const brekoOptions = t.brekoOptions;
+  const products = [...models.map((m) => m.navLabel), t.otherProduct];
+  const [form, setForm] = useState({ ...emptyForm, brekoMember: brekoOptions[0] });
   const [status, setStatus] = useState<"idle" | "submitting" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
@@ -54,12 +55,12 @@ export function ContactForm() {
       setInvalidFields(invalid);
       setError(
         missing.length > 0
-          ? "Bitte alle rot markierten Pflichtfelder ausfüllen."
+          ? t.missingRequired
           : invalidEmail && invalidPhone
-            ? "Bitte eine gültige E-Mail-Adresse und Telefonnummer eingeben."
+            ? t.invalidEmailAndPhone
             : invalidEmail
-              ? "Bitte eine gültige E-Mail-Adresse eingeben."
-              : "Bitte eine gültige Telefonnummer eingeben."
+              ? t.invalidEmail
+              : t.invalidPhone
       );
       return;
     }
@@ -92,16 +93,14 @@ export function ContactForm() {
       const data = await res.json();
       if (data.success) {
         setStatus("sent");
-        setForm(emptyForm);
+        setForm({ ...emptyForm, brekoMember: brekoOptions[0] });
         setShowSuccessModal(true);
       } else {
         throw new Error(data.message || "Unbekannter Fehler");
       }
     } catch {
       setStatus("error");
-      setError(
-        `Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an ${site.contactFormEmail}.`
-      );
+      setError(t.sendError(site.contactFormEmail));
     }
   };
 
@@ -124,29 +123,29 @@ export function ContactForm() {
       />
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="contact-name" className="mb-1.5 block text-sm font-medium text-ink">Name *</label>
-          <input id="contact-name" required value={form.name} onChange={update("name")} className={fieldClass("name")} placeholder="Vor- und Nachname" />
+          <label htmlFor="contact-name" className="mb-1.5 block text-sm font-medium text-ink">{t.nameLabel}</label>
+          <input id="contact-name" required value={form.name} onChange={update("name")} className={fieldClass("name")} placeholder={t.namePlaceholder} />
         </div>
         <div>
-          <label htmlFor="contact-company" className="mb-1.5 block text-sm font-medium text-ink">Firma *</label>
-          <input id="contact-company" required value={form.company} onChange={update("company")} className={fieldClass("company")} placeholder="Unternehmen" />
+          <label htmlFor="contact-company" className="mb-1.5 block text-sm font-medium text-ink">{t.companyLabel}</label>
+          <input id="contact-company" required value={form.company} onChange={update("company")} className={fieldClass("company")} placeholder={t.companyPlaceholder} />
         </div>
         <div>
-          <label htmlFor="contact-position" className="mb-1.5 block text-sm font-medium text-ink">Position im Unternehmen</label>
+          <label htmlFor="contact-position" className="mb-1.5 block text-sm font-medium text-ink">{t.positionLabel}</label>
           <input
             id="contact-position"
             value={form.position}
             onChange={update("position")}
             className={inputClass}
-            placeholder="z. B. Geschäftsführung, Einkauf"
+            placeholder={t.positionPlaceholder}
           />
         </div>
         <div>
-          <label htmlFor="contact-email" className="mb-1.5 block text-sm font-medium text-ink">E-Mail *</label>
-          <input id="contact-email" required type="email" value={form.email} onChange={update("email")} className={fieldClass("email")} placeholder="name@firma.de" />
+          <label htmlFor="contact-email" className="mb-1.5 block text-sm font-medium text-ink">{t.emailLabel}</label>
+          <input id="contact-email" required type="email" value={form.email} onChange={update("email")} className={fieldClass("email")} placeholder={t.emailPlaceholder} />
         </div>
         <div>
-          <label htmlFor="contact-phone" className="mb-1.5 block text-sm font-medium text-ink">Telefon *</label>
+          <label htmlFor="contact-phone" className="mb-1.5 block text-sm font-medium text-ink">{t.phoneLabel}</label>
           <input
             id="contact-phone"
             required
@@ -154,13 +153,13 @@ export function ContactForm() {
             value={form.phone}
             onChange={update("phone")}
             className={fieldClass("phone")}
-            placeholder="+49 151 23456789"
+            placeholder={t.phonePlaceholder}
           />
         </div>
         <div>
-          <label htmlFor="contact-product" className="mb-1.5 block text-sm font-medium text-ink">Produkt</label>
+          <label htmlFor="contact-product" className="mb-1.5 block text-sm font-medium text-ink">{t.productLabel}</label>
           <select id="contact-product" value={form.product} onChange={update("product")} className={inputClass}>
-            <option value="">Bitte auswählen</option>
+            <option value="">{t.productSelectPlaceholder}</option>
             {products.map((p) => (
               <option key={p} value={p}>
                 {p}
@@ -169,7 +168,7 @@ export function ContactForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="contact-breko" className="mb-1.5 block text-sm font-medium text-ink">BREKO-Mitglied</label>
+          <label htmlFor="contact-breko" className="mb-1.5 block text-sm font-medium text-ink">{t.brekoLabel}</label>
           <select id="contact-breko" value={form.brekoMember} onChange={update("brekoMember")} className={inputClass}>
             {brekoOptions.map((o) => (
               <option key={o} value={o}>
@@ -179,7 +178,7 @@ export function ContactForm() {
           </select>
         </div>
         <div className="sm:col-span-2">
-          <label htmlFor="contact-message" className="mb-1.5 block text-sm font-medium text-ink">Nachricht *</label>
+          <label htmlFor="contact-message" className="mb-1.5 block text-sm font-medium text-ink">{t.messageLabel}</label>
           <textarea
             id="contact-message"
             required
@@ -187,7 +186,7 @@ export function ContactForm() {
             value={form.message}
             onChange={update("message")}
             className={fieldClass("message")}
-            placeholder="Wie können wir helfen?"
+            placeholder={t.messagePlaceholder}
           />
         </div>
       </div>
@@ -199,7 +198,7 @@ export function ContactForm() {
         disabled={status === "submitting"}
         className="font-heading mt-8 inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {status === "submitting" ? "Wird gesendet…" : "Nachricht senden"}
+        {status === "submitting" ? t.submitting : t.submit}
       </button>
 
       <ContactSuccessModal open={showSuccessModal} onClose={() => setShowSuccessModal(false)} />

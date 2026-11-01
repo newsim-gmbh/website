@@ -11,10 +11,12 @@ import { PlatformArchitecture } from "../PlatformArchitecture";
 import { ApiRequestForm } from "../ApiRequestForm";
 import type { DeveloperPage } from "@/lib/content";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 
 export function DeveloperDetail({ page }: { page: DeveloperPage }) {
   const { content } = useLocale();
   const { developerPages, platform, site } = content;
+  const t = useStrings().developerDetail;
   const otherPages = developerPages.filter((p) => p.slug !== page.slug);
   const isTelnology = page.slug === "telnology";
   const isApi = page.slug === "api";
@@ -29,19 +31,19 @@ export function DeveloperDetail({ page }: { page: DeveloperPage }) {
             <div className="grid grid-cols-3 gap-x-8 gap-y-10">
               <div>
                 <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">
-                  {platform.channelsLayer.items.length} Vertriebskanäle
+                  {t.channelsSuffix(platform.channelsLayer.items.length)}
                 </p>
-                <p className="mt-2 text-sm leading-snug text-white/60">B2C · B2B · B2B2C</p>
+                <p className="mt-2 text-sm leading-snug text-white/60">{t.channelsSubtitle}</p>
               </div>
               <div>
                 <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">
-                  {platform.core.length} Kernfunktionen
+                  {t.coreFunctionsSuffix(platform.core.length)}
                 </p>
-                <p className="mt-2 text-sm leading-snug text-white/60">Order · Product · Service · Billing</p>
+                <p className="mt-2 text-sm leading-snug text-white/60">{t.coreFunctionsSubtitle}</p>
               </div>
               <div>
-                <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">1 Plattform</p>
-                <p className="mt-2 text-sm leading-snug text-white/60">Für alle Vertriebskanäle</p>
+                <p className="font-heading text-xl font-bold tracking-tight sm:text-2xl">{t.onePlatform}</p>
+                <p className="mt-2 text-sm leading-snug text-white/60">{t.onePlatformSubtitle}</p>
               </div>
             </div>
           </Container>
@@ -52,13 +54,13 @@ export function DeveloperDetail({ page }: { page: DeveloperPage }) {
         <Container>
           <div className="grid gap-16 lg:grid-cols-[1fr_1fr]">
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Überblick</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.overview}</p>
               <p className="balance mt-4 text-xl leading-relaxed text-ink">{page.overview}</p>
               <Link
                 href={isApi ? "#api-anfrage" : "/kontakt"}
                 className="font-heading mt-8 inline-flex items-center rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink"
               >
-                {isApi ? "Dokumentation anfragen" : "Zugang anfragen"}
+                {isApi ? t.requestDocs : t.requestAccess}
               </Link>
             </Reveal>
 
@@ -82,7 +84,7 @@ export function DeveloperDetail({ page }: { page: DeveloperPage }) {
         <section className="bg-dark border-t border-dark-line py-20 text-white sm:py-28">
           <Container>
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary uppercase">Architektur</p>
+              <p className="text-sm font-medium tracking-wide text-primary uppercase">{t.architecture}</p>
               <h2 className="font-heading balance mt-3 max-w-xl text-2xl font-bold tracking-tight sm:text-3xl">
                 {platform.title}
               </h2>
@@ -98,12 +100,12 @@ export function DeveloperDetail({ page }: { page: DeveloperPage }) {
         <section id="api-anfrage" className="scroll-mt-24 bg-surface py-20 sm:py-28">
           <Container>
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">API-Zugang</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.apiAccessEyebrow}</p>
               <h2 className="font-heading mt-3 max-w-xl text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                API-Dokumentation anfragen
+                {t.apiDocsRequestTitle}
               </h2>
               <p className="mt-3 max-w-xl text-ink-soft">
-                Wir schicken Ihnen die technische Dokumentation zu Endpunkten, Authentifizierung und Datenmodellen zu.
+                {t.apiDocsRequestBody}
               </p>
             </Reveal>
             <Reveal delay={0.1} className="mt-10 max-w-2xl">
@@ -117,9 +119,9 @@ export function DeveloperDetail({ page }: { page: DeveloperPage }) {
         <section className="bg-background py-20 sm:py-28">
           <Container>
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">FAQ</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.faqEyebrow}</p>
               <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Häufige Fragen zu {page.name}
+                {t.faqTitleFor(page.name)}
               </h2>
             </Reveal>
             <Reveal delay={0.1} className="mt-10 max-w-3xl">
@@ -133,9 +135,9 @@ export function DeveloperDetail({ page }: { page: DeveloperPage }) {
         <section className="bg-surface py-20 sm:py-28">
           <Container>
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Weitere Themen</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.otherTopicsEyebrow}</p>
               <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Passt ein anderes Thema besser?
+                {t.differentTopicFits}
               </h2>
             </Reveal>
             <RevealGroup className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -160,16 +162,16 @@ export function DeveloperDetail({ page }: { page: DeveloperPage }) {
         <Container className="text-center">
           <Reveal>
             <h2 className="font-heading balance mx-auto max-w-xl text-3xl font-bold tracking-tight sm:text-4xl">
-              Zugang zu {page.name} anfragen
+              {t.requestAccessTo(page.name)}
             </h2>
             <p className="balance mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/70">
-              Unverbindliches Gespräch vereinbaren.
+              {t.nonBindingCall}
             </p>
             <Link
               href={site.calendlyUrl}
               className="font-heading mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-ink transition-transform hover:scale-[1.03] hover:bg-primary"
             >
-              Gespräch vereinbaren
+              {t.scheduleCall}
             </Link>
           </Reveal>
         </Container>

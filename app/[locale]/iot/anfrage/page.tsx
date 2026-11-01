@@ -6,6 +6,7 @@ import { Container } from "@/components/Container";
 import { Reveal } from "@/components/Reveal";
 import { IotRequestForm } from "@/components/IotRequestForm";
 import { isLocale, type Locale } from "@/lib/i18n/config";
+import { strings } from "@/lib/i18n/strings";
 import { pageMetadata } from "@/lib/seo";
 
 type Params = Promise<{ locale: string }>;
@@ -13,15 +14,20 @@ type Params = Promise<{ locale: string }>;
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { locale } = await params;
   const loc = (isLocale(locale) ? locale : "de") as Locale;
+  const t = strings[loc].pages.iotAnfrage;
   return pageMetadata({
     path: `/${loc}/iot/anfrage`,
     canonicalPath: "/iot/anfrage",
-    title: "IoT-Angebot anfragen — newSIM",
-    description: "In drei kurzen Schritten Ihr individuelles IoT-/M2M-SIM-Angebot anfragen.",
+    title: t.metaTitle,
+    description: t.metaDescription,
   });
 }
 
-export default function LocaleIotAnfragePage() {
+export default async function LocaleIotAnfragePage({ params }: { params: Params }) {
+  const { locale } = await params;
+  const loc = (isLocale(locale) ? locale : "de") as Locale;
+  const t = strings[loc].pages.iotAnfrage;
+
   return (
     <>
       <Header />
@@ -38,13 +44,13 @@ export default function LocaleIotAnfragePage() {
           <Container className="relative">
             <Reveal>
               <p className="mb-5 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-wide text-white/70 uppercase">
-                IoT-Angebot
+                {t.eyebrow}
               </p>
               <h1 className="font-heading balance max-w-xl text-4xl font-bold tracking-tight sm:text-5xl">
-                Jetzt Ihr individuelles IoT-Angebot anfragen.
+                {t.title}
               </h1>
               <p className="balance mt-5 max-w-lg text-lg leading-relaxed text-white/70">
-                Drei kurze Schritte — wir melden uns zeitnah bei Ihnen zu Ihrem Projekt.
+                {t.subtitle}
               </p>
             </Reveal>
           </Container>

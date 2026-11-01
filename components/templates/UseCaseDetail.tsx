@@ -12,11 +12,13 @@ import { Icon } from "../Icon";
 import { FaqAccordion } from "../FaqAccordion";
 import type { UseCase } from "@/lib/content";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 import { basePath } from "@/lib/basePath";
 
 export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
   const { content } = useLocale();
   const { models, site } = content;
+  const t = useStrings().useCaseDetail;
   const recommended = models.filter((m) => useCase.recommendedModelIds.includes(m.id));
   const painPoints = useCase.painPoints ?? [useCase.challenge];
   const solutionSteps = useCase.solutionSteps ?? [useCase.solution];
@@ -29,7 +31,7 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
         <section className="bg-dark pt-8 pb-8 text-white sm:pt-10">
           <Container>
             <Reveal className="flex flex-wrap items-center gap-2.5">
-              <span className="text-xs font-medium tracking-wide text-white/40 uppercase">Passt zu</span>
+              <span className="text-xs font-medium tracking-wide text-white/40 uppercase">{t.matchesLabel}</span>
               {useCase.audience.map((a) => (
                 <span
                   key={a}
@@ -77,9 +79,9 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
         <section className="bg-surface py-20 sm:py-28">
           <Container>
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Weitere Vorteile</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.furtherBenefitsEyebrow}</p>
               <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Vorteile einer Eigenmarke
+                {t.furtherBenefitsTitle}
               </h2>
             </Reveal>
             <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -106,7 +108,7 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
         <Container>
           <RevealGroup className="grid gap-6 lg:grid-cols-2">
             <motion.div variants={revealItem} className="rounded-3xl bg-sky p-8">
-              <p className="font-heading text-lg font-bold text-ink">Kennen Sie das?</p>
+              <p className="font-heading text-lg font-bold text-ink">{t.soundFamiliar}</p>
               <ul className="mt-4 space-y-3">
                 {painPoints.map((point) => (
                   <li key={point} className="flex gap-3 text-[15px] leading-relaxed text-ink-soft">
@@ -117,7 +119,7 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
               </ul>
             </motion.div>
             <motion.div variants={revealItem} className="rounded-3xl bg-cream p-8">
-              <p className="font-heading text-lg font-bold text-ink">Wie newSIM hilft</p>
+              <p className="font-heading text-lg font-bold text-ink">{t.howNewsimHelps}</p>
               <ul className="mt-4 space-y-3">
                 {solutionSteps.map((step) => (
                   <li key={step} className="flex items-start gap-3 text-[15px] leading-relaxed text-ink-soft">
@@ -178,11 +180,11 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
             </Reveal>
 
             <Reveal delay={0.1} className="mt-10 rounded-3xl border border-line bg-background p-8 sm:p-10">
-              <p className="text-xs font-medium tracking-wide text-ink-soft uppercase">Portfolio im Vergleich</p>
+              <p className="text-xs font-medium tracking-wide text-ink-soft uppercase">{t.portfolioComparison}</p>
               <div className="mt-6 grid items-center gap-6 sm:grid-cols-[1fr_auto_1fr] sm:gap-8">
                 <div>
-                  <p className="font-heading text-sm font-bold text-ink">Triple Play</p>
-                  <p className="text-xs text-ink-soft">Carrier</p>
+                  <p className="font-heading text-sm font-bold text-ink">{t.triplePlayLabel}</p>
+                  <p className="text-xs text-ink-soft">{t.carrierLabel}</p>
                   <div className="mt-3 space-y-2">
                     {useCase.quadPlay.triplePlay.map((item) => (
                       <div
@@ -202,15 +204,15 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
                 </div>
 
                 <div>
-                  <p className="font-heading text-sm font-bold text-ink">Quad Play</p>
+                  <p className="font-heading text-sm font-bold text-ink">{t.quadPlayHeading}</p>
                   <p className="text-xs text-primary-ink">{useCase.quadPlay.quadPlayLabel}</p>
                   <div className="mt-3 space-y-2">
-                    {useCase.quadPlay.quadPlay.map((item) => (
+                    {useCase.quadPlay.quadPlay.map((item, i) => (
                       <div
                         key={item}
                         className={clsx(
                           "rounded-xl px-4 py-3 text-center text-sm font-medium",
-                          item === "Mobilfunk" ? "bg-sky text-ink" : "bg-line/50 text-ink-soft"
+                          i === 0 ? "bg-sky text-ink" : "bg-line/50 text-ink-soft"
                         )}
                       >
                         {item}
@@ -257,23 +259,22 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
               ) : (
                 <PhoneMockup
                   tone="sky"
-                  label={useCase.exampleLabel ?? "Ihre Marke · Ihr Tarif"}
+                  label={useCase.exampleLabel ?? t.defaultPhoneLabel}
                   className="aspect-[9/16] w-full max-w-[240px]"
                 />
               )}
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="text-sm font-medium tracking-wide text-white/50 uppercase">Konkretes Beispiel</p>
+              <p className="text-sm font-medium tracking-wide text-white/50 uppercase">{t.concreteExample}</p>
               <h2 className="font-heading balance mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
-                So könnte Ihr Angebot aussehen
+                {t.offerPreviewTitle}
               </h2>
               <p className="balance mt-4 max-w-lg text-base leading-relaxed text-white/70">
-                {useCase.exampleCaption ??
-                  "Platzhalter: beispielhafte Darstellung — reale Screenshots aus Ihrem individuellen Branding folgen."}
+                {useCase.exampleCaption ?? t.placeholderCaption}
               </p>
               {!useCase.exampleImage && (
                 <p className="mt-3 text-xs text-white/40">
-                  Beispielhafte Darstellung — reale Screenshots aus Ihrem individuellen Branding folgen.
+                  {t.exampleFootnote}
                 </p>
               )}
             </Reveal>
@@ -284,9 +285,9 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
       <section className="bg-background py-20 sm:py-28">
         <Container>
           <Reveal>
-            <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">Empfehlung</p>
+            <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.recommendationEyebrow}</p>
             <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-              Passendes Modell für {useCase.name}
+              {t.matchingModelFor(useCase.name)}
             </h2>
           </Reveal>
 
@@ -308,7 +309,7 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
                   </div>
                 </div>
                 <span className="font-heading inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition-colors group-hover:bg-primary group-hover:text-ink">
-                  Modell ansehen
+                  {t.viewModel}
                   <span className="transition-transform group-hover:translate-x-1">→</span>
                 </span>
               </Link>
@@ -327,7 +328,7 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
                     <p className="font-heading mt-4 text-lg font-bold text-ink">{m.navLabel}</p>
                     <p className="mt-2 text-sm leading-relaxed text-ink-soft">{m.tagline}</p>
                     <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary-ink">
-                      Modell ansehen
+                      {t.viewModel}
                       <span className="transition-transform group-hover:translate-x-1">→</span>
                     </span>
                   </Link>
@@ -342,9 +343,9 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
         <section className="bg-surface py-20 sm:py-28">
           <Container>
             <Reveal>
-              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">FAQ</p>
+              <p className="text-sm font-medium tracking-wide text-primary-ink uppercase">{t.faqEyebrow}</p>
               <h2 className="font-heading mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Häufige Fragen
+                {t.faqTitle}
               </h2>
             </Reveal>
             <Reveal delay={0.1} className="mt-10 max-w-3xl">
@@ -358,10 +359,10 @@ export function UseCaseDetail({ useCase }: { useCase: UseCase }) {
         <Container className="text-center">
           <Reveal>
             <h2 className="font-heading balance mx-auto max-w-xl text-3xl font-bold tracking-tight sm:text-4xl">
-              Passt das zu Ihnen?
+              {t.doesThisFitYou}
             </h2>
             <p className="balance mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/70">
-              Lassen Sie uns in einem unverbindlichen Gespräch klären, wie {useCase.name} für Sie aussehen kann.
+              {t.clarifyInCall(useCase.name)}
             </p>
             <Link
               href={site.calendlyUrl}

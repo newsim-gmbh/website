@@ -7,13 +7,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Icon, type IconName } from "./Icon";
 import { ContactTile } from "./ContactTile";
 import { useLocale } from "@/lib/i18n/context";
+import { useStrings } from "@/lib/i18n/strings";
 import { EMAIL_REGEX, isPlausiblePhone } from "@/lib/formValidation";
-
-const steps: { key: "email" | "projekt" | "kontakt"; label: string; icon: IconName }[] = [
-  { key: "email", label: "E-Mail", icon: "mail" },
-  { key: "projekt", label: "Projektinfos", icon: "clipboard" },
-  { key: "kontakt", label: "Kontaktdaten", icon: "userCircle" },
-];
 
 const emptyForm = {
   email: "",
@@ -28,19 +23,20 @@ const emptyForm = {
   botcheck: "",
 };
 
-const benefits = [
-  { icon: "tower" as const, text: "LTE/5G & IoT/M2M auf dem Telefónica-Netz" },
-  { icon: "shield" as const, text: "BNetzA-reguliert gemäß TKG & TR-AAV" },
-  { icon: "sliders" as const, text: "Dynamisches Datenpooling" },
-  { icon: "wifi" as const, text: "Nationales Roaming" },
-  { icon: "link" as const, text: "Individueller APN" },
-  { icon: "layers" as const, text: "Skalierbar vom Pilotprojekt bis zur Großflotte" },
-  { icon: "support" as const, text: "Persönlicher Ansprechpartner aus Deutschland" },
-];
+const benefitIcons: IconName[] = ["tower", "shield", "sliders", "wifi", "link", "layers", "support"];
 
 export function IotRequestForm() {
   const { content } = useLocale();
   const { site, contacts } = content;
+  const allStrings = useStrings();
+  const t = allStrings.forms.iotRequest;
+  const contactTileHeading = allStrings.contactTile.heading;
+  const steps: { key: "email" | "projekt" | "kontakt"; label: string; icon: IconName }[] = [
+    { key: "email", label: t.stepEmail, icon: "mail" },
+    { key: "projekt", label: t.stepProject, icon: "clipboard" },
+    { key: "kontakt", label: t.stepContact, icon: "userCircle" },
+  ];
+  const benefits = benefitIcons.map((icon, i) => ({ icon, text: t.benefits[i] }));
   const [stepIndex, setStepIndex] = useState(0);
   const [form, setForm] = useState(emptyForm);
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
@@ -74,7 +70,7 @@ export function IotRequestForm() {
       else if (!EMAIL_REGEX.test(form.email)) invalid.add("email");
       setInvalidFields(invalid);
       if (invalid.size > 0) {
-        setError(!form.email ? "Bitte Ihre geschäftliche E-Mail-Adresse eingeben." : "Bitte eine gültige E-Mail-Adresse eingeben.");
+        setError(!form.email ? t.missingEmail : t.invalidEmail);
         return false;
       }
     }
@@ -84,7 +80,7 @@ export function IotRequestForm() {
       const missing = required.filter((key) => !form[key]);
       setInvalidFields(new Set(missing));
       if (missing.length > 0) {
-        setError("Bitte alle rot markierten Pflichtfelder ausfüllen.");
+        setError(t.missingRequired);
         return false;
       }
     }
@@ -98,8 +94,8 @@ export function IotRequestForm() {
       if (invalid.size > 0) {
         setError(
           missing.length > 0
-            ? "Bitte alle rot markierten Pflichtfelder ausfüllen."
-            : "Bitte eine gültige Telefonnummer eingeben."
+            ? t.missingRequired
+            : t.invalidPhone
         );
         return false;
       }
@@ -154,9 +150,7 @@ export function IotRequestForm() {
       }
     } catch {
       setStatus("error");
-      setError(
-        `Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an ${site.contactFormEmail}.`
-      );
+      setError(t.sendError(site.contactFormEmail));
     }
   };
 
@@ -173,15 +167,15 @@ export function IotRequestForm() {
             <path d="M5 12.5l4.5 4.5L19 7" />
           </svg>
         </motion.div>
-        <h3 className="font-heading mt-6 text-2xl font-bold tracking-tight text-ink">Anfrage gesendet!</h3>
+        <h3 className="font-heading mt-6 text-2xl font-bold tracking-tight text-ink">{t.successTitle}</h3>
         <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-ink-soft">
-          Vielen Dank für Ihr Interesse an newSIM IoT — wir melden uns zeitnah bei Ihnen zu Ihrem Projekt.
+          {t.successBody}
         </p>
         <Link
           href="/iot"
           className="font-heading mt-8 inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink"
         >
-          Zurück zur IoT-Übersicht
+          {t.backToIotOverview}
         </Link>
       </div>
     );
@@ -248,12 +242,12 @@ export function IotRequestForm() {
             >
               {step.key === "email" && (
                 <div>
-                  <h3 className="font-heading text-xl font-bold tracking-tight text-ink">Jetzt IoT-Angebot anfragen</h3>
+                  <h3 className="font-heading text-xl font-bold tracking-tight text-ink">{t.emailStepTitle}</h3>
                   <p className="mt-2 text-sm text-ink-soft">
-                    Bitte beachten Sie: Wir verkaufen weder einzelne SIM-Karten noch an Privatpersonen.
+                    {t.emailStepNote}
                   </p>
                   <div className="mt-6">
-                    <label htmlFor="iot-email" className="mb-1.5 block text-sm font-medium text-ink">Geschäftliche E-Mail-Adresse *</label>
+                    <label htmlFor="iot-email" className="mb-1.5 block text-sm font-medium text-ink">{t.businessEmailLabel}</label>
                     <input
                       id="iot-email"
                       autoFocus
@@ -262,7 +256,7 @@ export function IotRequestForm() {
                       value={form.email}
                       onChange={update("email")}
                       className={fieldClass("email")}
-                      placeholder="anna.muster@musterfirma.de"
+                      placeholder={t.businessEmailPlaceholder}
                     />
                   </div>
                 </div>
@@ -270,10 +264,10 @@ export function IotRequestForm() {
 
               {step.key === "projekt" && (
                 <div>
-                  <h3 className="font-heading text-xl font-bold tracking-tight text-ink">Erzählen Sie uns von Ihrem Projekt</h3>
+                  <h3 className="font-heading text-xl font-bold tracking-tight text-ink">{t.projectStepTitle}</h3>
                   <div className="mt-6 grid gap-5">
                     <div>
-                      <label htmlFor="iot-usecase" className="mb-1.5 block text-sm font-medium text-ink">Einsatzbereich — kurze Beschreibung *</label>
+                      <label htmlFor="iot-usecase" className="mb-1.5 block text-sm font-medium text-ink">{t.useCaseLabel}</label>
                       <textarea
                         id="iot-usecase"
                         autoFocus
@@ -282,41 +276,41 @@ export function IotRequestForm() {
                         value={form.useCase}
                         onChange={update("useCase")}
                         className={fieldClass("useCase")}
-                        placeholder="z. B. GPS-Tracker für Fuhrpark, Smart Metering, Vending-Automaten"
+                        placeholder={t.useCasePlaceholder}
                       />
                     </div>
                     <div className="grid gap-5 sm:grid-cols-2">
                       <div>
-                        <label htmlFor="iot-simcount" className="mb-1.5 block text-sm font-medium text-ink">Benötigte SIM-Karten pro Jahr *</label>
+                        <label htmlFor="iot-simcount" className="mb-1.5 block text-sm font-medium text-ink">{t.simCountLabel}</label>
                         <input
                           id="iot-simcount"
                           required
                           value={form.simCount}
                           onChange={update("simCount")}
                           className={fieldClass("simCount")}
-                          placeholder="z. B. 500"
+                          placeholder={t.simCountPlaceholder}
                         />
                       </div>
                       <div>
-                        <label htmlFor="iot-datausage" className="mb-1.5 block text-sm font-medium text-ink">Ø Datenverbrauch je SIM/Monat</label>
+                        <label htmlFor="iot-datausage" className="mb-1.5 block text-sm font-medium text-ink">{t.avgDataUsageLabel}</label>
                         <input
                           id="iot-datausage"
                           value={form.avgDataUsage}
                           onChange={update("avgDataUsage")}
                           className={inputClass}
-                          placeholder="Optional — z. B. 100 MB"
+                          placeholder={t.avgDataUsagePlaceholder}
                         />
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="iot-countries" className="mb-1.5 block text-sm font-medium text-ink">Länder, in denen die SIM-Karten eingesetzt werden *</label>
+                      <label htmlFor="iot-countries" className="mb-1.5 block text-sm font-medium text-ink">{t.countriesLabel}</label>
                       <input
                         id="iot-countries"
                         required
                         value={form.countries}
                         onChange={update("countries")}
                         className={fieldClass("countries")}
-                        placeholder="z. B. Deutschland, EU"
+                        placeholder={t.countriesPlaceholder}
                       />
                     </div>
                   </div>
@@ -325,10 +319,10 @@ export function IotRequestForm() {
 
               {step.key === "kontakt" && (
                 <div>
-                  <h3 className="font-heading text-xl font-bold tracking-tight text-ink">Ihre Kontaktdaten</h3>
+                  <h3 className="font-heading text-xl font-bold tracking-tight text-ink">{t.contactStepTitle}</h3>
                   <div className="mt-6 grid gap-5 sm:grid-cols-2">
                     <div className="sm:col-span-2">
-                      <label htmlFor="iot-company" className="mb-1.5 block text-sm font-medium text-ink">Name der Firma *</label>
+                      <label htmlFor="iot-company" className="mb-1.5 block text-sm font-medium text-ink">{t.companyLabel}</label>
                       <input
                         id="iot-company"
                         autoFocus
@@ -336,19 +330,19 @@ export function IotRequestForm() {
                         value={form.company}
                         onChange={update("company")}
                         className={fieldClass("company")}
-                        placeholder="Musterfirma GmbH"
+                        placeholder={t.companyPlaceholder}
                       />
                     </div>
                     <div>
-                      <label htmlFor="iot-firstname" className="mb-1.5 block text-sm font-medium text-ink">Vorname *</label>
-                      <input id="iot-firstname" required value={form.firstName} onChange={update("firstName")} className={fieldClass("firstName")} placeholder="Anna" />
+                      <label htmlFor="iot-firstname" className="mb-1.5 block text-sm font-medium text-ink">{t.firstNameLabel}</label>
+                      <input id="iot-firstname" required value={form.firstName} onChange={update("firstName")} className={fieldClass("firstName")} placeholder={t.firstNamePlaceholder} />
                     </div>
                     <div>
-                      <label htmlFor="iot-lastname" className="mb-1.5 block text-sm font-medium text-ink">Nachname *</label>
-                      <input id="iot-lastname" required value={form.lastName} onChange={update("lastName")} className={fieldClass("lastName")} placeholder="Schmidt" />
+                      <label htmlFor="iot-lastname" className="mb-1.5 block text-sm font-medium text-ink">{t.lastNameLabel}</label>
+                      <input id="iot-lastname" required value={form.lastName} onChange={update("lastName")} className={fieldClass("lastName")} placeholder={t.lastNamePlaceholder} />
                     </div>
                     <div className="sm:col-span-2">
-                      <label htmlFor="iot-phone" className="mb-1.5 block text-sm font-medium text-ink">Telefonnummer *</label>
+                      <label htmlFor="iot-phone" className="mb-1.5 block text-sm font-medium text-ink">{t.phoneLabel}</label>
                       <input
                         id="iot-phone"
                         required
@@ -356,7 +350,7 @@ export function IotRequestForm() {
                         value={form.phone}
                         onChange={update("phone")}
                         className={fieldClass("phone")}
-                        placeholder="+49 151 23456789"
+                        placeholder={t.phonePlaceholder}
                       />
                     </div>
                   </div>
@@ -374,7 +368,7 @@ export function IotRequestForm() {
                 onClick={goBack}
                 className="font-heading inline-flex items-center justify-center rounded-full border border-line px-6 py-3 text-sm font-bold text-ink transition-colors hover:bg-background"
               >
-                ← Zurück
+                {t.back}
               </button>
             ) : (
               <span />
@@ -387,7 +381,7 @@ export function IotRequestForm() {
                 disabled={status === "submitting"}
                 className="font-heading inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {status === "submitting" ? "Wird gesendet…" : "IoT-Angebot anfragen"}
+                {status === "submitting" ? t.submitting : t.submit}
               </button>
             ) : (
               <button
@@ -395,7 +389,7 @@ export function IotRequestForm() {
                 onClick={goNext}
                 className="font-heading inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-primary hover:text-ink"
               >
-                Weiter →
+                {t.next}
               </button>
             )}
           </div>
@@ -404,7 +398,7 @@ export function IotRequestForm() {
       </div>
 
       <div className="rounded-3xl border border-line bg-surface p-6 sm:p-7">
-        <p className="font-heading text-sm font-bold text-ink">Ihre Vorteile mit newSIM IoT</p>
+        <p className="font-heading text-sm font-bold text-ink">{t.sidebarTitle}</p>
         <ul className="mt-3.5 space-y-2">
           {benefits.map((b) => (
             <li key={b.text} className="flex items-center gap-2.5 text-[13px] leading-snug text-ink-soft">
@@ -416,7 +410,7 @@ export function IotRequestForm() {
           ))}
         </ul>
         <div className="mt-4 border-t border-line pt-4">
-          <ContactTile contact={contacts[0]} />
+          <ContactTile contact={contacts[0]} heading={contactTileHeading} />
         </div>
       </div>
     </div>
