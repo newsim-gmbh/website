@@ -3,8 +3,18 @@ import * as en from "./en";
 import * as es from "./es";
 import * as fr from "./fr";
 
-export const locales = ["de", "en", "es", "fr"] as const;
-export type Locale = (typeof locales)[number];
+/** Alle technisch vorbereiteten Sprachen (Typ-Ebene) — inkl. noch nicht übersetzter. */
+export const allLocales = ["de", "en", "es", "fr"] as const;
+export type Locale = (typeof allLocales)[number];
+
+/**
+ * Tatsächlich veröffentlichte Sprachen: Routing, Sitemap, hreflang und der
+ * Sprachumschalter zeigen nur diese an. Spanisch/Französisch sind technisch
+ * vorbereitet (siehe lib/i18n/es.ts, fr.ts), aber inhaltlich noch nicht
+ * übersetzt — deshalb hier bewusst ausgeklammert, bis das fertig ist.
+ * Einfach wieder aktivierbar, indem "es"/"fr" hier ergänzt werden.
+ */
+export const locales = ["de", "en"] as const satisfies readonly Locale[];
 export const defaultLocale: Locale = "de";
 
 export const localeLabels: Record<Locale, string> = {
