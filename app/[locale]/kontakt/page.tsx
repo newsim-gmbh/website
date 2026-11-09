@@ -74,7 +74,7 @@ export default async function LocaleKontaktPage({ params }: { params: Params }) 
                   <BenefitTiles items={trustBar} />
                 </div>
                 <div className="mt-6 border-t border-line pt-5">
-                  <ContactTile contact={contacts[0]} heading={contactTile.heading} />
+                  <ContactTile contact={contacts[0]} heading={contactTile.heading} showEmail={false} />
                 </div>
               </Reveal>
             </div>

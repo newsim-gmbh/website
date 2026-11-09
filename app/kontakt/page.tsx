@@ -59,7 +59,7 @@ export default function KontaktPage() {
                   <BenefitTiles items={trustBar} />
                 </div>
                 <div className="mt-6 border-t border-line pt-5">
-                  <ContactTile contact={contacts[0]} />
+                  <ContactTile contact={contacts[0]} showEmail={false} />
                 </div>
               </Reveal>
             </div>
