@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { type Locale, locales, defaultLocale } from "@/lib/i18n/config";
-import { localizedPath, stripLocale } from "@/lib/i18n/paths";
+import { isGermanOnlyPath, localizedPath, stripLocale } from "@/lib/i18n/paths";
 
 const STORAGE_KEY = "newsim-locale-choice";
 
@@ -44,6 +44,7 @@ export function LocaleRedirect() {
     } catch {}
 
     if (stored) return;
+    if (isGermanOnlyPath(stripLocale(pathname))) return;
 
     const currentLocale = localeFromPath(pathname);
     if (currentLocale !== defaultLocale) return;
@@ -55,7 +56,8 @@ export function LocaleRedirect() {
       localStorage.setItem(STORAGE_KEY, detected);
     } catch {}
 
-    router.replace(localizedPath(stripLocale(pathname), detected));
+    const suffix = typeof window !== "undefined" ? window.location.search + window.location.hash : "";
+    router.replace(localizedPath(stripLocale(pathname), detected) + suffix);
   }, [pathname, router]);
 
   return null;

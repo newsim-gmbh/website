@@ -1,5 +1,17 @@
 import { type Locale, defaultLocale, locales } from "./config";
 
+/**
+ * Pfade, die bewusst Deutsch-only bleiben (keine Übersetzung, keine
+ * Locale-Präfixe) und daher von jeder sprachabhängigen Weiterleitung
+ * ausgenommen werden müssen — sowohl von der Browser-Spracherkennung
+ * (LocaleRedirect) als auch vom Sprachumschalter (LanguageSwitcher).
+ */
+export const GERMAN_ONLY_PATHS = ["/impressum", "/datenschutz", "/markenbaukasten", "/baukasten"];
+
+export function isGermanOnlyPath(pathname: string): boolean {
+  return GERMAN_ONLY_PATHS.some((p) => pathname === p || pathname.startsWith(`${p}/`));
+}
+
 /** Entfernt ein vorhandenes Locale-Präfix (/en/..., /es/..., /fr/...) und liefert den "kanonischen" (deutschen) Pfad zurück. */
 export function stripLocale(pathname: string): string {
   const segments = pathname.split("/");

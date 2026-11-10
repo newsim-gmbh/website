@@ -5,9 +5,7 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { locales, localeLabels } from "@/lib/i18n/config";
 import { useLocale } from "@/lib/i18n/context";
-import { stripLocale, localizedPath } from "@/lib/i18n/paths";
-
-const NO_TRANSLATION_PREFIXES = ["/impressum", "/datenschutz"];
+import { isGermanOnlyPath, stripLocale, localizedPath } from "@/lib/i18n/paths";
 
 export function LanguageSwitcher({ onDark = false }: { onDark?: boolean }) {
   const { locale } = useLocale();
@@ -24,8 +22,9 @@ export function LanguageSwitcher({ onDark = false }: { onDark?: boolean }) {
   }, []);
 
   const canonical = stripLocale(pathname);
-  const isLegalPage = NO_TRANSLATION_PREFIXES.some((p) => canonical === p || canonical.startsWith(`${p}/`));
-  const targetPath = (loc: (typeof locales)[number]) => (isLegalPage ? localizedPath("/", loc) : localizedPath(canonical, loc));
+  const isUntranslatedPage = isGermanOnlyPath(canonical);
+  const targetPath = (loc: (typeof locales)[number]) =>
+    isUntranslatedPage ? localizedPath("/", loc) : localizedPath(canonical, loc);
 
   return (
     <div ref={ref} className="relative">

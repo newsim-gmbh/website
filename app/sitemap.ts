@@ -10,6 +10,7 @@ export const dynamic = "force-static";
 const germanOnlyRoutes = [
   { path: "/impressum", priority: 0.2, changeFrequency: "yearly" as const },
   { path: "/datenschutz", priority: 0.2, changeFrequency: "yearly" as const },
+  { path: "/markenbaukasten", priority: 0.6, changeFrequency: "monthly" as const },
 ];
 
 // In allen Sprachen verfügbare Routen (kanonischer, deutscher Pfad).
