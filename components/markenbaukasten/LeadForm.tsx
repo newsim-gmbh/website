@@ -51,7 +51,12 @@ export function LeadForm({
       { name: "phone", value: phone },
       ...extraFields,
     ];
-    const result = await submitHubSpotLead({ fields, logoFile });
+    const result = await submitHubSpotLead({
+      formKey: "markenbaukasten",
+      pageName: "Markenbaukasten",
+      fields,
+      logoFile,
+    });
     setStatus("idle");
     if (!result.ok && result.error !== "not_configured") {
       setError("Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.");
@@ -152,7 +157,7 @@ export function LeadForm({
       </label>
 
       {error && <p className="mt-2.5 text-sm text-red-600">{error}</p>}
-      {!hasHubSpotFormConfig() && (
+      {!hasHubSpotFormConfig("markenbaukasten") && (
         <p className="mt-2.5 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800">
           Entwicklungsvorschau: Die HubSpot-Formular-ID fehlt noch. Anfragen werden erst nach Verknüpfung tatsächlich
           übertragen.

@@ -4,7 +4,15 @@ import { useState } from "react";
 import { useLocale } from "@/lib/i18n/context";
 import { useStrings } from "@/lib/i18n/strings";
 import { EMAIL_REGEX, isPlausiblePhone } from "@/lib/formValidation";
+import { hasHubSpotFormConfig, submitHubSpotLead, type HubSpotField } from "@/lib/hubspot";
 import { ContactSuccessModal } from "./ContactSuccessModal";
+
+function splitName(fullName: string): { firstname: string; lastname: string } {
+  const trimmed = fullName.trim();
+  const spaceIndex = trimmed.indexOf(" ");
+  if (spaceIndex === -1) return { firstname: trimmed, lastname: "" };
+  return { firstname: trimmed.slice(0, spaceIndex), lastname: trimmed.slice(spaceIndex + 1) };
+}
 
 const emptyForm = {
   name: "",
@@ -68,37 +76,26 @@ export function ContactForm() {
     setError(null);
     setStatus("submitting");
 
-    const subject = form.product ? `Kontaktanfrage (${form.product}) — ${form.name}` : `Kontaktanfrage — ${form.name}`;
+    const { firstname, lastname } = splitName(form.name);
+    const fields: HubSpotField[] = [
+      { name: "firstname", value: firstname },
+      { name: "lastname", value: lastname },
+      { name: "company", value: form.company },
+      { name: "jobtitle", value: form.position },
+      { name: "email", value: form.email },
+      { name: "phone", value: form.phone },
+      { name: "produkt_interesse", value: form.product },
+      { name: "breko_mitglied", value: form.brekoMember !== brekoOptions[0] ? form.brekoMember : "" },
+      { name: "nachricht", value: form.message },
+      { name: "lead_quelle", value: "Kontaktformular" },
+    ];
 
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: site.web3formsAccessKey,
-          subject,
-          from_name: "newSIM Kontaktformular",
-          name: form.name,
-          Firma: form.company,
-          Position: form.position || undefined,
-          email: form.email,
-          replyto: form.email,
-          Telefon: form.phone,
-          Produkt: form.product || undefined,
-          "BREKO-Mitglied": form.brekoMember !== brekoOptions[0] ? form.brekoMember : undefined,
-          message: form.message,
-          botcheck: "",
-        }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        setStatus("sent");
-        setForm({ ...emptyForm, brekoMember: brekoOptions[0] });
-        setShowSuccessModal(true);
-      } else {
-        throw new Error(data.message || "Unbekannter Fehler");
-      }
-    } catch {
+    const result = await submitHubSpotLead({ formKey: "contact", pageName: "Kontakt", fields });
+    if (result.ok || result.error === "not_configured") {
+      setStatus("sent");
+      setForm({ ...emptyForm, brekoMember: brekoOptions[0] });
+      setShowSuccessModal(true);
+    } else {
       setStatus("error");
       setError(t.sendError(site.contactFormEmail));
     }
@@ -192,6 +189,12 @@ export function ContactForm() {
       </div>
 
       {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
+      {!hasHubSpotFormConfig("contact") && (
+        <p className="mt-4 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800">
+          Entwicklungsvorschau: Die HubSpot-Formular-ID fehlt noch. Anfragen werden erst nach Verknüpfung tatsächlich
+          übertragen.
+        </p>
+      )}
 
       <button
         type="submit"
