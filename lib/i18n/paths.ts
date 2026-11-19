@@ -6,7 +6,7 @@ import { type Locale, defaultLocale, locales } from "./config";
  * ausgenommen werden müssen — sowohl von der Browser-Spracherkennung
  * (LocaleRedirect) als auch vom Sprachumschalter (LanguageSwitcher).
  */
-export const GERMAN_ONLY_PATHS = ["/impressum", "/datenschutz", "/markenbaukasten", "/baukasten"];
+export const GERMAN_ONLY_PATHS = ["/impressum", "/datenschutz", "/markenbaukasten", "/baukasten", "/roadshow"];
 
 export function isGermanOnlyPath(pathname: string): boolean {
   return GERMAN_ONLY_PATHS.some((p) => pathname === p || pathname.startsWith(`${p}/`));

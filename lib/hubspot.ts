@@ -23,6 +23,14 @@
 //                      wl_bestandskunden, wl_sims_jahr1, wl_service,
 //                      security_esim_interesse, lead_quelle, utm_source,
 //                      utm_medium, utm_campaign, einwilligung
+//   roadshow:          firstname, lastname, company, email, phone,
+//                      roadshow_termin_wunsch, lead_quelle, seite,
+//                      utm_source, utm_medium, utm_campaign, utm_content
+//   markenbaukastenVormerken (Vorab-Seite "Platz vormerken", solange der
+//   eigentliche Markenbaukasten-Baukasten noch nicht live ist):
+//                      firstname, lastname, company, email, phone,
+//                      beratungstermin_gewuenscht, lead_quelle, seite,
+//                      utm_source, utm_medium, utm_campaign, utm_content
 // Für den Logo-Upload (Markenbaukasten) braucht das Formular zusätzlich ein
 // Datei-Feld mit dem internen Namen "logo".
 //
@@ -36,6 +44,8 @@ export const HUBSPOT_FORM_IDS = {
   apiRequest: "",
   iotRequest: "",
   markenbaukasten: "",
+  roadshow: "",
+  markenbaukastenVormerken: "",
 } as const;
 
 export type HubSpotFormKey = keyof typeof HUBSPOT_FORM_IDS;
