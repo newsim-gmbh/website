@@ -40,7 +40,7 @@
 export const HUBSPOT_PORTAL_ID = "149728908";
 
 export const HUBSPOT_FORM_IDS = {
-  contact: "",
+  contact: "062bb44b-a804-4ac5-9ffb-e115e9abb0e0",
   apiRequest: "",
   iotRequest: "",
   markenbaukasten: "",
