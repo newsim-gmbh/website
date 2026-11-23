@@ -44,9 +44,16 @@ export const HUBSPOT_FORM_IDS = {
   apiRequest: "",
   iotRequest: "",
   markenbaukasten: "",
-  roadshow: "",
+  roadshow: "5dc9e629-ccec-48a4-97a0-d23a37e0408a",
   markenbaukastenVormerken: "",
 } as const;
+
+/**
+ * Das Portal liegt im EU-Rechenzentrum (sichtbar am data-region="eu1" im
+ * HubSpot-Einbettungscode) — die Forms API braucht dafür den EU-Hostnamen,
+ * sonst schlagen Einsendungen fehl.
+ */
+const HUBSPOT_FORMS_API_HOST = "api-eu1.hsforms.com";
 
 export type HubSpotFormKey = keyof typeof HUBSPOT_FORM_IDS;
 
@@ -98,7 +105,7 @@ export async function submitHubSpotLead({
   }
 
   const formId = HUBSPOT_FORM_IDS[formKey];
-  const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${formId}`;
+  const endpoint = `https://${HUBSPOT_FORMS_API_HOST}/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${formId}`;
   const context = {
     pageUri: typeof window !== "undefined" ? window.location.href : undefined,
     pageName,
