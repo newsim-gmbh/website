@@ -9,6 +9,7 @@ import { ContactTile } from "./ContactTile";
 import { useLocale } from "@/lib/i18n/context";
 import { useStrings } from "@/lib/i18n/strings";
 import { EMAIL_REGEX, isPlausiblePhone } from "@/lib/formValidation";
+import { hasHubSpotFormConfig, submitHubSpotLead, type HubSpotField } from "@/lib/hubspot";
 
 const emptyForm = {
   email: "",
@@ -122,33 +123,23 @@ export function IotRequestForm() {
     if (!validateStep()) return;
     setStatus("submitting");
 
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: site.web3formsAccessKey,
-          subject: `IoT-Angebot anfragen — ${form.firstName} ${form.lastName} (${form.company})`,
-          from_name: "newSIM IoT-Anfrage",
-          name: `${form.firstName} ${form.lastName}`,
-          Firma: form.company,
-          email: form.email,
-          replyto: form.email,
-          Telefon: form.phone,
-          Einsatzbereich: form.useCase,
-          "SIM-Karten pro Jahr": form.simCount,
-          "Durchschnittlicher Datenverbrauch je SIM": form.avgDataUsage || undefined,
-          "Einsatzlaender der SIM-Karten": form.countries,
-          botcheck: "",
-        }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        setStatus("sent");
-      } else {
-        throw new Error(data.message || "Unbekannter Fehler");
-      }
-    } catch {
+    const fields: HubSpotField[] = [
+      { name: "firstname", value: form.firstName },
+      { name: "lastname", value: form.lastName },
+      { name: "company", value: form.company },
+      { name: "email", value: form.email },
+      { name: "phone", value: form.phone },
+      { name: "iot_einsatzbereich", value: form.useCase },
+      { name: "iot_sim_karten_pro_jahr", value: form.simCount },
+      { name: "iot_datenverbrauch", value: form.avgDataUsage },
+      { name: "iot_einsatzlaender", value: form.countries },
+      { name: "lead_quelle", value: "IoT-Anfrage" },
+    ];
+
+    const result = await submitHubSpotLead({ formKey: "iotRequest", pageName: "IoT-Anfrage", fields });
+    if (result.ok || result.error === "not_configured") {
+      setStatus("sent");
+    } else {
       setStatus("error");
       setError(t.sendError(site.contactFormEmail));
     }
@@ -360,6 +351,12 @@ export function IotRequestForm() {
           </AnimatePresence>
 
           {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
+          {!hasHubSpotFormConfig("iotRequest") && (
+            <p className="mt-4 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800">
+              Entwicklungsvorschau: Die HubSpot-Formular-ID fehlt noch. Anfragen werden erst nach Verknüpfung
+              tatsächlich übertragen.
+            </p>
+          )}
 
           <div className="mt-auto pt-8 flex items-center justify-between">
             {stepIndex > 0 ? (
