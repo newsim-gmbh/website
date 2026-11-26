@@ -15,6 +15,7 @@ const emptyForm = {
   email: "",
   phone: "",
   wunsch: "",
+  message: "",
   consent: false,
   botcheck: "",
 };
@@ -33,7 +34,7 @@ export function RoadshowForm() {
 
   const update =
     (key: keyof typeof form) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
       const value = e.target.type === "checkbox" ? (e.target as HTMLInputElement).checked : e.target.value;
       setForm((f) => ({ ...f, [key]: value }));
       if (value && invalidFields.has(key)) {
@@ -83,6 +84,7 @@ export function RoadshowForm() {
       { name: "email", value: form.email },
       { name: "phone", value: form.phone },
       { name: "roadshow_termin_wunsch", value: form.wunsch },
+      { name: "nachricht", value: form.message },
       { name: "lead_quelle", value: "Sponsored Post telecom handel" },
       { name: "seite", value: "roadshow" },
       { name: "utm_source", value: utm.utm_source ?? "" },
@@ -182,6 +184,10 @@ export function RoadshowForm() {
             ))}
             <option value={ROADSHOW_ONLINE_OPTION}>{ROADSHOW_ONLINE_OPTION}</option>
           </select>
+        </div>
+        <div className="sm:col-span-2">
+          <label htmlFor="rs-message" className="mb-1.5 block text-sm font-medium text-ink">Notiz (optional)</label>
+          <textarea id="rs-message" rows={3} value={form.message} onChange={update("message")} className={inputClass} placeholder="Ihre Fragen oder Anmerkungen" />
         </div>
       </div>
 

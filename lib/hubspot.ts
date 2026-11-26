@@ -24,7 +24,7 @@
 //                      security_esim_interesse, lead_quelle, utm_source,
 //                      utm_medium, utm_campaign, einwilligung
 //   roadshow:          firstname, lastname, company, email, phone,
-//                      roadshow_termin_wunsch, lead_quelle, seite,
+//                      roadshow_termin_wunsch, nachricht, lead_quelle, seite,
 //                      utm_source, utm_medium, utm_campaign, utm_content
 //   markenbaukastenVormerken (Vorab-Seite "Platz vormerken", solange der
 //   eigentliche Markenbaukasten-Baukasten noch nicht live ist):
