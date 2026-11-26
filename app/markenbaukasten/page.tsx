@@ -142,7 +142,7 @@ export default function MarkenbaukastenPage() {
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-1 text-xs font-bold text-white">
                     Ihr Logo
                   </span>
-                  <p className="font-heading mt-4 text-sm font-bold text-ink">Tarif L · 50 GB</p>
+                  <p className="font-heading mt-4 text-sm font-bold text-ink">Tarif L · 100 GB</p>
                   <p className="text-xs text-ink-soft">Allnet-Flat · im Netz von Telefónica</p>
                   <div className="mt-3 rounded-lg bg-background px-3 py-2 text-xs text-ink-soft">Ihre Marge einstellbar</div>
                 </div>

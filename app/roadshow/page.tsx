@@ -156,7 +156,7 @@ export default function RoadshowPage() {
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-1 text-xs font-bold text-white">
                     Ihre Marke
                   </span>
-                  <p className="font-heading mt-4 text-sm font-bold text-ink">Tarif L · 50 GB</p>
+                  <p className="font-heading mt-4 text-sm font-bold text-ink">Tarif L · 100 GB</p>
                   <p className="text-xs text-ink-soft">Allnet-Flat · im Netz von Telefónica</p>
                   <p className="font-heading mt-3 text-2xl font-bold text-ink">
                     20 € <span className="text-sm font-medium text-ink-soft">/ Monat</span>
